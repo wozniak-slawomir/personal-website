@@ -22,7 +22,7 @@
     </div>
     <div class="h-full">
       <button
-        class="px-10 h-full rounded-full bg-[color:var(--secondary-color)]"
+        class="px-10 h-full rounded-full bg-[color:var(--secondary-color)] font-semibold bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-full transition-transform transform-gpu hover:-translate-y-1 hover:shadow-lg"
       >
         Contact me
       </button>
