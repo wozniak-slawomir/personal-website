@@ -7,7 +7,7 @@
                 <button @click="$emit('hideContactModal', false)" class="text-3xl font-semibold">&times;</button>
             </div>
             <div>
-                <form action="mail_handler.php" class="w-100">
+                <form action="mail_handler.php" method="post" class="w-100">
                     <div class="mb-4 mt-8">
                         <label for="name" class="block text-xl font-semibold mb-2">
                             First name
