@@ -38,7 +38,7 @@ jobs:
         protocol: ftps
         port: 22
         # Local directory
-        local-dir: /home/runner/work/personal-website/personal-website/dist # optional, default is .
+        local-dir: /home/runner/work/personal-website/personal-website/dist/ # optional, default is .
         # Remote directory
-        server-dir: /home/slawomy/www # optional, default is .
+        server-dir: /home/slawomy/www/ # optional, default is .
             
