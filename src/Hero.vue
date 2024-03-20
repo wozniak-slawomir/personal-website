@@ -1,26 +1,16 @@
 <template>
   <div class="hero grid justify-center h-full pt-[var(--navbar-height)]">
     <h1
-      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center"
-    >
-      Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]"
-        >.</span
-      ><br />
-      Learn<span class="text-[color:var(--primary-color)] text-9xl leading-[0]"
-        >.</span
-      ><br />
-      Thrive<span class="text-[color:var(--primary-color)] text-9xl leading-[0]"
-        >.</span
-      >
+      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center">
+      Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br />
+      Learn<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br />
+      Thrive<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span>
     </h1>
     <div class="portrait">
       <img src="/portrait.png" alt="Portrait" />
     </div>
     <div class="partners">
-      <swiper-container
-        slides-per-view="4"
-        class="mix-blend-luminosity opacity-85"
-      >
+      <swiper-container slides-per-view="4" class="mix-blend-luminosity opacity-85">
         <swiper-slide v-for="partner in partners" :key="partner.alt">
           <img class="h-10" :src="partner.src" :alt="partner.alt" />
         </swiper-slide>
@@ -42,19 +32,22 @@
             Martial Arts
           </li>
         </ul>
-        <button
-          class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
-        >
+        <button @click="showContactModal = true"
+          class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
           Contact me
         </button>
       </div>
     </div>
+    <ContactModal @hideContactModal="showContactModal = false" v-if="showContactModal" />
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { PhCheckCircle } from "@phosphor-icons/vue";
-import { provide } from "vue"
+import { provide, ref } from "vue"
+import ContactModal from "./ContactModal/ContactModal.vue";
+
+const showContactModal = ref(false);
 
 provide("weight", "fill");
 
