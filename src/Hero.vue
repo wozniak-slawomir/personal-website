@@ -1,7 +1,7 @@
 <template>
-  <div class="hero h-full pt-[var(--navbar-height)]">
+  <div class="hero justify-center h-full pt-[var(--navbar-height)]">
     <h1
-      class="text-[color:var(--primary-text-color)] text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase"
+      class="text-[color:var(--primary-text-color)] text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center"
     >
       Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]"
         >.</span
@@ -14,7 +14,7 @@
       >
     </h1>
     <div class="portrait">
-      <img src="/final-me.png" alt="Portrait" />
+      <img src="/portrait.png" alt="Portrait" />
     </div>
     <div class="partners">
       <swiper-container
@@ -25,6 +25,29 @@
           <img class="h-10" :src="partner.src" :alt="partner.alt" />
         </swiper-slide>
       </swiper-container>
+    </div>
+    <div class="cta m-4 flex justify-center items-center">
+      <div>
+        <ul class="mb-6 uppercase text-2xl w-max">
+          <li class="mb-2">
+            <i class="ph-fill ph-check-circle"></i>
+            Software Engineering
+          </li>
+          <li class="mb-2">
+            <i class="ph-fill ph-check-circle"></i>
+            Business Psychology
+          </li>
+          <li class="mb-2">
+            <i class="ph-fill ph-check-circle"></i>
+            Martial Arts
+          </li>
+        </ul>
+        <button
+          class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black rounded-full transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
+        >
+          Contact me
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -53,7 +76,7 @@ const partners = [
 <style lang="css" scoped>
 .hero {
   display: grid;
-
+  grid-template-columns: 1fr minmax(256px, 512px) 1fr;
   grid-template-areas:
     "keywords"
     "portrait"
@@ -73,6 +96,7 @@ const partners = [
 
 .keywords {
   grid-area: keywords;
+  text-shadow: 10px 3px 25px rgba(0, 0, 0, 1);
 }
 
 .partners {
@@ -81,6 +105,10 @@ const partners = [
 
 .portrait {
   grid-area: portrait;
+}
+
+.cta {
+  grid-area: cta;
 }
 
 swiper-container {
