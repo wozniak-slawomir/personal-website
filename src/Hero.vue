@@ -30,15 +30,15 @@
       <div>
         <ul class="mb-6 uppercase text-2xl w-max">
           <li class="mb-2">
-            <i class="ph-fill ph-check-circle"></i>
+            <PhCheckCircle class="inline align-baseline" />
             Software Engineering
           </li>
           <li class="mb-2">
-            <i class="ph-fill ph-check-circle"></i>
+            <PhCheckCircle class="inline align-baseline" />
             Business Psychology
           </li>
           <li class="mb-2">
-            <i class="ph-fill ph-check-circle"></i>
+            <PhCheckCircle class="inline align-baseline" />
             Martial Arts
           </li>
         </ul>
@@ -53,6 +53,11 @@
 </template>
 
 <script setup>
+import { PhCheckCircle } from "@phosphor-icons/vue";
+import { provide } from "vue"
+
+provide("weight", "fill");
+
 const partners = [
   {
     alt: "Webwave",
