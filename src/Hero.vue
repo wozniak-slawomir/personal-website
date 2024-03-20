@@ -16,14 +16,16 @@
         >.</span
       >
     </h1>
-
+    <div class="portrait">
+      <img src="/final-me.png" alt="Portrait" />
+    </div>
     <div class="partners">
       <swiper-container
         slides-per-view="4"
         class="mix-blend-luminosity opacity-85"
       >
         <swiper-slide v-for="partner in partners" :key="partner.alt">
-          <img class="h-20" :src="partner.src" :alt="partner.alt" />
+          <img class="h-10" :src="partner.src" :alt="partner.alt" />
         </swiper-slide>
       </swiper-container>
     </div>
@@ -54,11 +56,22 @@ const partners = [
 <style lang="css" scoped>
 .hero {
   display: grid;
+
   grid-template-areas:
-    "keywords . description"
-    "keywords . ."
-    ". portrait cta"
-    "partners partners partners";
+    "keywords"
+    "portrait"
+    "cta"
+    "partners";
+}
+
+@media screen and (min-width: 768px) {
+  .hero {
+    grid-template-areas:
+      "keywords . description"
+      "keywords portrait ."
+      ". portrait cta"
+      "partners partners partners";
+  }
 }
 
 .keywords {
@@ -67,6 +80,10 @@ const partners = [
 
 .partners {
   grid-area: partners;
+}
+
+.portrait {
+  grid-area: portrait;
 }
 
 swiper-container {
