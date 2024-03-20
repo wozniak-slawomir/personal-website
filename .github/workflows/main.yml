@@ -38,7 +38,7 @@ jobs:
         sftp_only: true
         port: 22
         # Local directory
-        local_path: /home/runner/work/personal-website/personal-website/dist/ # optional, default is .
+        local_path: dist/* # optional, default is .
         # Remote directory
         remote_path: /home/slawomy/www/
             
