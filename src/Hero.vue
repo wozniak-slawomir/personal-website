@@ -1,5 +1,5 @@
 <template>
-  <div class="hero justify-center h-full pt-[var(--navbar-height)]">
+  <div class="hero grid justify-center h-full pt-[var(--navbar-height)]">
     <h1
       class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center"
     >
@@ -43,7 +43,7 @@
           </li>
         </ul>
         <button
-          class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black rounded-full transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
+          class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]"
         >
           Contact me
         </button>
@@ -75,7 +75,6 @@ const partners = [
 
 <style lang="css" scoped>
 .hero {
-  display: grid;
   grid-template-areas:
     "keywords"
     "portrait"

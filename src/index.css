@@ -28,8 +28,3 @@ body {
     overflow-x: hidden;
     color: var(--primary-text-color);
 }
-
-#app {
-    height: 100%;
-    width: 100%;
-}
