@@ -1,14 +1,14 @@
 <template>
-  <div class="text-[color:var(--primary-text-color)]">
-    <Navbar />
-  </div>
+  <Navbar />
+  <Hero />
 </template>
 
-<script lang="ts">
+<script lang="ts" >
 import { defineComponent } from 'vue'
 import Navbar from './Navbar.vue'
+import Hero from './Hero.vue'
 
 export default defineComponent({
-  components: {Navbar},
+  components: { Navbar, Hero },
 })
 </script>
