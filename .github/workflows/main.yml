@@ -27,7 +27,7 @@ jobs:
         path: dist
         key: ${{ runner.os }}-dist
     - name: Upload ftp
-      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
+      uses: wlixcc/SFTP-Deploy-Action@v1.2.4
       with:
         # FTP host
         server: ${{ secrets.FTP_HOST }}
@@ -35,10 +35,10 @@ jobs:
         username: ${{ secrets.FTP_LOGIN }}
         # FTP password
         password: ${{ secrets.FTP_PASSWORD }}
-        protocol: ftps
+        sftp_only: true
         port: 22
         # Local directory
-        local-dir: /home/runner/work/personal-website/personal-website/dist/ # optional, default is .
+        local_path: /home/runner/work/personal-website/personal-website/dist/ # optional, default is .
         # Remote directory
-        server-dir: /home/slawomy/www/ # optional, default is .
+        remote_path: /home/slawomy/www/
             
