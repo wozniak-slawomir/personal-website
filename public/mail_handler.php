@@ -3,7 +3,7 @@
     ini_set("sendmail_from", "postmaster@slawomir-wozniak.pl");
 
     $headers ="From: $_POST[email]"."\n";
-    $headers .='Reply-To: contact@slawomir-wozniak.pl'."\n";
+    $headers .="Reply-To: $_POST[email]"."\n";
     $headers .='Content-Type: text/plain; charset="iso-8859-1"'."\n";
     $headers .='Content-Transfer-Encoding: 8bit';
 
