@@ -26,7 +26,6 @@ jobs:
       with:
         path: dist
         key: ${{ runner.os }}-dist
-    - uses: actions/checkout@v2
     - name: Upload ftp
       uses: sebastianpopp/ftp-action@releases/v2
       with:
@@ -39,7 +38,7 @@ jobs:
         # Force SSL encryption
         forceSsl: true
         # Local directory
-        localDir: dist # optional, default is .
+        localDir: /home/runner/work/personal-website/personal-website/dist # optional, default is .
         # Remote directory
         remoteDir: /home/slawomy/www # optional, default is .
             
