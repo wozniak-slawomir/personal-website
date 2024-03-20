@@ -1,7 +1,7 @@
 <template>
   <div class="hero justify-center h-full pt-[var(--navbar-height)]">
     <h1
-      class="text-[color:var(--primary-text-color)] text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center"
+      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center"
     >
       Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]"
         >.</span
@@ -76,7 +76,6 @@ const partners = [
 <style lang="css" scoped>
 .hero {
   display: grid;
-  grid-template-columns: 1fr minmax(256px, 512px) 1fr;
   grid-template-areas:
     "keywords"
     "portrait"
@@ -91,6 +90,7 @@ const partners = [
       "keywords portrait cta"
       "keywords portrait cta"
       "partners partners partners";
+    grid-template-columns: 1fr minmax(256px, 512px) 1fr;
   }
 }
 
