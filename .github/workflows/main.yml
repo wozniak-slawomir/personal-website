@@ -27,18 +27,18 @@ jobs:
         path: dist
         key: ${{ runner.os }}-dist
     - name: Upload ftp
-      uses: sebastianpopp/ftp-action@releases/v2
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         # FTP host
-        host: ${{ secrets.FTP_HOST }}
+        server: ${{ secrets.FTP_HOST }}
         # FTP user
-        user: ${{ secrets.FTP_LOGIN }}
+        username: ${{ secrets.FTP_LOGIN }}
         # FTP password
         password: ${{ secrets.FTP_PASSWORD }}
-        # Force SSL encryption
-        forceSsl: true
+        protocol: ftps
+        port: 22
         # Local directory
-        localDir: /home/runner/work/personal-website/personal-website/dist # optional, default is .
+        local-dir: /home/runner/work/personal-website/personal-website/dist # optional, default is .
         # Remote directory
-        remoteDir: /home/slawomy/www # optional, default is .
+        server-dir: /home/slawomy/www # optional, default is .
             
