@@ -4,7 +4,10 @@ jobs:
   build:
     name: Build package
     runs-on: ubuntu-latest
-    steps: 
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
     - name: Checkout
       uses: actions/checkout@v2
     - name: Install dependencies
@@ -20,6 +23,9 @@ jobs:
     name: FTP Deploy
     needs: build
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
     steps:
     - name: Cache build
       uses: actions/cache@v2
@@ -38,7 +44,7 @@ jobs:
         sftp_only: true
         port: 22
         # Local directory
-        local_path: frontend/dist/* # optional, default is .
+        local_path: dist/* # optional, default is .
         # Remote directory
         remote_path: /home/slawomy/www/
             
