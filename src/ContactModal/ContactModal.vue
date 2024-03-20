@@ -13,34 +13,38 @@
                             First name
                             <span class="text-red-500">*</span>
                         </label>
-                        <input type="text" id="name" class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
+                        <input type="text" name="name" required id="name"
+                            class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
                     </div>
                     <div class="mb-4">
                         <label for="name" class="block text-xl font-semibold mb-2">
                             Last name
                             <span class="text-red-500">*</span>
                         </label>
-                        <input type="text" id="name" class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
+                        <input type="text" name="surname" id="surname" required
+                            class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
                     </div>
                     <div class="mb-4">
                         <label for="email" class="block text-xl font-semibold mb-2">
                             Email
                             <span class="text-red-500">*</span>
                         </label>
-                        <input type="email" id="email" class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
+                        <input type="email" name="email" required id="email"
+                            class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
                     </div>
                     <div class="mb-4">
                         <label for="phone-number" class="block text-xl font-semibold mb-2">
                             Phone number
                         </label>
-                        <input type="tel" id="phone-number" class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
+                        <input type="tel" name="phone-number" id="phone-number"
+                            class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
                     </div>
                     <div class="mb-4">
                         <label for="message" class="block text-xl font-semibold mb-2">
                             Message
                             <span class="text-red-500">*</span>
                         </label>
-                        <textarea id="message"
+                        <textarea name="message" required id="message"
                             class="w-full p-2 rounded-lg bg-[#252525] border-0 min-h-[150px]"></textarea>
                     </div>
 
