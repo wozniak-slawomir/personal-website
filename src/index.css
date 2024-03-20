@@ -12,15 +12,16 @@
 
     --primary-text-color: #fff;
     --secondary-text-color: rgba(255, 255, 255, 0.67);
-    --primary-color: #242528;
-    --secondary-color: #957BFF;
+    --primary-gradient: linear-gradient(90deg, rgba(156,121,69,1) 0%, rgba(243,235,163,1) 100%);
+    --primary-color: rgba(156,121,69,1);
+    --secondary-color: #242528;
     --tertiary-color: #fff;
 
     --navbar-height: 88px;
 }
 
 html {
-    background-color: var(--primary-color);
+    background-color: var(--secondary-color);
 }
 
 body {

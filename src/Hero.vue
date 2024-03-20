@@ -3,16 +3,15 @@
     <h1
       class="text-[color:var(--primary-text-color)] text-7xl mt-4 ml-16 font-bold keywords uppercase"
     >
-      Create<span
-        class="text-[color:var(--secondary-color)] text-7xl leading-[0]"
+      Create<span class="text-[color:var(--primary-color)] text-7xl leading-[0]"
         >.</span
       ><br />
       Develop<span
-        class="text-[color:var(--secondary-color)] text-7xl leading-[0]"
+        class="text-[color:var(--primary-color)] text-7xl leading-[0]"
         >.</span
       ><br />
       Achieve<span
-        class="text-[color:var(--secondary-color)] text-7xl leading-[0]"
+        class="text-[color:var(--primary-color)] text-7xl leading-[0]"
         >.</span
       >
     </h1>
