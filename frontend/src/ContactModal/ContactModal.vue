@@ -58,12 +58,16 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useToast } from "vue-toastification";
 
+const emit = defineEmits(['hideContactModal']);
+const toast = useToast();
 const name = ref('');
 const surname = ref('');
 const message = ref('');
 const email = ref('');
 const phoneNumber = ref('');
+
 const onSubmit = (e: Event) => {
     e.preventDefault();
     if (!e.target) return;
@@ -81,9 +85,10 @@ const onSubmit = (e: Event) => {
         })
     }).then(res => {
         if (res.ok) {
-            console.log("Gitara siema")
+            toast.success('Message sent successfully');
+            emit('hideContactModal', false)
         } else {
-            alert('An error occurred while sending the message');
+            toast.error('Failed to send message');
         }
     });
 };
