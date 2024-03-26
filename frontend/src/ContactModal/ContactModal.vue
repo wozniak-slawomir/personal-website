@@ -7,13 +7,13 @@
                 <button @click="$emit('hideContactModal', false)" class="text-3xl font-semibold">&times;</button>
             </div>
             <div>
-                <form action="mail_handler.php" method="post" class="w-100">
+                <form method="post" @submit="onSubmit" class="w-100">
                     <div class="mb-4 mt-8">
                         <label for="name" class="block text-xl font-semibold mb-2">
                             First name
                             <span class="text-red-500">*</span>
                         </label>
-                        <input type="text" name="name" required id="name"
+                        <input type="text" name="name" v-model="name" required id="name"
                             class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
                     </div>
                     <div class="mb-4">
@@ -21,7 +21,7 @@
                             Last name
                             <span class="text-red-500">*</span>
                         </label>
-                        <input type="text" name="surname" id="surname" required
+                        <input type="text" name="surname" v-model="surname" id="surname" required
                             class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
                     </div>
                     <div class="mb-4">
@@ -29,14 +29,14 @@
                             Email
                             <span class="text-red-500">*</span>
                         </label>
-                        <input type="email" name="email" required id="email"
+                        <input type="email" name="email" v-model="email" required id="email"
                             class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
                     </div>
                     <div class="mb-4">
                         <label for="phone-number" class="block text-xl font-semibold mb-2">
                             Phone number
                         </label>
-                        <input type="tel" name="phone-number" id="phone-number"
+                        <input type="tel" name="phone-number" v-model="phoneNumber" id="phone-number"
                             class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0" />
                     </div>
                     <div class="mb-4">
@@ -44,7 +44,7 @@
                             Message
                             <span class="text-red-500">*</span>
                         </label>
-                        <textarea name="message" required id="message"
+                        <textarea name="message" v-model="message" required id="message"
                             class="w-full p-2 rounded-lg bg-[#252525] border-0 min-h-[150px]"></textarea>
                     </div>
 
@@ -57,6 +57,36 @@
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+
+const name = ref('');
+const surname = ref('');
+const message = ref('');
+const email = ref('');
+const phoneNumber = ref('');
+const onSubmit = (e: Event) => {
+    e.preventDefault();
+    if (!e.target) return;
+    fetch('http://localhost:8000/send-email', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            name: name.value,
+            surname: surname.value,
+            email: email.value,
+            phone_number: phoneNumber.value,
+            message: message.value
+        })
+    }).then(res => {
+        if (res.ok) {
+            console.log("Gitara siema")
+        } else {
+            alert('An error occurred while sending the message');
+        }
+    });
+};
 </script>
 
 <style scoped></style>
