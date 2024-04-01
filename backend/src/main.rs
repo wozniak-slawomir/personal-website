@@ -9,11 +9,16 @@ use rocket::http::Header;
 use rocket::{Request, Response};
 use rocket::fairing::{Fairing, Info, Kind};
 use lettre::transport::smtp::client::{Tls, TlsParameters};
+use rocket::fs::{FileServer, NamedFile};
+use std::path::Path;
 use dotenv::dotenv;
 use std::env;
 
-pub struct CORS;
+const SENDER_EMAIL: &str = "admin@slawomir-wozniak.pl";
+const MY_EMAIL: &str = "contact@slawomir-wozniak.pl";
+const MY_EMAIL_SIGNATURE: &str = "Slawomir Wozniak <contact@slawomir-wozniak.pl>";
 
+pub struct CORS;
 #[rocket::async_trait]
 impl Fairing for CORS {
     fn info(&self) -> Info {
@@ -36,6 +41,12 @@ fn all_options() {
     /* Intentionally left empty */
 }
 
+#[get("/<_..>", rank = 15)]
+async fn fallback_url() -> Option<NamedFile>{
+    print!("Falling back to index.html");
+    NamedFile::open(Path::new("/bin/server/static/index.html")).await.ok()
+}
+
 #[derive(Deserialize)]
 #[serde(crate = "rocket::serde")]
 struct EmailData<'r> {
@@ -45,10 +56,6 @@ struct EmailData<'r> {
     name: &'r str,
     surname: &'r str,
 }
-
-const SENDER_EMAIL: &str = "admin@slawomir-wozniak.pl";
-const MY_EMAIL: &str = "contact@slawomir-wozniak.pl";
-const MY_EMAIL_SIGNATURE: &str = "Slawomir Wozniak <contact@slawomir-wozniak.pl>";
 
 #[post("/send-email", data = "<email_data>")]
 fn send_email(email_data: Json<EmailData>) {
@@ -73,11 +80,12 @@ fn send_email(email_data: Json<EmailData>) {
         Ok(_) => println!("Email sent successfully!"),
         Err(e) => panic!("Could not send email: {e:?}"),
     }
-
 }
 
 #[launch]
 fn rocket() -> _ {
     dotenv().ok();
-    rocket::build().attach(CORS).mount("/", routes![send_email, all_options])
+    rocket::build().attach(CORS)
+    .mount("/", routes![send_email, all_options, fallback_url])
+    .mount("/static", FileServer::from("/bin/server/static")) 
 }
