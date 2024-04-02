@@ -57,7 +57,7 @@ struct EmailData<'r> {
     surname: &'r str,
 }
 
-#[post("/send-email", data = "<email_data>")]
+#[post("/api/send-email", data = "<email_data>")]
 fn send_email(email_data: Json<EmailData>) {
     let email = Message::builder()
         .from(SENDER_EMAIL.parse().unwrap())
@@ -85,7 +85,12 @@ fn send_email(email_data: Json<EmailData>) {
 #[launch]
 fn rocket() -> _ {
     dotenv().ok();
-    rocket::build().attach(CORS)
-    .mount("/", routes![send_email, all_options, fallback_url])
-    .mount("/static", FileServer::from("/bin/server/static")) 
+    let instance = rocket::build().attach(CORS)
+    .mount("/", routes![send_email, all_options, fallback_url]);
+    if env!("RUST_ENV") == "production" {
+        instance.mount("/static", FileServer::from("/bin/server/static"))
+    }
+    else {
+        instance
+    }
 }

@@ -71,7 +71,7 @@ const phoneNumber = ref('');
 const onSubmit = (e: Event) => {
     e.preventDefault();
     if (!e.target) return;
-    fetch('http://localhost:8000/send-email', {
+    fetch(`${import.meta.env.VITE_API_URL}/send-email`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
