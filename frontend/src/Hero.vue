@@ -9,13 +9,13 @@
     <div class="portrait">
       <img src="/portrait.png" alt="Portrait" />
     </div>
-    <div class="partners">
+    <!-- <div class="partners">
       <swiper-container slides-per-view="4" class="mix-blend-luminosity opacity-85">
         <swiper-slide v-for="partner in partners" :key="partner.alt">
           <img class="h-10" :src="partner.src" :alt="partner.alt" />
         </swiper-slide>
       </swiper-container>
-    </div>
+    </div> -->
     <div class="cta m-4 flex justify-center items-center">
       <div>
         <ul class="mb-6 uppercase text-2xl w-max">
@@ -51,24 +51,24 @@ const showContactModal = ref(false);
 
 provide("weight", "fill");
 
-const partners = [
-  {
-    alt: "Webwave",
-    src: "/partners/webwave.svg",
-  },
-  {
-    alt: "Nordea",
-    src: "/partners/Nordea.png",
-  },
-  {
-    alt: "Wirtualna Polska",
-    src: "/partners/wp.png",
-  },
-  {
-    alt: "Cognitran",
-    src: "/partners/cognitran.svg",
-  },
-];
+// const partners = [
+//   {
+//     alt: "Webwave",
+//     src: "/partners/webwave.svg",
+//   },
+//   {
+//     alt: "Nordea",
+//     src: "/partners/Nordea.png",
+//   },
+//   {
+//     alt: "Wirtualna Polska",
+//     src: "/partners/wp.png",
+//   },
+//   {
+//     alt: "Cognitran",
+//     src: "/partners/cognitran.svg",
+//   },
+// ];
 </script>
 
 <style lang="css" scoped>
@@ -96,9 +96,9 @@ const partners = [
   text-shadow: 10px 3px 25px rgba(0, 0, 0, 1);
 }
 
-.partners {
+/* .partners {
   grid-area: partners;
-}
+} */
 
 .portrait {
   grid-area: portrait;

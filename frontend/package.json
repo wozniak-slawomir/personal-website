@@ -6,8 +6,7 @@
     "build": "vite build",
     "start": "npm run dev",
     "lint": "eslint . --ext .js,.ts,.vue",
-    "lint:fix": "eslint . --ext .js,.ts,.vue --fix",
-    "prepare": "husky install"
+    "lint:fix": "eslint . --ext .js,.ts,.vue --fix"
   },
   "dependencies": {
     "@phosphor-icons/vue": "^2.1.6",
