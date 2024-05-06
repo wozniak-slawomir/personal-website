@@ -3,56 +3,40 @@
     <h1 class="text-5xl font-bold">BIO</h1>
     <div class="mt-10 flex">
       <button
-        @click="bioState = 0"
-        v-bind:style="
-          bioState === 0
-            ? 'background-color: #474b59'
-            : 'background-color: #393939'
-        "
+        @click="bioState = 'story'"
+        v-bind:class="bioState === 'story' ? 'bg-[#474b59]' : 'bg-[#393939]'"
         class="text-l p-3 rounded-3xl hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow"
       >
         STORY
       </button>
       <button
-        @click="bioState = 1"
-        v-bind:style="
-          bioState === 1
-            ? 'background-color: #474b59'
-            : 'background-color: #393939'
-        "
+        @click="bioState = 'career'"
+        v-bind:class="bioState === 'career' ? 'bg-[#474b59]' : 'bg-[#393939]'"
         class="text-l p-3 rounded-3xl hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow"
       >
         CAREER
       </button>
       <button
-        @click="bioState = 2"
-        v-bind:style="
-          bioState === 2
-            ? 'background-color: #474b59'
-            : 'background-color: #393939'
+        @click="bioState = 'achievements'"
+        v-bind:class="
+          bioState === 'achievements' ? 'bg-[#474b59]' : 'bg-[#393939]'
         "
         class="text-l p-3 rounded-3xl hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow"
       >
         ACHIEVEMENTS
       </button>
       <button
-        @click="bioState = 3"
-        v-bind:style="
-          bioState === 3
-            ? 'background-color: #474b59'
-            : 'background-color: #393939'
+        @click="bioState = 'personal life'"
+        v-bind:class="
+          bioState === 'personal life' ? 'bg-[#474b59]' : 'bg-[#393939]'
         "
         class="text-l p-3 rounded-3xl hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow"
       >
         PERSONAL LIFE
       </button>
       <button
-        @click="bioState = 4"
-        v-bind:style="
-          bioState === 4
-            ? 'background-color: #474b59'
-            : 'background-color: #393939'
-        "
+        @click="bioState = 'skills'"
+        v-bind:class="bioState === 'skills' ? 'bg-[#474b59]' : 'bg-[#393939]'"
         class="text-l p-3 rounded-3xl hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow"
       >
         SKILLS
@@ -61,32 +45,36 @@
     <div>
       <div class="flex">
         <div
-          v-bind:style="bioState === 0 ? 'translate: 0 -25px' : ''"
-          class="mb-0 translate-y-[25px] translate-x-1 transition-all arrow"
+          v-bind:class="bioState === 'story' ? ' translate-y-[-0px]' : ''"
+          class="translate-y-[25px] translate-x-1 transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
         <div
-          v-bind:style="bioState === 1 ? 'translate: 0 -25px' : ''"
-          class="mb-0 translate-y-[25px] translate-x-[37px] transition-all arrow"
+          v-bind:class="bioState === 'career' ? ' translate-y-[-0px]' : ''"
+          class="translate-y-[25px] translate-x-[37px] transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
         <div
-          v-bind:style="bioState === 2 ? 'translate: 0 -25px' : ''"
-          class="mb-0 translate-y-[25px] translate-x-[105px] transition-all arrow"
+          v-bind:class="
+            bioState === 'achievements' ? ' translate-y-[-0px]' : ''
+          "
+          class="translate-y-[25px] translate-x-[105px] transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
         <div
-          v-bind:style="bioState === 3 ? 'translate: 0 -25px' : ''"
-          class="mb-0 translate-y-[25px] translate-x-[207px] transition-all arrow"
+          v-bind:class="
+            bioState === 'personal life' ? ' translate-y-[-0px]' : ''
+          "
+          class="translate-y-[25px] translate-x-[207px] transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
         <div
-          v-bind:style="bioState === 4 ? 'translate: 0 -25px' : ''"
-          class="mb-0 translate-y-[25px] translate-x-[270px] transition-all arrow"
+          v-bind:class="bioState === 'skills' ? ' translate-y-[-0px]' : ''"
+          class="translate-y-[25px] translate-x-[270px] transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
@@ -95,8 +83,8 @@
         class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow"
       >
         <p
-          v-bind:style="expandBio ? 'max-height: none' : 'max-height: 90px'"
-          v-if="bioState === 0"
+          v-bind:class="expandBio ? ' max-h-full' : 'max-h-[90px]'"
+          v-if="bioState === 'story'"
           class="text-xl mb-10 overflow-clip"
         >
           STORY Lorem ipsum dolor, sit amet consectetur adipisicing elit.
@@ -118,10 +106,14 @@
           consequuntur nihil ad adipisci atque aliquam commodi quisquam
           explicabo, voluptatem perspiciatis dolor?
         </p>
-        <p v-if="bioState === 1" class="text-xl mb-10">CAREER</p>
-        <p v-if="bioState === 2" class="text-xl mb-10">ACHIEVEMENTS</p>
-        <p v-if="bioState === 3" class="text-xl mb-10">PERSONAL LIFE</p>
-        <p v-if="bioState === 4" class="text-xl mb-10">SKILLS</p>
+        <p v-if="bioState === 'career'" class="text-xl mb-10">CAREER</p>
+        <p v-if="bioState === 'achievements'" class="text-xl mb-10">
+          ACHIEVEMENTS
+        </p>
+        <p v-if="bioState === 'personal life'" class="text-xl mb-10">
+          PERSONAL LIFE
+        </p>
+        <p v-if="bioState === 'skills'" class="text-xl mb-10">SKILLS</p>
         <button
           v-if="expandBio"
           @click="expandBio = !expandBio"
@@ -145,13 +137,6 @@
 import { PhCaretDown, PhCaretUp } from "@phosphor-icons/vue";
 import { ref } from "vue";
 
+const bioState = ref<BioState>("career");
 const expandBio = ref(false);
-const bioState = ref(0);
 </script>
-
-<style scoped>
-.arrow {
-  margin-bottom: -35px;
-  margin-top: -10px;
-}
-</style>
