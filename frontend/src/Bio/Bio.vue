@@ -45,36 +45,46 @@
     <div>
       <div class="flex">
         <div
-          v-bind:class="bioState === 'story' ? ' translate-y-[-5px]' : ''"
-          class="translate-y-[25px] translate-x-1 transition-all mb-[-35px] mt-[-10px]"
-        >
-          <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
-        </div>
-        <div
-          v-bind:class="bioState === 'career' ? ' translate-y-[-5px]' : ''"
-          class="translate-y-[25px] translate-x-[37px] transition-all mb-[-35px] mt-[-10px]"
+          v-bind:class="
+            bioState === 'story' ? ' translate-y-[-0px]' : 'translate-y-[25px]'
+          "
+          class="translate-x-1 transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
         <div
           v-bind:class="
-            bioState === 'achievements' ? ' translate-y-[-5px]' : ''
+            bioState === 'career' ? ' translate-y-[-0px]' : 'translate-y-[25px]'
           "
-          class="translate-y-[25px] translate-x-[105px] transition-all mb-[-35px] mt-[-10px]"
+          class="translate-x-[37px] transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
         <div
           v-bind:class="
-            bioState === 'personal life' ? ' translate-y-[-5px]' : ''
+            bioState === 'achievements'
+              ? ' translate-y-[-0px]'
+              : 'translate-y-[25px]'
           "
-          class="translate-y-[25px] translate-x-[207px] transition-all mb-[-35px] mt-[-10px]"
+          class="translate-x-[105px] transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
         <div
-          v-bind:class="bioState === 'skills' ? ' translate-y-[-5px]' : ''"
-          class="translate-y-[25px] translate-x-[270px] transition-all mb-[-35px] mt-[-10px]"
+          v-bind:class="
+            bioState === 'personal life'
+              ? ' translate-y-[-0px]'
+              : 'translate-y-[25px]'
+          "
+          class="translate-x-[207px] transition-all mb-[-35px] mt-[-10px]"
+        >
+          <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
+        </div>
+        <div
+          v-bind:class="
+            bioState === 'skills' ? ' translate-y-[-0px]' : 'translate-y-[25px]'
+          "
+          class="translate-x-[270px] transition-all mb-[-35px] mt-[-10px]"
         >
           <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
         </div>
@@ -137,6 +147,6 @@
 import { PhCaretDown, PhCaretUp } from "@phosphor-icons/vue";
 import { ref } from "vue";
 
-const bioState = ref<BioState>("career");
+const bioState = ref<BioState>("story");
 const expandBio = ref(false);
 </script>
