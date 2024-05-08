@@ -1,5 +1,5 @@
 <template>
-  <div class="hero grid justify-center h-full pt-[var(--navbar-height)]">
+  <div class="hero grid justify-center lg:h-full pt-[var(--navbar-height)]">
     <h1
       class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center">
       Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br />
@@ -7,7 +7,7 @@
       Thrive<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span>
     </h1>
     <div class="portrait">
-      <img src="/portrait.png" alt="Portrait" />
+      <img src="/portrait.png" class="max-h-[750px]" alt="Portrait" />
     </div>
     <!-- <div class="partners">
       <swiper-container slides-per-view="4" class="mix-blend-luminosity opacity-85">
