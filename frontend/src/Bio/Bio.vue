@@ -1,5 +1,5 @@
 <template>
-  <div class="md:mx-64 flex flex-col mt-10 mx-10">
+  <div class="container">
     <h1 class="text-5xl font-bold text-center md:text-left">BIO</h1>
     <div class="mb-0 mt-10 flex flex-wrap lg:my-10">
       <button
@@ -39,53 +39,6 @@
       </button>
     </div>
     <div>
-      <!-- strzałki, można później dodać
-      <div class="flex">
-        <div
-          v-bind:class="
-            bioState === 'story' ? ' translate-y-[-0px]' : 'translate-y-[25px]'
-          "
-          class="translate-x-1 transition-all mb-[-35px] mt-[-10px]"
-        >
-          <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
-        </div>
-        <div
-          v-bind:class="
-            bioState === 'career' ? ' translate-y-[-0px]' : 'translate-y-[25px]'
-          "
-          class="translate-x-[37px] transition-all mb-[-35px] mt-[-10px]"
-        >
-          <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
-        </div>
-        <div
-          v-bind:class="
-            bioState === 'achievements'
-              ? ' translate-y-[-0px]'
-              : 'translate-y-[25px]'
-          "
-          class="translate-x-[105px] transition-all mb-[-35px] mt-[-10px]"
-        >
-          <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
-        </div>
-        <div
-          v-bind:class="
-            bioState === 'personal life'
-              ? ' translate-y-[-0px]'
-              : 'translate-y-[25px]'
-          "
-          class="translate-x-[207px] transition-all mb-[-35px] mt-[-10px]"
-        >
-          <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
-        </div>
-        <div
-          v-bind:class="
-            bioState === 'skills' ? ' translate-y-[-0px]' : 'translate-y-[25px]'
-          "
-          class="translate-x-[270px] transition-all mb-[-35px] mt-[-10px]"
-        >
-          <PhCaretUp weight="fill" :size="80" :color="'#393939'" />
-        </div>
-      </div> -->
       <div
         class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow"
       >
