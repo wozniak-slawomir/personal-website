@@ -2,6 +2,7 @@
   <Navbar />
   <Hero />
   <Bio />
+  <Services />
   <Footer />
 </template>
 
@@ -10,9 +11,10 @@ import { defineComponent } from "vue";
 import Navbar from "./Navbar.vue";
 import Hero from "./Hero.vue";
 import Bio from "./Bio/Bio.vue";
+import Services from "./Services/Services.vue";
 import Footer from "./Footer/Footer.vue";
 
 export default defineComponent({
-  components: { Navbar, Hero, Bio, Footer },
+  components: { Navbar, Hero, Bio, Services, Footer },
 });
 </script>
