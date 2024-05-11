@@ -41,8 +41,21 @@
             Finally stayed in Spain for 6 months. <br>
           </p>
         </div>
-        <p v-if="bioState === 'career'" class="text-xl mb-10">CAREER</p>
-        <p v-if="bioState === 'achievements'" class="text-xl mb-10">
+        <div v-if="bioState === 'career'" class="text-sm text-[color:#929292] mb-10">
+          <div class="mb-4" v-for="(position, index) in carrerPositions" :key="position.title">
+            <hr class="my-6 border-[color:#929292]" v-if="index !== 0">
+            <h3 class="text-3xl text-white font-bold">{{ position.title }}</h3>
+            <h4 class="text-xl text-white">{{ position.company }}</h4>
+            <div class="mb-5 mt-1">{{ position.dateStart.getMonth() + 1 }}/{{ position.dateStart.getFullYear() }} - {{
+        position.dateEnd.getMonth() + 1 }}/{{ position.dateEnd.getFullYear() }}
+            </div>
+            <ul class="list-disc pl-3">
+              <li v-for="point in position.keyPoints" :key="point">{{ point }}</li>
+            </ul>
+            <div class="mt-3 text-white">Technology used: {{ position.technology.join(", ") }}</div>
+          </div>
+        </div>
+        <p v-if="bioState === 'achievements'" class=" text-xl mb-10">
           ACHIEVEMENTS
         </p>
         <p v-if="bioState === 'personal life'" class="text-xl mb-10">
@@ -68,6 +81,69 @@ import { ref } from "vue";
 
 const bioState = ref<BioState>("story");
 const expandBio = ref(false);
+
+const carrerPositions = [
+  {
+    title: "Frontend Team Leader",
+    company: "Cognitran",
+    dateStart: new Date("2022-12-1"),
+    dateEnd: new Date("2024-02-28"),
+    keyPoints: [
+      `Successfully led the entire project development lifecycle, delivering a compelling Minimum Viable Product
+      (MVP) that exceeded client expectations. Transformed a basic demo app into a cutting-edge solution,
+      garnering high client satisfaction.`,
+      `Provided expert guidance and mentorship to a team of full-stack developers, resulting in a cohesive and
+      high-performing development team. Led frontend codebase decisions, ensuring optimal performance and
+      user experience.`,
+      `Implemented seamless integrations with multiple project environments, facilitating efficient data exchange
+        and collaboration among team members.`,
+    ],
+    technology: ["React", "Redux", "Typescript", "HTML5", "SCSS", "Jest", "Testing Library"]
+  },
+  {
+    title: "Frontend Developer",
+    company: "Wirtualna Polska",
+    dateStart: new Date("2022-05-01"),
+    dateEnd: new Date("2022-11-30"),
+    keyPoints: [
+      `Demonstrated a proactive approach in maintaining high code quality and best practices through active
+        participation in code reviews.`,
+      `Built scalable and maintainable frontend solutions by employing React hook-based and Redux approaches.`,
+      `Tested frontend code using Jest and Testing Library, leading to improved code quality and reduced bugs.`,
+    ],
+    technology: ["React", "Redux", "Typescript", "HTML5", "Styled Components", "Jest", "Testing Library"]
+  },
+  {
+    title: "Frontend Developer",
+    company: "Nordea",
+    dateStart: new Date("2021-05-01"),
+    dateEnd: new Date("2022-04-30"),
+    keyPoints: [
+      `Successfully introduced Typescript to the codebase, enhancing code quality, maintainability, and catching
+      bugs at compile-time.`,
+      `As the sole frontend developer in an 8-member team, played a pivotal role in making informed decisions
+      related to frontend architecture, technologies, and best practices.`,
+      `Took ownership of maintaining and updating ESLint rules and helpers, ensuring consistent code style and
+        enforcing best practices throughout the codebase.`,
+    ],
+    technology: ["React", "Redux", "Typescript", "HTML5", "Styled Components", "Jest", "Testing Library"]
+  },
+  {
+    title: "Frontend Developer",
+    company: "Webwave",
+    dateStart: new Date("2020-04-01"),
+    dateEnd: new Date("2021-04-30"),
+    keyPoints: [
+      `Participating in full lifecycle of development for company web application using Vue.js framework and OOP
+      paradigm for the application's engine`,
+      `Created and maintained reusable components and modules for the company's design system, ensuring consisency among all modules`,
+      `Took ownership of maintaining and updating ESLint rules and helpers, ensuring consistent code style and
+        enforcing best practices throughout the codebase.`,
+    ],
+    technology: ["React", "Redux", "Typescript", "HTML5", "Styled Components", "Jest", "Testing Library"],
+  }
+];
+
 </script>
 
 <style scoped lang="css">
