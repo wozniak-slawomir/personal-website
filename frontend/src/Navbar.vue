@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-5 px-16 flex flex-wrap justify-between items-center fixed top-0 left-0">
+    class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-5 px-16 flex flex-wrap justify-between items-center fixed top-0 left-0 z-10">
     <img src="/logo.png" class="w-[400px]" />
     <div class="h-full">
       <button @click="showContactModal = true"
