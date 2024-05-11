@@ -63,7 +63,26 @@
         <div v-if="bioState === 'personal life'" class="text-xl mb-10">
           PERSONAL LIFE
         </div>
-        <div v-if="bioState === 'skills'" class="text-xl mb-10">SKILLS</div>
+        <div v-if="bioState === 'skills'" class="mb-10 flex">
+          <div class="w-1/2 pr-4">
+            <h3 class="text-3xl text-white font-bold">Hard skills</h3>
+            <h4 class="text-xl mt-3 text-white">Used:</h4>
+            <ul class="list-disc pl-3">
+              <li v-for="skill in skills.hard.used" :key="skill">{{ skill }}</li>
+            </ul>
+            <h4 class="text-xl mt-3 text-white">Proficient:</h4>
+            <ul class="list-disc pl-3">
+              <li v-for="skill in skills.hard.proficient" :key="skill">{{ skill }}</li>
+            </ul>
+          </div>
+          <div class="w-1/2">
+            <h3 class="text-3xl text-white font-bold">Soft skills</h3>
+            <ul class="list-disc pl-3">
+              <li v-for="skill in skills.soft" :key="skill">{{ skill }}</li>
+            </ul>
+          </div>
+
+        </div>
         <button v-if="expandBio" @click="expandBio = !expandBio" class="self-start text-sm">
           SEE LESS
           <PhCaretUp :size="20" class="inline align-bottom ml-2" />
@@ -152,6 +171,15 @@ const achievements = [
   "Travelled to 14 countries",
   "Taught more that 10 kids mathemathics as a high school student",
 ]
+
+const skills = {
+  hard: {
+    proficient: ["React", "Redux", "Typescript", "Vue.js", "Javascript", "HTML5", "SCSS", "Bootstrap", "Jest", "Testing Library", "Git", "Axios", "ESLint", "REST", "JSON", "Webpack", "NPM", "OOP"],
+    used: ["JQuery", "Scrum", "Node.js", "Express", "Linux", "Docker", "Rust", "MUI"]
+
+  },
+  soft: ["Leadership", "Communication", "Problem-solving", "Teamwork", "Adaptability", "Time management", "Creativity", "Critical thinking", "Conflict resolution", "Decision making", "Empathy", "Flexibility", "Persuasion", "Stress management", "Tolerance", "Work ethic"]
+}
 
 </script>
 
