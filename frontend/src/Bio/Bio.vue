@@ -55,13 +55,15 @@
             <div class="mt-3 text-white">Technology used: {{ position.technology.join(", ") }}</div>
           </div>
         </div>
-        <p v-if="bioState === 'achievements'" class=" text-xl mb-10">
-          ACHIEVEMENTS
-        </p>
-        <p v-if="bioState === 'personal life'" class="text-xl mb-10">
+        <div v-if="bioState === 'achievements'" class="mb-10">
+          <ul class="list-disc pl-3">
+            <li v-for="achievement in achievements" :key="achievement">{{ achievement }}</li>
+          </ul>
+        </div>
+        <div v-if="bioState === 'personal life'" class="text-xl mb-10">
           PERSONAL LIFE
-        </p>
-        <p v-if="bioState === 'skills'" class="text-xl mb-10">SKILLS</p>
+        </div>
+        <div v-if="bioState === 'skills'" class="text-xl mb-10">SKILLS</div>
         <button v-if="expandBio" @click="expandBio = !expandBio" class="self-start text-sm">
           SEE LESS
           <PhCaretUp :size="20" class="inline align-bottom ml-2" />
@@ -143,6 +145,13 @@ const carrerPositions = [
     technology: ["React", "Redux", "Typescript", "HTML5", "Styled Components", "Jest", "Testing Library"],
   }
 ];
+
+const achievements = [
+  "Succesfully delivered a frontend part of MVP while leading a small team of developers",
+  "Learned Spanish in 1 year",
+  "Travelled to 14 countries",
+  "Taught more that 10 kids mathemathics as a high school student",
+]
 
 </script>
 
