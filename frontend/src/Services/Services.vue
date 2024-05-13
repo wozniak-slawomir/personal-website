@@ -1,6 +1,6 @@
 <template>
     <div class="container">
-        <h1 class="text-5xl text-center md:text-left mt-64">SERVICES</h1>
+        <h1 class="text-5xl text-center md:text-left mt-64 font-semibold">SERVICES</h1>
         <div>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mt-8">
                 <div class="bg-[#393939] py-4 rounded-xl px-8">
@@ -52,7 +52,7 @@
             <h1 class="text-4xl mb-6">Interested in working together?</h1>
             <!-- nie wiem czy to dobre rozwiązanie z wrzucaniem modala do tego komponentu, możesz dać znać co o tym myślisz -->
             <button @click="showContactModal = true"
-             class="px-8 py-5 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+             class="px-8 py-5 rounded-full bg-[color:var(--secondary-color)] md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
                 Contact me
             </button>
         </div>
