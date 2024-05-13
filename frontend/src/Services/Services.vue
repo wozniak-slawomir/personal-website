@@ -1,23 +1,26 @@
 <template>
-    <div class="container  mt-64">
-        <h1 class="text-5xl text-center md:text-left font-semibold">SERVICES</h1>
-        <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-8">
-            <div class="bg-[#393939] py-4 rounded-xl px-8">
-                <h2 class="text-l my-5">SOFTWARE DEVELOPMENT</h2>
-                <hr class="border-[#666666]" />
-                <div class="my-5 text-[#bbbbbb]">
-                    <p>With my experienced team we create the most challenging and effective solutions.</p>
-                    <ul class="pl-7 my-4 list-disc">
-                        <li>Customized software projects</li>
-                        <li>Software team outsourcing</li>
-                    </ul>
+    <div class="container">
+        <h1 class="text-5xl text-center md:text-left mt-64 font-semibold">SERVICES</h1>
+        <div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mt-8">
+                <div class="bg-[#393939] py-4 rounded-xl px-8">
+                    <h2 class="text-l my-5">SOFTWARE DEVELOPMENT</h2>
+                    <hr class="border-[#666666]" />
+                    <div class="my-5 text-[#bbbbbb]">
+                        <p>With my experienced team we create the most challenging and effective
+                            solutions.</p>
+                        <ul class="pl-7 my-4 list-disc">
+                            <li>Customized software projects</li>
+                            <li>Software team outsourcing</li>
+                        </ul>
+                    </div>
+                    <button @click="expandDevelopmentFeatures = !expandDevelopmentFeatures"
+                        class="text-l my-4 pt-2 w-full flex justify-between">
+                        Features
+                        <PhCaretDown v-if="!expandDevelopmentFeatures" :size="20" class="inline align-middle ml-2" />
+                        <PhCaretUp v-if="expandDevelopmentFeatures" :size="20" class="inline align-middle ml-2" />
+                    </button>
                 </div>
-                <button @click="expandDevelopmentFeatures = !expandDevelopmentFeatures"
-                    class="text-l my-4 pt-2 w-full flex justify-between">
-                    Features
-                    <PhCaretDown v-if="!expandDevelopmentFeatures" :size="20" class="inline align-middle ml-2" />
-                    <PhCaretUp v-if="expandDevelopmentFeatures" :size="20" class="inline align-middle ml-2" />
-                </button>
             </div>
             <div class="bg-[#393939] py-4 rounded-xl px-8">
                 <h2 class="text-l my-5">SOFTWARE COACHING</h2>
@@ -43,7 +46,8 @@
                 <div class="my-5 text-[#bbbbbb]">
                     <p>Have any doubts about current solutions?</p>
                     <ul class="pl-7 my-4 list-disc">
-                        <li>Comprehensive software audit pointing weak points and possible solutions</li>
+                        <li>Comprehensive software audit pointing weak points and possible solutions
+                        </li>
                         <li>Refactoring and reducing technology debt</li>
                     </ul>
                 </div>
