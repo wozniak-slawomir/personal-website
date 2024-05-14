@@ -76,33 +76,38 @@
             <img src="/bio/boxing.png" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
           </div>
         </div>
-        <div v-if="bioState === 'skills'" class="mb-10 flex">
-          <div class="w-1/2 pr-4">
-            <h3 class="text-3xl text-white font-bold">Hard skills</h3>
-            <h4 class="text-xl mt-3 text-white">Used:</h4>
-            <ul class="list-disc pl-3">
-              <li v-for="skill in skills.hard.used" :key="skill">{{ skill }}</li>
-            </ul>
-            <h4 class="text-xl mt-3 text-white">Proficient:</h4>
-            <ul class="list-disc pl-3">
-              <li v-for="skill in skills.hard.proficient" :key="skill">{{ skill }}</li>
-            </ul>
+        <div v-if="bioState === 'skills'" class="mb-10">
+          <div class="flex flex-wrap">
+            <img src="/bio/workstation.jpg" alt="workstation" class="mr-auto max-h-[500px]" />
+            <div class="flex-1 px-5">
+              <div class="flex flex-wrap">
+                <div class="flex-1">
+                  <h4 class="text-xl font-bold my-3 text-white">Hard skills proficient:</h4>
+                  <ul class="list-disc pl-4">
+                    <li v-for="skill in skills.hard.proficient" :key="skill">{{ skill }}</li>
+                  </ul>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xl my-3 font-bold text-white">Hard skills used:</h4>
+                  <ul class="list-disc pl-4">
+                    <li v-for="skill in skills.hard.used" :key="skill">{{ skill }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="w-1/2">
-            <h3 class="text-3xl text-white font-bold">Soft skills</h3>
-            <ul class="list-disc pl-3">
-              <li v-for="skill in skills.soft" :key="skill">{{ skill }}</li>
-            </ul>
+          <div class="mt-10">
+            <div class="flex">
+              <div class="flex-1">
+                <h3 class="text-3xl text-white font-bold">Soft skills</h3>
+                <ul class="list-disc pl-4 mt-6">
+                  <li v-for="skill in skills.soft" :key="skill">{{ skill }}</li>
+                </ul>
+              </div>
+              <img src="/bio/travel.jpg" alt="workstation" class="ml-auto max-h-[500px]" />
+            </div>
           </div>
         </div>
-        <button v-if="expandBio" @click="expandBio = !expandBio" class="self-start text-sm">
-          SEE LESS
-          <PhCaretUp :size="20" class="inline align-bottom ml-2" />
-        </button>
-        <button v-if="!expandBio" @click="expandBio = !expandBio" class="self-start text-sm">
-          SEE MORE
-          <PhCaretDown :size="20" class="inline align-bottom ml-2" />
-        </button>
       </div>
     </div>
   </div>
