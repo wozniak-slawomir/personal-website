@@ -2,6 +2,7 @@
   <Navbar />
   <Hero />
   <Bio />
+  <Testimonials />
   <Services @showContactModal="showContactModal" />
   <ContactModal @hideContactModal="hideContactModal" v-if="renderContactModal"/>
   <Footer />
