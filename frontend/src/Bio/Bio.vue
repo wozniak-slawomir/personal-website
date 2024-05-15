@@ -2,92 +2,112 @@
   <div class="container">
     <h1 class="text-5xl font-bold text-center md:text-left">BIO</h1>
     <div class="mb-0 mt-10 flex flex-wrap lg:my-10">
-      <button
-        @click="bioState = 'story'"
-        :class="{ 'active': bioState === 'story' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0 "
-      >
+      <button @click="bioState = 'story'" :class="{ 'active': bioState === 'story' }"
+        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0 ">
         STORY
       </button>
-      <button
-        @click="bioState = 'career'"
-        :class="{ 'active': bioState === 'career' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
-      >
+      <button @click="bioState = 'career'" :class="{ 'active': bioState === 'career' }"
+        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
         CAREER
       </button>
-      <button
-        @click="bioState = 'achievements'"
-        :class="{ 'active': bioState === 'achievements' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
-      >
+      <button @click="bioState = 'achievements'" :class="{ 'active': bioState === 'achievements' }"
+        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
         ACHIEVEMENTS
       </button>
-      <button
-        @click="bioState = 'personal life'"
-        :class="{ 'active': bioState === 'personal life' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
-      >
+      <button @click="bioState = 'personal life'" :class="{ 'active': bioState === 'personal life' }"
+        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
         PERSONAL LIFE
       </button>
-      <button
-        @click="bioState = 'skills'"
-        :class="{ 'active': bioState === 'skills' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
-      >
+      <button @click="bioState = 'skills'" :class="{ 'active': bioState === 'skills' }"
+        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
         SKILLS
       </button>
     </div>
     <div>
-      <div
-        class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow"
-      >
-        <p
-          v-bind:class="expandBio ? ' max-h-full' : 'max-h-[90px]'"
-          v-if="bioState === 'story'"
-          class="text-xl mb-10 overflow-clip"
-        >
-          STORY Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-          Doloribus quia totam consectetur cum placeat eligendi iusto eos libero
-          rem repellat obcaecati provident nam quam veniam magnam, aliquid
-          sapiente tenetur temporibus? Lorem ipsum dolor sit amet consectetur
-          adipisicing elit. Asperiores sunt id error. Similique provident
-          nostrum, modi earum est accusamus, perferendis deserunt odio
-          accusantium reprehenderit odit architecto ipsam quibusdam dolor
-          asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Soluta quae voluptatum enim optio voluptate iste exercitationem totam,
-          sint odio, quibusdam reprehenderit fugiat maiores doloribus nemo
-          possimus delectus dicta impedit necessitatibus! Lorem ipsum dolor, sit
-          amet consectetur adipisicing elit. Assumenda dolores natus labore
-          fugiat deserunt ad culpa perspiciatis commodi. Cum tempora quod
-          maiores cupiditate, corrupti perferendis eos ex distinctio eligendi
-          ratione. Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-          Sint ullam nisi ipsam dolorum distinctio mollitia error laborum esse
-          consequuntur nihil ad adipisci atque aliquam commodi quisquam
-          explicabo, voluptatem perspiciatis dolor?
-        </p>
-        <p v-if="bioState === 'career'" class="text-xl mb-10">CAREER</p>
-        <p v-if="bioState === 'achievements'" class="text-xl mb-10">
-          ACHIEVEMENTS
-        </p>
-        <p v-if="bioState === 'personal life'" class="text-xl mb-10">
-          PERSONAL LIFE
-        </p>
-        <p v-if="bioState === 'skills'" class="text-xl mb-10">SKILLS</p>
-        <button
-          v-if="expandBio"
-          @click="expandBio = !expandBio"
-          class="self-start text-sm"
-        >
-          SEE LESS<PhCaretUp :size="20" class="inline align-bottom ml-2" />
-        </button>
-        <button
-          v-if="!expandBio"
-          @click="expandBio = !expandBio"
-          class="self-start text-sm"
-        >
-          SEE MORE<PhCaretDown :size="20" class="inline align-bottom ml-2" />
-        </button>
+      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
+        <div v-if="bioState === 'story'" class="mb-10 overflow-clip">
+          <p>
+            Passionate about learning. I taught myself software engineering and worked in the industry for 5 years as a
+            frontend developer. <br>
+            I Speak Polish, English and Spanish. Currently learning French.<br><br>
+
+            In 2024 I decided to start studying Business Psychology. I wanted to understand the human mind and how it
+            can be applied to business. <br>
+            You can follow my journey on my blog here, or on <a href="https://www.instagram.com/wozniaakslawek/"
+              target="_blank" class="text-blue-500 underline">instagram</a>. <br><br>
+
+            In 2021 I simply packed my things and travelled througout Europe. I visited 10 countries in 3 months. I had
+            the most fun in my life.
+            Finally stayed in Spain for 6 months. <br>
+          </p>
+        </div>
+        <div v-if="bioState === 'career'" class="text-sm text-[color:#929292] mb-10">
+          <div class="mb-4" v-for="(position, index) in carrerPositions" :key="position.title">
+            <hr class="my-6 border-[color:#929292]" v-if="index !== 0">
+            <h3 class="text-3xl text-white font-bold">{{ position.title }}</h3>
+            <h4 class="text-xl text-white">{{ position.company }}</h4>
+            <div class="mb-5 mt-1">{{ position.dateStart.getMonth() + 1 }}/{{ position.dateStart.getFullYear() }} - {{
+        position.dateEnd.getMonth() + 1 }}/{{ position.dateEnd.getFullYear() }}
+            </div>
+            <ul class="list-disc pl-3">
+              <li v-for="point in position.keyPoints" :key="point">{{ point }}</li>
+            </ul>
+            <div class="mt-3 text-white">Technology used: {{ position.technology.join(", ") }}</div>
+          </div>
+        </div>
+        <div v-if="bioState === 'achievements'" class="mb-10">
+          <ul class="list-disc pl-3">
+            <li v-for="achievement in achievements" :key="achievement">{{ achievement }}</li>
+          </ul>
+        </div>
+        <div v-if="bioState === 'personal life'" class="mb-10">
+          <h3 class="font-bold text-xl mb-3">Father of a dog and a cat. In a happy relationship with an
+            amazing
+            girlfriend.
+          </h3>
+          <div class="flex flex-wrap">
+            <img src="/bio/with-dog.jpg" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
+            <img src="/bio/with-girlfriend.jpg" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
+          </div>
+          <hr class="my-6 border-[color:#929292]">
+          <h3 class="font-bold text-xl mb-3">A big fan of martial arts and bodybuilding</h3>
+          <div class="flex flex-wrap">
+            <img src="/bio/gym.jpg" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
+            <img src="/bio/boxing.png" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
+          </div>
+        </div>
+        <div v-if="bioState === 'skills'" class="mb-10">
+          <div class="flex flex-wrap">
+            <img src="/bio/workstation.jpg" alt="workstation" class="mr-auto max-h-[500px]" />
+            <div class="flex-1 px-5">
+              <div class="flex flex-wrap">
+                <div class="flex-1">
+                  <h4 class="text-xl font-bold my-3 text-white">Hard skills proficient:</h4>
+                  <ul class="list-disc pl-4">
+                    <li v-for="skill in skills.hard.proficient" :key="skill">{{ skill }}</li>
+                  </ul>
+                </div>
+                <div class="flex-1">
+                  <h4 class="text-xl my-3 font-bold text-white">Hard skills used:</h4>
+                  <ul class="list-disc pl-4">
+                    <li v-for="skill in skills.hard.used" :key="skill">{{ skill }}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="mt-10">
+            <div class="flex">
+              <div class="flex-1">
+                <h3 class="text-3xl text-white font-bold">Soft skills</h3>
+                <ul class="list-disc pl-4 mt-6">
+                  <li v-for="skill in skills.soft" :key="skill">{{ skill }}</li>
+                </ul>
+              </div>
+              <img src="/bio/travel.jpg" alt="workstation" class="ml-auto max-h-[500px]" />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -99,6 +119,85 @@ import { ref } from "vue";
 
 const bioState = ref<BioState>("story");
 const expandBio = ref(false);
+
+const carrerPositions = [
+  {
+    title: "Frontend Team Leader",
+    company: "Cognitran",
+    dateStart: new Date("2022-12-1"),
+    dateEnd: new Date("2024-02-28"),
+    keyPoints: [
+      `Successfully led the entire project development lifecycle, delivering a compelling Minimum Viable Product
+      (MVP) that exceeded client expectations. Transformed a basic demo app into a cutting-edge solution,
+      garnering high client satisfaction.`,
+      `Provided expert guidance and mentorship to a team of full-stack developers, resulting in a cohesive and
+      high-performing development team. Led frontend codebase decisions, ensuring optimal performance and
+      user experience.`,
+      `Implemented seamless integrations with multiple project environments, facilitating efficient data exchange
+        and collaboration among team members.`,
+    ],
+    technology: ["React", "Redux", "Typescript", "HTML5", "SCSS", "Jest", "Testing Library"]
+  },
+  {
+    title: "Frontend Developer",
+    company: "Wirtualna Polska",
+    dateStart: new Date("2022-05-01"),
+    dateEnd: new Date("2022-11-30"),
+    keyPoints: [
+      `Demonstrated a proactive approach in maintaining high code quality and best practices through active
+        participation in code reviews.`,
+      `Built scalable and maintainable frontend solutions by employing React hook-based and Redux approaches.`,
+      `Tested frontend code using Jest and Testing Library, leading to improved code quality and reduced bugs.`,
+    ],
+    technology: ["React", "Redux", "Typescript", "HTML5", "Styled Components", "Jest", "Testing Library"]
+  },
+  {
+    title: "Frontend Developer",
+    company: "Nordea",
+    dateStart: new Date("2021-05-01"),
+    dateEnd: new Date("2022-04-30"),
+    keyPoints: [
+      `Successfully introduced Typescript to the codebase, enhancing code quality, maintainability, and catching
+      bugs at compile-time.`,
+      `As the sole frontend developer in an 8-member team, played a pivotal role in making informed decisions
+      related to frontend architecture, technologies, and best practices.`,
+      `Took ownership of maintaining and updating ESLint rules and helpers, ensuring consistent code style and
+        enforcing best practices throughout the codebase.`,
+    ],
+    technology: ["React", "Redux", "Typescript", "HTML5", "Styled Components", "Jest", "Testing Library"]
+  },
+  {
+    title: "Frontend Developer",
+    company: "Webwave",
+    dateStart: new Date("2020-04-01"),
+    dateEnd: new Date("2021-04-30"),
+    keyPoints: [
+      `Participating in full lifecycle of development for company web application using Vue.js framework and OOP
+      paradigm for the application's engine`,
+      `Created and maintained reusable components and modules for the company's design system, ensuring consisency among all modules`,
+      `Took ownership of maintaining and updating ESLint rules and helpers, ensuring consistent code style and
+        enforcing best practices throughout the codebase.`,
+    ],
+    technology: ["React", "Redux", "Typescript", "HTML5", "Styled Components", "Jest", "Testing Library"],
+  }
+];
+
+const achievements = [
+  "Succesfully delivered a frontend part of MVP while leading a small team of developers",
+  "Learned Spanish in 1 year",
+  "Travelled to 14 countries",
+  "Taught more that 10 kids mathemathics as a high school student",
+]
+
+const skills = {
+  hard: {
+    proficient: ["React", "Redux", "Typescript", "Vue.js", "Javascript", "HTML5", "SCSS", "Bootstrap", "Jest", "Testing Library", "Git", "Axios", "ESLint", "REST", "JSON", "Webpack", "NPM", "OOP"],
+    used: ["JQuery", "Scrum", "Node.js", "Express", "Linux", "Docker", "Rust", "MUI"]
+
+  },
+  soft: ["Leadership", "Communication", "Problem-solving", "Teamwork", "Adaptability", "Time management", "Creativity", "Critical thinking", "Conflict resolution", "Decision making", "Empathy", "Flexibility", "Persuasion", "Stress management", "Tolerance", "Work ethic"]
+}
+
 </script>
 
 <style scoped lang="css">
