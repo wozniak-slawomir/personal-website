@@ -6,6 +6,15 @@ module.exports = {
   important: true,
   theme: {
     extend: {
+      animation: {
+        slide: 'slide 60s linear infinite',
+      },
+      keyframes: {
+        slide: {
+          '0%': { transform: 'translateX(-1870px)' },
+          '100%': { transform: 'translateX(0)' },
+        },
+      },
       fontFamily: {
         sans: ['Inter var', ...defaultTheme.fontFamily.sans],
       },
