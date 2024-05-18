@@ -58,24 +58,28 @@
                     <PhCaretUp v-if="expandAuditsFeatures" :size="20" class="inline align-middle ml-2" />
                 </button>
             </div>
+            <div class="text-center my-20">
+                <h1 class="text-4xl mb-6">Interested in working together?</h1>
+                <button @click="$emit('showContactModal')"
+                    class="px-8 py-5 rounded-full bg-[color:var(--secondary-color)] md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+                    Contact me
+                </button>
+            </div>
+        </div>
+        <div class="text-center my-20">
+            <h1 class="text-4xl mb-6">Interested in working together?</h1>
+            <button @click="$emit('showContactModal')"
+                class="px-8 py-5 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
+                Contact me
+            </button>
         </div>
     </div>
-    <div class="text-center my-20">
-        <h1 class="text-4xl mb-6">Interested in working together?</h1>
-        <button @click="showContactModal = true"
-            class="px-8 py-5 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
-            Contact me
-        </button>
-    </div>
-    <ContactModal @hideContactModal="showContactModal = false" v-if="showContactModal" />
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue';
 import { PhCaretDown, PhCaretUp } from "@phosphor-icons/vue";
-import ContactModal from "../ContactModal/ContactModal.vue";
 
-const showContactModal = ref(false);
 const expandDevelopmentFeatures = ref(false);
 const expandCoachingFeatures = ref(false);
 const expandAuditsFeatures = ref(false);

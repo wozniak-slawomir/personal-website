@@ -2,7 +2,8 @@
   <Navbar />
   <Hero />
   <Bio />
-  <Services />
+  <Services @showContactModal="showContactModal" />
+  <ContactModal @hideContactModal="hideContactModal" v-if="renderContactModal"/>
   <Footer />
 </template>
 
@@ -13,8 +14,23 @@ import Hero from "./Hero.vue";
 import Bio from "./Bio/Bio.vue";
 import Services from "./Services/Services.vue";
 import Footer from "./Footer/Footer.vue";
+import ContactModal from "./ContactModal/ContactModal.vue";
 
 export default defineComponent({
-  components: { Navbar, Hero, Bio, Services, Footer },
-});
+  components: { Navbar, Hero, Bio, Services, Footer, ContactModal },
+
+  data() {
+    return {
+      renderContactModal: false,
+    };
+  },
+  methods: {
+    showContactModal() {
+      this.renderContactModal = true;
+    },
+    hideContactModal() {
+      this.renderContactModal = false;
+    },
+  },
+  });
 </script>
