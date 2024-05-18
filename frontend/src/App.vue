@@ -1,6 +1,6 @@
 <template>
-  <Navbar />
-  <Hero />
+  <Navbar @showContactModal="showContactModal" />
+  <Hero @showContactModal="showContactModal" />
   <Bio />
   <Testimonials />
   <Services @showContactModal="showContactModal" />
