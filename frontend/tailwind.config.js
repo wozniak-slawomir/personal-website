@@ -7,12 +7,12 @@ module.exports = {
   theme: {
     extend: {
       animation: {
-        slide: 'slide 60s linear infinite',
+        slide: 'slide 20s linear infinite',
       },
       keyframes: {
         slide: {
-          '0%': { transform: 'translateX(-1870px)' },
-          '100%': { transform: 'translateX(0)' },
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-1122px)' },
         },
       },
       fontFamily: {
