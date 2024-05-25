@@ -6,7 +6,7 @@
             <div v-for="topTestimonials in topTestimonials" class="w-full inline-block whitespace-normal">
                     <div class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mr-6 mb-6">
                     <h1 class="text-2xl">{{ topTestimonials.text }}</h1>
-                    <div class="flex flex-col text-[#929292]">
+                    <div class="flex flex-col text-[color:var(--tertiary-text-color)]">
                         <h3>{{ topTestimonials.name }}</h3>
                         <p>{{ topTestimonials.position }}{{ topTestimonials.company }}</p>
                     </div>
@@ -15,7 +15,7 @@
             <div v-for="topTestimonials in topTestimonials" class="w-full inline-block whitespace-normal">
                     <div class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mr-6 mb-6">
                     <h1 class="text-2xl">{{ topTestimonials.text }}</h1>
-                    <div class="flex flex-col text-[#929292]">
+                    <div class="flex flex-col text-[color:var(--tertiary-text-color)]">
                         <h3>{{ topTestimonials.name }}</h3>
                         <p>{{ topTestimonials.position }}{{ topTestimonials.company }}</p>
                     </div>
@@ -24,7 +24,7 @@
             <div v-for="topTestimonials in topTestimonials" class="w-full inline-block whitespace-normal">
                     <div class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mr-6 mb-6">
                     <h1 class="text-2xl">{{ topTestimonials.text }}</h1>
-                    <div class="flex flex-col text-[#929292]">
+                    <div class="flex flex-col text-[color:var(--tertiary-text-color)]">
                         <h3>{{ topTestimonials.name }}</h3>
                         <p>{{ topTestimonials.position }}{{ topTestimonials.company }}</p>
                     </div>
@@ -35,7 +35,7 @@
             <div v-for="bottomTestimonials in bottomTestimonials" class="w-full inline-block whitespace-normal">
                     <div class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mr-6">
                     <h1 class="text-2xl">{{ bottomTestimonials.text }}</h1>
-                    <div class="flex flex-col text-[#929292]">
+                    <div class="flex flex-col text-[color:var(--tertiary-text-color)]">
                         <h3>{{ bottomTestimonials.name }}</h3>
                         <p>{{ bottomTestimonials.position }}{{ bottomTestimonials.company }}</p>
                     </div>
@@ -44,7 +44,7 @@
             <div v-for="bottomTestimonials in bottomTestimonials" class="w-full inline-block whitespace-normal">
                     <div class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mr-6">
                     <h1 class="text-2xl">{{ bottomTestimonials.text }}</h1>
-                    <div class="flex flex-col text-[#929292]">
+                    <div class="flex flex-col text-[color:var(--tertiary-text-color)]">
                         <h3>{{ bottomTestimonials.name }}</h3>
                         <p>{{ bottomTestimonials.position }}{{ bottomTestimonials.company }}</p>
                     </div>
@@ -53,7 +53,7 @@
             <div v-for="bottomTestimonials in bottomTestimonials" class="w-full inline-block whitespace-normal">
                     <div class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mr-6">
                     <h1 class="text-2xl">{{ bottomTestimonials.text }}</h1>
-                    <div class="flex flex-col text-[#929292]">
+                    <div class="flex flex-col text-[color:var(--tertiary-text-color)]">
                         <h3>{{ bottomTestimonials.name }}</h3>
                         <p>{{ bottomTestimonials.position }}{{ bottomTestimonials.company }}</p>
                     </div>
