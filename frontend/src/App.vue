@@ -6,29 +6,21 @@
   <Footer />
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
+<script setup lang="ts">
+import { ref } from "vue";
 import Navbar from "./Navbar.vue";
 import Hero from "./Hero.vue";
 import Bio from "./Bio/Bio.vue";
 import Footer from "./Footer/Footer.vue";
 import ContactModal from "./ContactModal/ContactModal.vue";
 
-export default defineComponent({
-  components: { Navbar, Hero, Bio, Footer, ContactModal },
+const renderContactModal = ref(false);
 
-  data() {
-    return {
-      renderContactModal: false,
-    };
-  },
-  methods: {
-    showContactModal() {
-      this.renderContactModal = true;
-    },
-    hideContactModal() {
-      this.renderContactModal = false;
-    },
-  },
-  });
+const showContactModal = () => {
+  renderContactModal.value = true;
+};
+
+const hideContactModal = () => {
+  renderContactModal.value = false;
+};
 </script>
