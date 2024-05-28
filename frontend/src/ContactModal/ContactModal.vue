@@ -1,5 +1,5 @@
 <template>
-    <div class="backdrop fixed flex justify-center items-center inset-0 bg-[#1A1A1A] bg-opacity-80 z-10">
+    <div class="backdrop fixed flex justify-center items-center inset-0 bg-[#1A1A1A] bg-opacity-80 z-20">
         <div
             class="bg-[#1A1A1A] w-[90%] md:w-[512px] rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)]">
             <div class="flex justify-between items-center">
