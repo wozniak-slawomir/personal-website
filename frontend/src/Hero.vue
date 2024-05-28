@@ -32,22 +32,18 @@
             Martial Arts
           </li>
         </ul>
-        <button @click="showContactModal = true"
+        <button @click="$emit('showContactModal')"
           class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">
           Contact me
         </button>
       </div>
     </div>
-    <ContactModal @hideContactModal="showContactModal = false" v-if="showContactModal" />
   </div>
 </template>
 
 <script setup lang="ts">
 import { PhCheckCircle } from "@phosphor-icons/vue";
-import { provide, ref } from "vue"
-import ContactModal from "./ContactModal/ContactModal.vue";
-
-const showContactModal = ref(false);
+import { provide } from "vue"
 
 provide("weight", "fill");
 
