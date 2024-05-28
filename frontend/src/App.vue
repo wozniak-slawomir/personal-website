@@ -13,6 +13,7 @@ import { ref } from "vue";
 import Navbar from "./Navbar.vue";
 import Hero from "./Hero.vue";
 import Bio from "./Bio/Bio.vue";
+import Testimonials from "./Testimonials/Testimonials.vue";
 import Services from "./Services/Services.vue";
 import Footer from "./Footer/Footer.vue";
 import ContactModal from "./ContactModal/ContactModal.vue";
