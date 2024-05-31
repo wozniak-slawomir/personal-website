@@ -6,7 +6,7 @@
 
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
-ARG NODE_VERSION=20.2.0
+ARG NODE_VERSION=16.18.1
 
 ################################################################################
 # Use node image for base image for all stages.
@@ -66,7 +66,7 @@ COPY --from=build /usr/src/app/dist ./dist
 
 
 # Expose the port that the application listens on.
-EXPOSE 3000
+EXPOSE 8000
 
 # Run the application.
 CMD npm start
