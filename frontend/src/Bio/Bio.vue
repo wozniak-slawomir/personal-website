@@ -66,19 +66,20 @@
             girlfriend.
           </h3>
           <div class="flex flex-wrap">
-            <img src="/bio/with-dog.jpg" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
-            <img src="/bio/with-girlfriend.jpg" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
+            <img :src="getImageUrl('bio/with-dog.jpg')" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
+            <img :src="getImageUrl('bio/with-girlfriend.jpg')" alt="with girlfriend"
+              class="mt-3 mx-auto max-h-[500px]" />
           </div>
           <hr class="my-6 border-[color:#929292]">
           <h3 class="font-bold text-xl mb-3">A big fan of martial arts and bodybuilding</h3>
           <div class="flex flex-wrap">
-            <img src="/bio/gym.jpg" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
-            <img src="/bio/boxing.png" alt="with dog" class="mt-3 mx-auto max-h-[500px]" />
+            <img :src="getImageUrl('bio/gym.jpg')" alt="bodybuilding" class="mt-3 mx-auto max-h-[500px]" />
+            <img :src="getImageUrl('bio/boxing.png')" alt="boxing" class="mt-3 mx-auto max-h-[500px]" />
           </div>
         </div>
         <div v-if="bioState === 'skills'" class="mb-10">
           <div class="flex flex-wrap">
-            <img src="/bio/workstation.jpg" alt="workstation" class="mr-auto max-h-[500px]" />
+            <img :src="getImageUrl('bio/workstation.jpg')" alt="workstation" class="mr-auto max-h-[500px]" />
             <div class="flex-1 px-5">
               <div class="flex flex-wrap">
                 <div class="flex-1">
@@ -104,7 +105,7 @@
                   <li v-for="skill in skills.soft" :key="skill">{{ skill }}</li>
                 </ul>
               </div>
-              <img src="/bio/travel.jpg" alt="workstation" class="ml-auto max-h-[500px]" />
+              <img :src="getImageUrl('bio/travel.jpg') " alt="travel" class="ml-auto max-h-[500px]" />
             </div>
           </div>
         </div>
@@ -114,11 +115,13 @@
 </template>
 
 <script setup lang="ts">
-import { PhCaretDown, PhCaretUp } from "@phosphor-icons/vue";
 import { ref } from "vue";
 
 const bioState = ref<BioState>("story");
-const expandBio = ref(false);
+
+const getImageUrl = (name: string) => {
+  return new URL(`../assets/images/${name}`, import.meta.url).href;
+}
 
 const carrerPositions = [
   {

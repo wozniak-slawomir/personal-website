@@ -7,7 +7,7 @@
       Thrive<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span>
     </h1>
     <div class="portrait">
-      <img src="/portrait.png" class="max-h-[750px]" alt="Portrait" />
+      <img :src="getImageUrl('portrait.png')" class="max-h-[750px]" alt="Portrait" />
     </div>
     <!-- <div class="partners">
       <swiper-container slides-per-view="4" class="mix-blend-luminosity opacity-85">
@@ -46,6 +46,10 @@ import { PhCheckCircle } from "@phosphor-icons/vue";
 import { provide } from "vue"
 
 provide("weight", "fill");
+
+const getImageUrl = (name: string) => {
+  return new URL(`./assets/images/${name}`, import.meta.url).href;
+}
 
 // const partners = [
 //   {
