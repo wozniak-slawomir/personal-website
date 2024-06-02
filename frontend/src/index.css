@@ -14,6 +14,7 @@
     --secondary-text-color: rgba(255, 255, 255, 0.67);
     --tertiary-text-color: rgb(146, 146, 146);
     --primary-gradient: linear-gradient(90deg, rgba(156,121,69,1) 0%, rgba(243,235,163,1) 100%);
+    --secondary-gradient: linear-gradient(90deg, rgba(156,121,69,1) 0%, rgba(255, 254, 246, 1) 100%);
     --primary-color: rgba(156,121,69,1);
     --secondary-color: #252525;
     --tertiary-color: #fff;

@@ -49,7 +49,7 @@
                     </div>
 
                     <button
-                        class="uppercase block py-2 px-6 mx-auto my-0 rounded-lg bg-[color:var(--secondary-color)] font-semibold bg-[image:var(--primary-gradient)] text-black transition-transform transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)]">Send</button>
+                        class="uppercase block py-2 px-6 mx-auto my-0 rounded-lg bg-[color:var(--secondary-color)] font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300">Send</button>
                 </form>
             </div>
         </div>
