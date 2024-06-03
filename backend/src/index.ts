@@ -13,7 +13,7 @@ const CORS_OPTIONS = {
 const MY_EMAIL_SIGNATURE = `Slawomir Wozniak <${process.env.MY_EMAIL}>`;
 
 const app = express();
-app.use(express.static('static'))
+app.use('/', express.static(path.join(__dirname, 'frontend')));
 app.use(cors(CORS_OPTIONS));
 app.use(bodyParser.json());
 
@@ -40,7 +40,7 @@ app.post("/api/send-email", async (req: Request, res: Response) => {
 });
 
 app.get("/", (req: Request, res: Response) => {
-    res.sendFile('index.html', { root: path.join(__dirname, '../static') });
+    res.sendFile('index.html', { root: path.join(__dirname, './frontend') });
 });
 
 app.listen(process.env.PORT, () => {
