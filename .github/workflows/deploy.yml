@@ -11,6 +11,17 @@ jobs:
           with:
             username: ${{ secrets.DOCKERHUB_USERNAME }}
             password: ${{ secrets.DOCKERHUB_PASSWORD }}
+        - name: Make envfile
+          uses: SpicyPizza/create-envfile@v2.0
+          with:
+            envkey_PORT: ${{ vars.PORT }}
+            envkey_PROD_URL: ${{ vars.PROD_URL }}
+            envkey_MY_EMAIL: ${{ vars.MY_EMAIL }}
+            envkey_MAIL_HOST: ${{ vars.MAIL_HOST }}
+            envkey_MAIL_PASSWORD: ${{ secrets.MAIL_PASSWORD }}
+            envkey_SENDER_EMAIL: ${{ vars.SENDER_EMAIL }}
+            directory: backend
+            file_name: .env
         - name: Build Docker image
           run: docker compose build && docker compose push
         - name: Log in to SSH server
@@ -20,4 +31,7 @@ jobs:
                 username: ${{ secrets.SSH_USERNAME }}
                 password: ${{ secrets.SSH_PASSWORD }}
         - name: Run Docker container
-          run: docker pull wozniakslawomir/slawomir-wozniak-backend:latest && docker run -d -p 80:8000 wozniakslawomir/slawomir-wozniak-backend:latest
+          run: |
+            docker pull wozniakslawomir/slawomir-wozniak-backend:latest
+            docker stop $(docker ps -a -q)
+            docker run -d -p 80:8000 wozniakslawomir/slawomir-wozniak-backend:latest
