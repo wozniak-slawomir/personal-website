@@ -30,11 +30,7 @@ jobs:
                 host: ${{ secrets.SSH_HOST }}
                 username: ${{ secrets.SSH_USERNAME }}
                 password: ${{ secrets.SSH_PASSWORD }}
-        - name: Pull container
-          run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/slawomir-wozniak-backend:latest
-        - name: log container
-          run: docker ps -a -q
-        - name: Stop running container
-          run: docker stop $(docker ps -a -q)
-        - name: Run container
-          run: docker run -d -p 80:8000 ${{ secrets.DOCKERHUB_USERNAME }}/slawomir-wozniak-backend:latest
+          script: |
+            docker pull ${{ secrets.DOCKERHUB_USERNAME }}/slawomir-wozniak-backend:latest
+            docker stop $(docker ps -a -q)
+            docker run -d -p 80:8000 ${{ secrets.DOCKERHUB_USERNAME }}/slawomir-wozniak-backend:latest
