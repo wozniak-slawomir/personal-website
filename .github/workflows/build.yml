@@ -1,0 +1,16 @@
+name: build-action
+on: push
+jobs:
+  build:
+    name: Build package
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./frontend
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+    - name: Install dependencies
+      run: npm install
+    - name: Build
+      run: npm run build
