@@ -6,24 +6,25 @@
 
 # Want to help us make this template better? Share your feedback here: https://forms.gle/ybq9Krt8jtBL3iCk7
 
-ARG NODE_VERSION=20.9.0
+ARG NODE_VERSION=20.14
 
 ################################################################################
 # Use node image for base image for all stages.
 FROM node:${NODE_VERSION}-alpine as base
 
 # Set working directory for all build stages.
-WORKDIR /app
+WORKDIR /usr/src/app
 
-# Create a stage for building the frontend.
-FROM base as frontend
-# Set the working directory to the frontend directory.
-WORKDIR /app/frontend
-# Copy the frontend source files into the image.
-COPY frontend .
-# Install frontend dependencies.
+FROM node:${NODE_VERSION}-alpine as frontend
+
+WORKDIR /usr/src/app/frontend
+
+COPY frontend/package.json frontend/package-lock.json ./
+
 RUN npm install
-# Build the frontend.
+
+COPY frontend .
+
 RUN npm run build
 
 ################################################################################
@@ -71,9 +72,9 @@ COPY backend/package.json .
 
 # Copy the production dependencies from the deps stage and also
 # the built application from the build stage into the image.
-COPY --from=deps /app/node_modules ./node_modules
-COPY --from=build /app/dist ./dist
-COPY --from=frontend /app/frontend/dist ./dist
+COPY --from=deps /usr/src/app/node_modules ./node_modules
+COPY --from=build /usr/src/app/dist ./dist
+COPY --from=frontend /usr/src/app/frontend/dist ./dist/frontend
 
 # Expose the port that the application listens on.
 EXPOSE 8000
