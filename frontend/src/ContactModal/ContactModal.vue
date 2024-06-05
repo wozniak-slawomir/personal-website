@@ -1,8 +1,9 @@
 <template>
     <div class="backdrop fixed flex justify-center items-center inset-0 bg-[#1A1A1A] bg-opacity-80 z-20">
-        <PhCircleNotch class="text-[color:var(--primary-color)] animate-spin text-6xl absolute" />
+        <PhCircleNotch class="text-[color:var(--primary-color)] animate-spin text-6xl absolute" v-if="isCircleRendered"/>
         <div
-            class="bg-[#1A1A1A] w-[90%] md:w-[512px] rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)] duration-700 z-20" :class="isLoading?'translate-y-[120%]':''">
+            class="bg-[#1A1A1A] w-[90%] md:w-[512px] rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)] duration-700 z-20"
+            :class="{'translate-y-[130%]':isLoading, 'translate-y-[-130%]':!isLoading&&!isMounted, 'translate-y-0': !isLoading&&isMounted}">
             <div class="flex justify-between items-center">
                 <h1 class="text-3xl font-semibold uppercase">Contact me</h1>
                 <button @click="$emit('hideContactModal', false)" class="text-3xl font-semibold">&times;</button>
@@ -58,7 +59,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useToast } from "vue-toastification";
 import { PhCircleNotch } from '@phosphor-icons/vue';
 
@@ -70,6 +71,17 @@ const message = ref('');
 const email = ref('');
 const phoneNumber = ref('');
 const isLoading = ref(false);
+const isMounted = ref(false);
+const isCircleRendered = ref(false);
+
+onMounted(() => {
+    setTimeout(() => {
+        isMounted.value = true;
+    }, 1);
+    setTimeout(() => {
+        isCircleRendered.value = true;
+    }, 1000);
+});
 
 const onSubmit = (e: Event) => {
     e.preventDefault();
