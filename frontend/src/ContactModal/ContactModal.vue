@@ -1,7 +1,8 @@
 <template>
     <div class="backdrop fixed flex justify-center items-center inset-0 bg-[#1A1A1A] bg-opacity-80 z-20">
+        <PhCircleNotch class="text-[color:var(--primary-color)] animate-spin text-6xl absolute" />
         <div
-            class="bg-[#1A1A1A] w-[90%] md:w-[512px] rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)]">
+            class="bg-[#1A1A1A] w-[90%] md:w-[512px] rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)] duration-700 z-20" :class="isLoading?'translate-y-[120%]':''">
             <div class="flex justify-between items-center">
                 <h1 class="text-3xl font-semibold uppercase">Contact me</h1>
                 <button @click="$emit('hideContactModal', false)" class="text-3xl font-semibold">&times;</button>
@@ -45,10 +46,10 @@
                             <span class="text-red-500">*</span>
                         </label>
                         <textarea name="message" v-model="message" required id="message"
-                            class="w-full p-2 rounded-lg bg-[#252525] border-0 min-h-[150px]"></textarea>
+                            class="w-full p-2 rounded-lg bg-[#252525] border-0 min-h-[150px] resize-none"></textarea>
                     </div>
-
                     <button
+                        :disabled="isLoading"
                         class="uppercase block py-2 px-6 mx-auto my-0 rounded-lg bg-[color:var(--secondary-color)] font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300">Send</button>
                 </form>
             </div>
@@ -59,6 +60,7 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useToast } from "vue-toastification";
+import { PhCircleNotch } from '@phosphor-icons/vue';
 
 const emit = defineEmits(['hideContactModal']);
 const toast = useToast();
@@ -67,10 +69,12 @@ const surname = ref('');
 const message = ref('');
 const email = ref('');
 const phoneNumber = ref('');
+const isLoading = ref(false);
 
 const onSubmit = (e: Event) => {
     e.preventDefault();
     if (!e.target) return;
+    isLoading.value = true;
     fetch(`${import.meta.env.VITE_API_URL}/send-email`, {
         method: 'POST',
         headers: {
@@ -87,9 +91,11 @@ const onSubmit = (e: Event) => {
         if (res.ok) {
             toast.success('Message sent successfully');
             emit('hideContactModal', false)
-        } else {
-            toast.error('Failed to send message');
         }
+    }).catch(() => {
+        toast.error('Failed to send message');
+    }).finally(() => {
+        isLoading.value = false;
     });
 };
 </script>
