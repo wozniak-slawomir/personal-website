@@ -1,9 +1,9 @@
 <template>
     <div class="backdrop fixed flex justify-center items-center inset-0 bg-[#1A1A1A] bg-opacity-80 z-20">
-        <PhCircleNotch class="text-[color:var(--primary-color)] animate-spin text-6xl absolute" v-if="isCircleRendered"/>
-        <div
-            class="bg-[#1A1A1A] w-[90%] md:w-[512px] rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)] duration-700 z-20"
-            :class="{'translate-y-[130%]':isLoading, 'translate-y-[-130%]':!isLoading&&!isMounted, 'translate-y-0': !isLoading&&isMounted}">
+        <PhCircleNotch class="text-[color:var(--primary-color)] animate-spin text-6xl absolute"
+            v-if="isCircleRendered" />
+        <div class="bg-[#1A1A1A] w-[90%] md:w-[512px] rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)] duration-700 z-20"
+            :class="{ 'translate-y-[130%]': isLoading, 'translate-y-[-130%]': !isLoading && !isMounted, 'translate-y-0': !isLoading && isMounted }">
             <div class="flex justify-between items-center">
                 <h1 class="text-3xl font-semibold uppercase">Contact me</h1>
                 <button @click="$emit('hideContactModal', false)" class="text-3xl font-semibold">&times;</button>
@@ -49,7 +49,7 @@
                         <textarea name="message" v-model="message" required id="message"
                             class="w-full p-2 rounded-lg bg-[#252525] border-0 min-h-[150px] resize-none"></textarea>
                     </div>
-                    <button
+                    <button :disabled="isLoading"
                         class="uppercase block py-2 px-6 mx-auto my-0 rounded-lg bg-[color:var(--secondary-color)] font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300">Send</button>
                 </form>
             </div>
@@ -76,7 +76,7 @@ const isCircleRendered = ref(false);
 onMounted(() => {
     setTimeout(() => {
         isMounted.value = true;
-    }, 1);
+    }, 0);
     setTimeout(() => {
         isCircleRendered.value = true;
     }, 1000);
