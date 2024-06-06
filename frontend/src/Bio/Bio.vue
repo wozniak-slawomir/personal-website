@@ -98,14 +98,15 @@
             </div>
           </div>
           <div class="mt-10">
-            <div class="flex">
-              <div class="flex-1">
+            <div class="flex flex-col-reverse md:flex-row">
+              <div class="flex-1 mr-5">
                 <h3 class="text-3xl text-white font-bold">Soft skills</h3>
                 <ul class="list-disc pl-4 mt-6">
                   <li v-for="skill in skills.soft" :key="skill">{{ skill }}</li>
                 </ul>
               </div>
-              <img :src="getImageUrl('bio/travel.jpg') " alt="travel" class="ml-auto max-h-[500px]" />
+              <img :src="getImageUrl('bio/travel.jpg') " alt="travel"
+                class="ml-auto mr-auto md:mr-0 mt-5 mb-5 w-full md:w-auto h-auto md:h-[500px]" />
             </div>
           </div>
         </div>
