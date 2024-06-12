@@ -47,7 +47,7 @@
             <h3 class="text-3xl text-white font-bold">{{ position.title }}</h3>
             <h4 class="text-xl text-white">{{ position.company }}</h4>
             <div class="mb-5 mt-1">{{ position.dateStart.getMonth() + 1 }}/{{ position.dateStart.getFullYear() }} - {{
-        position.dateEnd.getMonth() + 1 }}/{{ position.dateEnd.getFullYear() }}
+              position.dateEnd.getMonth() + 1 }}/{{ position.dateEnd.getFullYear() }}
             </div>
             <ul class="list-disc pl-3">
               <li v-for="point in position.keyPoints" :key="point">{{ point }}</li>
@@ -105,7 +105,7 @@
                   <li v-for="skill in skills.soft" :key="skill">{{ skill }}</li>
                 </ul>
               </div>
-              <img :src="getImageUrl('bio/travel.jpg') " alt="travel"
+              <img :src="getImageUrl('bio/travel.jpg')" alt="travel"
                 class="ml-auto mr-auto md:mr-0 mt-5 mb-5 w-full md:w-auto h-auto md:h-[500px]" />
             </div>
           </div>
