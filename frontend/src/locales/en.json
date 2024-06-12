@@ -1,5 +1,8 @@
 {
     "translation": {
-      "hello": "Hello World"
+        "contact": "Contact me",
+        "software-engineering": "Software Engineering",
+        "buisness-psychology": "Buisness Psychology",
+        "martial-arts": "Martial Arts"
     }
-  }
+}

@@ -1,5 +1,8 @@
 {
     "translation": {
-      "hello": "Witaj"
+      "contact": "Skontaktuj się",
+      "software-engineering": "Inżynieria oprogramowania",
+      "buisness-psychology": "Psychologia Biznesu",
+      "martial-arts": "Sztuki walki"
     }
-  }
+}
