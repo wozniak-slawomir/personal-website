@@ -79,12 +79,10 @@ const translateClass = computed(() => ({
     'translate-y-0': !isLoading.value && isMounted.value
 }));
 
-
-
 onMounted(() => {
     setTimeout(() => {
         isMounted.value = true;
-    }, 0);
+    }, 100);
     setTimeout(() => {
         isCircleRendered.value = true;
     }, 1000);
@@ -118,5 +116,3 @@ const onSubmit = (e: Event) => {
     });
 };
 </script>
-
-<style scoped></style>
