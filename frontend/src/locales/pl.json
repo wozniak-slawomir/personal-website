@@ -1,8 +1,8 @@
 {
     "translation": {
-      "contact": "Skontaktuj się",
-      "software-engineering": "Inżynieria oprogramowania",
-      "buisness-psychology": "Psychologia Biznesu",
-      "martial-arts": "Sztuki walki"
+      "common.contact": "Skontaktuj się",
+      "hero.software-engineering": "Inżynieria oprogramowania",
+      "hero.buisness-psychology": "Psychologia Biznesu",
+      "hero.martial-arts": "Sztuki walki"
     }
 }

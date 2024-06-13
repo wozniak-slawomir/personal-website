@@ -1,8 +1,8 @@
 {
     "translation": {
-        "contact": "Contact me",
-        "software-engineering": "Software Engineering",
-        "buisness-psychology": "Buisness Psychology",
-        "martial-arts": "Martial Arts"
+        "common.contact": "Contact me",
+        "hero.software-engineering": "Software Engineering",
+        "hero.buisness-psychology": "Buisness Psychology",
+        "hero.martial-arts": "Martial Arts"
     }
 }
