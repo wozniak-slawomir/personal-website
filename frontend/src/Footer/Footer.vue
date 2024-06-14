@@ -3,16 +3,16 @@
     <div class="flex justify-between items-center flex-col lg:flex-row gap-5">
       <img :src="getImageUrl('logo.png')" alt="logo" class="max-w-[400px] w-full lg:h-[30px]" />
       <div class="flex gap-5 text-white">
-        <a href="https://www.linkedin.com/in/slawek-wozniak/" target="_blank">
+        <a href="https://www.linkedin.com/in/slawek-wozniak/" aria-label="Linkedin link" target="_blank">
           <PhLinkedinLogo :size="45" class="h-12" />
         </a>
-        <a href="https://github.com/wozniak-slawomir" target="_blank">
+        <a href="https://github.com/wozniak-slawomir" aria-label="Github link" target="_blank">
           <PhGithubLogo :size="45" class="h-12" />
         </a>
-        <a href="mailto:wozniakslawomir.contact@gmail.com" target="_blank">
+        <a href="mailto:wozniakslawomir.contact@gmail.com" aria-label="Mail link" target="_blank">
           <PhEnvelopeSimple :size="45" class="h-12" />
         </a>
-        <a href="https://www.instagram.com/wozniaakslawek" target="_blank">
+        <a href="https://www.instagram.com/wozniaakslawek" aria-label="Instagram link" target="_blank">
           <PhInstagramLogo :size="45" class="h-12" />
         </a>
       </div>
