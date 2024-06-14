@@ -34,7 +34,7 @@
             In 2024 I decided to start studying Business Psychology. I wanted to understand the human mind and how it
             can be applied to business. <br>
             You can follow my journey on my blog here, or on <a href="https://www.instagram.com/wozniaakslawek/"
-              target="_blank" class="text-blue-500 underline">instagram</a>. <br><br>
+              target="_blank" class="text-blue-400 underline">instagram</a>. <br><br>
 
             In 2021 I simply packed my things and travelled througout Europe. I visited 10 countries in 3 months. I had
             the most fun in my life.
@@ -47,7 +47,7 @@
             <h3 class="text-3xl text-white font-bold">{{ position.title }}</h3>
             <h4 class="text-xl text-white">{{ position.company }}</h4>
             <div class="mb-5 mt-1">{{ position.dateStart.getMonth() + 1 }}/{{ position.dateStart.getFullYear() }} - {{
-              position.dateEnd.getMonth() + 1 }}/{{ position.dateEnd.getFullYear() }}
+        position.dateEnd.getMonth() + 1 }}/{{ position.dateEnd.getFullYear() }}
             </div>
             <ul class="list-disc pl-3">
               <li v-for="point in position.keyPoints" :key="point">{{ point }}</li>
@@ -105,7 +105,7 @@
                   <li v-for="skill in skills.soft" :key="skill">{{ skill }}</li>
                 </ul>
               </div>
-              <img :src="getImageUrl('bio/travel.jpg')" alt="travel"
+              <img :src="getImageUrl('bio/travel.jpg') " alt="travel"
                 class="ml-auto mr-auto md:mr-0 mt-5 mb-5 w-full md:w-auto h-auto md:h-[500px]" />
             </div>
           </div>
