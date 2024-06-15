@@ -30,7 +30,7 @@
           </li>
           <li class="mb-2">
             <PhCheckCircle class="inline align-baseline" />
-            {{ $t("hero.buisness-psychology") }}
+            {{ $t("hero.business-psychology") }}
           </li>
           <li class="mb-2">
             <PhCheckCircle class="inline align-baseline" />

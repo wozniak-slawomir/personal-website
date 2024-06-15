@@ -3,19 +3,19 @@
     class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-3 px-5 flex justify-between items-center fixed top-0 left-0 z-30 md:px-16 select-none"
   >
     <img
-      src="~/assets/logo.png"
+      :src="getImageUrl('logo.png')"
       class="max-w-[400px] w-full mr-3 md:mr-0"
       alt="Slawomir Wozniak"
     >
     <div class="flex">
       <div
-        class="mr-5 p-3 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-20 text-center sm:w-24 h-min z-20"
+        class="mr-5 p-3 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-14 text-center sm:w-24 h-min z-20"
         :class="isMenuOpen ? 'rounded-t-[25px]' : 'rounded-[25px]'"
         @click=" isMenuOpen = !isMenuOpen"
       >
-        <PhGlobe
-          size="25"
-          class="inline align-middle mx-1"
+        <span
+          class="fi fis rounded-full w-6 h-6 align-middle mx-1"
+          :class="i18next.language !== 'en' ? 'fi-' + i18next.language : 'fi-gb'"
         />
         <p class="align-middle mx-1 hidden sm:inline uppercase">
           {{ i18next.language }}
@@ -23,56 +23,21 @@
       </div>
       <div
         v-if="isMenuOpen"
+        v-on-click-outside="() => isMenuOpen = false"
         class="absolute rounded-[25px] top-8 pt-10 pb-2 bg-[#393939] z-10 sm:w-24"
       >
         <div class="flex flex-col">
           <button
-            class="p-2 rounded-md w-20 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-32"
-            @click="changeLanguage('en')"
+            v-for="language in languages"
+            :key="language"
+            class="p-2 rounded-md w-14 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-full hover:scale-110 duration-150"
+            @click="changeLanguage(language)"
           >
-            <PhGlobe
-              size="25"
-              class="hidden sm:inline align-middle mx-1"
+            <span
+              class="fi fis rounded-full w-6 h-6 align-middle mx-1"
+              :class="language !== 'en' ? 'fi-' + language : 'fi-gb'"
             />
-            <p class="align-middle mx-1 inline">
-              EN
-            </p>
-          </button>
-          <button
-            class="p-2 rounded-md w-20 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-32"
-            @click="changeLanguage('pl')"
-          >
-            <PhGlobe
-              size="25"
-              class="hidden sm:inline align-middle mx-1"
-            />
-            <p class="align-middle mx-1 inline">
-              PL
-            </p>
-          </button>
-          <button
-            class="p-2 rounded-md w-20 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-32"
-            @click="changeLanguage('fr')"
-          >
-            <PhGlobe
-              size="25"
-              class="hidden sm:inline align-middle mx-1"
-            />
-            <p class="align-middle mx-1 inline">
-              FR
-            </p>
-          </button>
-          <button
-            class="p-2 rounded-md w-20 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-32"
-            @click="changeLanguage('es')"
-          >
-            <PhGlobe
-              size="25"
-              class="hidden sm:inline align-middle mx-1"
-            />
-            <p class="align-middle mx-1 inline">
-              ES
-            </p>
+            <span class="align-middle mx-1 hidden sm:inline uppercase">{{ language }}</span>
           </button>
         </div>
       </div>
@@ -85,13 +50,22 @@
 </template>
 
 <script setup lang="ts">
-import { PhGlobe } from '@phosphor-icons/vue'
 import { ref } from 'vue'
 import i18next from 'i18next'
+import '/node_modules/flag-icons/css/flag-icons.min.css'
+import { vOnClickOutside } from '@vueuse/components'
+
+const getImageUrl = (name: string) => {
+  return new URL(`./assets/images/${name}`, import.meta.url).href
+}
 
 const isMenuOpen = ref(false)
 
-const changeLanguage = (language: string) => {
+type Language = 'en' | 'pl' | 'fr' | 'es';
+
+const languages: Language[] = ['en', 'pl', 'fr', 'es']
+
+const changeLanguage = (language: Language) => {
   i18next.changeLanguage(language)
   isMenuOpen.value = false
 }
