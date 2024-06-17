@@ -15,6 +15,9 @@
         <a href="https://www.instagram.com/wozniaakslawek" aria-label="Instagram link" target="_blank">
           <PhInstagramLogo :size="45" class="h-12" />
         </a>
+        <a href="tel:+48571205570" aria-label="Phone link" target="_blank">
+          <PhPhone :size="45" class="h-12" />
+        </a>
       </div>
     </div>
     <hr class="border-[#464646] lg:my-10 my-7" />
@@ -29,7 +32,7 @@
 </template>
 
 <script setup lang="ts">
-import { PhInstagramLogo, PhGithubLogo, PhLinkedinLogo, PhEnvelopeSimple } from '@phosphor-icons/vue';
+import { PhInstagramLogo, PhGithubLogo, PhLinkedinLogo, PhEnvelopeSimple, PhPhone } from '@phosphor-icons/vue';
 const date = new Date().getFullYear();
 const getImageUrl = (name: string) => {
   return new URL(`../assets/images/${name}`, import.meta.url).href;

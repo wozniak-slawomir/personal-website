@@ -19,16 +19,16 @@
     <div class="cta m-4 flex justify-center items-center">
       <div>
         <ul class="mb-6 uppercase text-2xl w-max">
-          <li class="mb-2">
-            <PhCheckCircle class="inline align-baseline" />
+          <li class="mb-2 flex items-center">
+            <PhCheckCircle class="inline mr-2" />
             Software Engineering
           </li>
-          <li class="mb-2">
-            <PhCheckCircle class="inline align-baseline" />
+          <li class="mb-2 flex items-center">
+            <PhCheckCircle class="inline mr-2" />
             Business Psychology
           </li>
-          <li class="mb-2">
-            <PhCheckCircle class="inline align-baseline" />
+          <li class="mb-2 flex items-center">
+            <PhCheckCircle class="inline mr-2" />
             Martial Arts
           </li>
         </ul>

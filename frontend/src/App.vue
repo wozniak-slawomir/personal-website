@@ -22,9 +22,11 @@ const renderContactModal = ref(false);
 
 const hideContactModal = () => {
   renderContactModal.value = false;
+  document.body.style.overflow = "auto";
 };
 
 const showContactModal = () => {
   renderContactModal.value = true;
+  document.body.style.overflow = "hidden";
 };
 </script>

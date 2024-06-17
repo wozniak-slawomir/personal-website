@@ -1,8 +1,9 @@
 <template>
-    <div class="backdrop fixed flex justify-center items-center inset-0 bg-[#1A1A1A] bg-opacity-80 z-20">
-        <PhCircleNotch class="text-[color:var(--primary-color)] animate-spin text-6xl absolute"
+    <div class="backdrop fixed flex justify-center items-start p-4 inset-0 bg-[#1A1A1A] bg-opacity-80 z-20"
+        :class="{ 'overflow-y-auto': !isLoading }">
+        <PhCircleNotch class="text-[color:var(--primary-color)] animate-spin text-6xl absolute self-center"
             v-if="isCircleRendered" />
-        <div class="bg-[#1A1A1A] w-[90%] md:w-[512px] rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)] duration-700 z-20"
+        <div class="bg-[#1A1A1A] w-[90%] md:w-[512px] mt-4 rounded-2xl p-4 md:p-10 border border-[color:var(--primary-color)] duration-700 z-20"
             :class="translateClass">
             <div class="flex justify-between items-center">
                 <h1 class="text-3xl font-semibold uppercase">Contact me</h1>
