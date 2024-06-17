@@ -1,4 +1,4 @@
-import express, { Express, Request, Response } from "express";
+import express, { Request, Response } from "express";
 import nodemailer from "nodemailer";
 import path from "path";
 import cors from "cors";
@@ -39,7 +39,7 @@ app.post("/api/send-email", async (req: Request, res: Response) => {
     res.status(200).send(info);
 });
 
-app.get("/", (req: Request, res: Response) => {
+app.get("*", (req: Request, res: Response) => {
     res.sendFile('index.html', { root: path.join(__dirname, './frontend') });
 });
 
