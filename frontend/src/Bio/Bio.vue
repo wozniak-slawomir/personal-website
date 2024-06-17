@@ -25,23 +25,29 @@
     </div>
     <div>
       <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
-        <div v-if="bioState === 'story'" class="mb-10 overflow-clip">
+        <div v-if="bioState === 'story'" class="overflow-clip">
           <p>
             Passionate about learning. I taught myself software engineering and worked in the industry for 5 years as a
             frontend developer. <br>
-            I Speak Polish, English and Spanish. Currently learning French.<br><br>
-
+            I speak Polish, English and Spanish. Currently learning French.<br><br>
+          </p>
+          <p>
+            In 2021 I simply packed my things and travelled throughout Europe. I visited 10 countries in 3 months. I had
+            the most fun in my life.
+            Finally stayed in Spain for 6 months. <br><br>
+            <img :src="getImageUrl('bio/spain.jpg')" alt="car in sunset in Spain" class="my-5 mx-auto max-h-[300px]" />
+          </p>
+          <p>
             In 2024 I decided to start studying Business Psychology. I wanted to understand the human mind and how it
             can be applied to business. <br>
+            And precisely that is what you can expect from me. I have a deep understanding of technology, management and
+            delivering business value. <br><br>
+            <img :src="getImageUrl('bio/book.jpg')" alt="car in sunset in Spain" class="my-5 mx-auto max-h-[300px]" />
             You can follow my journey on my blog here, or on <a href="https://www.instagram.com/wozniaakslawek/"
               target="_blank" class="text-blue-400 underline">instagram</a>. <br><br>
-
-            In 2021 I simply packed my things and travelled througout Europe. I visited 10 countries in 3 months. I had
-            the most fun in my life.
-            Finally stayed in Spain for 6 months. <br>
           </p>
         </div>
-        <div v-if="bioState === 'career'" class="text-sm text-[color:#929292] mb-10">
+        <div v-if="bioState === 'career'" class="text-sm text-[color:#929292]">
           <div class="mb-4" v-for="(position, index) in carrerPositions" :key="position.title">
             <hr class="my-6 border-[color:#929292]" v-if="index !== 0">
             <h3 class="text-3xl text-white font-bold">{{ position.title }}</h3>
@@ -55,12 +61,12 @@
             <div class="mt-3 text-white">Technology used: {{ position.technology.join(", ") }}</div>
           </div>
         </div>
-        <div v-if="bioState === 'achievements'" class="mb-10">
+        <div v-if="bioState === 'achievements'">
           <ul class="list-disc pl-3">
             <li v-for="achievement in achievements" :key="achievement">{{ achievement }}</li>
           </ul>
         </div>
-        <div v-if="bioState === 'personal life'" class="mb-10">
+        <div v-if="bioState === 'personal life'">
           <h3 class="font-bold text-xl mb-3">Father of a dog and a cat. In a happy relationship with an
             amazing
             girlfriend.
@@ -77,7 +83,7 @@
             <img :src="getImageUrl('bio/boxing.png')" alt="boxing" class="mt-3 mx-auto max-h-[500px]" />
           </div>
         </div>
-        <div v-if="bioState === 'skills'" class="mb-10">
+        <div v-if="bioState === 'skills'">
           <div class="flex flex-wrap">
             <img :src="getImageUrl('bio/workstation.jpg')" alt="workstation" class="mr-auto max-h-[500px]" />
             <div class="flex-1 px-5">
@@ -125,6 +131,17 @@ const getImageUrl = (name: string) => {
 }
 
 const carrerPositions = [
+  {
+    title: "Frontend Developer",
+    company: "E Net Production",
+    dateStart: new Date("2024-04"),
+    dateEnd: new Date(),
+    keyPoints: [
+      `Rapidly onboarded and delivered several complex tasks in a timespan of weeks`,
+      `Utilizing Vue.js to develop e-commerce platform used by thousands of users`,
+    ],
+    technology: ["Vue", "Typescript", "HTML5", "SCSS"]
+  },
   {
     title: "Frontend Team Leader",
     company: "Cognitran",
@@ -188,6 +205,7 @@ const carrerPositions = [
 
 const achievements = [
   "Succesfully delivered a frontend part of MVP while leading a small team of developers",
+  "Launched my own team and succesfully planning and managing software projects",
   "Learned Spanish in 1 year",
   "Travelled to 14 countries",
   "Taught more that 10 kids mathemathics as a high school student",

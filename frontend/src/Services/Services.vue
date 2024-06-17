@@ -12,12 +12,12 @@
                         <li>Software team outsourcing</li>
                     </ul>
                 </div>
-                <button @click="expandDevelopmentFeatures = !expandDevelopmentFeatures"
+                <!-- <button @click="expandDevelopmentFeatures = !expandDevelopmentFeatures"
                     class="text-l my-4 pt-2 w-full flex justify-between">
                     Features
                     <PhCaretDown v-if="!expandDevelopmentFeatures" :size="20" class="inline align-middle ml-2" />
                     <PhCaretUp v-if="expandDevelopmentFeatures" :size="20" class="inline align-middle ml-2" />
-                </button>
+                </button> -->
             </div>
             <div class="bg-[#393939] py-4 rounded-xl px-8">
                 <h2 class="text-l my-5">SOFTWARE COACHING</h2>
@@ -30,12 +30,12 @@
                         <li>Analyze trends and new technologies</li>
                     </ul>
                 </div>
-                <button @click="expandCoachingFeatures = !expandCoachingFeatures"
+                <!-- <button @click="expandCoachingFeatures = !expandCoachingFeatures"
                     class="text-l my-4 pt-2 w-full flex justify-between">
                     Features
                     <PhCaretDown v-if="!expandCoachingFeatures" :size="20" class="inline align-middle ml-2" />
                     <PhCaretUp v-if="expandCoachingFeatures" :size="20" class="inline align-middle ml-2" />
-                </button>
+                </button> -->
             </div>
             <div class="bg-[#393939] py-4 rounded-xl px-8">
                 <h2 class="text-l my-5">SOFTWARE AUDITS</h2>
@@ -47,12 +47,12 @@
                         <li>Refactoring and reducing technology debt</li>
                     </ul>
                 </div>
-                <button @click="expandAuditsFeatures = !expandAuditsFeatures"
+                <!-- <button @click="expandAuditsFeatures = !expandAuditsFeatures"
                     class="text-l my-4 pt-2 w-full flex justify-between">
                     Features
                     <PhCaretDown v-if="!expandAuditsFeatures" :size="20" class="inline align-middle ml-2" />
                     <PhCaretUp v-if="expandAuditsFeatures" :size="20" class="inline align-middle ml-2" />
-                </button>
+                </button> -->
             </div>
         </div>
         <div class="text-center my-20">
