@@ -24,7 +24,7 @@
       </button>
     </div>
     <div>
-      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
+      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow mt-32">
         <div v-if="bioState === 'story'" class="overflow-clip">
           <p>
             Passionate about learning. I taught myself software engineering and worked in the industry for 5 years as a
