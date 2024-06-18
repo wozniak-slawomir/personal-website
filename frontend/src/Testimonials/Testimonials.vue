@@ -1,7 +1,7 @@
 <template>
     <div class="container mt-32 overflow-hidden">
         <div
-            class="h-[550px] w-full absolute z-10 bg-gradient-to-r from-[var(--secondary-color)] via-transparent to-[var(--secondary-color)] translate-x-[-20px] mt-[130px] sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1025px] md:mt-32 xl:max-w-[1280px] 2xl:max-w-[1536px] scale-[101%]" />
+            class="h-[550px] w-full absolute z-10 bg-gradient-to-r from-[var(--secondary-color)] via-transparent to-[var(--secondary-color)] translate-x-[-20px] mt-[136px] sm:mt-[130px] md:mt-32 sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1025px] xl:max-w-[1280px] 2xl:max-w-[1536px] scale-[101%]" />
         <!-- scale is set to 101% to prevent little lines on the edges that sometimes appear -->
         <h1 class="text-5xl font-bold my-10 text-center md:text-left z-50">
             WHAT OUR CLIENTS SAY

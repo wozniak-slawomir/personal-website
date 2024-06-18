@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="container mt-32">
     <h1 class="text-5xl font-bold text-center md:text-left">BIO</h1>
     <div class="mb-0 mt-10 flex flex-wrap lg:my-10">
       <button @click="bioState = 'story'" :class="{ 'active': bioState === 'story' }"
@@ -24,7 +24,7 @@
       </button>
     </div>
     <div>
-      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow mt-32">
+      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
         <div v-if="bioState === 'story'" class="overflow-clip">
           <p>
             Passionate about learning. I taught myself software engineering and worked in the industry for 5 years as a
