@@ -9,69 +9,64 @@
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0 "
         @click="bioState = 'story'"
       >
-        STORY
+        {{ $t("bio.menu.story") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'career' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'career'"
       >
-        CAREER
+        {{ $t("bio.menu.career") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'achievements' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'achievements'"
       >
-        ACHIEVEMENTS
+        {{ $t("bio.menu.achievements") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'personal life' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'personal life'"
       >
-        PERSONAL LIFE
+        {{ $t("bio.menu.personal-life") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'skills' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'skills'"
       >
-        SKILLS
+        {{ $t("bio.menu.skills") }}
       </button>
     </div>
     <div>
-      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
+      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
         <div
           v-if="bioState === 'story'"
           class="overflow-clip"
         >
           <p>
-            Passionate about learning. I taught myself software engineering and worked in the industry for 5 years as a
-            frontend developer. <br>
-            I speak Polish, English and Spanish. Currently learning French.<br><br>
+            {{ $t('bio.story1') }} <br>
+            {{ $t('bio.story2') }}<br><br>
           </p>
           <p>
-            In 2021 I simply packed my things and travelled throughout Europe. I visited 10 countries in 3 months. I had
-            the most fun in my life.
-            Finally stayed in Spain for 6 months. <br><br>
+            {{ $t('bio.story3') }} <br><br>
             <img
-              src="~/assets/bio/spain.jpg"
+              :src="getImageUrl('bio/spain.jpg')"
               alt="car in sunset in Spain"
               class="my-5 mx-auto max-h-[300px]"
             >
           </p>
           <p>
-            In 2024 I decided to start studying Business Psychology. I wanted to understand the human mind and how it
-            can be applied to business. <br>
-            And precisely that is what you can expect from me. I have a deep understanding of technology, management and
-            delivering business value. <br><br>
+            {{ $t('bio.story4') }}<br>
+            {{ $t('bio.story5') }} <br><br>
             <img
-              src="~/assets/bio/book.jpg"
+              :src="getImageUrl('bio/book.jpg')"
               alt="car in sunset in Spain"
               class="my-5 mx-auto max-h-[300px]"
             >
-            You can follow my journey on my blog here, or on <a
+            {{ $t('bio.story6') }} <a
               href="https://www.instagram.com/wozniaakslawek/"
               target="_blank"
               class="text-blue-400 underline"
@@ -130,13 +125,13 @@
           </h3>
           <div class="flex flex-wrap">
             <img
-              src="~/assets/bio/with-dog.jpg"
+              :src="getImageUrl('bio/with-dog.jpg')"
               alt="with dog"
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
-              src="~/assets/bio/with-friends.jpg"
-              alt="with friends"
+              :src="getImageUrl('bio/with-girlfriend.jpg')"
+              alt="with girlfriend"
               class="mt-3 mx-auto max-h-[500px]"
             >
           </div>

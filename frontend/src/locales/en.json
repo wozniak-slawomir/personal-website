@@ -3,6 +3,17 @@
         "common.contact": "Contact me",
         "hero.software-engineering": "Software Engineering",
         "hero.business-psychology": "Business Psychology",
-        "hero.martial-arts": "Martial Arts"
+        "hero.martial-arts": "Martial Arts",
+        "bio.menu.story": "STORY",
+        "bio.menu.career": "CAREER",
+        "bio.menu.achievements": "ACHIEVEMENTS",
+        "bio.menu.personal-life": "PERSONAL LIFE",
+        "bio.menu.skills": "SKILLS",
+        "bio.story1": "Passionate about learning. I taught myself software engineering and worked in the industry for 5 years as a frontend developer.", 
+        "bio.story2": "I speak Polish, English and Spanish. Currently learning French.",
+        "bio.story3": "In 2021 I simply packed my things and travelled throughout Europe. I visited 10 countries in 3 months. I had the most fun in my life. Finally stayed in Spain for 6 months.",
+        "bio.story4": "In 2024 I decided to start studying Business Psychology. I wanted to understand the human mind and how it can be applied to business.",
+        "bio.story5": "And precisely that is what you can expect from me. I have a deep understanding of technology, management and delivering business value.",
+        "bio.story6": "You can follow my journey on my blog here, or on"
     }
 }
