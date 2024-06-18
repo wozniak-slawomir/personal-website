@@ -3,23 +3,23 @@
     <h1 class="text-5xl font-bold text-center md:text-left">BIO</h1>
     <div class="mb-0 mt-10 flex flex-wrap lg:my-10">
       <button @click="bioState = 'story'" :class="{ 'active': bioState === 'story' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0 ">
+        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0 ">
         STORY
       </button>
       <button @click="bioState = 'career'" :class="{ 'active': bioState === 'career' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
+        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
         CAREER
       </button>
       <button @click="bioState = 'achievements'" :class="{ 'active': bioState === 'achievements' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
+        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
         ACHIEVEMENTS
       </button>
       <button @click="bioState = 'personal life'" :class="{ 'active': bioState === 'personal life' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
+        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
         PERSONAL LIFE
       </button>
       <button @click="bioState = 'skills'" :class="{ 'active': bioState === 'skills' }"
-        class="text-l p-3 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
+        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0">
         SKILLS
       </button>
     </div>
