@@ -1,13 +1,18 @@
 <template>
   <div class="hero grid justify-center lg:h-full pt-[var(--navbar-height)]">
     <h1
-      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center">
-      Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br />
-      Learn<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br />
+      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 ml-16 font-bold keywords uppercase self-center"
+    >
+      Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br>
+      Learn<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br>
       Thrive<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span>
     </h1>
     <div class="portrait">
-      <img :src="getImageUrl('portrait.png')" class="max-h-[750px]" alt="Portrait" />
+      <img
+        :src="getImageUrl('portrait.png')"
+        class="max-h-[750px]"
+        alt="Portrait"
+      >
     </div>
     <!-- <div class="partners">
       <swiper-container slides-per-view="4" class="mix-blend-luminosity opacity-85">
@@ -32,8 +37,10 @@
             Martial Arts
           </li>
         </ul>
-        <button @click="$emit('showContactModal')"
-          class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300">
+        <button
+          class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300"
+          @click="$emit('showContactModal')"
+        >
           Contact me
         </button>
       </div>
@@ -42,14 +49,16 @@
 </template>
 
 <script setup lang="ts">
-import { PhCheckCircle } from "@phosphor-icons/vue";
-import { provide } from "vue"
+import { PhCheckCircle } from '@phosphor-icons/vue'
+import { provide, defineEmits } from 'vue'
 
-provide("weight", "fill");
+provide('weight', 'fill')
 
 const getImageUrl = (name: string) => {
-  return new URL(`./assets/images/${name}`, import.meta.url).href;
+  return new URL(`./assets/images/${name}`, import.meta.url).href
 }
+
+defineEmits(['showContactModal'])
 
 // const partners = [
 //   {
