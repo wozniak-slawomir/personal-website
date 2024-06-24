@@ -25,7 +25,7 @@ RUN npm install
 
 COPY frontend .
 
-RUN npm run build
+RUN npm run generate
 
 ################################################################################
 # Create a stage for installing production dependecies.

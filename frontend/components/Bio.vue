@@ -56,7 +56,7 @@
             the most fun in my life.
             Finally stayed in Spain for 6 months. <br><br>
             <img
-              :src="getImageUrl('bio/spain.jpg')"
+              src="~/assets/bio/spain.jpg"
               alt="car in sunset in Spain"
               class="my-5 mx-auto max-h-[300px]"
             >
@@ -67,7 +67,7 @@
             And precisely that is what you can expect from me. I have a deep understanding of technology, management and
             delivering business value. <br><br>
             <img
-              :src="getImageUrl('bio/book.jpg')"
+              src="~/assets/bio/book.jpg"
               alt="car in sunset in Spain"
               class="my-5 mx-auto max-h-[300px]"
             >
@@ -132,12 +132,12 @@
           </h3>
           <div class="flex flex-wrap">
             <img
-              :src="getImageUrl('bio/with-dog.jpg')"
+              src="~/assets/bio/with-dog.jpg"
               alt="with dog"
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
-              :src="getImageUrl('bio/with-girlfriend.jpg')"
+              src="~/assets/bio/with-girlfriend.jpg"
               alt="with girlfriend"
               class="mt-3 mx-auto max-h-[500px]"
             >
@@ -148,12 +148,12 @@
           </h3>
           <div class="flex flex-wrap">
             <img
-              :src="getImageUrl('bio/gym.jpg')"
+              src="~/assets/bio/gym.jpg"
               alt="bodybuilding"
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
-              :src="getImageUrl('bio/boxing.png')"
+              src="~/assets/bio/boxing.png"
               alt="boxing"
               class="mt-3 mx-auto max-h-[500px]"
             >
@@ -162,7 +162,7 @@
         <div v-if="bioState === 'skills'">
           <div class="flex flex-wrap">
             <img
-              :src="getImageUrl('bio/workstation.jpg')"
+              src="~/assets/bio/workstation.jpg"
               alt="workstation"
               class="mr-auto max-h-[500px]"
             >
@@ -213,7 +213,7 @@
                 </ul>
               </div>
               <img
-                :src="getImageUrl('bio/travel.jpg') "
+                src="~/assets/bio/travel.jpg"
                 alt="travel"
                 class="ml-auto mr-auto md:mr-0 mt-5 mb-5 w-full md:w-auto h-auto md:h-[500px]"
               >
@@ -227,13 +227,15 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { BioState } from './types'
+
+type BioState =
+  | 'story'
+  | 'career'
+  | 'achievements'
+  | 'personal life'
+  | 'skills';
 
 const bioState = ref<BioState>('story')
-
-const getImageUrl = (name: string) => {
-  return new URL(`../assets/images/${name}`, import.meta.url).href
-}
 
 const carrerPositions = [
   {

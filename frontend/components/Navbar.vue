@@ -3,7 +3,7 @@
     class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-5 px-16 flex flex-wrap justify-between items-center fixed top-0 left-0 z-20"
   >
     <img
-      :src="getImageUrl('logo.png')"
+      src="~/assets/logo.png"
       class="w-[400px]"
       alt="Slawomir Wozniak"
     >
@@ -19,11 +19,5 @@
 </template>
 
 <script setup lang="ts">
-import { defineEmits } from 'vue'
-
 defineEmits(['showContactModal'])
-
-const getImageUrl = (name: string) => {
-  return new URL(`./assets/images/${name}`, import.meta.url).href
-}
 </script>

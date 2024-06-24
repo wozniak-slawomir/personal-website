@@ -124,8 +124,10 @@
 
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { useToast } from 'vue-toastification'
 import { PhCircleNotch } from '@phosphor-icons/vue'
+import { useToast } from 'vue-toastification'
+
+const config = useRuntimeConfig()
 
 const emit = defineEmits(['hideContactModal'])
 const toast = useToast()
@@ -157,7 +159,7 @@ const onSubmit = (e: Event) => {
     e.preventDefault()
     if (!e.target) return
     isLoading.value = true
-    fetch(`${import.meta.env.VITE_API_URL}/send-email`, {
+    fetch(`${config.public.API_URL}/send-email`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',

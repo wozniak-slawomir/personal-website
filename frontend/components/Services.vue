@@ -78,9 +78,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, defineEmits } from 'vue'
+import { ref } from 'vue'
 import { PhCaretDown, PhCaretUp } from '@phosphor-icons/vue'
-
 const expandDevelopmentFeatures = ref(false)
 const expandCoachingFeatures = ref(false)
 const expandAuditsFeatures = ref(false)
