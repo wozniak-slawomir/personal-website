@@ -126,9 +126,7 @@
         </div>
         <div v-if="bioState === 'personal life'">
           <h3 class="font-bold text-xl mb-3">
-            Father of a dog and a cat. In a happy relationship with an
-            amazing
-            girlfriend.
+            Father of a dog and a cat. Love spending time with my friends.
           </h3>
           <div class="flex flex-wrap">
             <img
@@ -137,8 +135,8 @@
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
-              src="~/assets/bio/with-girlfriend.jpg"
-              alt="with girlfriend"
+              src="~/assets/bio/with-friends.jpg"
+              alt="with friends"
               class="mt-3 mx-auto max-h-[500px]"
             >
           </div>
