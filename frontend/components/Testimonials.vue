@@ -11,7 +11,7 @@
       <!-- ml is set to -350px to prevent blocks from getting squished -->
       <div
         v-for="testimonial in topTestimonials"
-        :key="testimonial.name"
+        :key="testimonial.text"
         class="w-full inline-block whitespace-normal"
       >
         <div
@@ -28,7 +28,7 @@
       </div>
       <div
         v-for="testimonial in topTestimonials"
-        :key="testimonial.name"
+        :key="testimonial.text"
         class="w-full inline-block whitespace-normal"
       >
         <div
@@ -45,8 +45,8 @@
       </div>
       <div
         v-for="testimonial in topTestimonials"
-        :key="testimonial.name"
-        class="w-full inline-block whitespace-normal "
+        :key="testimonial.text"
+        class="w-full inline-block whitespace-normal"
       >
         <div
           class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mb-6"
@@ -64,7 +64,7 @@
     <div class="flex animate-slide whitespace-nowrap gap-[24px] ml-[-175px]">
       <div
         v-for="testimonial in bottomTestimonials"
-        :key="testimonial.name"
+        :key="testimonial.text"
         class="w-full inline-block whitespace-normal"
       >
         <div
@@ -81,7 +81,7 @@
       </div>
       <div
         v-for="testimonial in bottomTestimonials"
-        :key="testimonial.name"
+        :key="testimonial.text"
         class="w-full inline-block whitespace-normal"
       >
         <div
@@ -98,7 +98,7 @@
       </div>
       <div
         v-for="testimonial in bottomTestimonials"
-        :key="testimonial.name"
+        :key="testimonial.text"
         class="w-full inline-block whitespace-normal"
       >
         <div

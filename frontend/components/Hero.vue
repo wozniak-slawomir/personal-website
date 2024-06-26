@@ -9,7 +9,7 @@
     </h1>
     <div class="portrait">
       <img
-        :src="getImageUrl('portrait.png')"
+        src="~/assets/portrait.png"
         class="max-h-[750px]"
         alt="Portrait"
       >
@@ -50,13 +50,9 @@
 
 <script setup lang="ts">
 import { PhCheckCircle } from '@phosphor-icons/vue'
-import { provide, defineEmits } from 'vue'
+import { provide } from 'vue'
 
 provide('weight', 'fill')
-
-const getImageUrl = (name: string) => {
-  return new URL(`./assets/images/${name}`, import.meta.url).href
-}
 
 defineEmits(['showContactModal'])
 
