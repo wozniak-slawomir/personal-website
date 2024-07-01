@@ -53,7 +53,7 @@
           <p>
             {{ $t('bio.story3') }} <br><br>
             <img
-              :src="getImageUrl('bio/spain.jpg')"
+              src="~/assets/bio/spain.jpg"
               alt="car in sunset in Spain"
               class="my-5 mx-auto max-h-[300px]"
             >
@@ -62,7 +62,7 @@
             {{ $t('bio.story4') }}<br>
             {{ $t('bio.story5') }} <br><br>
             <img
-              :src="getImageUrl('bio/book.jpg')"
+              src="~/assets/bio/book.jpg"
               alt="car in sunset in Spain"
               class="my-5 mx-auto max-h-[300px]"
             >
@@ -128,12 +128,12 @@
           </h3>
           <div class="flex flex-wrap">
             <img
-              :src="getImageUrl('bio/with-dog.jpg')"
+              src="~/assets/bio/with-dog.jpg"
               alt="with dog"
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
-              :src="getImageUrl('bio/with-girlfriend.jpg')"
+              src="~/assets/bio/with-girlfriend.jpg"
               alt="with girlfriend"
               class="mt-3 mx-auto max-h-[500px]"
             >
