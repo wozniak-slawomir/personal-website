@@ -78,7 +78,7 @@
           class="text-sm text-[color:#929292]"
         >
           <div
-            v-for="(position, index) in carrerPositions"
+            v-for="(position, index) in careerPositions"
             :key="position.title"
             class="mb-4"
           >
@@ -105,7 +105,10 @@
               </li>
             </ul>
             <div class="mt-3 text-white">
-              Technology used: {{ position.technology.join(", ") }}
+              <p>
+                {{ $t('bio.career.technology') }}: 
+                {{ position.technology.join(', ') }}
+              </p>
             </div>
           </div>
         </div>
@@ -121,7 +124,7 @@
         </div>
         <div v-if="bioState === 'personal life'">
           <h3 class="font-bold text-xl mb-3">
-            Father of a dog and a cat. Love spending time with my friends.
+            {{ $t('bio.personal-life1') }}
           </h3>
           <div class="flex flex-wrap">
             <img
@@ -137,7 +140,7 @@
           </div>
           <hr class="my-6 border-[color:#929292]">
           <h3 class="font-bold text-xl mb-3">
-            A big fan of martial arts and bodybuilding
+            {{ $t('bio.personal-life2') }}
           </h3>
           <div class="flex flex-wrap">
             <img
@@ -219,7 +222,10 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed} from 'vue'
+import { useTranslation } from 'i18next-vue'
+
+const { t } = useTranslation()
 
 type BioState =
   | 'story'
@@ -230,94 +236,100 @@ type BioState =
 
 const bioState = ref<BioState>('story')
 
-const carrerPositions = [
+const careerPositions = computed(() => [
   {
-    title: 'Frontend Developer',
-    company: 'E Net Production',
+    title: t('bio.career.enet.title'),
+    company: t('bio.career.enet.company'),
     dateStart: new Date('2024-04'),
     dateEnd: new Date(),
     keyPoints: [
-      'Rapidly onboarded and delivered several complex tasks in a timespan of weeks',
-      'Utilizing Vue.js to develop e-commerce platform used by thousands of users',
+      t('bio.career.enet.keyPoints1'),
+      t('bio.career.enet.keyPoints2'),
     ],
     technology: ['Vue', 'Typescript', 'HTML5', 'SCSS'],
   },
   {
-    title: 'Frontend Team Leader',
-    company: 'Cognitran',
-    dateStart: new Date('2022-12-1'),
+    title: t('bio.career.cognitran.title'),
+    company: t('bio.career.cognitran.company'),
+    dateStart: new Date('2022-12-01'),
     dateEnd: new Date('2024-02-28'),
     keyPoints: [
-      `Successfully led the entire project development lifecycle, delivering a compelling Minimum Viable Product
-      (MVP) that exceeded client expectations. Transformed a basic demo app into a cutting-edge solution,
-      garnering high client satisfaction.`,
-      `Provided expert guidance and mentorship to a team of full-stack developers, resulting in a cohesive and
-      high-performing development team. Led frontend codebase decisions, ensuring optimal performance and
-      user experience.`,
-      `Implemented seamless integrations with multiple project environments, facilitating efficient data exchange
-        and collaboration among team members.`,
+      t('bio.career.cognitran.keyPoints1'),
+      t('bio.career.cognitran.keyPoints2'),
+      t('bio.career.cognitran.keyPoints3'),
     ],
     technology: ['React', 'Redux', 'Typescript', 'HTML5', 'SCSS', 'Jest', 'Testing Library'],
   },
   {
-    title: 'Frontend Developer',
-    company: 'Wirtualna Polska',
+    title: t('bio.career.wp.title'),
+    company: t('bio.career.wp.company'),
     dateStart: new Date('2022-05-01'),
     dateEnd: new Date('2022-11-30'),
     keyPoints: [
-      `Demonstrated a proactive approach in maintaining high code quality and best practices through active
-        participation in code reviews.`,
-      'Built scalable and maintainable frontend solutions by employing React hook-based and Redux approaches.',
-      'Tested frontend code using Jest and Testing Library, leading to improved code quality and reduced bugs.',
+      t('bio.career.wp.keyPoints1'),
+      t('bio.career.wp.keyPoints2'),
+      t('bio.career.wp.keyPoints3'),
     ],
     technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
   },
   {
-    title: 'Frontend Developer',
-    company: 'Nordea',
+    title: t('bio.career.nordea.title'),
+    company: t('bio.career.nordea.company'),
     dateStart: new Date('2021-05-01'),
     dateEnd: new Date('2022-04-30'),
     keyPoints: [
-      `Successfully introduced Typescript to the codebase, enhancing code quality, maintainability, and catching
-      bugs at compile-time.`,
-      `As the sole frontend developer in an 8-member team, played a pivotal role in making informed decisions
-      related to frontend architecture, technologies, and best practices.`,
-      `Took ownership of maintaining and updating ESLint rules and helpers, ensuring consistent code style and
-        enforcing best practices throughout the codebase.`,
+      t('bio.career.nordea.keyPoints1'),
+      t('bio.career.nordea.keyPoints2'),
+      t('bio.career.nordea.keyPoints3'),
     ],
     technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
   },
   {
-    title: 'Frontend Developer',
-    company: 'Webwave',
+    title: t('bio.career.webwave.title'),
+    company: t('bio.career.webwave.company'),
     dateStart: new Date('2020-04-01'),
     dateEnd: new Date('2021-04-30'),
     keyPoints: [
-      `Participating in full lifecycle of development for company web application using Vue.js framework and OOP
-      paradigm for the application's engine`,
-      'Created and maintained reusable components and modules for the company\'s design system, ensuring consisency among all modules',
-      `Took ownership of maintaining and updating ESLint rules and helpers, ensuring consistent code style and
-        enforcing best practices throughout the codebase.`,
+      t('bio.career.webwave.keyPoints1'),
+      t('bio.career.webwave.keyPoints2'),
+      t('bio.career.webwave.keyPoints3'),
     ],
     technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
   },
-]
+])
 
-const achievements = [
-  'Succesfully delivered a frontend part of MVP while leading a small team of developers',
-  'Launched my own team and succesfully planning and managing software projects',
-  'Learned Spanish in 1 year',
-  'Travelled to 14 countries',
-  'Taught more that 10 kids mathemathics as a high school student',
-]
+const achievements = computed(() => [
+  t('bio.achievements1'),
+  t('bio.achievements2'),
+  t('bio.achievements3'),
+  t('bio.achievements4'),
+  t('bio.achievements5'),
+])
 
-const skills = {
+const skills = computed(() => ({
   hard: {
     proficient: ['React', 'Redux', 'Typescript', 'Vue.js', 'Javascript', 'HTML5', 'SCSS', 'Bootstrap', 'Jest', 'Testing Library', 'Git', 'Axios', 'ESLint', 'REST', 'JSON', 'Webpack', 'NPM', 'OOP'],
     used: ['JQuery', 'Scrum', 'Node.js', 'Express', 'Linux', 'Docker', 'Rust', 'MUI'],
 
   },
-  soft: ['Leadership', 'Communication', 'Problem-solving', 'Teamwork', 'Adaptability', 'Time management', 'Creativity', 'Critical thinking', 'Conflict resolution', 'Decision making', 'Empathy', 'Flexibility', 'Persuasion', 'Stress management', 'Tolerance', 'Work ethic'],
+  soft: [
+  t('bio.skills.leadership'),
+  t('bio.skills.communication'),
+  t('bio.skills.problem-solving'),
+  t('bio.skills.teamwork'),
+  t('bio.skills.adaptability'),
+  t('bio.skills.time-management'),
+  t('bio.skills.creativity'),
+  t('bio.skills.critical-thinking'),
+  t('bio.skills.conflict-resolution'),
+  t('bio.skills.decision-making'),
+  t('bio.skills.empathy'),
+  t('bio.skills.flexibility'),
+  t('bio.skills.persuasion'),
+  t('bio.skills.stress-management'),
+  t('bio.skills.tolerance'),
+  t('bio.skills.work-ethic'),
+],
 }
-
+))
 </script>

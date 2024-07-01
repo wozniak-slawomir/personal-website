@@ -1,19 +1,19 @@
 <template>
   <div class="container mt-64">
-    <h1 class="text-5xl text-center md:text-left font-semibold">
-      SERVICES
+    <h1 class="text-5xl text-center md:text-left font-semibold uppercase">
+      {{ $t('services.services') }}
     </h1>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-8">
       <div class="bg-[#393939] py-4 rounded-xl px-8">
         <h2 class="text-l my-5">
-          SOFTWARE DEVELOPMENT
+          {{ $t('services.development.title') }}
         </h2>
         <hr class="border-[#666666]">
         <div class="my-5 text-[#bbbbbb]">
-          <p>With my experienced team we create the most challenging and effective solutions.</p>
+          <p>{{ $t('services.development.description') }}</p>
           <ul class="pl-7 my-4 list-disc">
-            <li>Customized software projects</li>
-            <li>Software team outsourcing</li>
+            <li>{{ $t('services.development.points.0') }}</li>
+            <li>{{ $t('services.development.points.1') }}</li>
           </ul>
         </div>
         <!-- <button @click="expandDevelopmentFeatures = !expandDevelopmentFeatures"
@@ -25,15 +25,15 @@
       </div>
       <div class="bg-[#393939] py-4 rounded-xl px-8">
         <h2 class="text-l my-5">
-          SOFTWARE COACHING
+          {{ $t('services.coaching.title') }}
         </h2>
         <hr class="border-[#666666]">
         <div class="my-5 text-[#bbbbbb]">
-          <p>Are you learning how to code? We will:</p>
+          <p>{{ $t('services.coaching.description') }}</p>
           <ul class="pl-7 my-4 list-disc">
-            <li>Plan your learning journey</li>
-            <li>Work on real-life scenarios</li>
-            <li>Analyze trends and new technologies</li>
+            <li>{{ $t('services.coaching.points.0') }}</li>
+            <li>{{ $t('services.coaching.points.1') }}</li>
+            <li>{{ $t('services.coaching.points.2') }}</li>
           </ul>
         </div>
         <!-- <button @click="expandCoachingFeatures = !expandCoachingFeatures"
@@ -45,14 +45,14 @@
       </div>
       <div class="bg-[#393939] py-4 rounded-xl px-8">
         <h2 class="text-l my-5">
-          SOFTWARE AUDITS
+          {{ $t('services.audits.title') }}
         </h2>
         <hr class="border-[#666666]">
         <div class="my-5 text-[#bbbbbb]">
-          <p>Have any doubts about current solutions?</p>
+          <p>{{ $t('services.audits.description') }}</p>
           <ul class="pl-7 my-4 list-disc">
-            <li>Comprehensive software audit pointing weak points and possible solutions</li>
-            <li>Refactoring and reducing technology debt</li>
+            <li>{{ $t('services.audits.points.0') }}</li>
+            <li>{{ $t('services.audits.points.1') }}</li>
           </ul>
         </div>
         <!-- <button @click="expandAuditsFeatures = !expandAuditsFeatures"
@@ -65,13 +65,13 @@
     </div>
     <div class="text-center my-20">
       <h1 class="text-4xl mb-6">
-        Interested in working together?
+        {{ $t('services.interested') }}
       </h1>
       <button
         class="px-8 py-5 rounded-full bg-[color:var(--secondary-color)] md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300"
         @click="$emit('showContactModal')"
       >
-        Contact me
+        {{ $t('common.contact') }}
       </button>
     </div>
   </div>
