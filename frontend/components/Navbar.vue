@@ -3,7 +3,7 @@
     class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-3 px-5 flex justify-between items-center fixed top-0 left-0 z-30 md:px-16 select-none"
   >
     <img
-      :src="getImageUrl('logo.png')"
+      src="~/assets/logo.png"
       class="max-w-[400px] w-full mr-3 md:mr-0"
       alt="Slawomir Wozniak"
     >
@@ -54,10 +54,6 @@ import { ref } from 'vue'
 import i18next from 'i18next'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 import { vOnClickOutside } from '@vueuse/components'
-
-const getImageUrl = (name: string) => {
-  return new URL(`./assets/images/${name}`, import.meta.url).href
-}
 
 const isMenuOpen = ref(false)
 
