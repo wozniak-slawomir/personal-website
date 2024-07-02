@@ -1,6 +1,6 @@
 <template>
   <nav
-    class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-5 px-16 flex flex-wrap justify-between items-center fixed top-0 left-0 z-20"
+    class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-5 px-16 flex flex-wrap justify-center md:justify-between items-center fixed top-0 left-0 z-20"
   >
     <img
       src="~/assets/logo.png"
