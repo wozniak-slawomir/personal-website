@@ -39,8 +39,13 @@ app.post("/api/send-email", async (req: Request, res: Response) => {
     res.status(200).send(info);
 });
 
-app.get("*", (req: Request, res: Response) => {
+app.get("/", (req: Request, res: Response) => {
     res.sendFile('index.html', { root: path.join(__dirname, './frontend') });
+});
+
+app.get("*", (req: Request, res: Response) => {
+    res.status(404);
+    res.sendFile('404.html', { root: path.join(__dirname, './frontend') });
 });
 
 app.listen(process.env.PORT, () => {
