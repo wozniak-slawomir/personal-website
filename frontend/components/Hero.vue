@@ -26,22 +26,22 @@
         <ul class="mb-6 uppercase text-2xl w-max">
           <li class="mb-2">
             <PhCheckCircle class="inline align-baseline" />
-            {{ $t("heroSoftwareEngineering") }}
+            {{ $t("hero.software.engineering") }}
           </li>
           <li class="mb-2">
             <PhCheckCircle class="inline align-baseline" />
-            {{ $t("heroBusinessPsychology") }}
+            {{ $t("hero.business.psychology") }}
           </li>
           <li class="mb-2">
             <PhCheckCircle class="inline align-baseline" />
-            {{ $t("heroMartialArts") }}
+            {{ $t("hero.martial.arts") }}
           </li>
         </ul>
         <button
           class="px-20 py-4 rounded-full bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300"
           @click="$emit('showContactModal')"
         >
-          {{ $t("commonContact") }}
+          {{ $t("common.contact") }}
         </button>
       </div>
     </div>

@@ -30,7 +30,7 @@
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'personal life'"
       >
-        {{ $t("bio.menu.personal-life") }}
+        {{ $t("bio.menu.personal.life") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'skills' }"
@@ -223,9 +223,7 @@
 
 <script setup lang="ts">
 import { ref, computed} from 'vue'
-// import { useTranslation } from 'i18next-vue'
-
-// const { t } = useTranslation()
+const { t } = useI18n()
 
 type BioState =
   | 'story'

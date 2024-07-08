@@ -51,7 +51,7 @@
           href="tel:+48571205570"
           aria-label="Phone link"
           target="_blank"
-        >{{ $t("hello") }}
+        >
           <PhPhone
             :size="45"
             class="h-12"

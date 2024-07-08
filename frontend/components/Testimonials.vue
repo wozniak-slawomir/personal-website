@@ -118,9 +118,7 @@
 </template>
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useTranslation } from 'i18next-vue'
-
-const { t } = useTranslation()
+const { t } = useI18n()
 
 // the number of top and bottom testimonials should be the same, otherwise the animation will not work, in case more is needed, the animation should be adjusted
 const topTestimonials = computed(() => [

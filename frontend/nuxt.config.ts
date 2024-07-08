@@ -79,22 +79,8 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    baseUrl: 'http://localhost:3000',
-    locales: [
-      {
-        code: 'en-CA',
-        name: 'English',
-        iso: 'en-CA',
-        dir: 'ltr',
-        file: 'en-CA.ts',
-      },
-    ],
-    lazy: true,
-    langDir: 'lang',
-    strategy: 'no_prefix',
-    defaultLocale: 'en-CA',
+    defaultLocale: 'en',
     detectBrowserLanguage: false,
-    vueI18n: './i18n.config.ts',
   },
 },
 )
