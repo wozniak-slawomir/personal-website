@@ -59,7 +59,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
   tailwindcss: {
     config: {
       theme: {
@@ -78,4 +78,23 @@ export default defineNuxtConfig({
       important: true,
     },
   },
-})
+  i18n: {
+    baseUrl: 'http://localhost:3000',
+    locales: [
+      {
+        code: 'en-CA',
+        name: 'English',
+        iso: 'en-CA',
+        dir: 'ltr',
+        file: 'en-CA.ts',
+      },
+    ],
+    lazy: true,
+    langDir: 'lang',
+    strategy: 'no_prefix',
+    defaultLocale: 'en-CA',
+    detectBrowserLanguage: false,
+    vueI18n: './i18n.config.ts',
+  },
+},
+)

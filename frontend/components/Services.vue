@@ -12,8 +12,8 @@
         <div class="my-5 text-[#bbbbbb]">
           <p>{{ $t('services.development.description') }}</p>
           <ul class="pl-7 my-4 list-disc">
-            <li>{{ $t('services.development.points.0') }}</li>
-            <li>{{ $t('services.development.points.1') }}</li>
+            <li>{{ $t('services.development.points1') }}</li>
+            <li>{{ $t('services.development.points2') }}</li>
           </ul>
         </div>
         <!-- <button @click="expandDevelopmentFeatures = !expandDevelopmentFeatures"
@@ -31,9 +31,9 @@
         <div class="my-5 text-[#bbbbbb]">
           <p>{{ $t('services.coaching.description') }}</p>
           <ul class="pl-7 my-4 list-disc">
-            <li>{{ $t('services.coaching.points.0') }}</li>
-            <li>{{ $t('services.coaching.points.1') }}</li>
-            <li>{{ $t('services.coaching.points.2') }}</li>
+            <li>{{ $t('services.coaching.points1') }}</li>
+            <li>{{ $t('services.coaching.points2') }}</li>
+            <li>{{ $t('services.coaching.points3') }}</li>
           </ul>
         </div>
         <!-- <button @click="expandCoachingFeatures = !expandCoachingFeatures"
@@ -51,8 +51,8 @@
         <div class="my-5 text-[#bbbbbb]">
           <p>{{ $t('services.audits.description') }}</p>
           <ul class="pl-7 my-4 list-disc">
-            <li>{{ $t('services.audits.points.0') }}</li>
-            <li>{{ $t('services.audits.points.1') }}</li>
+            <li>{{ $t('services.audits.points1') }}</li>
+            <li>{{ $t('services.audits.points2') }}</li>
           </ul>
         </div>
         <!-- <button @click="expandAuditsFeatures = !expandAuditsFeatures"

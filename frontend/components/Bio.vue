@@ -133,7 +133,7 @@
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
-              src="~/assets/bio/with-girlfriend.jpg"
+              src="~/assets/bio/with-friends.jpg"
               alt="with girlfriend"
               class="mt-3 mx-auto max-h-[500px]"
             >
@@ -223,9 +223,9 @@
 
 <script setup lang="ts">
 import { ref, computed} from 'vue'
-import { useTranslation } from 'i18next-vue'
+// import { useTranslation } from 'i18next-vue'
 
-const { t } = useTranslation()
+// const { t } = useTranslation()
 
 type BioState =
   | 'story'

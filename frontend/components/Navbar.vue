@@ -15,10 +15,10 @@
       >
         <span
           class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-          :class="i18next.language !== 'en' ? 'fi-' + i18next.language : 'fi-gb'"
+          :class="locale !== 'en-US' ? 'fi-' + locale : 'fi-gb'"
         />
         <p class="align-middle mx-1 hidden sm:inline uppercase">
-          {{ i18next.language }}
+          {{ locale }}
         </p>
       </div>
       <div
@@ -28,16 +28,16 @@
       >
         <div class="flex flex-col">
           <button
-            v-for="language in languages"
-            :key="language"
+            v-for="item in locales"
+            :key="typeof item === 'string' ? item : item.code"
             class="p-2 rounded-md w-14 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-full hover:scale-110 duration-150"
-            @click="changeLanguage(language)"
+            @click="changeLanguage(typeof item === 'object' ? item.code : item)"
           >
             <span
               class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-              :class="language !== 'en' ? 'fi-' + language : 'fi-gb'"
+              :class="item.code !== 'en-US' ? 'fi-' + item.code : 'fi-gb'"
             />
-            <span class="align-middle mx-1 hidden sm:inline uppercase">{{ language }}</span>
+            <span class="align-middle mx-1 hidden sm:inline uppercase">{{ item.name }}</span>
           </button>
         </div>
       </div>
@@ -51,18 +51,14 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import i18next from 'i18next'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 import { vOnClickOutside } from '@vueuse/components'
+const { locales, locale, setLocale } = useI18n()
 
 const isMenuOpen = ref(false)
 
-type Language = 'en' | 'pl' | 'fr' | 'es';
-
-const languages: Language[] = ['en', 'pl', 'fr', 'es']
-
-const changeLanguage = (language: Language) => {
-  i18next.changeLanguage(language)
+const changeLanguage = (language : string) => {
+  setLocale(language)
   isMenuOpen.value = false
 }
 
