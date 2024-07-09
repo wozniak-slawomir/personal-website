@@ -124,7 +124,7 @@
         </div>
         <div v-if="bioState === 'personal life'">
           <h3 class="font-bold text-xl mb-3">
-            {{ $t('bio.personal-life1') }}
+            {{ $t('bio.personal.life1') }}
           </h3>
           <div class="flex flex-wrap">
             <img
@@ -140,7 +140,7 @@
           </div>
           <hr class="my-6 border-[color:#929292]">
           <h3 class="font-bold text-xl mb-3">
-            {{ $t('bio.personal-life2') }}
+            {{ $t('bio.personal.life2') }}
           </h3>
           <div class="flex flex-wrap">
             <img
@@ -313,20 +313,20 @@ const skills = computed(() => ({
   soft: [
   t('bio.skills.leadership'),
   t('bio.skills.communication'),
-  t('bio.skills.problem-solving'),
+  t('bio.skills.problem.solving'),
   t('bio.skills.teamwork'),
   t('bio.skills.adaptability'),
-  t('bio.skills.time-management'),
+  t('bio.skills.time.management'),
   t('bio.skills.creativity'),
-  t('bio.skills.critical-thinking'),
-  t('bio.skills.conflict-resolution'),
-  t('bio.skills.decision-making'),
+  t('bio.skills.critical.thinking'),
+  t('bio.skills.conflict.resolution'),
+  t('bio.skills.decision.making'),
   t('bio.skills.empathy'),
   t('bio.skills.flexibility'),
   t('bio.skills.persuasion'),
-  t('bio.skills.stress-management'),
+  t('bio.skills.stress.management'),
   t('bio.skills.tolerance'),
-  t('bio.skills.work-ethic'),
+  t('bio.skills.work.ethic'),
 ],
 }
 ))

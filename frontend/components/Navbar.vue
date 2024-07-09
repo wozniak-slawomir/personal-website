@@ -15,7 +15,7 @@
       >
         <span
           class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-          :class="locale !== 'en-US' ? 'fi-' + locale : 'fi-gb'"
+          :class="locale !== 'en' ? 'fi-' + locale : 'fi-gb'"
         />
         <p class="align-middle mx-1 hidden sm:inline uppercase">
           {{ locale }}
@@ -29,15 +29,15 @@
         <div class="flex flex-col">
           <button
             v-for="item in locales"
-            :key="typeof item === 'string' ? item : item.code"
+            :key="item"
             class="p-2 rounded-md w-14 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-full hover:scale-110 duration-150"
-            @click="changeLanguage(typeof item === 'object' ? item.code : item)"
+            @click="changeLanguage(item)"
           >
             <span
               class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-              :class="item.code !== 'en-US' ? 'fi-' + item.code : 'fi-gb'"
+              :class="item !== 'en' ? 'fi-' + item : 'fi-gb'"
             />
-            <span class="align-middle mx-1 hidden sm:inline uppercase">{{ item.name }}</span>
+            <span class="align-middle mx-1 hidden sm:inline uppercase">{{ item }}</span>
           </button>
         </div>
       </div>
@@ -61,5 +61,4 @@ const changeLanguage = (language : string) => {
   setLocale(language)
   isMenuOpen.value = false
 }
-
 </script>
