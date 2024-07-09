@@ -5,35 +5,35 @@
     </h1>
     <div class="mb-0 mt-10 flex flex-wrap lg:my-10">
       <button
-        :class="{ 'active': bioState === 'story' }"
+        :class="{ 'bg-[#474b59]': bioState === 'story' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0 "
         @click="bioState = 'story'"
       >
         STORY
       </button>
       <button
-        :class="{ 'active': bioState === 'career' }"
+        :class="{ 'bg-[#474b59]': bioState === 'career' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'career'"
       >
         CAREER
       </button>
       <button
-        :class="{ 'active': bioState === 'achievements' }"
+        :class="{ 'bg-[#474b59]': bioState === 'achievements' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'achievements'"
       >
         ACHIEVEMENTS
       </button>
       <button
-        :class="{ 'active': bioState === 'personal life' }"
+        :class="{ 'bg-[#474b59]': bioState === 'personal life' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'personal life'"
       >
         PERSONAL LIFE
       </button>
       <button
-        :class="{ 'active': bioState === 'skills' }"
+        :class="{ 'bg-[#474b59]': bioState === 'skills' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'skills'"
       >
@@ -326,9 +326,3 @@ const skills = {
 }
 
 </script>
-
-<style scoped lang="css">
-.active {
-  background-color: #474b59;
-}
-</style>
