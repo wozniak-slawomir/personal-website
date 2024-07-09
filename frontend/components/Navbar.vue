@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onBeforeMount } from 'vue'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 import { vOnClickOutside } from '@vueuse/components'
 const { locales, locale, setLocale } = useI18n()
@@ -59,6 +59,13 @@ const isMenuOpen = ref(false)
 
 const changeLanguage = (language : string) => {
   setLocale(language)
+  window.localStorage.setItem('language', language)
   isMenuOpen.value = false
 }
+
+onBeforeMount(() =>{
+  if (window.localStorage.getItem('language')) {
+    setLocale(window.localStorage.getItem('language') as string)
+  }
+})
 </script>
