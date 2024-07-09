@@ -32,6 +32,7 @@ git clone https://github.com/wozniak-slawomir/personal-website.git
 ```sh
 cd personal-website
 ```
+
 ```sh
 cd frontend
 ```
