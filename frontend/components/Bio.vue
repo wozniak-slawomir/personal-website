@@ -166,7 +166,7 @@
               <div class="flex flex-wrap">
                 <div class="flex-1">
                   <h4 class="text-xl font-bold my-3 text-white">
-                    Hard skills proficient:
+                    {{ $t('bio.skills.hard.proficient') }}:
                   </h4>
                   <ul class="list-disc pl-4">
                     <li
@@ -179,7 +179,7 @@
                 </div>
                 <div class="flex-1">
                   <h4 class="text-xl my-3 font-bold text-white">
-                    Hard skills used:
+                    {{ $t('bio.skills.hard.used') }}:
                   </h4>
                   <ul class="list-disc pl-4">
                     <li
@@ -197,7 +197,7 @@
             <div class="flex flex-col-reverse md:flex-row">
               <div class="flex-1 mr-5">
                 <h3 class="text-3xl text-white font-bold">
-                  Soft skills
+                  {{ $t('bio.skills.soft') }}:
                 </h3>
                 <ul class="list-disc pl-4 mt-6">
                   <li
