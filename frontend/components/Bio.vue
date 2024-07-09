@@ -134,7 +134,7 @@
             >
             <img
               src="~/assets/bio/with-friends.jpg"
-              alt="with girlfriend"
+              alt="with friends"
               class="mt-3 mx-auto max-h-[500px]"
             >
           </div>

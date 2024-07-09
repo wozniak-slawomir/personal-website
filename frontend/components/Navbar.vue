@@ -15,7 +15,7 @@
       >
         <span
           class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-          :class="locale !== 'en' ? 'fi-' + locale : 'fi-gb'"
+          :class="locale === 'en' ? 'fi-gb' : 'fi-' + locale"
         />
         <p class="align-middle mx-1 hidden sm:inline uppercase">
           {{ locale }}
@@ -35,16 +35,12 @@
           >
             <span
               class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-              :class="item !== 'en' ? 'fi-' + item : 'fi-gb'"
+              :class="item === 'en' ? 'fi-gb' : 'fi-' + item"
             />
             <span class="align-middle mx-1 hidden sm:inline uppercase">{{ item }}</span>
           </button>
         </div>
       </div>
-      <!-- <button @click="$emit('showContactModal')"
-        class="px-8 py-5 rounded-full shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] bg-[color:var(--secondary-color)] hidden md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300">
-        Contact me
-      </button> -->
     </div>
   </nav>
 </template>
@@ -53,19 +49,21 @@
 import { ref, onBeforeMount } from 'vue'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 import { vOnClickOutside } from '@vueuse/components'
+import { DEFAULT_LOCALE } from '~/const/defaultLocale'
 const { locales, locale, setLocale } = useI18n()
 
 const isMenuOpen = ref(false)
 
 const changeLanguage = (language : string) => {
   setLocale(language)
-  window.localStorage.setItem('language', language)
+  localStorage.setItem('language', language)
   isMenuOpen.value = false
 }
 
 onBeforeMount(() =>{
-  if (window.localStorage.getItem('language')) {
-    setLocale(window.localStorage.getItem('language') as string)
+  const languageStored = localStorage.getItem('language')
+  if (languageStored) {
+    setLocale(languageStored || DEFAULT_LOCALE)
   }
 })
 </script>
