@@ -1,6 +1,6 @@
 <template>
   <div
-    class="backdrop fixed flex justify-center items-start p-4 inset-0 bg-[#1A1A1A] bg-opacity-80 z-20"
+    class="backdrop fixed flex justify-center items-start p-4 inset-0 bg-[#1A1A1A] bg-opacity-80 z-30"
     :class="{ 'overflow-y-auto': !isLoading }"
   >
     <PhCircleNotch
