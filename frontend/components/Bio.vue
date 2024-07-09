@@ -330,4 +330,5 @@ const skills = computed(() => ({
 ],
 }
 ))
+
 </script>
