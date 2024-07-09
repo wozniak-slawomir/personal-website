@@ -104,5 +104,10 @@
     "services.audits.description": "¿Tienes dudas sobre las soluciones actuales?",
     "services.audits.points1": "Auditoría de software completa señalando puntos débiles y posibles soluciones",
     "services.audits.points2": "Refactorización y reducción de la deuda tecnológica",
-    "services.interested": "¿Interesado en trabajar juntos?"
+    "services.interested": "¿Interesado en trabajar juntos?",
+    "modal.first.name": "Nombre",
+    "modal.last.name": "Apellido",
+    "modal.email": "Correo electrónico",
+    "modal.phone": "Número de teléfono",
+    "modal.message": "Mensaje"
 }

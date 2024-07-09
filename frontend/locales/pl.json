@@ -104,5 +104,10 @@
       "services.audits.description": "Masz wątpliwości co do obecnych rozwiązań?",
       "services.audits.points1": "Kompleksowy audyt oprogramowania wskazujący słabe punkty i możliwe rozwiązania",
       "services.audits.points2": "Refaktoryzacja i redukcja długu technologicznego",
-      "services.interested": "Zainteresowany współpracą?"
+      "services.interested": "Zainteresowany współpracą?",
+      "modal.first.name": "Imię",
+      "modal.last.name": "Nazwisko",
+      "modal.email": "Email",
+      "modal.phone": "Numer telefonu",
+      "modal.message": "Wiadomość"
 }

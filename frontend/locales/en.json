@@ -104,5 +104,10 @@
     "services.audits.description": "Have any doubts about current solutions?",
     "services.audits.points1": "Comprehensive software audit pointing weak points and possible solutions",
     "services.audits.points2": "Refactoring and reducing technology debt",
-    "services.interested": "Interested in working together?"
+    "services.interested": "Interested in working together?",
+    "modal.first.name": "First name",
+    "modal.last.name": "Last name",
+    "modal.email": "Email",
+    "modal.phone": "Phone number",
+    "modal.message": "Message"
 }
