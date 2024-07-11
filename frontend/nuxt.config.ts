@@ -48,6 +48,7 @@ export default defineNuxtConfig({
           rel: 'preconnect',
           href: 'https://fonts.googleapis.com',
         },
+        { rel: 'icon', type: 'image/x-icon', href: 'favicon.png' },
       ],
       script: [
         {
@@ -58,7 +59,6 @@ export default defineNuxtConfig({
       ],
     },
   },
-
   modules: ['@nuxtjs/tailwindcss'],
   tailwindcss: {
     config: {
