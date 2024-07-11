@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import { DEFAULT_LOCALE } from './const/defaultLocale'
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
@@ -80,9 +82,9 @@ export default defineNuxtConfig({
   },
   i18n: {
     locales: [ 'en', 'pl', 'fr', 'es' ],
-    defaultLocale: 'en',
+    defaultLocale: DEFAULT_LOCALE,
     detectBrowserLanguage: false,
-    strategy: 'prefix_except_default',
+    strategy: 'no_prefix',
   },
 },
 )
