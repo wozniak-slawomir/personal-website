@@ -46,10 +46,9 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount } from 'vue'
+import { ref } from 'vue'
 import '/node_modules/flag-icons/css/flag-icons.min.css'
 import { vOnClickOutside } from '@vueuse/components'
-import { DEFAULT_LOCALE } from '~/const/defaultLocale'
 const { locales, locale, setLocale } = useI18n()
 
 const isMenuOpen = ref(false)
@@ -59,11 +58,4 @@ const changeLanguage = (language : string) => {
   localStorage.setItem('language', language)
   isMenuOpen.value = false
 }
-
-onBeforeMount(() =>{
-  const languageStored = localStorage.getItem('language')
-  if (languageStored) {
-    setLocale(languageStored || DEFAULT_LOCALE)
-  }
-})
 </script>
