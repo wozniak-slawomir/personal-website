@@ -54,7 +54,7 @@
             {{ $t('bio.story3') }} <br><br>
             <img
               src="~/assets/bio/spain.jpg"
-              alt="car in sunset in Spain"
+              :alt="$t('alt.spain')"
               class="my-5 mx-auto max-h-[300px]"
             >
           </p>
@@ -63,7 +63,7 @@
             {{ $t('bio.story5') }} <br><br>
             <img
               src="~/assets/bio/book.jpg"
-              alt="car in sunset in Spain"
+              :alt="$t('alt.book')"
               class="my-5 mx-auto max-h-[300px]"
             >
             {{ $t('bio.story6') }} <a
@@ -129,12 +129,12 @@
           <div class="flex flex-wrap">
             <img
               src="~/assets/bio/with-dog.jpg"
-              alt="with dog"
+              :alt="$t('alt.dog')"
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
               src="~/assets/bio/with-friends.jpg"
-              alt="with friends"
+              :alt="$t('alt.friends')"
               class="mt-3 mx-auto max-h-[500px]"
             >
           </div>
@@ -145,12 +145,12 @@
           <div class="flex flex-wrap">
             <img
               src="~/assets/bio/gym.jpg"
-              alt="bodybuilding"
+              :alt="$t('alt.bodybuilding')"
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
               src="~/assets/bio/boxing.png"
-              alt="boxing"
+              :alt="$t('alt.boxing')"
               class="mt-3 mx-auto max-h-[500px]"
             >
           </div>
@@ -159,7 +159,7 @@
           <div class="flex flex-wrap">
             <img
               src="~/assets/bio/workstation.jpg"
-              alt="workstation"
+              :alt="$t('alt.workstation')"
               class="mr-auto max-h-[500px]"
             >
             <div class="flex-1 px-5">
@@ -210,7 +210,7 @@
               </div>
               <img
                 src="~/assets/bio/travel.jpg"
-                alt="travel"
+                :alt="$t('alt.travel')"
                 class="ml-auto mr-auto md:mr-0 mt-5 mb-5 w-full md:w-auto h-auto md:h-[500px]"
               >
             </div>

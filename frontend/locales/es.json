@@ -109,5 +109,15 @@
     "modal.last.name": "Apellido",
     "modal.email": "Correo electrónico",
     "modal.phone": "Número de teléfono",
-    "modal.message": "Mensaje"
+    "modal.message": "Mensaje",
+    "alt.slawomir": "Sławomir Woźniak",
+    "alt.portrait": "Retrato",
+    "alt.spain": "Coche al atardecer en España",
+    "alt.book": "Leyendo un libro con un gato",
+    "alt.dog": "Con perro",
+    "alt.friends": "Con amigos",
+    "alt.bodybuilding": "Fisicoculturismo",
+    "alt.boxing": "Boxeo",
+    "alt.workstation": "Estación de trabajo",
+    "alt.travel": "Viajar"
 }

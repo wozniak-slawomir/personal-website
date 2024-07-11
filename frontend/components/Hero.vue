@@ -11,7 +11,7 @@
       <img
         src="~/assets/portrait.png"
         class="max-h-[750px]"
-        alt="Portrait"
+        :alt="$t('alt.portrait')"
       >
     </div>
     <!-- <div class="partners">

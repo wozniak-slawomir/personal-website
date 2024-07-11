@@ -5,7 +5,7 @@
     <img
       src="~/assets/logo.png"
       class="max-w-[400px] w-full mr-3 md:mr-0"
-      alt="Slawomir Wozniak"
+      :alt="$t('alt.slawomir')"
     >
     <div class="flex">
       <div

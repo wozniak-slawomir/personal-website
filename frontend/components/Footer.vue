@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center flex-col lg:flex-row gap-5">
       <img
         src="~/assets/logo.png"
-        alt="logo"
+        :alt="$t('alt.slawomir')"
         class="max-w-[400px] w-full lg:h-[30px]"
       >
       <div class="flex gap-5 text-white">
