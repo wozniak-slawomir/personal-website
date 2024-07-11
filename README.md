@@ -42,12 +42,20 @@ cd frontend
 npm install
 ```
 
-## How to build
-
-- Run command:
+4. Start the developer server
 
 ```sh
 npm run dev
 ```
 
-- Navigate to [http://localhost:3000](http://localhost:3000) in your web browser
+5. Navigate to [http://localhost:3000](http://localhost:3000) in your web browser
+
+## How to build
+
+- run the command
+
+```sh
+npm run generate
+```
+
+After running the build command, the generated website will appear in the dist folder. This folder contains all the necessary files to deploy your website.
