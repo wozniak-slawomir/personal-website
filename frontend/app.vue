@@ -26,8 +26,8 @@ onBeforeMount(() =>{
 })
 
 watch(locale, () => {
-    useHead({
-  title: title.value,
+  useHead({
+    title: title.value,
   })
 })
 </script>

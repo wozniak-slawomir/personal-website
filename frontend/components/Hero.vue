@@ -23,7 +23,7 @@
     </div> -->
     <div class="cta m-4 flex justify-center items-center">
       <div>
-        <ul class="mb-6 uppercase text-2xl w-max">
+        <ul class="mb-6 uppercase text-xl sm:text-2xl w-max">
           <li class="mb-2">
             <PhCheckCircle class="inline align-baseline" />
             {{ $t("hero.software.engineering") }}
