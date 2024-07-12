@@ -1,62 +1,62 @@
-# Vue 3, TypeScript & Tailwind CSS Starter
 
-> A simple, Vue 3 starter with TypeScript support
+# Sławomir Woźniak - Software Engineering
 
-[Demo/Installation](https://vue3-typescript-tailwind-starter.vercel.app/)
+> Welcome to my personal website repository! This repository contains the code and assets for my personal website, showcasing my work, projects, and interests.
 
 ## Features
 
+- Bio with information about me
+- Client testimonials
+- Services description
+- Contact form
+
+## Technologies used
+
 - Vue 3
-- TypeScript
-- Tailwind CSS
-- Simple store with global state
 - Vue Router
+- Tailwind CSS
+- TypeScript
+- NuxtJS
 - ESLint
 
-## Project setup and usage
+## How to run
 
-Install dependencies:
+1. Clone the repository:
 
+```sh
+git clone https://github.com/wozniak-slawomir/personal-website.git
 ```
+
+2. Navigate to the project directory, then frontend:
+
+```sh
+cd personal-website
+```
+
+```sh
+cd frontend
+```
+
+3. Install dependencies:
+
+```sh
 npm install
 ```
 
-Run development server:
+4. Start the developer server
 
-```
+```sh
 npm run dev
 ```
 
-Build for produciton:
+5. Navigate to [http://localhost:3000](http://localhost:3000) in your web browser
 
-```
-npm run build
-```
+## How to build
 
-Run ESLint:
+- run the command
 
-```
-npm run lint
+```sh
+npm run generate
 ```
 
-Lint and fix:
-
-```
-npm run lint:fix
-```
-
-## Contributing
-
-Contributions, feedback and issues are welcome. Feel free to fork, comment, critique, or submit a pull request.
-
-## Acknowledgements
-
-This repo was adapted from [Unihen](https://twitter.com/uninen)'s [vite-ts-tailwind-starter](https://github.com/Uninen/vite-ts-tailwind-starter) project.
-
-## License
-
-This project is open source and available under the [MIT License](LICENSE).
-
----
-
-Follow [@vincentdoerig](https://twitter.com/vincentdoerig) on Twitter.
+After running the build command, the generated website will appear in the dist folder. This folder contains all the necessary files to deploy your website.
