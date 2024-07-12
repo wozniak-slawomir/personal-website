@@ -8,11 +8,14 @@
 <script setup lang="ts">
 import '~/assets/index.css'
 import { DEFAULT_LOCALE } from '~/const/defaultLocale'
-import { onBeforeMount } from 'vue'
-const { setLocale } = useI18n()
+import { computed, onBeforeMount } from 'vue'
+
+const { t, locale, setLocale } = useI18n()
+
+const title = computed(() => `Sławomir Woźniak - ${t('hero.software.engineering')}`)
 
 useHead({
-  title: 'Slawomir Wozniak - Software Engineering',
+  title: title.value,
 })
 
 onBeforeMount(() =>{
@@ -22,4 +25,9 @@ onBeforeMount(() =>{
   }
 })
 
+watch(locale, () => {
+    useHead({
+  title: title.value,
+  })
+})
 </script>

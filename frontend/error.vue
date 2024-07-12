@@ -26,11 +26,14 @@
 <script setup lang="ts">
 import '~/assets/index.css'
 import { DEFAULT_LOCALE } from '~/const/defaultLocale'
-import { onBeforeMount } from 'vue'
-const { setLocale } = useI18n()
+import { computed, onBeforeMount } from 'vue'
+
+const { t, locale, setLocale } = useI18n()
+
+const title = computed(() => `404 ${t('404.not.found')}`)
 
 useHead({
-title: '404 Page not found',
+  title: title.value,
 })
 
 onBeforeMount(() =>{
@@ -38,5 +41,11 @@ onBeforeMount(() =>{
   if (languageStored) {
     setLocale(languageStored || DEFAULT_LOCALE)
   }
+})
+
+watch(locale, () => {
+    useHead({
+  title: title.value,
+  })
 })
 </script>
