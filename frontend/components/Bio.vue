@@ -9,69 +9,64 @@
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0 "
         @click="bioState = 'story'"
       >
-        STORY
+        {{ $t("bio.menu.story") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'career' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'career'"
       >
-        CAREER
+        {{ $t("bio.menu.career") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'achievements' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'achievements'"
       >
-        ACHIEVEMENTS
+        {{ $t("bio.menu.achievements") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'personal life' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'personal life'"
       >
-        PERSONAL LIFE
+        {{ $t("bio.menu.personal.life") }}
       </button>
       <button
         :class="{ 'bg-[#474b59]': bioState === 'skills' }"
         class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
         @click="bioState = 'skills'"
       >
-        SKILLS
+        {{ $t("bio.menu.skills") }}
       </button>
     </div>
     <div>
-      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
+      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
         <div
           v-if="bioState === 'story'"
           class="overflow-clip"
         >
           <p>
-            Passionate about learning. I taught myself software engineering and worked in the industry for 5 years as a
-            frontend developer. <br>
-            I speak Polish, English and Spanish. Currently learning French.<br><br>
+            {{ $t('bio.story1') }} <br>
+            {{ $t('bio.story2') }}<br><br>
           </p>
           <p>
-            In 2021 I simply packed my things and travelled throughout Europe. I visited 10 countries in 3 months. I had
-            the most fun in my life.
-            Finally stayed in Spain for 6 months. <br><br>
+            {{ $t('bio.story3') }} <br><br>
             <img
               src="~/assets/bio/spain.jpg"
-              alt="car in sunset in Spain"
+              :alt="$t('alt.spain')"
               class="my-5 mx-auto max-h-[300px]"
             >
           </p>
           <p>
-            In 2024 I decided to start studying Business Psychology. I wanted to understand the human mind and how it
-            can be applied to business. <br>
-            And precisely that is what you can expect from me. I have a deep understanding of technology, management and
-            delivering business value. <br><br>
+            {{ $t('bio.story4') }}<br>
+            {{ $t('bio.story5') }} <br><br>
             <img
               src="~/assets/bio/book.jpg"
-              alt="car in sunset in Spain"
+              :alt="$t('alt.book')"
               class="my-5 mx-auto max-h-[300px]"
             >
-            You can follow my journey on my blog here, or on <a
+            {{ $t('bio.story6') }} <a
               href="https://www.instagram.com/wozniaakslawek/"
               target="_blank"
               class="text-blue-400 underline"
@@ -83,7 +78,7 @@
           class="text-sm text-[color:#929292]"
         >
           <div
-            v-for="(position, index) in carrerPositions"
+            v-for="(position, index) in careerPositions"
             :key="position.title"
             class="mb-4"
           >
@@ -110,7 +105,10 @@
               </li>
             </ul>
             <div class="mt-3 text-white">
-              Technology used: {{ position.technology.join(", ") }}
+              <p>
+                {{ $t('bio.career.technology') }}: 
+                {{ position.technology.join(', ') }}
+              </p>
             </div>
           </div>
         </div>
@@ -126,33 +124,33 @@
         </div>
         <div v-if="bioState === 'personal life'">
           <h3 class="font-bold text-xl mb-3">
-            Father of a dog and a cat. Love spending time with my friends.
+            {{ $t('bio.personal.life1') }}
           </h3>
           <div class="flex flex-wrap">
             <img
               src="~/assets/bio/with-dog.jpg"
-              alt="with dog"
+              :alt="$t('alt.dog')"
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
               src="~/assets/bio/with-friends.jpg"
-              alt="with friends"
+              :alt="$t('alt.friends')"
               class="mt-3 mx-auto max-h-[500px]"
             >
           </div>
           <hr class="my-6 border-[color:#929292]">
           <h3 class="font-bold text-xl mb-3">
-            A big fan of martial arts and bodybuilding
+            {{ $t('bio.personal.life2') }}
           </h3>
           <div class="flex flex-wrap">
             <img
               src="~/assets/bio/gym.jpg"
-              alt="bodybuilding"
+              :alt="$t('alt.bodybuilding')"
               class="mt-3 mx-auto max-h-[500px]"
             >
             <img
               src="~/assets/bio/boxing.png"
-              alt="boxing"
+              :alt="$t('alt.boxing')"
               class="mt-3 mx-auto max-h-[500px]"
             >
           </div>
@@ -161,14 +159,14 @@
           <div class="flex flex-wrap">
             <img
               src="~/assets/bio/workstation.jpg"
-              alt="workstation"
+              :alt="$t('alt.workstation')"
               class="mr-auto max-h-[500px]"
             >
             <div class="flex-1 px-5">
               <div class="flex flex-wrap">
                 <div class="flex-1">
                   <h4 class="text-xl font-bold my-3 text-white">
-                    Hard skills proficient:
+                    {{ $t('bio.skills.hard.proficient') }}:
                   </h4>
                   <ul class="list-disc pl-4">
                     <li
@@ -181,7 +179,7 @@
                 </div>
                 <div class="flex-1">
                   <h4 class="text-xl my-3 font-bold text-white">
-                    Hard skills used:
+                    {{ $t('bio.skills.hard.used') }}:
                   </h4>
                   <ul class="list-disc pl-4">
                     <li
@@ -199,7 +197,7 @@
             <div class="flex flex-col-reverse md:flex-row">
               <div class="flex-1 mr-5">
                 <h3 class="text-3xl text-white font-bold">
-                  Soft skills
+                  {{ $t('bio.skills.soft') }}:
                 </h3>
                 <ul class="list-disc pl-4 mt-6">
                   <li
@@ -212,7 +210,7 @@
               </div>
               <img
                 src="~/assets/bio/travel.jpg"
-                alt="travel"
+                :alt="$t('alt.travel')"
                 class="ml-auto mr-auto md:mr-0 mt-5 mb-5 w-full md:w-auto h-auto md:h-[500px]"
               >
             </div>
@@ -224,7 +222,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, computed} from 'vue'
+const { t } = useI18n()
 
 type BioState =
   | 'story'
@@ -235,94 +234,101 @@ type BioState =
 
 const bioState = ref<BioState>('story')
 
-const carrerPositions = [
+const careerPositions = computed(() => [
   {
-    title: 'Frontend Developer',
-    company: 'E Net Production',
+    title: t('bio.career.enet.title'),
+    company: t('bio.career.enet.company'),
     dateStart: new Date('2024-04'),
     dateEnd: new Date(),
     keyPoints: [
-      'Rapidly onboarded and delivered several complex tasks in a timespan of weeks',
-      'Utilizing Vue.js to develop e-commerce platform used by thousands of users',
+      t('bio.career.enet.keyPoints1'),
+      t('bio.career.enet.keyPoints2'),
     ],
     technology: ['Vue', 'Typescript', 'HTML5', 'SCSS'],
   },
   {
-    title: 'Frontend Team Leader',
-    company: 'Cognitran',
-    dateStart: new Date('2022-12-1'),
+    title: t('bio.career.cognitran.title'),
+    company: t('bio.career.cognitran.company'),
+    dateStart: new Date('2022-12-01'),
     dateEnd: new Date('2024-02-28'),
     keyPoints: [
-      `Successfully led the entire project development lifecycle, delivering a compelling Minimum Viable Product
-      (MVP) that exceeded client expectations. Transformed a basic demo app into a cutting-edge solution,
-      garnering high client satisfaction.`,
-      `Provided expert guidance and mentorship to a team of full-stack developers, resulting in a cohesive and
-      high-performing development team. Led frontend codebase decisions, ensuring optimal performance and
-      user experience.`,
-      `Implemented seamless integrations with multiple project environments, facilitating efficient data exchange
-        and collaboration among team members.`,
+      t('bio.career.cognitran.keyPoints1'),
+      t('bio.career.cognitran.keyPoints2'),
+      t('bio.career.cognitran.keyPoints3'),
     ],
     technology: ['React', 'Redux', 'Typescript', 'HTML5', 'SCSS', 'Jest', 'Testing Library'],
   },
   {
-    title: 'Frontend Developer',
-    company: 'Wirtualna Polska',
+    title: t('bio.career.wp.title'),
+    company: t('bio.career.wp.company'),
     dateStart: new Date('2022-05-01'),
     dateEnd: new Date('2022-11-30'),
     keyPoints: [
-      `Demonstrated a proactive approach in maintaining high code quality and best practices through active
-        participation in code reviews.`,
-      'Built scalable and maintainable frontend solutions by employing React hook-based and Redux approaches.',
-      'Tested frontend code using Jest and Testing Library, leading to improved code quality and reduced bugs.',
+      t('bio.career.wp.keyPoints1'),
+      t('bio.career.wp.keyPoints2'),
+      t('bio.career.wp.keyPoints3'),
     ],
     technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
   },
   {
-    title: 'Frontend Developer',
-    company: 'Nordea',
+    title: t('bio.career.nordea.title'),
+    company: t('bio.career.nordea.company'),
     dateStart: new Date('2021-05-01'),
     dateEnd: new Date('2022-04-30'),
     keyPoints: [
-      `Successfully introduced Typescript to the codebase, enhancing code quality, maintainability, and catching
-      bugs at compile-time.`,
-      `As the sole frontend developer in an 8-member team, played a pivotal role in making informed decisions
-      related to frontend architecture, technologies, and best practices.`,
-      `Took ownership of maintaining and updating ESLint rules and helpers, ensuring consistent code style and
-        enforcing best practices throughout the codebase.`,
+      t('bio.career.nordea.keyPoints1'),
+      t('bio.career.nordea.keyPoints2'),
+      t('bio.career.nordea.keyPoints3'),
     ],
     technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
   },
   {
-    title: 'Frontend Developer',
-    company: 'Webwave',
+    title: t('bio.career.webwave.title'),
+    company: t('bio.career.webwave.company'),
     dateStart: new Date('2020-04-01'),
     dateEnd: new Date('2021-04-30'),
     keyPoints: [
-      `Participating in full lifecycle of development for company web application using Vue.js framework and OOP
-      paradigm for the application's engine`,
-      'Created and maintained reusable components and modules for the company\'s design system, ensuring consisency among all modules',
-      `Took ownership of maintaining and updating ESLint rules and helpers, ensuring consistent code style and
-        enforcing best practices throughout the codebase.`,
+      t('bio.career.webwave.keyPoints1'),
+      t('bio.career.webwave.keyPoints2'),
+      t('bio.career.webwave.keyPoints3'),
     ],
     technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
   },
-]
+])
 
-const achievements = [
-  'Succesfully delivered a frontend part of MVP while leading a small team of developers',
-  'Launched my own team and succesfully planning and managing software projects',
-  'Learned Spanish in 1 year',
-  'Travelled to 14 countries',
-  'Taught more that 10 kids mathemathics as a high school student',
-]
+const achievements = computed(() => [
+  t('bio.achievements1'),
+  t('bio.achievements2'),
+  t('bio.achievements3'),
+  t('bio.achievements4'),
+  t('bio.achievements5'),
+])
 
-const skills = {
+const skills = computed(() => ({
   hard: {
     proficient: ['React', 'Redux', 'Typescript', 'Vue.js', 'Javascript', 'HTML5', 'SCSS', 'Bootstrap', 'Jest', 'Testing Library', 'Git', 'Axios', 'ESLint', 'REST', 'JSON', 'Webpack', 'NPM', 'OOP'],
     used: ['JQuery', 'Scrum', 'Node.js', 'Express', 'Linux', 'Docker', 'Rust', 'MUI'],
 
   },
-  soft: ['Leadership', 'Communication', 'Problem-solving', 'Teamwork', 'Adaptability', 'Time management', 'Creativity', 'Critical thinking', 'Conflict resolution', 'Decision making', 'Empathy', 'Flexibility', 'Persuasion', 'Stress management', 'Tolerance', 'Work ethic'],
+  soft: [
+  t('bio.skills.leadership'),
+  t('bio.skills.communication'),
+  t('bio.skills.problem.solving'),
+  t('bio.skills.teamwork'),
+  t('bio.skills.adaptability'),
+  t('bio.skills.time.management'),
+  t('bio.skills.creativity'),
+  t('bio.skills.critical.thinking'),
+  t('bio.skills.conflict.resolution'),
+  t('bio.skills.decision.making'),
+  t('bio.skills.empathy'),
+  t('bio.skills.flexibility'),
+  t('bio.skills.persuasion'),
+  t('bio.skills.stress.management'),
+  t('bio.skills.tolerance'),
+  t('bio.skills.work.ethic'),
+],
 }
+))
 
 </script>

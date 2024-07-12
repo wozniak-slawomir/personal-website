@@ -1,5 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import { DEFAULT_LOCALE } from './const/defaultLocale'
+
 export default defineNuxtConfig({
   devtools: { enabled: true },
   runtimeConfig: {
@@ -59,7 +61,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['@nuxtjs/tailwindcss'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
   tailwindcss: {
     config: {
       theme: {
@@ -78,4 +80,11 @@ export default defineNuxtConfig({
       important: true,
     },
   },
-})
+  i18n: {
+    locales: [ 'en', 'pl', 'fr', 'es' ],
+    defaultLocale: DEFAULT_LOCALE,
+    detectBrowserLanguage: false,
+    strategy: 'no_prefix',
+  },
+},
+)

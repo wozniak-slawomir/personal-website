@@ -13,7 +13,7 @@
     >
       <div class="flex justify-between items-center">
         <h1 class="text-3xl font-semibold uppercase">
-          Contact me
+          {{ $t('common.contact') }}
         </h1>
         <button
           class="text-3xl font-semibold"
@@ -33,7 +33,7 @@
               for="name"
               class="block text-xl font-semibold mb-2"
             >
-              First name
+              {{ $t('modal.first.name') }}
               <span class="text-red-500">*</span>
             </label>
             <input
@@ -50,7 +50,7 @@
               for="name"
               class="block text-xl font-semibold mb-2"
             >
-              Last name
+              {{ $t('modal.last.name') }}
               <span class="text-red-500">*</span>
             </label>
             <input
@@ -67,7 +67,7 @@
               for="email"
               class="block text-xl font-semibold mb-2"
             >
-              Email
+              {{ $t('modal.email') }}
               <span class="text-red-500">*</span>
             </label>
             <input
@@ -84,7 +84,7 @@
               for="phone-number"
               class="block text-xl font-semibold mb-2"
             >
-              Phone number
+              {{ $t('modal.phone') }}
             </label>
             <input
               id="phone-number"
@@ -99,7 +99,7 @@
               for="message"
               class="block text-xl font-semibold mb-2"
             >
-              Message
+              {{ $t('modal.message') }}
               <span class="text-red-500">*</span>
             </label>
             <textarea
