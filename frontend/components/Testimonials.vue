@@ -15,7 +15,7 @@
         class="w-full inline-block whitespace-normal"
       >
         <div
-          class=" flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mb-6"
+          class=" flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mb-6"
         >
           <h2 class="text-2xl">
             {{ testimonial.text }}
@@ -32,7 +32,7 @@
         class="w-full inline-block whitespace-normal"
       >
         <div
-          class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mb-6"
+          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mb-6"
         >
           <h2 class="text-2xl">
             {{ testimonial.text }}
@@ -49,7 +49,7 @@
         class="w-full inline-block whitespace-normal"
       >
         <div
-          class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mb-6"
+          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939] mb-6"
         >
           <h2 class="text-2xl">
             {{ testimonial.text }}
@@ -68,7 +68,7 @@
         class="w-full inline-block whitespace-normal"
       >
         <div
-          class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939]"
+          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939]"
         >
           <h2 class="text-2xl">
             {{ testimonial.text }}
@@ -85,7 +85,7 @@
         class="w-full inline-block whitespace-normal"
       >
         <div
-          class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939]"
+          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939]"
         >
           <h2 class="text-2xl">
             {{ testimonial.text }}
@@ -102,7 +102,7 @@
         class="w-full inline-block whitespace-normal"
       >
         <div
-          class="flex flex-col w-[350px] h-[250px] p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939]"
+          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl bg-gradient-to-t from-[var(--secondary-color)] to-[#393939]"
         >
           <h2 class="text-2xl">
             {{ testimonial.text }}

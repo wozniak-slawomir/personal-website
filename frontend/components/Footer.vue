@@ -61,7 +61,7 @@
     </div>
     <hr class="border-[#464646] lg:my-10 my-7">
     <div class="flex justify-between text-center flex-col gap-1 sm:flex-row sm:gap-0">
-      <span>Swarzędz 62-020 Poland</span>
+      <span>Swarzędz 62-020 {{ $t('footer.poland') }}</span>
       <div>
         <span>NIP: 7011029927</span>
         <span class="ml-5">© {{ date }}</span>
