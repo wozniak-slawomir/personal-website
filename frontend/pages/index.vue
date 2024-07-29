@@ -3,6 +3,7 @@
     <Navbar @show-contact-modal="showContactModal" />
     <Hero @show-contact-modal="showContactModal" />
     <Bio />
+    <RealizedProjects />
     <Testimonials />
     <Services @show-contact-modal="showContactModal" />
     <ContactModal
