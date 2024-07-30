@@ -7,17 +7,42 @@
       <h1 class="text-5xl font-bold my-10 text-center md:text-left">
         REALIZED PROJECTS
       </h1>
-      <div class="flex whitespace-nowrap gap-5 justify-center lg:gap-20">
+      <div class="flex whitespace-nowrap gap-5 justify-center lg:gap-10">
         <div
           v-for="project in projects"
           :key="project.name"
-          class="bg-white flex overflow-hidden w-full min-w-[300px] aspect-[9/16] whitespace-normal rounded-2xl lg:min-w-[1100px] lg:aspect-video min-[2560px]:min-w-[1500px]"
+          class="backdrop-brightness-50 relative flex overflow-hidden w-full min-w-[300px] aspect-[9/16] whitespace-normal rounded-2xl shadow-xl sm:min-w-[500px] lg:min-w-[900px] lg:aspect-video min-[2560px]:min-w-[1500px]"
         >
           <img
-            :src="project.image"
+            :src="innerWidth > innerHeight ? project.desktopImage : project.mobileImage"
             :alt="project.name"
-            class="object-cover w-full h-full"
+            class="absolute inset-0 object-cover w-full h-full"
           >
+          <div
+            v-if="activeCard === project.name"
+            class="absolute inset-0 w-full h-full p-5 flex justify-between flex-col"
+            :class="activeCard === project.name ? 'backdrop-brightness-50 backdrop-blur-sm' : ''"
+          >
+            <div>
+              <h1 class="text-3xl font-semibold uppercase">
+                {{ project.name }}
+              </h1>
+              <p class="max-w-96 my-5">
+                {{ project.description }}
+              </p>
+            </div>
+            <div class="flex justify-between">
+              <div class="flex gap-5">
+                <button class="bg-white px-6 py-1 rounded-full text-black">
+                  Visit this website
+                </button>
+              </div>
+              <PhArrowDownRight
+                class="text-white align-middle"
+                size="30px"
+              />
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -25,21 +50,47 @@
 </template>
 
 <script setup lang="ts">
-const projects = [
+import { ref } from 'vue'
+import { PhArrowDownRight} from '@phosphor-icons/vue'
+
+const innerWidth = ref(0)
+const innerHeight = ref(0)
+
+onMounted(() => {
+  innerWidth.value = window.innerWidth
+  innerHeight.value = window.innerHeight
+})
+
+type Card = 
+| 'placeholder 1'
+| 'hiszpanbet'
+| 'placeholder 2'
+
+const activeCard = ref<Card>('hiszpanbet')
+
+//mobile images are the same for now, when the layout is ready, I will change them
+
+const projects = ref([
   {
-    name: 'Placeholder 1',
-    image: '../assets/projects/placeholder1.png',
+    name: 'placeholder 1',
+    desktopImage: new URL('../assets/projects/placeholder1.png', import.meta.url).href,
+    mobileImage: new URL('../assets/projects/placeholder1.png', import.meta.url).href,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
   },
   {
-    name: 'Hiszpanbet',
-    image: '../assets/projects/hiszpanbet.png',
+    name: 'hiszpanbet',
+    desktopImage: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
+    mobileImage: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
   },
   {
-    name: 'Placeholder 2',
-    image: '../assets/projects/placeholder2.png',
+    name: 'placeholder 2',
+    desktopImage: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
+    mobileImage: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
   },
-]
+])
+
+console.log(activeCard)
+console.log(activeCard)
 </script>
