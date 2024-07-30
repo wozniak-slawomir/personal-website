@@ -1,9 +1,6 @@
 <template>
   <div class="overflow-hidden">
     <div class="container mt-32">
-      <!-- <div
-      class="h-96 w-full absolute z-10 bg-gradient-to-r from-[var(--secondary-color)] via-transparent to-[var(--secondary-color)] translate-x-[-20px] mt-[136px] sm:mt-[130px] md:mt-28 sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1025px] xl:max-w-[1280px] 2xl:max-w-[1536px] scale-[101%]"
-    /> -->
       <h1 class="text-5xl font-bold my-10 text-center md:text-left">
         REALIZED PROJECTS
       </h1>
@@ -44,11 +41,29 @@
           Category 5
         </button>
       </div>
-      <div class="flex whitespace-nowrap gap-5 justify-center lg:gap-10">
+      <div class="flex whitespace-nowrap gap-5 justify-center lg:gap-10 relative overflow-hidden">
+        <div class="absolute inset-0 flex justify-between w-full h-full items-center">
+          <div class="z-10 w-96 h-full bg-gradient-to-r from-[var(--secondary-color)] to-transparent flex justify-start">
+            <div class="h-full hover:backdrop-brightness-125 flex items-center px-10 rounded-r-[50%] scale-150 duration-100 active:filter active:brightness-110">
+              <PhCaretLeft
+                size="2rem"
+                weight="bold"
+              />
+            </div>
+          </div>
+          <div class="z-10 w-96 h-full bg-gradient-to-l from-[var(--secondary-color)] to-transparent flex justify-end">
+            <div class="h-full hover:backdrop-brightness-125 flex items-center px-10 rounded-l-[50%] scale-150 duration-100 active:filter active:brightness-110">
+              <PhCaretRight
+                size="2rem"
+                weight="bold"
+              />
+            </div>
+          </div>
+        </div>
         <div
           v-for="project in projects"
           :key="project.name"
-          class="backdrop-brightness-50 relative flex overflow-hidden w-full min-w-[300px] aspect-[9/16] whitespace-normal rounded-2xl sm:min-w-[500px] lg:min-w-[900px] lg:aspect-video min-[2560px]:min-w-[1500px]"
+          class="backdrop-brightness-50 relative flex overflow-hidden w-full min-w-[300px] aspect-[9/16] whitespace-normal rounded-2xl sm:min-w-[500px] lg:min-w-[900px] lg:aspect-video"
         >
           <img
             :src="innerWidth > innerHeight ? project.desktopImage : project.mobileImage"
@@ -78,7 +93,7 @@
                 <p
                   v-for="tag in project.tags"
                   :key="tag"
-                  class="p-1 underline underline-offset-4"
+                  class="p-1 underline underline-offset-4 duration-300 cursor-default hover:underline-offset-8"
                 >
                   {{ tag }}
                 </p>
@@ -97,7 +112,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { PhArrowDownRight} from '@phosphor-icons/vue'
+import { PhArrowDownRight, PhCaretRight, PhCaretLeft} from '@phosphor-icons/vue'
 
 const innerWidth = ref(0)
 const innerHeight = ref(0)
