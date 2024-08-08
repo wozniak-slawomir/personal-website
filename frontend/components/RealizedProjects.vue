@@ -6,187 +6,108 @@
       </h1>
       <div class="mb-5 mt-10 flex flex-wrap lg:my-10 gap-5">
         <button
-          :class="{ 'bg-[#474b59]': activeCard === 'cat1' }"
-          class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 px-5 duration-300 shadow lg:mb-0 "
-          @click="activeCard = 'cat1'"
+          :class="{ 'bg-[#474b59]': activeFilter === 'CATEGORY 1' }"
+          class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow lg:max-w-fit lg:px-20 lg:mb-0 "
+          @click="activeFilter === 'CATEGORY 1' ? activeFilter = 'ALL' : activeFilter = 'CATEGORY 1'"
         >
           Category 1
         </button>
         <button
-          :class="{ 'bg-[#474b59]': activeCard === 'cat2' }"
-          class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 px-5 duration-300 shadow lg:mb-0"
-          @click="activeCard = 'cat2'"
+          :class="{ 'bg-[#474b59]': activeFilter === 'CATEGORY 2' }"
+          class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow lg:max-w-fit lg:px-20 lg:mb-0"
+          @click="activeFilter === 'CATEGORY 2' ? activeFilter = 'ALL' : activeFilter = 'CATEGORY 2'"
         >
           Category 2
         </button>
         <button
-          :class="{ 'bg-[#474b59]': activeCard === 'cat3' }"
-          class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 px-5 duration-300 shadow lg:mb-0"
-          @click="activeCard = 'cat3'"
+          :class="{ 'bg-[#474b59]': activeFilter === 'CATEGORY 3' }"
+          class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow lg:max-w-fit lg:px-20 lg:mb-0"
+          @click="activeFilter === 'CATEGORY 3' ? activeFilter = 'ALL' : activeFilter = 'CATEGORY 3'"
         >
           Category 3
         </button>
-        <button
-          :class="{ 'bg-[#474b59]': activeCard === 'cat4' }"
-          class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 px-5 duration-300 shadow lg:mb-0"
-          @click="activeCard = 'cat4'"
-        >
-          Category 4
-        </button>
-        <button
-          :class="{ 'bg-[#474b59]': activeCard === 'cat5' }"
-          class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 px-5 duration-300 shadow lg:mb-0"
-          @click="activeCard = 'cat5'"
-        >
-          Category 5
-        </button>
       </div>
-      <div class="flex whitespace-nowrap relative overflow-y-hidden lg:overflow-x-hidden overflow-x-clip">
-        <div class="absolute inset-0 justify-between w-full h-full items-center hidden lg:flex">
-          <div class="z-10 w-80 h-full bg-gradient-to-r from-[var(--secondary-color)] to-transparent flex justify-start">
-            <div class="h-full hover:backdrop-brightness-125 flex items-center px-10 rounded-r-[50%] scale-150 duration-100 active:filter active:brightness-110">
-              <PhCaretLeft
-                size="2rem"
-                weight="bold"
-              />
-            </div>
-          </div>
-          <div class="z-10 w-80 h-full bg-gradient-to-l from-[var(--secondary-color)] to-transparent flex justify-end">
-            <div class="h-full hover:backdrop-brightness-125 flex items-center px-10 rounded-l-[50%] scale-150 duration-100 active:filter active:brightness-110">
-              <PhCaretRight
-                size="2rem"
-                weight="bold"
-              />
-            </div>
-          </div>
-        </div>
-        <div
-          ref="scrollContainer"
-          class="flex gap-7 overflow-x-scroll  lg:overflow-x-hidden lg:gap-10"
-          @scroll="handleScroll"
-        >
-          <div
-            v-for="project in projects"
-            :key="project.name"
-            class="snap-center backdrop-brightness-50 relative flex overflow-hidden w-full min-w-[300px] aspect-[9/16] whitespace-normal rounded-2xl sm:min-w-[500px] lg:min-w-[900px] lg:aspect-video"
-          >
+      <masonry-wall
+        :items="filteredItems"
+        :gap="24"
+        :max-columns="3"
+        :min-columns="3"
+        :column-width="300"
+      >
+        <template #default="{item}">
+          <div class="relative rounded-2xl overflow-hidden">
             <img
-              :src="innerWidth > innerHeight ? project.desktopImage : project.mobileImage"
-              :alt="project.name"
-              class="absolute inset-0 object-cover w-full h-full"
+              :src="item.image"
+              :alt="item.name"
+              class="w-full h-fit object-cover"
             >
-            <div
-              v-if="activeCard === project.name"
-              class="absolute inset-0 w-full h-full p-5 flex justify-between flex-col"
-              :class="activeCard === project.name ? 'backdrop-brightness-[30%] backdrop-blur-sm' : ''"
-            >
-              <div>
-                <h1 class="text-3xl font-semibold uppercase">
-                  {{ project.name }}
-                </h1>
-                <p class="max-w-96 my-5 text-2xl">
-                  {{ project.description }}
-                </p>
+            <!-- <div class="absolute bottom-0 left-0 right-0 bg-[#393939] bg-opacity-90 p-5">
+              <h1 class="text-2xl font-bold text-white">
+                {{ item.name }}
+              </h1>
+              <p class="text-white">
+                {{ item.description }}
+              </p>
+              <div class="flex items-center mt-5">
+                <a
+                  href="#"
+                  class="text-white hover:text-[#f5f5f5] duration-300"
+                >
+                  <span>View project</span>
+                  <PhArrowDownRight class="w-5 h-5 ml-2" />
+                </a>
               </div>
-              <div class="flex justify-between">
-                <div class="flex gap-5">
-                  <button class="bg-white px-6 py-1 rounded-full text-black duration-100 hover:bg-[#CCCCCC] active:opacity-50">
-                    Visit this website
-                  </button>
-                </div>
-                <div class="gap-5 hidden lg:flex">
-                  <p
-                    v-for="tag in project.tags"
-                    :key="tag"
-                    class="p-1 underline underline-offset-4 duration-300 cursor-default hover:underline-offset-8"
-                  >
-                    {{ tag }}
-                  </p>
-                </div>
-                <PhArrowDownRight
-                  class="text-white align-middle"
-                  size="30px"
-                />
-              </div>
-            </div>
+            </div> -->
           </div>
-        </div>
-      </div>
+        </template>
+      </masonry-wall>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { PhArrowDownRight, PhCaretRight, PhCaretLeft} from '@phosphor-icons/vue'
+import { computed } from 'vue'
+import { PhArrowDownRight } from '@phosphor-icons/vue'
 
-const innerWidth = ref(0)
-const innerHeight = ref(0)
-const scrollContainer = ref<HTMLElement | null>(null)
-
-onMounted(() => {
-  innerWidth.value = window.innerWidth
-  innerHeight.value = window.innerHeight
-})
-
-const handleScroll = () => {
-  const container = scrollContainer.value
-  if (!container) return
-
-  const firstChild = container.firstElementChild as HTMLElement
-  const lastChild = container.lastElementChild as HTMLElement
-
-  if (firstChild && container.scrollLeft > firstChild.clientWidth) {
-    container.appendChild(firstChild)
-    container.scrollLeft -= firstChild.clientWidth
-  }
-
-  if (lastChild && container.scrollLeft + container.clientWidth < lastChild.offsetLeft) {
-    container.insertBefore(lastChild, container.firstElementChild)
-    container.scrollLeft += lastChild.clientWidth
-  }
-}
-
-type Card = 
-| 'placeholder 1'
-| 'hiszpanbet'
-| 'placeholder 2'
-
-const activeCard = ref<Card>('hiszpanbet')
-
-// mobile images are the same for now, when the layout is ready, I will change them
-// tags are used by filters to show only projects from selected category
-
-const projects = computed(() => [
-  {
+const items = [
+{
     name: 'placeholder 1',
-    desktopImage: new URL('../assets/projects/placeholder1.png', import.meta.url).href,
-    mobileImage: new URL('../assets/projects/placeholder1.png', import.meta.url).href,
+    image: new URL('../assets/projects/placeholder1.png', import.meta.url).href,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['cat1', 'cat2'],
+    tags: ['CATEGORY 1', 'CATEGORY 2'],
   },
   {
     name: 'hiszpanbet',
-    desktopImage: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
-    mobileImage: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
+    image: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
     tags: ['CATEGORY 1', 'CATEGORY 2', 'CATEGORY 3'],
   },
   {
     name: 'placeholder 2',
-    desktopImage: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
-    mobileImage: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
+    image: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['cat3'],
+    tags: ['CATEGORY 3'],
   },
   {
     name: 'placeholder 3',
-    desktopImage: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
-    mobileImage: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
+    image: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['cat3'],
+    tags: ['CATEGORY 3'],
   },
-])
+]
 
-console.log(projects.value)
+//FIX AFTER RELOAD THERE ARE 2 COLUMNS INSTEAD OF 3 DESPITE min-columns=3
+
+type Card = 'CATEGORY 1' | 'CATEGORY 2' | 'CATEGORY 3' | 'ALL'
+
+const activeFilter = ref<Card>('ALL')
+
+const filteredItems = computed(() => {
+  if (activeFilter.value === 'ALL') {
+    return items
+  } else {
+    return items.filter((item) => item.tags.includes(activeFilter.value)) 
+  }
+})
+
 </script>
