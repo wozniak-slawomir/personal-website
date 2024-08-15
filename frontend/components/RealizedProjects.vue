@@ -37,7 +37,7 @@
             <img
               :src="item.image"
               :alt="item.name"
-              class="w-full h-full object-cover"
+              class="w-full h-full object-cover max-h-[800px]"
             >
             <div class="bottom-0 left-0 right-0 backdrop-blur-md bg-[#393939] p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:backdrop-brightness-50 xl:opacity-0 xl:absolute xl:bg-transparent">
               <h1 class="text-2xl font-bold text-white uppercase">
@@ -48,7 +48,8 @@
               </p>
               <div class="items-center mt-4 flex justify-between w-full">
                 <a
-                  href="#"
+                  :href="item.link"
+                  target="_blank"
                   class="bg-white rounded-full text-black px-5 py-1 hover:text-[#f5f5f5] hover:bg-black duration-300"
                 >
                   <span>View project</span>
@@ -77,51 +78,14 @@ import { computed } from 'vue'
 import { PhArrowDownRight } from '@phosphor-icons/vue'
 
 const items = [
-{
-    name: 'placeholder 1',
-    image: new URL('../assets/projects/placeholder1.png', import.meta.url).href,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['business', 'portfolio'],
-  },
   {
     name: 'hiszpanbet',
     image: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['business', 'portfolio', 'blog'],
-  },
-  {
-    name: 'placeholder 2',
-    image: new URL('../assets/projects/placeholder2.png', import.meta.url).href,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['blog'],
-  },
-  {
-    name: 'placeholder 3',
-    image: new URL('../assets/projects/placeholder3.png', import.meta.url).href,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['blog', 'portfolio'],
-  },
-  {
-    name: 'placeholder 4',
-    image: new URL('../assets/projects/placeholder4.jpg', import.meta.url).href,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['blog', 'portfolio', 'business'],
-  },
-  {
-    name: 'placeholder 5',
-    image: new URL('../assets/projects/placeholder5.png', import.meta.url).href,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['blog'],
-  },
-  {
-    name: 'placeholder 6',
-    image: new URL('../assets/projects/placeholder6.png', import.meta.url).href,
-    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies. Nullam nec purus nec libero ultricies ultricies.',
-    tags: ['business'],
+    description: 'HiszpanBet is a dynamic company with over 30 years of experience in the market, specializing in the production of top-quality concrete fences, offering comprehensive transportation and installation services.',
+    tags: ['business', 'portfolio'],
+    link: 'https://www.hiszpanbet.pl',
   },
 ]
-
-//FIX AFTER RELOAD THERE ARE 2 COLUMNS INSTEAD OF 3 DESPITE min-columns=3
 
 type Card = 'business' | 'portfolio' | 'blog' | 'all'
 
