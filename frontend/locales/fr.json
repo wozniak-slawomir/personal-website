@@ -122,5 +122,11 @@
     "alt.bodybuilding": "Culturisme",
     "alt.boxing": "Boxe",
     "alt.workstation": "Poste de travail",
-    "alt.travel": "Voyage"
+    "alt.travel": "Voyage",
+    "projects.title": "PROJETS RÉALISÉS",
+    "projects.filter.business": "entreprise",
+    "projects.filter.portfolio": "portfolio",
+    "projects.filter.blog": "blog",
+    "projects.visit": "Visiter le projet",
+    "projects.hiszpanbet": "HiszpanBet est une entreprise dynamique avec plus de 30 ans d'expérience sur le marché, spécialisée dans la production de clôtures en béton de haute qualité, offrant des services complets de transport et d'installation."
 }

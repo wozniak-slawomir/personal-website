@@ -1,8 +1,8 @@
 <template>
   <div class="overflow-hidden">
     <div class="container mt-32">
-      <h1 class="text-5xl font-bold my-10 text-center md:text-left">
-        REALIZED PROJECTS
+      <h1 class="text-5xl font-bold my-10 text-center uppercase md:text-left">
+        {{ $t('projects.title') }}
       </h1>
       <div class="mb-5 mt-10 flex flex-wrap lg:my-10 gap-5">
         <button
@@ -10,21 +10,21 @@
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
           @click="activeFilter = activeFilter === 'business' ? 'all' : 'business'"
         >
-          business
+          {{ $t('projects.filter.business') }}
         </button>
         <button
           :class="{ 'bg-[#474b59]': activeFilter === 'portfolio' }"
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
           @click="activeFilter = activeFilter === 'portfolio' ? 'all' : 'portfolio'"
         >
-          portfolio
+          {{ $t('projects.filter.portfolio') }}
         </button>
         <button
           :class="{ 'bg-[#474b59]': activeFilter === 'blog' }"
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
           @click="activeFilter = activeFilter === 'blog' ? 'all' : 'blog'"
         >
-          blog
+          {{ $t('projects.filter.blog') }}
         </button>
       </div>
       <masonry-wall
@@ -52,7 +52,7 @@
                   target="_blank"
                   class="bg-white rounded-full text-black px-5 py-1 hover:text-[#f5f5f5] hover:bg-black duration-300"
                 >
-                  <span>View project</span>
+                  <span class="capitalize">{{ $t('projects.visit') }}</span>
                 </a>
                 <div class="gap-5 items-center hidden lg:flex">
                   <p
@@ -60,7 +60,7 @@
                     :key="tag"
                     class="underline underline-offset-4 duration-150 capitalize hover:underline-offset-8"
                   >
-                    {{ tag }}
+                    {{ $t(`projects.filter.${tag}`) }}
                   </p>
                 </div>
                 <PhArrowDownRight class="w-5 h-5" />
@@ -77,15 +77,17 @@
 import { computed } from 'vue'
 import { PhArrowDownRight } from '@phosphor-icons/vue'
 
-const items = [
+const { t } = useI18n()
+
+const items = computed(() => [
   {
     name: 'hiszpanbet',
     image: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
-    description: 'HiszpanBet is a dynamic company with over 30 years of experience in the market, specializing in the production of top-quality concrete fences, offering comprehensive transportation and installation services.',
-    tags: ['business', 'portfolio'],
+    description: t('projects.hiszpanbet'),
+    tags: ['business', 'portfolio'] as Card[],
     link: 'https://www.hiszpanbet.pl',
   },
-]
+])
 
 type Card = 'business' | 'portfolio' | 'blog' | 'all'
 
@@ -93,9 +95,9 @@ const activeFilter = ref<Card>('all')
 
 const filteredItems = computed(() => {
   if (activeFilter.value === 'all') {
-    return items
+    return items.value
   } else {
-    return items.filter((item) => item.tags.includes(activeFilter.value)) 
+    return items.value.filter((item) => item.tags.includes(activeFilter.value)) 
   }
 })
 
