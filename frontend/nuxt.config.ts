@@ -1,5 +1,6 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
+import type BackgroundAnimation from './components/BackgroundAnimation.vue'
 import { DEFAULT_LOCALE } from './const/defaultLocale'
 
 export default defineNuxtConfig({
@@ -68,11 +69,23 @@ export default defineNuxtConfig({
         extend: {
           animation: {
             slide: 'slide 20s linear infinite',
+            bgAnimationSlow: 'backgroundAnimation 33s ease-in-out infinite',
+            bgAnimationMid: 'backgroundAnimation 28s ease-in-out infinite',
+            bgAnimationFast: 'backgroundAnimation 13s ease-in-out infinite',
+            bgAnimationSlowReverse: 'backgroundAnimation 33s ease-in-out infinite reverse',
+            bgAnimationMidReverse: 'backgroundAnimation 28s ease-in-out infinite reverse',
           },
           keyframes: {
             slide: {
               '0%': { transform: 'translateX(0)' },
               '100%': { transform: 'translateX(-1122px)' },
+            },
+            backgroundAnimation: {
+              '0%': { transform: 'translateX(0)' },
+              '25%': { transform: 'translateX(-50px)' },
+              '50%': { transform: 'translateX(100px)' },
+              '75%': { transform: 'translateX(-200px)' },
+              '100%': { transform: 'translateX(0)' },
             },
           },
         },
