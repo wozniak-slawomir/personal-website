@@ -8,21 +8,21 @@
         <button
           :class="{ 'bg-[#474b59]': activeFilter === 'business' }"
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter === 'business' ? activeFilter = 'all' : activeFilter = 'business'"
+          @click="activeFilter = activeFilter === 'business' ? 'all' : 'business'"
         >
           business
         </button>
         <button
           :class="{ 'bg-[#474b59]': activeFilter === 'portfolio' }"
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter === 'portfolio' ? activeFilter = 'all' : activeFilter = 'portfolio'"
+          @click="activeFilter = activeFilter === 'portfolio' ? 'all' : 'portfolio'"
         >
           portfolio
         </button>
         <button
           :class="{ 'bg-[#474b59]': activeFilter === 'blog' }"
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter === 'blog' ? activeFilter = 'all' : activeFilter = 'blog'"
+          @click="activeFilter = activeFilter === 'blog' ? 'all' : 'blog'"
         >
           blog
         </button>
