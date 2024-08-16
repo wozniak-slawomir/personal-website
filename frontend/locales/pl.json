@@ -123,5 +123,11 @@
       "alt.bodybuilding": "Kulturystyka",
       "alt.boxing": "Boks",
       "alt.workstation": "Stanowisko pracy",
-      "alt.travel": "Podróż"
+      "alt.travel": "Podróż",
+      "projects.title": "ZREALIZOWANE PROJEKTY",
+      "projects.filter.business": "biznes",
+      "projects.filter.portfolio": "portfolio",
+      "projects.filter.blog": "blog",
+      "projects.visit": "Odwiedź projekt",
+      "projects.hiszpanbet": "HiszpanBet to dynamiczna firma z ponad 30-letnim doświadczeniem na rynku, specjalizująca się w produkcji najwyższej jakości ogrodzeń betonowych, oferująca kompleksowe usługi transportowe i montażowe."
 }
