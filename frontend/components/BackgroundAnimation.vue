@@ -1,81 +1,222 @@
 <template>
   <div
-    ref="canvasContainer"
-    class="w-screen h-screen fixed top-0 left-0 z-0 bg-gray-300 flex justify-center items-center"
+    id="large-header"
+    class="large-header w-screen h-screen absolute top-0 left-0 -z-10"
   >
-    <canvas
-      ref="canvasElement"
-      :width="width"
-      :height="height"
-      class=" text-black duration-1000 bg-white"
-      :class="isMounted ? 'opacity-75' : 'opacity-0'"
-    />
+    <canvas id="demo-canvas" />
   </div>
 </template>
 
-<script setup lang="ts">
-import {onMounted, ref} from 'vue'
+<script lang="ts">
+import { defineComponent, onMounted, ref } from 'vue'
+import { TweenLite, Circ } from 'gsap'
 
-const isMounted = ref(false)
+interface Point {
+  x: number
+  originX: number
+  y: number
+  originY: number
+  closest?: Point[]
+  active?: number
+  circle?: Circle
+}
 
-const width = ref(0)
-const height = ref(0)
-const points = ref([])
+class Circle {
+  pos: Point
+  radius: number
+  color: string
+  active: number
 
-const canvasElement: Ref<HTMLCanvasElement | undefined> = ref()
-const context: Ref<CanvasRenderingContext2D | undefined> = ref()
-
-onMounted(() => {
-  width.value = window.innerWidth
-  height.value = window.innerHeight
-
-  context.value = canvasElement.value?.getContext('2d') || undefined
-
-  // Set isMounted to true after the component is mounted to prevent the canvas from being rendered before the context is available
-  setTimeout(() => {
-    calculatePoints()
-  }, 0)
-
-})
-
-function calculatePoints() {
-  for (let x = 0; x < width.value; x = x + width.value/20) {
-    for(let y = 0; y < height.value; y = y + height.value/20) {
-            let px = x + Math.random()*width.value/20
-            let py = y + Math.random()*height.value/20
-            let p = {x: px, originX: px, y: py, originY: py }
-        }
+  constructor(pos: Point, radius: number, color: string) {
+    this.pos = pos
+    this.radius = radius
+    this.color = color
+    this.active = 0
   }
-  drawCircle()
+
+  draw(ctx: CanvasRenderingContext2D) {
+    if (!this.active) return
+    ctx.beginPath()
+    ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false)
+    ctx.fillStyle = `rgba(156,217,249,${this.active})`
+    ctx.fill()
+  }
 }
 
-function drawCircle() {
-  isMounted.value = true
-    if (!context.value) {
-      console.error('Canvas context is not available')
-      return
-    } else {
-      console.log('Canvas context is available')
-      context.value.arc(200, 200, 3, 0, 2 * Math.PI)
-      context.value.arc(300, 200, 3, 0, 2 * Math.PI)
-      context.value.fill()
-     }
-}
+export default defineComponent({
+  name: 'BackgroundAnimation',
+  setup() {
+    const width = ref(window.innerWidth)
+    const height = ref(window.innerHeight)
+    const largeHeader = ref<HTMLElement | null>(null)
+    const canvas = ref<HTMLCanvasElement | null>(null)
+    const ctx = ref<CanvasRenderingContext2D | null>(null)
+    const points = ref<Point[]>([])
+    const target = ref({ x: width.value / 2, y: height.value / 2 })
+    const animateHeader = ref(true)
 
+    onMounted(() => {
+      initHeader()
+      initAnimation()
+      addListeners()
+    })
 
+    function initHeader() {
+      width.value = window.innerWidth
+      height.value = window.innerHeight
+      target.value = { x: width.value / 2, y: height.value / 2 }
 
+      largeHeader.value = document.getElementById('large-header') as HTMLElement
+      largeHeader.value.style.height = height.value + 'px'
 
+      canvas.value = document.getElementById('demo-canvas') as HTMLCanvasElement
+      canvas.value.width = width.value
+      canvas.value.height = height.value
+      ctx.value = canvas.value.getContext('2d')
 
+      // create points
+      points.value = []
+      for (let x = 0; x < width.value; x = x + width.value / 20) {
+        for (let y = 0; y < height.value; y = y + height.value / 20) {
+          const px = x + Math.random() * width.value / 20
+          const py = y + Math.random() * height.value / 20
+          const p: Point = { x: px, originX: px, y: py, originY: py }
+          points.value.push(p)
+        }
+      }
 
+      // for each point find the 5 closest points
+      for (let i = 0; i < points.value.length; i++) {
+        const closest: Point[] = []
+        const p1 = points.value[i]
+        for (let j = 0; j < points.value.length; j++) {
+          const p2 = points.value[j]
+          if (!(p1 === p2)) {
+            let placed = false
+            for (let k = 0; k < 5; k++) {
+              if (!placed) {
+                if (closest[k] === undefined) {
+                  closest[k] = p2
+                  placed = true
+                }
+              }
+            }
 
-// ======================================================================================================================
-// make an array of objects with x, y properties and an array of objects with x, y properties of 5 closest points
-// x = iterator + Math.random() * width/20
-// y = iterator + Math.random() * height/20
-// ======================================================================================================================
-// pick 5 closest points to the current point using the distance formula
-// d = sqrt((x2 - x1)^2 + (y2 - y1)^2)
-// store the 5 closest points in an array
-// ======================================================================================================================
-// draw the circles and lines between the points
+            for (let k = 0; k < 5; k++) {
+              if (!placed) {
+                if (getDistance(p1, p2) < getDistance(p1, closest[k])) {
+                  closest[k] = p2
+                  placed = true
+                }
+              }
+            }
+          }
+        }
+        p1.closest = closest
+      }
+
+      // assign a circle to each point
+      for (const i in points.value) {
+        const c = new Circle(points.value[i], 2 + Math.random() * 2, 'rgba(255,255,255,0.3)')
+        points.value[i].circle = c
+      }
+    }
+
+    function addListeners() {
+      if (!('ontouchstart' in window)) {
+        window.addEventListener('mousemove', mouseMove)
+      }
+      window.addEventListener('scroll', scrollCheck)
+      window.addEventListener('resize', resize)
+    }
+
+    function mouseMove(e: MouseEvent) {
+      let posx = 0
+      let posy = 0
+      if (e.pageX || e.pageY) {
+        posx = e.pageX
+        posy = e.pageY
+      } else if (e.clientX || e.clientY) {
+        posx = e.clientX + document.body.scrollLeft + document.documentElement.scrollLeft
+        posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop
+      }
+      target.value.x = posx
+      target.value.y = posy
+    }
+
+    function scrollCheck() {
+      if (document.body.scrollTop > height.value) animateHeader.value = false
+      else animateHeader.value = true
+    }
+
+    function resize() {
+      width.value = window.innerWidth
+      height.value = window.innerHeight
+      largeHeader.value!.style.height = height.value + 'px'
+      canvas.value!.width = width.value
+      canvas.value!.height = height.value
+    }
+
+    function initAnimation() {
+      animate()
+      for (const i in points.value) {
+        shiftPoint(points.value[i])
+      }
+    }
+
+    function animate() {
+      if (animateHeader.value) {
+        ctx.value!.clearRect(0, 0, width.value, height.value)
+        for (const i in points.value) {
+          // detect points in range
+          if (Math.abs(getDistance(target.value, points.value[i])) < 4000) {
+            points.value[i].active = 0.3
+            points.value[i].circle!.active = 0.6
+          } else if (Math.abs(getDistance(target.value, points.value[i])) < 20000) {
+            points.value[i].active = 0.1
+            points.value[i].circle!.active = 0.3
+          } else if (Math.abs(getDistance(target.value, points.value[i])) < 40000) {
+            points.value[i].active = 0.02
+            points.value[i].circle!.active = 0.1
+          } else {
+            points.value[i].active = 0
+            points.value[i].circle!.active = 0
+          }
+
+          drawLines(points.value[i])
+          points.value[i].circle!.draw(ctx.value!)
+        }
+      }
+      requestAnimationFrame(animate)
+    }
+
+    function shiftPoint(p: Point) {
+      TweenLite.to(p, 1 + 1 * Math.random(), {
+        x: p.originX - 50 + Math.random() * 100,
+        y: p.originY - 50 + Math.random() * 100,
+        ease: Circ.easeInOut,
+        onComplete: function () {
+          shiftPoint(p)
+        },
+      })
+    }
+
+    function drawLines(p: Point) {
+      if (!p.active) return
+      for (const i in p.closest) {
+        ctx.value!.beginPath()
+        ctx.value!.moveTo(p.x, p.y)
+        ctx.value!.lineTo(p.closest![i].x, p.closest![i].y)
+        ctx.value!.strokeStyle = `rgba(156,217,249,${p.active})`
+        ctx.value!.stroke()
+      }
+    }
+
+    function getDistance(p1: Point, p2: Point) {
+      return Math.pow(p1.x - p2.x, 2) + Math.pow(p1.y - p2.y, 2)
+    }
+
+    return {}
+  },
+})
 </script>
