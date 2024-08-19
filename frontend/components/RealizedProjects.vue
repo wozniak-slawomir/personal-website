@@ -61,7 +61,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { PhArrowDownRight } from '@phosphor-icons/vue'
 
 const { t } = useI18n()
 
@@ -72,6 +71,13 @@ const items = computed(() => [
     description: t('projects.hiszpanbet'),
     tags: ['business', 'portfolio'] as Card[],
     link: 'https://www.hiszpanbet.pl',
+  },
+  {
+    name: t('projects.blog.instagram.italy.name'),
+    image: new URL('../assets/projects/blog/instagram/italy.png', import.meta.url).href,
+    description: t('projects.blog.instagram.italy.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/p/C-V8QkRsg8Q/?img_index=1',
   },
 ])
 
