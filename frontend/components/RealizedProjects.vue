@@ -34,38 +34,24 @@
       >
         <template #default="{item}">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
-            <img
-              :src="item.image"
-              :alt="item.name"
-              class="w-full h-full object-cover max-h-[800px]"
+            <a
+              :href="item.link"
+              target="_blank"
             >
-            <div class="bottom-0 left-0 right-0 backdrop-blur-md bg-[#393939] p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:backdrop-brightness-50 xl:opacity-0 xl:absolute xl:bg-transparent">
-              <h1 class="text-2xl font-bold text-white uppercase">
-                {{ item.name }}
-              </h1>
-              <p class="text-white my-2">
-                {{ item.description }}
-              </p>
-              <div class="items-center mt-4 flex justify-between w-full">
-                <a
-                  :href="item.link"
-                  target="_blank"
-                  class="bg-white rounded-full text-black px-5 py-1 hover:text-[#f5f5f5] hover:bg-black duration-300"
-                >
-                  <span class="capitalize">{{ $t('projects.visit') }}</span>
-                </a>
-                <div class="gap-5 items-center hidden lg:flex">
-                  <p
-                    v-for="tag in item.tags"
-                    :key="tag"
-                    class="underline underline-offset-4 duration-150 capitalize hover:underline-offset-8"
-                  >
-                    {{ $t(`projects.filter.${tag}`) }}
-                  </p>
-                </div>
-                <PhArrowDownRight class="w-5 h-5" />
+              <img
+                :src="item.image"
+                :alt="item.name"
+                class="w-full h-full object-cover max-h-[800px]"
+              >
+              <div class="bottom-0 left-0 right-0 backdrop-blur-md bg-[#393939] p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:backdrop-brightness-50 xl:opacity-0 xl:absolute xl:bg-transparent">
+                <h1 class="text-2xl font-bold text-white uppercase">
+                  {{ item.name }}
+                </h1>
+                <p class="text-white my-2">
+                  {{ item.description }}
+                </p>
               </div>
-            </div>
+            </a>
           </div>
         </template>
       </masonry-wall>
