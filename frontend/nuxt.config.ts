@@ -1,6 +1,5 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
-import type BackgroundAnimation from './components/BackgroundAnimation.vue'
 import { DEFAULT_LOCALE } from './const/defaultLocale'
 
 export default defineNuxtConfig({

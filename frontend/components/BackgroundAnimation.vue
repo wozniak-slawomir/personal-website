@@ -1,9 +1,14 @@
 <template>
   <div
     id="large-header"
-    class="large-header w-screen absolute top-0 left-0 -z-10"
+    class="w-screen absolute top-0 left-0 -z-10 overflow-visible"
   >
-    <canvas id="demo-canvas" />
+    <canvas
+      id="demo-canvas"
+      class="w-full h-full object-fill overflow-visible"
+      :width="width"
+      :height="height"
+    />
   </div>
 </template>
 
@@ -152,11 +157,7 @@ function scrollCheck() {
 }
 
 function resize() {
-  width.value = window.innerWidth
-  height.value = document.documentElement.scrollHeight
-  largeHeader.value!.style.height = height.value + 'px'
-  canvas.value!.width = width.value
-  canvas.value!.height = height.value
+  document.location.reload()
 }
 
 function initAnimation() {
