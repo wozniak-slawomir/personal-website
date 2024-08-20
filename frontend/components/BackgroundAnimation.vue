@@ -43,7 +43,7 @@ class Circle {
     if (!this.active) return
     ctx.beginPath()
     ctx.arc(this.pos.x, this.pos.y, this.radius, 0, 2 * Math.PI, false)
-    ctx.fillStyle = `rgba(156,217,249,${this.active})`
+    ctx.fillStyle = `rgba(156,121,69,${this.active})`
     ctx.fill()
   }
 }
@@ -124,7 +124,7 @@ function initHeader() {
 
   // assign a circle to each point
   for (const i in points.value) {
-    const c = new Circle(points.value[i], 2 + Math.random() * 2, 'rgba(255,255,255,0.3)')
+    const c = new Circle(points.value[i], 2 + Math.random() * 2, 'rgba(156,121,69,0.3)')
     points.value[i].circle = c
   }
 }
@@ -172,13 +172,13 @@ function animate() {
     ctx.value!.clearRect(0, 0, width.value!, height.value!)
     for (const i in points.value) {
       // detect points in range
-      if (Math.abs(getDistance(target.value, points.value[i])) < 4000) {
+      if (Math.abs(getDistance(target.value, points.value[i])) < 10000) {
         points.value[i].active = 0.3
         points.value[i].circle!.active = 0.6
-      } else if (Math.abs(getDistance(target.value, points.value[i])) < 20000) {
+      } else if (Math.abs(getDistance(target.value, points.value[i])) < 50000) {
         points.value[i].active = 0.1
         points.value[i].circle!.active = 0.3
-      } else if (Math.abs(getDistance(target.value, points.value[i])) < 40000) {
+      } else if (Math.abs(getDistance(target.value, points.value[i])) < 100000) {
         points.value[i].active = 0.02
         points.value[i].circle!.active = 0.1
       } else {
@@ -210,7 +210,7 @@ function drawLines(p: Point) {
     ctx.value!.beginPath()
     ctx.value!.moveTo(p.x, p.y)
     ctx.value!.lineTo(p.closest![i].x, p.closest![i].y)
-    ctx.value!.strokeStyle = `rgba(156,217,249,${p.active})`
+    ctx.value!.strokeStyle = `rgba(156,121,69,${p.active})`
     ctx.value!.stroke()
   }
 }
