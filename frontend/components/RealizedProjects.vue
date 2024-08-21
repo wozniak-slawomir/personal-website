@@ -30,7 +30,7 @@
       <masonry-wall
         :items="filteredItems"
         :gap="24"
-        :max-columns="3"
+        :min-columns="columnsNum"
       >
         <template #default="{item}">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
@@ -61,8 +61,32 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const { t } = useI18n()
+
+let columnsNum = ref(4)
+
+const handleResize = () => {
+  const screenWidth = window.innerWidth
+  if (screenWidth >= 1280) {
+    columnsNum.value = 4
+  } else if (screenWidth >= 1024) {
+    columnsNum.value = 3
+  } else if (screenWidth >= 600) {
+    columnsNum.value = 2
+  } else {
+    columnsNum.value = 1
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 
 const items = computed(() => [
   {
