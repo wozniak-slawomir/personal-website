@@ -79,6 +79,48 @@ const items = computed(() => [
     tags: ['blog'] as Card[],
     link: 'https://www.instagram.com/p/C-V8QkRsg8Q/?img_index=1',
   },
+  {
+    name: t('projects.blog.instagram.reels.relationships.name'),
+    image: new URL('../assets/projects/blog/instagram/relationships.png', import.meta.url).href,
+    description: t('projects.blog.instagram.reels.relationships.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/reel/C-GIvdts-xp/',
+  },
+  {
+    name: t('projects.blog.instagram.reels.collective-illusions.name'),
+    image: new URL('../assets/projects/blog/instagram/collective-illusions.png', import.meta.url).href,
+    description: t('projects.blog.instagram.reels.collective-illusions.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/reel/C9sDhuas6gA/',
+  },
+  {
+    name: t('projects.blog.instagram.hiking.name'),
+    image: new URL('../assets/projects/blog/instagram/hiking.png', import.meta.url).href,
+    description: t('projects.blog.instagram.hiking.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/p/C9K9U0RMfmH/',
+  },
+  {
+    name: t('projects.blog.instagram.notes.name'),
+    image: new URL('../assets/projects/blog/instagram/notes.png', import.meta.url).href,
+    description: t('projects.blog.instagram.notes.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/p/C6BwzvAMV0w',
+  },
+  {
+    name: t('projects.blog.instagram.attribution.name'),
+    image: new URL('../assets/projects/blog/instagram/attribution.png', import.meta.url).href,
+    description: t('projects.blog.instagram.attribution.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/p/C5a0trssz6A/',
+  },
+  {
+    name: t('projects.blog.instagram.promotions.name'),
+    image: new URL('../assets/projects/blog/instagram/promotions.png', import.meta.url).href,
+    description: t('projects.blog.instagram.promotions.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/p/C5a0trssz6A/',
+  },
 ])
 
 type Card = 'business' | 'portfolio' | 'blog' | 'all'
