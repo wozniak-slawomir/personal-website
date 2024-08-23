@@ -12,19 +12,25 @@
         class="p-3 px-5 text-xl rounded-full duration-150 hover:bg-[#393939]"
         @click="scroll('bio')"
       >
-        Bio
+        {{ $t('bio.title') }}
+      </button>
+      <button
+        class="p-3 px-5 text-xl rounded-full duration-150 hover:bg-[#393939]"
+        @click="scroll('realizedProjects')"
+      >
+        {{ $t('projects.title') }}
       </button>
       <button
         class="p-3 px-5 text-xl rounded-full duration-150 hover:bg-[#393939]"
         @click="scroll('testimonials')"
       >
-        Testimonials
+        {{ $t('testimonials.title') }}
       </button>
       <button
         class="p-3 px-5 text-xl rounded-full duration-150 hover:bg-[#393939]"
         @click="scroll('services')"
       >
-        Services
+        {{ $t('services.title') }}
       </button>
     </div>
     <div class="flex gap-20">
@@ -82,8 +88,9 @@ const changeLanguage = (language : string) => {
 
 const sectionTopValues: { [key: string]: number } = {
   bio: 800,
-  testimonials: 2100,
-  services: 2900,
+  realizedProjects: 2100,
+  testimonials: 2700,
+  services: 3500,
 }
 
 const scroll = (section: string) => {

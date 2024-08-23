@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-32">
     <h1 class="text-5xl font-bold text-center md:text-left">
-      BIO
+      {{ $t("bio.title") }}
     </h1>
     <div class="mb-0 mt-10 flex flex-wrap lg:my-10">
       <button

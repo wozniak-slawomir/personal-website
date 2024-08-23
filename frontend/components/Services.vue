@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-64">
     <h1 class="text-5xl text-center md:text-left font-semibold uppercase">
-      {{ $t('services.services') }}
+      {{ $t('services.title') }}
     </h1>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-8">
       <div class="bg-[#393939] py-4 rounded-xl px-8">
