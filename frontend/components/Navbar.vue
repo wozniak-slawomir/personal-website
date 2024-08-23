@@ -7,7 +7,7 @@
       class="max-w-[400px] min-w-[100px] mr-3 md:mr-0"
       :alt="$t('alt.slawomir')"
     >
-    <div class="gap-8 justify-end w-full mr-20 hidden lg:flex">
+    <div class="gap-8 justify-end w-full mr-20 hidden xl:flex">
       <button
         class="p-3 px-5 text-xl rounded-full duration-150 hover:bg-[#393939]"
         @click="scroll('bio')"
