@@ -1,11 +1,11 @@
 <template>
   <div
     id="large-header"
-    class="w-screen absolute top-0 left-0 -z-10 overflow-visible"
+    class="w-screen fixed top-0 left-0 -z-10 overflow-hidden"
   >
     <canvas
       id="demo-canvas"
-      class="w-full h-full object-fill overflow-visible"
+      class="overflow-hidden w-full h-full"
       :width="width"
       :height="height"
     />
@@ -60,7 +60,7 @@ const animateHeader = ref(true)
 
 onMounted(() => {
   width.value = window.innerWidth
-  height.value = document.documentElement.scrollHeight + window.innerHeight
+  height.value = window.innerHeight
   target.value = { x: width.value / 2, y: height.value / 2 }
 
   initHeader()
@@ -70,7 +70,7 @@ onMounted(() => {
 
 function initHeader() {
   width.value = window.innerWidth
-  height.value = document.documentElement.scrollHeight
+  height.value = window.innerHeight
   target.value = { x: width.value / 2, y: height.value / 2 }
 
   largeHeader.value = document.getElementById('large-header') as HTMLElement
@@ -83,10 +83,10 @@ function initHeader() {
 
   // create points
   points.value = []
-  for (let x = 0; x < width.value; x = x + width.value / 20) {
-    for (let y = 0; y < height.value; y = y + height.value / 20) {
-      const px = x + Math.random() * width.value / 20
-      const py = y + Math.random() * height.value / 20
+  for (let x = 0; x < width.value; x = x + width.value / 10) {
+    for (let y = 0; y < height.value; y = y + height.value / 10) {
+      const px = x + Math.random() * width.value / 10
+      const py = y + Math.random() * height.value / 10
       const p: Point = { x: px, originX: px, y: py, originY: py }
       points.value.push(p)
     }
@@ -148,7 +148,7 @@ function mouseMove(e: MouseEvent) {
     posy = e.clientY + document.body.scrollTop + document.documentElement.scrollTop
   }
   target.value.x = posx
-  target.value.y = posy
+  target.value.y = posy - window.scrollY
 }
 
 function scrollCheck() {
@@ -173,17 +173,14 @@ function animate() {
     for (const i in points.value) {
       // detect points in range
       if (Math.abs(getDistance(target.value, points.value[i])) < 10000) {
-        points.value[i].active = 0.3
+        points.value[i].active = 0.5
         points.value[i].circle!.active = 0.6
       } else if (Math.abs(getDistance(target.value, points.value[i])) < 50000) {
-        points.value[i].active = 0.1
-        points.value[i].circle!.active = 0.3
-      } else if (Math.abs(getDistance(target.value, points.value[i])) < 100000) {
-        points.value[i].active = 0.02
-        points.value[i].circle!.active = 0.1
-      } else {
-        points.value[i].active = 0
-        points.value[i].circle!.active = 0
+        points.value[i].active = 0.2
+        points.value[i].circle!.active = 0.4
+      } else{
+        points.value[i].active = 0.04
+        points.value[i].circle!.active = 0.04
       }
 
       drawLines(points.value[i])
