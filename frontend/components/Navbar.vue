@@ -7,7 +7,27 @@
       class="max-w-[400px] min-w-[100px] mr-3 md:mr-0"
       :alt="$t('alt.slawomir')"
     >
-    <div class="flex">
+    <div class="gap-8 justify-end w-full mr-20 hidden lg:flex">
+      <button
+        class="p-3 px-5 text-xl rounded-full duration-150 hover:bg-[#393939]"
+        @click="scroll('bio')"
+      >
+        Bio
+      </button>
+      <button
+        class="p-3 px-5 text-xl rounded-full duration-150 hover:bg-[#393939]"
+        @click="scroll('testimonials')"
+      >
+        Testimonials
+      </button>
+      <button
+        class="p-3 px-5 text-xl rounded-full duration-150 hover:bg-[#393939]"
+        @click="scroll('services')"
+      >
+        Services
+      </button>
+    </div>
+    <div class="flex gap-20">
       <div
         class="p-3 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-14 text-center sm:w-24 h-min z-20"
         :class="isMenuOpen ? 'rounded-t-[25px]' : 'rounded-[25px]'"
@@ -59,4 +79,18 @@ const changeLanguage = (language : string) => {
   localStorage.setItem('language', language)
   isMenuOpen.value = false
 }
+
+const sectionTopValues: { [key: string]: number } = {
+  bio: 800,
+  testimonials: 2100,
+  services: 2900,
+}
+
+const scroll = (section: string) => {
+  const topValue = sectionTopValues[section]
+  if (topValue !== undefined) {
+    window.scrollTo({ top: topValue, left: 0, behavior: 'smooth' })
+  }
+}
+
 </script>
