@@ -1,7 +1,7 @@
 <template>
   <div
     id="large-header"
-    class="w-screen fixed top-0 left-0 -z-10 overflow-hidden"
+    class="w-screen fixed top-0 left-0 -z-20 overflow-hidden"
   >
     <canvas
       id="demo-canvas"
@@ -10,11 +10,42 @@
       :height="height"
     />
   </div>
+  <div
+    class="fixed top-0 -z-10 -skew-x-12 duration-[5s]"
+    :class="isScrolling ? 'right-96' : 'right-64'"
+  >
+    <div
+      class="h-screen w-screen fixed top-0 bg-[color:var(--primary-color)] opacity-[0.03] grayscale-[50%] animate-bgAnimationFast delay-75" 
+    />
+    <div
+      class="h-screen w-screen fixed top-0 bg-[color:var(--primary-color)] opacity-[0.03] grayscale-[50%] animate-bgAnimationMid delay-100" 
+    />
+    <div
+      class="h-screen w-screen fixed top-0 bg-[color:var(--primary-color)] opacity-[0.03] grayscale-[50%] animate-bgAnimationSlow delay-1000" 
+    />
+  </div>
+  <div
+    class="fixed top-0 -z-50 -skew-x-12 duration-[5s]"
+    :class="isScrolling ? '-left-[70vw]' : '-left-[75vw]'"
+  >
+    <div
+      class="h-screen w-screen fixed top-0 bg-[color:var(--primary-color)] opacity-[0.03] grayscale-[50%] animate-bgAnimationFast delay-100" 
+    />
+    <div
+      class="h-screen w-screen fixed top-0 bg-[color:var(--primary-color)] opacity-[0.03] grayscale-[50%] animate-bgAnimationMid delay-1000" 
+    />
+    <div
+      class="h-screen w-screen fixed top-0 bg-[color:var(--primary-color)] opacity-[0.03] grayscale-[50%] animate-bgAnimationSlow delay-200" 
+    />
+  </div>
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { onMounted, ref, onBeforeUnmount } from 'vue'
 import { TweenLite, Circ } from 'gsap'
+
+// isScrolling is used to trigger the amplification of the background animation for 3 seconds
+const isScrolling = ref(false)
 
 interface Point {
   x: number
@@ -57,6 +88,10 @@ const ctx = ref<CanvasRenderingContext2D | null>(null)
 const points = ref<Point[]>([])
 const target = ref({ x: 0, y: 0 })
 const animateHeader = ref(true)
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 onMounted(() => {
   width.value = window.innerWidth
@@ -133,8 +168,16 @@ function addListeners() {
   if (!('ontouchstart' in window)) {
     window.addEventListener('mousemove', mouseMove)
   }
-  window.addEventListener('scroll', scrollCheck)
+  window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', resize)
+}
+
+const handleScroll = () => {
+  isScrolling.value = true
+  setTimeout(() => {
+    isScrolling.value = false
+  }, 5000)
+  console.log('scrolling')
 }
 
 function mouseMove(e: MouseEvent) {
@@ -149,11 +192,6 @@ function mouseMove(e: MouseEvent) {
   }
   target.value.x = posx
   target.value.y = posy - window.scrollY
-}
-
-function scrollCheck() {
-  if (document.body.scrollTop > height.value!) animateHeader.value = false
-  else animateHeader.value = true
 }
 
 function resize() {
