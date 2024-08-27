@@ -86,7 +86,7 @@ const largeHeader = ref<HTMLElement | null>(null)
 const canvas = ref<HTMLCanvasElement | null>(null)
 const ctx = ref<CanvasRenderingContext2D | null>(null)
 const points = ref<Point[]>([])
-const target = ref({ x: 0, y: 0 })
+const target = ref<Point>({ x: 0, y: 0, originX: 0, originY: 0 })
 const animateHeader = ref(true)
 
 onBeforeUnmount(() => {
@@ -96,7 +96,7 @@ onBeforeUnmount(() => {
 onMounted(() => {
   width.value = window.innerWidth
   height.value = window.innerHeight
-  target.value = { x: width.value / 2, y: height.value / 2 }
+  target.value = { x: width.value / 2, y: height.value / 2, originX: width.value / 2, originY: height.value / 2 }
 
   initHeader()
   initAnimation()
@@ -106,7 +106,7 @@ onMounted(() => {
 function initHeader() {
   width.value = window.innerWidth
   height.value = window.innerHeight
-  target.value = { x: width.value / 2, y: height.value / 2 }
+  target.value = { x: width.value / 2, y: height.value / 2, originX: width.value / 2, originY: height.value / 2 }
 
   largeHeader.value = document.getElementById('large-header') as HTMLElement
   largeHeader.value.style.height = height.value + 'px'
@@ -177,7 +177,6 @@ const handleScroll = () => {
   setTimeout(() => {
     isScrolling.value = false
   }, 5000)
-  console.log('scrolling')
 }
 
 function mouseMove(e: MouseEvent) {
@@ -207,23 +206,31 @@ function initAnimation() {
 
 function animate() {
   if (animateHeader.value) {
-    ctx.value!.clearRect(0, 0, width.value!, height.value!)
-    for (const i in points.value) {
+    ctx.value?.clearRect(0, 0, width.value ?? 0, height.value ?? 0)
+    points.value.forEach((point) => {
       // detect points in range
-      if (Math.abs(getDistance(target.value, points.value[i])) < 10000) {
-        points.value[i].active = 0.5
-        points.value[i].circle!.active = 0.6
-      } else if (Math.abs(getDistance(target.value, points.value[i])) < 50000) {
-        points.value[i].active = 0.2
-        points.value[i].circle!.active = 0.4
+      if (Math.abs(getDistance(target.value, point)) < 10000) {
+        point.active = 0.5
+        if (point.circle) {
+          point.circle.active = 0.6
+        }
+      } else if (Math.abs(getDistance(target.value, point)) < 50000) {
+        point.active = 0.2
+        if (point.circle) {
+          point.circle.active = 0.4
+        }
       } else{
-        points.value[i].active = 0.04
-        points.value[i].circle!.active = 0.04
+        point.active = 0.04
+        if (point.circle) {
+          point.circle.active = 0.04
+        }
       }
 
-      drawLines(points.value[i])
-      points.value[i].circle!.draw(ctx.value!)
-    }
+      drawLines(point)
+      if (ctx.value) {
+        point.circle?.draw(ctx.value)
+      }
+    })
   }
   requestAnimationFrame(animate)
 }
@@ -242,11 +249,14 @@ function shiftPoint(p: Point) {
 function drawLines(p: Point) {
   if (!p.active) return
   for (const i in p.closest) {
-    ctx.value!.beginPath()
-    ctx.value!.moveTo(p.x, p.y)
-    ctx.value!.lineTo(p.closest![i].x, p.closest![i].y)
-    ctx.value!.strokeStyle = `rgba(156,121,69,${p.active})`
-    ctx.value!.stroke()
+    const index = parseInt(i, 10) // Add type annotation and parse the index as a number
+    ctx.value?.beginPath()
+    ctx.value?.moveTo(p.x, p.y)
+    ctx.value?.lineTo(p.closest[index].x, p.closest[index].y) // Use the parsed index
+    if (ctx.value) {
+      ctx.value.strokeStyle = `rgba(156,121,69,${p.active})`
+    }
+    ctx.value?.stroke()
   }
 }
 
