@@ -30,7 +30,7 @@
       <masonry-wall
         :items="filteredItems"
         :gap="24"
-        :max-columns="3"
+        :min-columns="columnsNum"
       >
         <template #default="{item}">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
@@ -61,9 +61,32 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { PhArrowDownRight } from '@phosphor-icons/vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const { t } = useI18n()
+
+let columnsNum = ref(4)
+
+const handleResize = () => {
+  const screenWidth = window.innerWidth
+  if (screenWidth >= 1280) {
+    columnsNum.value = 4
+  } else if (screenWidth >= 1024) {
+    columnsNum.value = 3
+  } else if (screenWidth >= 600) {
+    columnsNum.value = 2
+  } else {
+    columnsNum.value = 1
+  }
+}
+
+onMounted(() => {
+  window.addEventListener('resize', handleResize)
+})
+
+onUnmounted(() => {
+  window.removeEventListener('resize', handleResize)
+})
 
 const items = computed(() => [
   {
@@ -72,6 +95,55 @@ const items = computed(() => [
     description: t('projects.hiszpanbet'),
     tags: ['business', 'portfolio'] as Card[],
     link: 'https://www.hiszpanbet.pl',
+  },
+  {
+    name: t('projects.blog.instagram.italy.name'),
+    image: new URL('../assets/projects/blog/instagram/italy.png', import.meta.url).href,
+    description: t('projects.blog.instagram.italy.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/p/C-V8QkRsg8Q/?img_index=1',
+  },
+  {
+    name: t('projects.blog.instagram.reels.relationships.name'),
+    image: new URL('../assets/projects/blog/instagram/relationships.png', import.meta.url).href,
+    description: t('projects.blog.instagram.reels.relationships.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/reel/C-GIvdts-xp/',
+  },
+  {
+    name: t('projects.blog.instagram.reels.collective-illusions.name'),
+    image: new URL('../assets/projects/blog/instagram/collective-illusions.png', import.meta.url).href,
+    description: t('projects.blog.instagram.reels.collective-illusions.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/reel/C9sDhuas6gA/',
+  },
+  {
+    name: t('projects.blog.instagram.hiking.name'),
+    image: new URL('../assets/projects/blog/instagram/hiking.png', import.meta.url).href,
+    description: t('projects.blog.instagram.hiking.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/p/C9K9U0RMfmH/',
+  },
+  {
+    name: t('projects.blog.instagram.notes.name'),
+    image: new URL('../assets/projects/blog/instagram/notes.png', import.meta.url).href,
+    description: t('projects.blog.instagram.notes.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/p/C6BwzvAMV0w',
+  },
+  {
+    name: t('projects.blog.instagram.attribution.name'),
+    image: new URL('../assets/projects/blog/instagram/attribution.png', import.meta.url).href,
+    description: t('projects.blog.instagram.attribution.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/p/C5a0trssz6A/',
+  },
+  {
+    name: t('projects.blog.instagram.promotions.name'),
+    image: new URL('../assets/projects/blog/instagram/promotions.png', import.meta.url).href,
+    description: t('projects.blog.instagram.promotions.description'),
+    tags: ['blog'] as Card[],
+    link: 'https://www.instagram.com/wozniaakslawek/p/C5a0trssz6A/',
   },
 ])
 
