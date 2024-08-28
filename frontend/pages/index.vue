@@ -10,6 +10,7 @@
       v-if="renderContactModal"
       @hide-contact-modal="hideContactModal"
     />
+    <BackgroundAnimation />
   </div>
 </template>
 
