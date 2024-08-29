@@ -5,6 +5,7 @@
     <RealizedProjects />
     <Testimonials />
     <Services />
+    <ContactMe />
   </div>
 </template>
 
