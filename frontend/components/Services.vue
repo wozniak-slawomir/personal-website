@@ -69,7 +69,7 @@
       </h1>
       <button
         class="px-8 py-5 rounded-full bg-[color:var(--secondary-color)] md:inline-block font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300"
-        @click="$emit('showContactModal')"
+        @click="onContactClick"
       >
         {{ $t('common.contact') }}
       </button>
@@ -83,6 +83,10 @@ import { PhCaretDown, PhCaretUp } from '@phosphor-icons/vue'
 const expandDevelopmentFeatures = ref(false)
 const expandCoachingFeatures = ref(false)
 const expandAuditsFeatures = ref(false)
+const { $event } = useNuxtApp()
 
-defineEmits(['showContactModal'])
+const onContactClick = () => {
+  $event('ContactModal:Open')
+}
+
 </script>

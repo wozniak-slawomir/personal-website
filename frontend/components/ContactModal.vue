@@ -1,5 +1,6 @@
 <template>
   <div
+    v-if="renderContactModal"
     class="backdrop fixed flex justify-center items-start p-4 inset-0 bg-[#1A1A1A] bg-opacity-80 z-30"
     :class="{ 'overflow-y-auto': !isLoading }"
   >
@@ -17,7 +18,7 @@
         </h1>
         <button
           class="text-3xl font-semibold"
-          @click="$emit('hideContactModal', false)"
+          @click="hideContactModal"
         >
           &times;
         </button>
@@ -123,13 +124,12 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, computed, watch } from 'vue'
 import { PhCircleNotch } from '@phosphor-icons/vue'
 import { useToast } from 'vue-toastification'
-
+const { $listen } = useNuxtApp()
 const config = useRuntimeConfig()
 
-const emit = defineEmits(['hideContactModal'])
 const toast = useToast()
 const name = ref('')
 const surname = ref('')
@@ -146,13 +146,34 @@ const translateClass = computed(() => ({
     'translate-y-0': !isLoading.value && isMounted.value,
 }))
 
-onMounted(() => {
+const renderContactModal = ref(false)
+
+const hideContactModal = () => {
+    renderContactModal.value = false
+    document.body.style.overflowY = 'auto'
+}
+
+const showContactModal = () => {
+    renderContactModal.value = true
+    document.body.style.overflowY = 'hidden'
+}
+
+watch(renderContactModal, () => {
+  if (renderContactModal.value) {
     setTimeout(() => {
         isMounted.value = true
     }, 100)
     setTimeout(() => {
         isCircleRendered.value = true
     }, 1000)
+  } else {
+    isMounted.value = false
+    isCircleRendered.value = false
+  }
+})
+
+$listen('ContactModal:Open', () => {
+  showContactModal()
 })
 
 const onSubmit = (e: Event) => {
@@ -174,7 +195,7 @@ const onSubmit = (e: Event) => {
     }).then(res => {
         if (res.ok) {
             toast.success('Message sent successfully')
-            emit('hideContactModal', false)
+            hideContactModal()
         }
     }).catch(() => {
         toast.error('Failed to send message')
