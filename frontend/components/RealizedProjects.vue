@@ -1,5 +1,8 @@
 <template>
-  <div class="overflow-hidden">
+  <div
+    id="realizedProjects"
+    class="overflow-hidden"
+  >
     <div class="container mt-32">
       <h1 class="text-5xl font-bold my-10 text-center uppercase md:text-left">
         {{ $t('projects.title') }}

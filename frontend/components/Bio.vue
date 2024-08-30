@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-32">
+  <div
+    id="bio"
+    class="container mt-32"
+  >
     <h1 class="text-5xl font-bold text-center md:text-left">
       {{ $t("bio.title") }}
     </h1>

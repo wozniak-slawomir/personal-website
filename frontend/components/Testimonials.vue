@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-32 overflow-hidden relative">
+  <div
+    id="testimonials"
+    class="container mt-32 overflow-hidden relative"
+  >
     <div
       class="h-full w-full absolute z-10 bg-gradient-to-r from-[var(--secondary-color)] via-transparent to-[var(--secondary-color)] translate-x-[-20px] mt-[136px] sm:mt-[130px] md:mt-32 sm:max-w-[640px] md:max-w-[768px] lg:max-w-[1025px] xl:max-w-[1280px] 2xl:max-w-[1536px] scale-[101%]"
     />

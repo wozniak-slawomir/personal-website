@@ -1,5 +1,8 @@
 <template>
-  <div class="container mt-64">
+  <div
+    id="services"
+    class="container mt-64"
+  >
     <h1 class="text-5xl text-center md:text-left font-semibold uppercase">
       {{ $t('services.title') }}
     </h1>

@@ -86,18 +86,17 @@ const changeLanguage = (language : string) => {
   isMenuOpen.value = false
 }
 
-const sectionTopValues: { [key: string]: number } = {
-  bio: 800,
-  realizedProjects: 2100,
-  testimonials: 2700,
-  services: 3500,
-}
+const scroll = (sectionId : string) => {
+  const element = document.getElementById(sectionId)
+  if (element) {
+    const offset = 200 // Adjust this value to set how much higher you want to scroll
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset
+    const offsetPosition = elementPosition - offset
 
-const scroll = (section: string) => {
-  const topValue = sectionTopValues[section]
-  if (topValue !== undefined) {
-    window.scrollTo({ top: topValue, left: 0, behavior: 'smooth' })
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth',
+    })
   }
 }
-
 </script>
