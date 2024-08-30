@@ -11,8 +11,7 @@
     />
   </div>
   <div
-    class="fixed top-0 -z-10 -skew-x-12 duration-[5s]"
-    :class="isScrolling ? 'right-96' : 'right-64'"
+    class="fixed top-0 -z-10 -skew-x-12 duration-[5s] right-64"
   >
     <div
       class="h-screen w-screen fixed top-0 bg-[color:var(--primary-color)] opacity-[0.03] grayscale-[50%] animate-bgAnimationFast delay-75" 
@@ -25,8 +24,7 @@
     />
   </div>
   <div
-    class="fixed top-0 -z-50 -skew-x-12 duration-[5s]"
-    :class="isScrolling ? '-left-[70vw]' : '-left-[75vw]'"
+    class="fixed top-0 -z-50 -skew-x-12 duration-[5s] -left-[75vw]"
   >
     <div
       class="h-screen w-screen fixed top-0 bg-[color:var(--primary-color)] opacity-[0.03] grayscale-[50%] animate-bgAnimationFast delay-100" 
@@ -41,11 +39,8 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, ref, onBeforeUnmount } from 'vue'
+import { onMounted, ref } from 'vue'
 import { TweenLite, Circ } from 'gsap'
-
-// isScrolling is used to trigger the amplification of the background animation for 3 seconds
-const isScrolling = ref(false)
 
 interface Point {
   x: number
@@ -89,11 +84,11 @@ const points = ref<Point[]>([])
 const target = ref<Point>({ x: 0, y: 0, originX: 0, originY: 0 })
 const animateHeader = ref(true)
 
-onBeforeUnmount(() => {
-  window.removeEventListener('scroll', handleScroll)
+onMounted(() => {
+  initCanvas()
 })
 
-onMounted(() => {
+function initCanvas() {
   width.value = window.innerWidth
   height.value = window.innerHeight
   target.value = { x: width.value / 2, y: height.value / 2, originX: width.value / 2, originY: height.value / 2 }
@@ -101,7 +96,7 @@ onMounted(() => {
   initHeader()
   initAnimation()
   addListeners()
-})
+}
 
 function initHeader() {
   width.value = window.innerWidth
@@ -168,15 +163,7 @@ function addListeners() {
   if (!('ontouchstart' in window)) {
     window.addEventListener('mousemove', mouseMove)
   }
-  window.addEventListener('scroll', handleScroll)
   window.addEventListener('resize', resize)
-}
-
-const handleScroll = () => {
-  isScrolling.value = true
-  setTimeout(() => {
-    isScrolling.value = false
-  }, 5000)
 }
 
 function mouseMove(e: MouseEvent) {
