@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-44">
+  <div class="max-w-2xl container mt-44">
     <h1 class="text-4xl font-bold">
       {{ $t('blog.edducamp2024.title') }}
     </h1>
