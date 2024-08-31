@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-2xl container mt-44">
+  <div class="max-w-2xl container mt-44 text-justify">
     <h1 class="text-4xl font-bold">
       {{ $t('blog.edducamp2024.title') }}
     </h1>
@@ -9,7 +9,7 @@
     <div class="bg-[#393939] mt-16 py-4 rounded-xl px-8">
       <p>{{ $t('blog.edducamp2024.intro1') }}</p>
       <p>{{ $t('blog.edducamp2024.intro2') }}</p>
-      <h2 class="mt-5 text-xl font-bold">
+      <h2 class="mt-5 text-xl font-bold text-left">
         {{ $t('blog.edducamp2024.location.title') }}
       </h2>
       <img
