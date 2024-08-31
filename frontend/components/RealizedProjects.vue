@@ -31,6 +31,7 @@
         :items="filteredItems"
         :gap="24"
         :min-columns="columnsNum"
+        :rtl="rtl"
       >
         <template #default="{item}">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
@@ -42,6 +43,7 @@
                 :src="item.image"
                 :alt="item.name"
                 class="w-full h-full object-cover max-h-[800px]"
+                @load="fixLibraryBug"
               >
               <div class="bottom-0 left-0 right-0 backdrop-blur-md bg-[#393939] p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:backdrop-brightness-50 xl:opacity-0 xl:absolute xl:bg-transparent">
                 <h1 class="text-2xl font-bold text-white uppercase">
@@ -63,9 +65,12 @@
 import { computed } from 'vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 
+type Card = 'business' | 'portfolio' | 'blog' | 'all'
+
 const { t } = useI18n()
 
-let columnsNum = ref(4)
+const columnsNum = ref(4)
+const activeFilter = ref<Card>('all')
 
 const handleResize = () => {
   const screenWidth = window.innerWidth
@@ -80,8 +85,15 @@ const handleResize = () => {
   }
 }
 
+const rtl = ref(true)
+
+const fixLibraryBug = () => {
+  rtl.value = false
+}
+
 onMounted(() => {
   window.addEventListener('resize', handleResize)
+  handleResize()
 })
 
 onUnmounted(() => {
@@ -93,69 +105,65 @@ const items = computed(() => [
     name: 'hiszpanbet',
     image: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
     description: t('projects.hiszpanbet'),
-    tags: ['business', 'portfolio'] as Card[],
+    tags: ['business', 'portfolio'],
     link: 'https://www.hiszpanbet.pl',
   },
   {
     name: t('projects.blog.instagram.italy.name'),
     image: new URL('../assets/projects/blog/instagram/italy.png', import.meta.url).href,
     description: t('projects.blog.instagram.italy.description'),
-    tags: ['blog'] as Card[],
+    tags: ['blog'],
     link: 'https://www.instagram.com/p/C-V8QkRsg8Q/?img_index=1',
   },
   {
     name: t('projects.blog.instagram.reels.relationships.name'),
     image: new URL('../assets/projects/blog/instagram/relationships.png', import.meta.url).href,
     description: t('projects.blog.instagram.reels.relationships.description'),
-    tags: ['blog'] as Card[],
+    tags: ['blog'],
     link: 'https://www.instagram.com/reel/C-GIvdts-xp/',
   },
   {
     name: t('projects.blog.instagram.reels.collective-illusions.name'),
     image: new URL('../assets/projects/blog/instagram/collective-illusions.png', import.meta.url).href,
     description: t('projects.blog.instagram.reels.collective-illusions.description'),
-    tags: ['blog'] as Card[],
+    tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/reel/C9sDhuas6gA/',
   },
   {
     name: t('projects.blog.instagram.hiking.name'),
     image: new URL('../assets/projects/blog/instagram/hiking.png', import.meta.url).href,
     description: t('projects.blog.instagram.hiking.description'),
-    tags: ['blog'] as Card[],
+    tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C9K9U0RMfmH/',
   },
   {
     name: t('projects.blog.instagram.notes.name'),
     image: new URL('../assets/projects/blog/instagram/notes.png', import.meta.url).href,
     description: t('projects.blog.instagram.notes.description'),
-    tags: ['blog'] as Card[],
+    tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C6BwzvAMV0w',
   },
   {
     name: t('projects.blog.instagram.attribution.name'),
     image: new URL('../assets/projects/blog/instagram/attribution.png', import.meta.url).href,
     description: t('projects.blog.instagram.attribution.description'),
-    tags: ['blog'] as Card[],
+    tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C5a0trssz6A/',
   },
   {
-    name: t('projects.blog.instagram.promotions.name'),
-    image: new URL('../assets/projects/blog/instagram/promotions.png', import.meta.url).href,
-    description: t('projects.blog.instagram.promotions.description'),
-    tags: ['blog'] as Card[],
-    link: 'https://www.instagram.com/wozniaakslawek/p/C5a0trssz6A/',
+    name: t('blog.edducamp2024.title'),
+    image: new URL('../assets/blog/edducamp/interview.png', import.meta.url).href,
+    description: t('blog.edducamp2024.intro1') + ' ' + t('blog.edducamp2024.intro2'),
+    tags: ['blog'],
+    link: '/blog/edducamp2024',
   },
 ])
 
-type Card = 'business' | 'portfolio' | 'blog' | 'all'
-
-const activeFilter = ref<Card>('all')
-
 const filteredItems = computed(() => {
   if (activeFilter.value === 'all') {
-    return items.value
+    return items.value.slice(0).reverse()
   } else {
-    return items.value.filter((item) => item.tags.includes(activeFilter.value)) 
+    return items.value.filter((item) => item.tags.includes(activeFilter.value)).reverse()
   }
 })
 

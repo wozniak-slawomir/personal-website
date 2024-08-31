@@ -1,7 +1,9 @@
 <template>
   <div>
+    <Navbar />
     <NuxtPage />
     <Footer />
+    <ContactModal />
   </div>
 </template>
 
