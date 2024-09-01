@@ -1,9 +1,9 @@
 <template>
   <div class="max-w-2xl container mt-44 text-justify">
-    <h1 class="text-4xl font-bold">
+    <h1 class="text-4xl font-bold text-center">
       {{ $t('blog.edducamp2024.title') }}
     </h1>
-    <div>
+    <div class="text-center mt-2">
       {{ $t('blog.edducamp2024.dates') }}
     </div>
     <div class="bg-[#393939] mt-16 py-4 rounded-xl px-8">
