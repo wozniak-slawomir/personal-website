@@ -1,5 +1,6 @@
 <template>
-  <div class="max-w-2xl container mt-44 text-justify">
+  <BackButton class="mt-36 ml-4 sm:ml-16" />
+  <div class="max-w-2xl container mt-16 text-justify">
     <h1 class="text-4xl font-bold text-center">
       {{ $t('blog.edducamp2024.title') }}
     </h1>
