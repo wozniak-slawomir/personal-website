@@ -24,7 +24,7 @@ export default defineNuxtConfig({
         },
         {
           name: 'description',
-          content: 'Experienced software engineer interested in business, management, psychology and science in general. Trying to build a better future for all of us.',
+          content: 'Experienced software engineer interested in business, management, psychology and science in general. Building a better future for all of us.',
         },
         {
           name: 'keywords',
@@ -32,7 +32,43 @@ export default defineNuxtConfig({
         },
         {
           property: 'og:title',
-          content: 'Slawomir Wozniak - Software Engineering',
+          content: 'Slawomir Wozniak - Software Engineering/Business Psychology',
+        },
+        {
+          property: 'og:description',
+          content: 'Experienced software engineer interested in business, management, psychology and science in general. Building a better future for all of us.',
+        },
+        {
+          property: 'og:image',
+          content: 'https://slawomir-wozniak.pl/og-image.jpg',
+        },
+        {
+          property: 'og:url',
+          content: 'https://slawomir-wozniak.pl',
+        },
+        {
+          property: 'og:type',
+          content: 'website',
+        },
+        {
+          property: 'og:site_name',
+          content: 'Slawomir Wozniak',
+        },
+        {
+          name: 'twitter:card',
+          content: 'summary_large_image',
+        },
+        {
+          name: 'twitter:title',
+          content: 'Slawomir Wozniak - Software Engineering/Business Psychology',
+        },
+        {
+          name: 'twitter:description',
+          content: 'Experienced software engineer interested in business, management, psychology and science in general. Building a better future for all of us.',
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://slawomir-wozniak.pl/og-image.jpg',
         },
       ],
       link: [
@@ -49,6 +85,10 @@ export default defineNuxtConfig({
         {
           rel: 'preconnect',
           href: 'https://fonts.googleapis.com',
+        },
+        {
+          rel: 'canonical',
+          href: 'https://slawomir-wozniak.pl',
         },
         { rel: 'icon', type: 'image/x-icon', href: 'favicon.png' },
       ],
