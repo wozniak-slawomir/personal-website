@@ -30,6 +30,9 @@ onBeforeMount(() =>{
 watch(locale, () => {
   useHead({
     title: title.value,
+    htmlAttrs: {
+      lang: locale.value,
+    },
   })
 })
 </script>

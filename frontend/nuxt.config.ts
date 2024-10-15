@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   build: {
     transpile: ['vue-toastification'],
   },
+  nitro: {
+    compressPublicAssets: true,
+  },
   app: {
     head: {
       meta: [
@@ -90,7 +93,7 @@ export default defineNuxtConfig({
           rel: 'canonical',
           href: 'https://slawomir-wozniak.pl',
         },
-        { rel: 'icon', type: 'image/x-icon', href: 'favicon.png' },
+        { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       ],
       script: [
         {
