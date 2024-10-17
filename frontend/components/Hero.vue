@@ -1,18 +1,13 @@
 <template>
   <div class="hero grid justify-center lg:h-full pt-[var(--navbar-height)]">
     <h1
-      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 mx-auto md:ml-16 font-bold keywords uppercase self-center"
-    >
+      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 mx-auto md:ml-16 font-bold keywords uppercase self-center">
       Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br>
       Learn<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br>
       Thrive<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span>
     </h1>
     <div class="portrait">
-      <img
-        src="~/assets/portrait.png"
-        class="max-h-[750px]"
-        :alt="$t('alt.portrait')"
-      >
+      <img src="~/assets/portrait.png" class="max-h-[750px]" :alt="$t('alt.portrait')">
     </div>
     <!-- <div class="partners">
       <swiper-container slides-per-view="4" class="mix-blend-luminosity opacity-85">
@@ -34,14 +29,13 @@
           </li>
           <li class="mb-2">
             <PhCheckCircle class="inline align-baseline" />
-            {{ $t("hero.martial.arts") }}
+            {{ $t("hero.wellbeing") }}
           </li>
         </ul>
       </div>
       <button
         class="px-20 py-4 rounded-full font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300 max-w-fit"
-        @click="onContactClick"
-      >
+        @click="onContactClick">
         {{ $t("common.contact") }}
       </button>
     </div>
