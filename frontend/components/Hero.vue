@@ -1,7 +1,7 @@
 <template>
-  <div class="hero grid justify-center lg:h-full pt-[var(--navbar-height)]">
+  <div class="hero container grid justify-center lg:h-full pt-[var(--navbar-height)]">
     <h1
-      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 mx-auto md:ml-16 font-bold keywords uppercase self-center">
+      class="text-[color:var(--primary-text-color)] text-6xl md:text-8xl xl:text-9xl mt-4 mx-auto lg:ml-0 font-bold keywords uppercase self-center">
       Create<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br>
       Learn<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span><br>
       Thrive<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span>
