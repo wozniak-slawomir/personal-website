@@ -5,38 +5,59 @@
         {{ $t('projects.title') }}
       </h1>
       <div class="mb-5 mt-10 flex flex-wrap lg:my-10 gap-5">
-        <button :class="{ 'bg-[#474b59]': activeFilter === 'business' }"
+        <button
+          :class="{ 'bg-[#474b59]': activeFilter === 'business' }"
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter = activeFilter === 'business' ? 'all' : 'business'">
+          @click="activeFilter = activeFilter === 'business' ? 'all' : 'business'"
+        >
           {{ $t('projects.filter.business') }}
         </button>
-        <button :class="{ 'bg-[#474b59]': activeFilter === 'portfolio' }"
+        <button
+          :class="{ 'bg-[#474b59]': activeFilter === 'portfolio' }"
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter = activeFilter === 'portfolio' ? 'all' : 'portfolio'">
+          @click="activeFilter = activeFilter === 'portfolio' ? 'all' : 'portfolio'"
+        >
           {{ $t('projects.filter.portfolio') }}
         </button>
-        <button :class="{ 'bg-[#474b59]': activeFilter === 'blog' }"
+        <button
+          :class="{ 'bg-[#474b59]': activeFilter === 'blog' }"
           class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter = activeFilter === 'blog' ? 'all' : 'blog'">
+          @click="activeFilter = activeFilter === 'blog' ? 'all' : 'blog'"
+        >
           {{ $t('projects.filter.blog') }}
         </button>
       </div>
-      <masonry-wall :items="filteredItems" :gap="24" :min-columns="columnsNum" :rtl="rtl">
+      <masonry-wall
+        :items="filteredItems"
+        :gap="24"
+        :min-columns="columnsNum"
+        :rtl="rtl"
+      >
         <template #default="{ item }">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
-            <a :href="item.link" target="_blank">
-              <img :src="item.image" :alt="item.name" class="w-full h-full object-cover max-h-[800px]"
-                @load="fixLibraryBug">
+            <NuxtLink
+              :to="item.link"
+            >
+              <img
+                :src="item.image"
+                :alt="item.name"
+                class="w-full h-full object-cover max-h-[800px]"
+                @load="fixLibraryBug"
+              >
               <div
-                class="bottom-0 left-0 right-0 backdrop-blur-md bg-[#393939] p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:backdrop-brightness-50 xl:opacity-0 xl:absolute xl:bg-transparent">
+                class="bottom-0 left-0 right-0 backdrop-blur-md bg-[#393939] p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:backdrop-brightness-50 xl:opacity-0 xl:absolute xl:bg-transparent"
+              >
                 <h1 class="text-2xl font-bold text-white uppercase">
                   {{ item.name }}
                 </h1>
-                <p class="text-white my-2">
+                <p
+                  v-if="item.description"
+                  class="text-white my-2"
+                >
                   {{ item.description }}
                 </p>
               </div>
-            </a>
+            </NuxtLink>
           </div>
         </template>
       </masonry-wall>
@@ -146,6 +167,12 @@ const items = computed(() => [
     description: t('projects.piotrchojankowski'),
     tags: ['business', 'portfolio'],
     link: 'https://www.piotrchojankowski.pl',
+  },
+  {
+    name: t('projects.blog.higherEducation'),
+    image: new URL('../assets/projects/blog/higher-education.jpg', import.meta.url).href,
+    tags: ['blog'],
+    link: '/blog/higher-education',
   },
 ])
 
