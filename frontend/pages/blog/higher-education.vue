@@ -224,15 +224,30 @@
 const { t, locale } = useI18n()
 
 watch(locale, () => {
-    useHead({
-        title: t('blog.higherEducation.meta.title'),
-        meta: [
-            {
-                hid: 'description',
-                name: 'description',
-                content: t('blog.higherEducation.meta.description'),
-            },
-        ],
-    })
+  useHead({
+    title: t('blog.higherEducation.meta.title'),
+    meta: [
+      {
+        name: 'description',
+        content: t('blog.higherEducation.meta.description'),
+      },
+      {
+        name: 'keywords',
+        content: 'Software engineering, business, management, psychology, business psychology, blog, personal website, brand, friends, knowledge, university',
+      },
+      {
+        property: 'og:title',
+        content: t('blog.higherEducation.title'),
+      },
+      {
+        property: 'og:description',
+        content: t('blog.higherEducation.meta.description'),
+      },
+      {
+        property: 'og:image',
+        content: new URL('../assets/projects/blog/higher-education.jpg', import.meta.url).href,
+      },
+    ],
+  })
 }, { immediate: true })
 </script>
