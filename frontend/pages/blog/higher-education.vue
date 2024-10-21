@@ -1,21 +1,21 @@
 <template>
   <BlogPost
-    title="Co edukacja wyższa robi z człowiekiem?"
-    dates="2024-10-21"
+    :title="t('blog.higherEducation.title')"
+    :dates="t('blog.higherEducation.dates')"
   >
     <template #content>
-      <p>Jak sobie radzisz z samodzielną pracą?</p>
+      <p>{{ t('blog.higherEducation.content1') }}</p>
       <p class="mt-2">
-        Jesteś zdolny/a nauczyć się samodzielnie języka? Nowej technologii? Nowego narzędzia?
+        {{ t('blog.higherEducation.content2') }}
       </p>
-      <p>Czy jak kupujesz sobie nowe urządzenie, to z przymusu, czy z ekscytacją poznajesz jego możliwości?</p>
+      <p>{{ t('blog.higherEducation.content3') }}</p>
 
       <p class="mt-4">
-        Może tak jak ja sam wykształciłeś w sobie specjalistyczne umiejętności, imponującą komuś wiedzę lub zdolności, które są warte podziwu?
+        {{ t('blog.higherEducation.content4') }}
       </p>
 
       <p class="mt-4">
-        Gratuluję. Masz dostęp do złotego narzędzia o które wielu walczy i pragnie.
+        {{ t('blog.higherEducation.content5') }}
       </p>
 
       <figure>
@@ -25,29 +25,28 @@
           class="mt-8 w-64 m-auto"
         >
         <figcaption class="text-center mt-2">
-          Tak, nauczyłem się tego sam i to dość łatwo.
+          {{ t('blog.higherEducation.content6') }}
         </figcaption>
       </figure>
 
       <p class="mt-8">
-        Ale ten post nie jest stricte o mnie. Nie jest on od chwalenia się (choć z pewnością niejeden będzie).
+        {{ t('blog.higherEducation.content7') }}
       </p>
 
       <p class="mt-4">
-        Przez bardzo długi czas z dumą i zadowoleniem rozwijałem się samodzielnie, korzystając z różnych źródeł.
-        <br>Nie byłem fanem szkoły wyższej. Nie widziałem tam siebie.
+        {{ t('blog.higherEducation.content8') }}
       </p>
 
       <p class="mt-4">
-        I wiesz co? 
+        {{ t('blog.higherEducation.content9') }}
       </p>
 
       <p class="mt-4">
-        Teraz jestem. I to jak.
+        {{ t('blog.higherEducation.content10') }}
       </p>
 
       <p class="mt-4">
-        Gdzieś na początku marca 2024 spontanicznie stwierdziłem że zapiszę się na kierunek Psychologia w Biznesie na uniwersytecie Merito.
+        {{ t('blog.higherEducation.content11') }}
       </p>
 
       <img
@@ -57,28 +56,27 @@
       >
 
       <p class="mt-4">
-        Zawsze można się wypisać przecież, nic nie tracę.
+        {{ t('blog.higherEducation.content12') }}
       </p>
 
       <p class="mt-4">
-        I oh boy, ile zyskałem w ciągu tych kilku miesięcy (jestem dopiero na 2 semestrze)!
+        {{ t('blog.higherEducation.content13') }}
       </p>
 
       <p class="mt-4">
-        Skupię się tutaj na aspektach mniej oczywistych.
+        {{ t('blog.higherEducation.content14') }}
       </p>
 
       <h2 class="mt-4">
-        <strong>1. Wartość społeczna</strong>
+        <strong>{{ t('blog.higherEducation.content15') }}</strong>
       </h2>
 
       <p class="mt-4">
-        Spodziewałem się że poznam fajne osoby. Ale znacznie przewyższyło to moje oczekiwania.
+        {{ t('blog.higherEducation.content16') }}
       </p>
 
       <p class="mt-4">
-        Trafiłem na grupę w której niejedna osoba prowadzi własną działalność gospodarczą. Ludzie mają własne kariery, zarządzają zespołami, prowadzą projekty.
-        Tworzy to niesamowite możliwości co do współpracy biznesowej.
+        {{ t('blog.higherEducation.content17') }}
       </p>
 
       <img
@@ -88,31 +86,28 @@
       >
 
       <p class="mt-4">
-        Z dwójką z nich już zbudowałem w przeciągu 7 miesięcy bliską relację w której wspieramy się personalnie i biznesowo. Pozdrawiam Klaudia i Piotrek :)
-        Jestem pewny że to dopiero początek.
+        {{ t('blog.higherEducation.content18') }}
       </p>
 
       <p class="mt-4">
-        Wniosek:
-        <strong class="underline">poznasz osoby które zmienią twoje życie.</strong>
+        {{ t('blog.higherEducation.conclusion') }}
+        <span class="font-semibold underline">{{ t('blog.higherEducation.content19') }}</span>
       </p>
 
       <h2 class="mt-4">
-        <strong>2. Pomysły, idee</strong>
+        <strong>{{ t('blog.higherEducation.content20') }}</strong>
       </h2>
 
       <p class="mt-4">
-        O wiedzy i tym co zyskasz porozmawiamy później. Teraz chciałbym zwrócić uwagę na coś innego.
+        {{ t('blog.higherEducation.content21') }}
       </p>
 
       <p class="mt-4">
-        W trakcie zajęć i poza nimi, spotkasz się z pracami, projektami i ludźmi którzy są na najwyższej półce intelektualnej.<br>
-        Nie zliczę ile pomysłów i inspiracji zebrałem w ciągu tych kilku miesięcy.
+        {{ t('blog.higherEducation.content22') }}
       </p>
 
       <p class="mt-4">
-        Dla przykładu: spontanicznie zobaczyłem plakat odnośnie konkursu na projekt IT związany z AI.
-        Poświęciłem minimalną ilość czasu na zbudowanie konceptu bo zajęło mi to koło godziny.
+        {{ t('blog.higherEducation.content23') }}
       </p>
 
       <img
@@ -122,58 +117,53 @@
       >
 
       <p class="mt-4">
-        Czy wygrałem? Nie.
+        {{ t('blog.higherEducation.content24') }}
       </p>
 
       <p class="mt-4">
-        Ale projekt zacząłem i tak, bo widzę w nim potencjał. Jestem w trakcie implementacji, uczę się zarządzania projektem i zespołem.
-        Planuję go wdrożyć w życie, wypuścić w świat i może nawet kiedyś zmonetyzować. Więcej informacji o tym za jakiś czas :)
+        {{ t('blog.higherEducation.content25') }}
       </p>
 
       <p class="mt-4">
-        Wniosek:
-        <strong class="underline">zainspirujesz się i będziesz mieć więcej perspektyw do działania.</strong>
-      </p>
-
-      <h2 class="mt-4">
-        <strong>3. Sposób zdobywania wiedzy</strong>
-      </h2>
-
-      <p class="mt-4">
-        Jeżeli uczysz się samodzielnie, to wiesz z pewnością że jest to proces wymagający.
-        Musisz nie tylko przyswoić wiedzę, ale mieć też plan i kontrolować cały proces.
-      </p>
-
-      <p class="mt-4">
-        W szkole wyższej masz to wszystko ułatwione. Masz plan przygotowany przez specjalistów, masz podręczniki które ktoś pisał miesiącami, masz wsparcie ludzi mądrzejszych od ciebie.
-      </p>
-
-      <p class="mt-4">
-        Delegując proces planowania i kontrolowania, możesz skupić się na innych czynnościach. Na przykład przyswajaniu wiedzy, ale też na prywatnych aspektach życia.
-      </p>
-
-      <p class="mt-4">
-        Wniosek:
-        <strong class="underline">będziesz uczyć się efektywniej.</strong>
+        {{ t('blog.higherEducation.conclusion') }}
+        <span class="font-semibold underline">{{ t('blog.higherEducation.content26') }}</span>
       </p>
 
       <h2 class="mt-4">
-        <strong>4. Twój zasób słownictwa</strong>
+        <strong>{{ t('blog.higherEducation.content27') }}</strong>
       </h2>
 
       <p class="mt-4">
-        W trakcie zajęć poznasz nowe słowa, nowe pojęcia, nowe definicje.
-        Na jednych zajęciach trzeba było dokonać przemowę. Przełamać lęk w sytuacji która wielu paraliżuje.
+        {{ t('blog.higherEducation.content28') }}
       </p>
 
       <p class="mt-4">
-        Ale mnie uderzyło coś innego.
+        {{ t('blog.higherEducation.content29') }}
       </p>
 
       <p class="mt-4">
-        Po miesiącach nauki, zauważyłem drastyczną zmianę mojej mowy.<br>
-        Gdy miałem rozmowy o pracę, czułem że mówię z przekonaniem, z wiedzą, z pewnością siebie.<br>
-        Gdy rozmawiałem z przyjaciółmi, byłem spokojniejszy, bardziej elokwentny, okazywałem więcej miłości.<br>
+        {{ t('blog.higherEducation.content30') }}
+      </p>
+
+      <p class="mt-4">
+        {{ t('blog.higherEducation.conclusion') }}
+        <span class="font-semibold underline">{{ t('blog.higherEducation.content31') }}</span>
+      </p>
+
+      <h2 class="mt-4">
+        <strong>{{ t('blog.higherEducation.content32') }}</strong>
+      </h2>
+
+      <p class="mt-4">
+        {{ t('blog.higherEducation.content33') }}
+      </p>
+
+      <p class="mt-4">
+        {{ t('blog.higherEducation.content34') }}
+      </p>
+
+      <p class="mt-4">
+        {{ t('blog.higherEducation.content35') }}
       </p>
 
       <figure>
@@ -183,51 +173,48 @@
           class="mt-8 w-64 m-auto"
         >
         <figcaption class="text-center mt-2">
-          Poczujesz się pewniej.
+          {{ t('blog.higherEducation.content36') }}
         </figcaption>
       </figure>
 
       <p class="mt-4">
-        Wiedziałem czego chcę i jak to uzasadnić. Potrafiłem sprzedać siebie i swoje wartości.
+        {{ t('blog.higherEducation.content37') }}
       </p>
 
       <p class="mt-4">
-        Wniosek:
-        <strong class="underline">twoja charyzma i umiejętność przekazu wzrośnie.</strong>
+        {{ t('blog.higherEducation.conclusion') }}
+        <span class="font-semibold underline">{{ t('blog.higherEducation.content38') }}</span>
       </p>
 
       <h2 class="mt-4">
-        <strong>5. Wartość wiedzy</strong>
+        <strong>{{ t('blog.higherEducation.content39') }}</strong>
       </h2>
 
       <p class="mt-4">
-        Wiesz doskonale o co chodzi. Mieliła ci to babcia, mama, ojciec i nauczyciele w szkole. Nie jest moim celem to powtarzać.
+        {{ t('blog.higherEducation.content40') }}
       </p>
 
       <p class="mt-4">
-        Jedynie dodam że jesteśmy zbiorem naczyń połączonych. Wiedza którą posiądziesz z pewnością wpłynie na Twoje życie.
+        {{ t('blog.higherEducation.content41') }}
       </p>
 
       <p class="mt-4">
-        Może zbudujesz tożsamość osoby inteligentnej, która ma siłę i jest zdolna do wielkich rzeczy?<br>
-        Może będziesz wiedziała więcej o zachowaniu ludzi i nie będziesz stosować kar i przemocy wobec swoich dzieci, bo wiesz jak szkodliwe to jest?<br>
-        A może dowiesz się że nie zawsze warto brać leki przeciwzapalne gdy masz gorączkę?
+        {{ t('blog.higherEducation.content42') }}
       </p>
 
       <p class="mt-4">
-        Wniosek:
-        <strong class="underline">będziesz mądrzejszy/a.</strong>
+        {{ t('blog.higherEducation.conclusion') }}
+        <span class="font-semibold underline">{{ t('blog.higherEducation.content43') }}</span>
       </p>
 
       <hr class="mt-8">
 
       <p class="mt-4">
-        Moim celem było przybliżyć Tobie kilka nieoczywistych aspektów studiów, jak i podzielić się moim doświadczeniem.
-        Sporo się zmieniło, i myślę że warto dzielić się swoimi przemyśleniami.
+        {{ t('blog.higherEducation.content44') }}
       </p>
 
       <p class="mt-4">
-        Może jednak babcia miała rację.
+        {{ t('blog.higherEducation.content45') }}
       </p>
     </template>
   </BlogPost>
