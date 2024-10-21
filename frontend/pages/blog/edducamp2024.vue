@@ -1,13 +1,9 @@
 <template>
-  <BackButton class="mt-36 ml-4 sm:ml-16" />
-  <div class="max-w-2xl container mt-16 text-justify">
-    <h1 class="text-4xl font-bold text-center">
-      {{ $t('blog.edducamp2024.title') }}
-    </h1>
-    <div class="text-center mt-2">
-      {{ $t('blog.edducamp2024.dates') }}
-    </div>
-    <div class="bg-[#393939] mt-16 py-4 rounded-xl px-8">
+  <BlogPost
+    :title="$t('blog.edducamp2024.title')"
+    :dates="$t('blog.edducamp2024.dates')"
+  >
+    <template #content>
       <p>{{ $t('blog.edducamp2024.intro1') }}</p>
       <p>{{ $t('blog.edducamp2024.intro2') }}</p>
       <h2 class="mt-5 text-xl font-bold text-left">
@@ -92,9 +88,8 @@
       <p class="font-bold mt-4">
         {{ $t('blog.edducamp2024.signature') }}
       </p>
-    </div>
-    <ContactMe />
-  </div>
+    </template>
+  </blogpost>
 </template>
 
 <script setup lang="ts">
