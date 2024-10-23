@@ -2,6 +2,13 @@
   "common.contact": "Contact me",
   "common.goBack": "Go back",
 
+  "seo.title": "Slawomir Wozniak - Software Engineering/Business Psychology",
+  "seo.description": "Experienced programmer interested in psychology, business, and management. I strive to build a better future for all of us.",
+  "seo.keywords": "programming, business psychology, management, software engineering, psychology, business, management",
+  "seo.ogTitle": "Slawomir Wozniak - Software Engineering/Business Psychology",
+  "seo.ogDescription": "Experienced programmer interested in psychology, business, and management. I strive to build a better future for all of us.",
+  "seo.ogSiteName": "Slawomir Wozniak",
+
   "hero.software.engineering": "Software Engineering",
   "hero.business.psychology": "Business Psychology",
   "hero.wellbeing": "Wellbeing",

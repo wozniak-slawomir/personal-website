@@ -2,6 +2,13 @@
   "common.contact": "Contáctame",
   "common.goBack": "Volver",
 
+  "seo.title": "Slawomir Wozniak - Ingeniería de Software/Psicología Empresarial",
+  "seo.description": "Programador experimentado interesado en psicología, negocios y gestión. Me esfuerzo por construir un futuro mejor para todos nosotros.",
+  "seo.keywords": "programación, psicología empresarial, gestión, ingeniería de software, psicología, negocios, gestión",
+  "seo.ogTitle": "Slawomir Wozniak - Ingeniería de Software/Psicología Empresarial",
+  "seo.ogDescription": "Programador experimentado interesado en psicología, negocios y gestión. Me esfuerzo por construir un futuro mejor para todos nosotros.",
+  "seo.ogSiteName": "Slawomir Wozniak",
+
   "hero.software.engineering": "Ingeniería de Software",
   "hero.business.psychology": "Psicología Empresarial",
   "hero.wellbeing": "Wellbeing",

@@ -34,5 +34,14 @@ watch(locale, () => {
       lang: locale.value,
     },
   })
-})
+  useSeoMeta({
+    title: t('seo.title'),
+    description: t('seo.description'),
+    keywords: t('seo.keywords'),
+    ogTitle: t('seo.ogTitle'),
+    ogDescription: t('seo.ogDescription'),
+    ogSiteName: t('seo.ogSiteName'),
+  })
+}, { immediate: true })
+
 </script>
