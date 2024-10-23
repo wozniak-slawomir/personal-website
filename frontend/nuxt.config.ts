@@ -57,22 +57,6 @@ export default defineNuxtConfig({
           property: 'og:site_name',
           content: 'Slawomir Wozniak',
         },
-        {
-          name: 'twitter:card',
-          content: 'summary_large_image',
-        },
-        {
-          name: 'twitter:title',
-          content: 'Slawomir Wozniak - Software Engineering/Business Psychology',
-        },
-        {
-          name: 'twitter:description',
-          content: 'Experienced software engineer interested in business, management, psychology and science in general. Building a better future for all of us.',
-        },
-        {
-          name: 'twitter:image',
-          content: 'https://slawomir-wozniak.pl/og-image.jpg',
-        },
       ],
       link: [
         {

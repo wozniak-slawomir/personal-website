@@ -2,6 +2,13 @@
   "common.contact": "Contactez-moi",
   "common.goBack": "Retour",
 
+  "seo.title": "Slawomir Wozniak - Ingénierie Logicielle/Psychologie des Affaires",
+  "seo.description": "Développeur expérimenté intéressé par la psychologie, les affaires et la gestion. Je m'efforce de construire un avenir meilleur pour nous tous.",
+  "seo.keywords": "programmation, psychologie des affaires, gestion, ingénierie logicielle, psychologie, affaires, gestion",
+  "seo.ogTitle": "Slawomir Wozniak - Ingénierie Logicielle/Psychologie des Affaires",
+  "seo.ogDescription": "Développeur expérimenté intéressé par la psychologie, les affaires et la gestion. Je m'efforce de construire un avenir meilleur pour nous tous.",
+  "seo.ogSiteName": "Slawomir Wozniak",
+
   "hero.software.engineering": "Ingénierie Logicielle",
   "hero.business.psychology": "Psychologie des Affaires",
   "hero.wellbeing": "Wellbeing",
