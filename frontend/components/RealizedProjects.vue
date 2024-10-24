@@ -32,6 +32,8 @@
         :gap="24"
         :min-columns="columnsNum"
         :rtl="rtl"
+        :class="isSectionExpanded ? 'max-h-none' : 'max-h-[800px]'"
+        class="overflow-hidden duration-300"
       >
         <template #default="{ item }">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
@@ -61,6 +63,23 @@
           </div>
         </template>
       </masonry-wall>
+      <div class="relative pt-10">
+        <div
+          v-if="!isSectionExpanded"
+          class="absolute bottom-full inset-x-0 bg-gradient-to-t from-[var(--secondary-color)] to-transparent h-32"
+        />
+        <button
+          class="py-3 px-20 bg-[#393939] hover:bg-[#464646] duration-300 flex justify-center items-center mx-auto rounded-3xl"
+          @click="toggleSection"
+        >
+          {{ isSectionExpanded ? $t('projects.show.less') : $t('projects.show.more') }}
+          <PhCaretDown
+            size="30"
+            class="text-white ml-3 transform transition-transform duration-300"
+            :class="isSectionExpanded ? 'rotate-180' : ''"
+          />
+        </button>
+      </div>
     </div>
   </div>
 </template>
@@ -68,6 +87,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { ref, onMounted, onUnmounted } from 'vue'
+import { PhCaretDown } from '@phosphor-icons/vue'
 
 type Card = 'business' | 'portfolio' | 'blog' | 'all'
 
@@ -75,6 +95,7 @@ const { t } = useI18n()
 
 const columnsNum = ref(4)
 const activeFilter = ref<Card>('all')
+const isSectionExpanded = ref(false)
 
 const handleResize = () => {
   const screenWidth = window.innerWidth
@@ -87,6 +108,10 @@ const handleResize = () => {
   } else {
     columnsNum.value = 1
   }
+}
+
+const toggleSection = () => {
+  isSectionExpanded.value = !isSectionExpanded.value
 }
 
 const rtl = ref(true)
