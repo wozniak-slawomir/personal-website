@@ -1,5 +1,8 @@
 <template>
-  <div class="overflow-hidden">
+  <div
+    ref="realizedProjectsSection"
+    class="overflow-hidden"
+  >
     <div class="container mt-32">
       <h1 class="text-5xl font-bold my-10 text-center uppercase md:text-left">
         {{ $t('projects.title') }}
@@ -96,6 +99,7 @@ const { t } = useI18n()
 const columnsNum = ref(4)
 const activeFilter = ref<Card>('all')
 const isSectionExpanded = ref(false)
+const realizedProjectsSection = ref<HTMLElement | null>(null)
 
 const handleResize = () => {
   const screenWidth = window.innerWidth
@@ -112,6 +116,15 @@ const handleResize = () => {
 
 const toggleSection = () => {
   isSectionExpanded.value = !isSectionExpanded.value
+    if (!isSectionExpanded.value) {
+      scrollToSection()
+    }
+}
+
+const scrollToSection = () => {
+  if (realizedProjectsSection.value) {
+    realizedProjectsSection.value.scrollIntoView({ behavior: 'smooth' })
+  }
 }
 
 const rtl = ref(true)
