@@ -4,9 +4,9 @@
     class="overflow-hidden"
   >
     <div class="container mt-32">
-      <h1 class="text-5xl font-bold my-10 text-center uppercase md:text-left">
+      <h2 class="text-5xl font-bold my-10 text-center uppercase md:text-left">
         {{ $t('projects.title') }}
-      </h1>
+      </h2>
       <div class="mb-5 mt-10 flex flex-wrap lg:my-10 gap-5">
         <button
           :class="{ 'bg-[#474b59]': activeFilter === 'business' }"
@@ -32,8 +32,9 @@
       </div>
       <masonry-wall
         :items="filteredItems"
-        :gap="24"
+        :gap="24"                                  
         :min-columns="columnsNum"
+        :ssr-columns="columnsNum"
         :rtl="rtl"
         :class="isSectionExpanded ? 'max-h-none' : 'max-h-[800px]'"
         class="overflow-hidden duration-300"
@@ -52,9 +53,9 @@
               <div
                 class="bottom-0 left-0 right-0 backdrop-blur-md bg-[#393939] p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:backdrop-brightness-50 xl:opacity-0 xl:absolute xl:bg-transparent"
               >
-                <h1 class="text-2xl font-bold text-white uppercase">
+                <h3 class="text-2xl font-bold text-white uppercase">
                   {{ item.name }}
-                </h1>
+                </h3>
                 <p
                   v-if="item.description"
                   class="text-white my-2"
@@ -91,6 +92,16 @@
 import { computed } from 'vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 import { PhCaretDown } from '@phosphor-icons/vue'
+import hiszpanbetImg from '~/assets/projects/hiszpanbet.png'
+import italyImg from '~/assets/projects/blog/instagram/italy.png'
+import relationshipsImg from '~/assets/projects/blog/instagram/relationships.png'
+import collectiveIllusionsImg from '~/assets/projects/blog/instagram/collective-illusions.png'
+import hikingImg from '~/assets/projects/blog/instagram/hiking.png'
+import notesImg from '~/assets/projects/blog/instagram/notes.png'
+import attributionImg from '~/assets/projects/blog/instagram/attribution.png'
+import interviewImg from '~/assets/blog/edducamp/interview.png'
+import piotrchojankowskiImg from '~/assets/projects/piotrchojankowski.png'
+import higherEducationImg from '~/assets/projects/blog/higher-education.jpg'
 
 type Card = 'business' | 'portfolio' | 'blog' | 'all'
 
@@ -145,70 +156,70 @@ onUnmounted(() => {
 const items = computed(() => [
   {
     name: 'hiszpanbet',
-    image: new URL('../assets/projects/hiszpanbet.png', import.meta.url).href,
+    image: hiszpanbetImg,
     description: t('projects.hiszpanbet'),
     tags: ['business', 'portfolio'],
     link: 'https://www.hiszpanbet.pl',
   },
   {
     name: t('projects.blog.instagram.italy.name'),
-    image: new URL('../assets/projects/blog/instagram/italy.png', import.meta.url).href,
+    image: italyImg,
     description: t('projects.blog.instagram.italy.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/p/C-V8QkRsg8Q/?img_index=1',
   },
   {
     name: t('projects.blog.instagram.reels.relationships.name'),
-    image: new URL('../assets/projects/blog/instagram/relationships.png', import.meta.url).href,
+    image: relationshipsImg,
     description: t('projects.blog.instagram.reels.relationships.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/reel/C-GIvdts-xp/',
   },
   {
     name: t('projects.blog.instagram.reels.collective-illusions.name'),
-    image: new URL('../assets/projects/blog/instagram/collective-illusions.png', import.meta.url).href,
+    image: collectiveIllusionsImg,
     description: t('projects.blog.instagram.reels.collective-illusions.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/reel/C9sDhuas6gA/',
   },
   {
     name: t('projects.blog.instagram.hiking.name'),
-    image: new URL('../assets/projects/blog/instagram/hiking.png', import.meta.url).href,
+    image: hikingImg,
     description: t('projects.blog.instagram.hiking.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C9K9U0RMfmH/',
   },
   {
     name: t('projects.blog.instagram.notes.name'),
-    image: new URL('../assets/projects/blog/instagram/notes.png', import.meta.url).href,
+    image: notesImg,
     description: t('projects.blog.instagram.notes.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C6BwzvAMV0w',
   },
   {
     name: t('projects.blog.instagram.attribution.name'),
-    image: new URL('../assets/projects/blog/instagram/attribution.png', import.meta.url).href,
+    image: attributionImg,
     description: t('projects.blog.instagram.attribution.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C5a0trssz6A/',
   },
   {
     name: t('blog.edducamp2024.title'),
-    image: new URL('../assets/blog/edducamp/interview.png', import.meta.url).href,
+    image: interviewImg,
     description: t('blog.edducamp2024.intro1') + ' ' + t('blog.edducamp2024.intro2'),
     tags: ['blog'],
     link: '/blog/edducamp2024',
   },
   {
     name: 'PiotrChojankowski.pl',
-    image: new URL('../assets/projects/piotrchojankowski.png', import.meta.url).href,
+    image: piotrchojankowskiImg,
     description: t('projects.piotrchojankowski'),
     tags: ['business', 'portfolio'],
     link: 'https://www.piotrchojankowski.pl',
   },
   {
     name: t('projects.blog.higherEducation'),
-    image: new URL('../assets/projects/blog/higher-education.jpg', import.meta.url).href,
+    image: higherEducationImg,
     tags: ['blog'],
     link: '/blog/higher-education',
   },
