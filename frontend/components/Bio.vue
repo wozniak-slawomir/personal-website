@@ -1,8 +1,8 @@
 <template>
   <div class="container mt-32">
-    <h1 class="text-5xl font-bold text-center md:text-left">
+    <h2 class="text-5xl font-bold text-center md:text-left">
       BIO
-    </h1>
+    </h2>
     <div class="mb-0 mt-10 flex flex-wrap lg:my-10">
       <button
         :class="{ 'bg-[#474b59]': bioState === 'story' }"
@@ -106,7 +106,7 @@
             </ul>
             <div class="mt-3 text-white">
               <p>
-                {{ $t('bio.career.technology') }}: 
+                {{ $t('bio.career.technology') }}:
                 {{ position.technology.join(', ') }}
               </p>
             </div>
@@ -222,7 +222,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed} from 'vue'
+import { ref, computed } from 'vue'
 const { t } = useI18n()
 
 type BioState =
@@ -311,23 +311,23 @@ const skills = computed(() => ({
 
   },
   soft: [
-  t('bio.skills.leadership'),
-  t('bio.skills.communication'),
-  t('bio.skills.problem.solving'),
-  t('bio.skills.teamwork'),
-  t('bio.skills.adaptability'),
-  t('bio.skills.time.management'),
-  t('bio.skills.creativity'),
-  t('bio.skills.critical.thinking'),
-  t('bio.skills.conflict.resolution'),
-  t('bio.skills.decision.making'),
-  t('bio.skills.empathy'),
-  t('bio.skills.flexibility'),
-  t('bio.skills.persuasion'),
-  t('bio.skills.stress.management'),
-  t('bio.skills.tolerance'),
-  t('bio.skills.work.ethic'),
-],
+    t('bio.skills.leadership'),
+    t('bio.skills.communication'),
+    t('bio.skills.problem.solving'),
+    t('bio.skills.teamwork'),
+    t('bio.skills.adaptability'),
+    t('bio.skills.time.management'),
+    t('bio.skills.creativity'),
+    t('bio.skills.critical.thinking'),
+    t('bio.skills.conflict.resolution'),
+    t('bio.skills.decision.making'),
+    t('bio.skills.empathy'),
+    t('bio.skills.flexibility'),
+    t('bio.skills.persuasion'),
+    t('bio.skills.stress.management'),
+    t('bio.skills.tolerance'),
+    t('bio.skills.work.ethic'),
+  ],
 }
 ))
 

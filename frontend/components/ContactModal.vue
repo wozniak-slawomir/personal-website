@@ -13,9 +13,9 @@
       :class="translateClass"
     >
       <div class="flex justify-between items-center">
-        <h1 class="text-3xl font-semibold uppercase">
+        <h2 class="text-3xl font-semibold uppercase">
           {{ $t('common.contact') }}
-        </h1>
+        </h2>
         <button
           class="text-3xl font-semibold"
           @click="hideContactModal"

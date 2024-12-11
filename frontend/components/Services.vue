@@ -1,13 +1,13 @@
 <template>
   <div class="container mt-64">
-    <h1 class="text-5xl text-center md:text-left font-semibold uppercase">
+    <h2 class="text-5xl text-center md:text-left font-semibold uppercase">
       {{ $t('services.services') }}
-    </h1>
+    </h2>
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-8">
       <div class="bg-[#393939] py-4 rounded-xl px-8">
-        <h2 class="text-l my-5">
+        <h3 class="text-l my-5">
           {{ $t('services.development.title') }}
-        </h2>
+        </h3>
         <hr class="border-[#666666]">
         <div class="my-5 text-[#bbbbbb]">
           <p>{{ $t('services.development.description') }}</p>
@@ -24,9 +24,9 @@
                 </button> -->
       </div>
       <div class="bg-[#393939] py-4 rounded-xl px-8">
-        <h2 class="text-l my-5">
+        <h3 class="text-l my-5">
           {{ $t('services.coaching.title') }}
-        </h2>
+        </h3>
         <hr class="border-[#666666]">
         <div class="my-5 text-[#bbbbbb]">
           <p>{{ $t('services.coaching.description') }}</p>
@@ -44,9 +44,9 @@
                 </button> -->
       </div>
       <div class="bg-[#393939] py-4 rounded-xl px-8">
-        <h2 class="text-l my-5">
+        <h3 class="text-l my-5">
           {{ $t('services.audits.title') }}
-        </h2>
+        </h3>
         <hr class="border-[#666666]">
         <div class="my-5 text-[#bbbbbb]">
           <p>{{ $t('services.audits.description') }}</p>
@@ -72,6 +72,5 @@ import { PhCaretDown, PhCaretUp } from '@phosphor-icons/vue'
 const expandDevelopmentFeatures = ref(false)
 const expandCoachingFeatures = ref(false)
 const expandAuditsFeatures = ref(false)
-
 
 </script>
