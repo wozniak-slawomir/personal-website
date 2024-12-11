@@ -8,11 +8,13 @@
       Thrive<span class="text-[color:var(--primary-color)] text-9xl leading-[0]">.</span>
     </h1>
     <div class="portrait">
-      <img
-        src="~/assets/portrait.png"
-        class="max-h-[750px]"
+      <NuxtImg
+        src="/portrait.png"
+        class="lg:w-[384px] mx-auto"
         :alt="$t('alt.portrait')"
-      >
+        width="300"
+        height="450"
+      />
     </div>
     <!-- <div class="partners">
       <swiper-container slides-per-view="4" class="mix-blend-luminosity opacity-85">

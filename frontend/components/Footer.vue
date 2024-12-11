@@ -1,11 +1,13 @@
 <template>
   <footer class="bg-[--secondary-color] container py-10 !mt-32 text-gray-300">
     <div class="flex justify-between items-center flex-col lg:flex-row gap-5">
-      <img
-        src="~/assets/logo.png"
+      <NuxtImg
+        src="/logo.png"
         :alt="$t('alt.slawomir')"
         class="max-w-[400px] w-full lg:h-[30px]"
-      >
+        width="400"
+        height="30"
+      />
       <div class="flex gap-5 text-white">
         <a
           href="https://www.linkedin.com/in/slawek-wozniak/"
@@ -74,11 +76,13 @@
           target="_blank"
           class="mt-4 block"
         >
-          <img
-            src="~/assets/partners/nie-jestes-immortal.png"
+          <NuxtImg
+            src="/partners/nie-jestes-immortal.png"
             alt="Piotr Chojankowski"
             class="h-16 m-auto rounded-lg"
-          >
+            width="150"
+            height="70"
+          />
         </NuxtLink>
       </div>
       <div class="mt-4 md:mt-0">

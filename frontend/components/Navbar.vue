@@ -2,11 +2,13 @@
   <nav
     class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-5 px-16 flex justify-between items-center fixed top-0 left-0 z-20"
   >
-    <img
-      src="~/assets/logo.png"
+    <NuxtImg
+      src="/logo.png"
       class="max-w-[400px] min-w-[100px] mr-3 md:mr-0"
       :alt="$t('alt.slawomir')"
-    >
+      width="400"
+      height="30"
+    />
     <div class="flex">
       <div
         class="p-3 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-14 text-center sm:w-24 h-min z-20"

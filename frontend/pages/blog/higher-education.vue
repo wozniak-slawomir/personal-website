@@ -19,11 +19,13 @@
       </p>
 
       <figure>
-        <img
-          src="~assets/blog/higher-education/handstand.jpg"
+        <NuxtImg
+          src="/blog/higher-education/handstand.jpg"
           alt="handstand"
           class="mt-8 w-64 m-auto"
-        >
+          width="320"
+          height="426"
+        />
         <figcaption class="text-center mt-2">
           {{ t('blog.higherEducation.content6') }}
         </figcaption>
@@ -49,11 +51,13 @@
         {{ t('blog.higherEducation.content11') }}
       </p>
 
-      <img
-        src="~assets/blog/higher-education/enrollment-confirmation.png"
+      <NuxtImg
+        src="/blog/higher-education/enrollment-confirmation.png"
         alt="potwierdzenie zapisu na studia"
         class="mt-8 w-128 m-auto"
-      >
+        width="320"
+        height="84"
+      />
 
       <p class="mt-4">
         {{ t('blog.higherEducation.content12') }}
@@ -79,11 +83,13 @@
         {{ t('blog.higherEducation.content17') }}
       </p>
 
-      <img
-        src="~assets/blog/higher-education/friendship.jpg"
+      <NuxtImg
+        src="/blog/higher-education/friendship.jpg"
         alt="me"
         class="mt-8 w-64 m-auto"
-      >
+        width="500"
+        height="375"
+      />
 
       <p class="mt-4">
         {{ t('blog.higherEducation.content18') }}
@@ -110,11 +116,13 @@
         {{ t('blog.higherEducation.content23') }}
       </p>
 
-      <img
-        src="~assets/blog/higher-education/contest.png"
+      <NuxtImg
+        src="/blog/higher-education/contest.png"
         alt="me"
         class="mt-8 w-128 m-auto"
-      >
+        width="270"
+        height="100"
+      />
 
       <p class="mt-4">
         {{ t('blog.higherEducation.content24') }}
@@ -167,11 +175,13 @@
       </p>
 
       <figure>
-        <img
-          src="~assets/blog/higher-education/interview.png"
+        <NuxtImg
+          src="/blog/higher-education/interview.png"
           alt="interview"
           class="mt-8 w-64 m-auto"
-        >
+          width="320"
+          height="426"
+        />
         <figcaption class="text-center mt-2">
           {{ t('blog.higherEducation.content36') }}
         </figcaption>

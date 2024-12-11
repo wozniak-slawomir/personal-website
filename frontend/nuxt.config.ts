@@ -15,6 +15,16 @@ export default defineNuxtConfig({
   nitro: {
     compressPublicAssets: true,
   },
+  image: {
+    inject: true,
+    format: ['webp', 'png'],
+    screens: {
+      sm: 640,
+      md: 768,
+      lg: 1024,
+      xl: 1280,
+    },
+  },
   app: {
     head: {
       meta: [
@@ -88,7 +98,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image'],
   tailwindcss: {
     config: {
       theme: {

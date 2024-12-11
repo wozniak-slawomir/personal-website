@@ -44,12 +44,14 @@
             <NuxtLink
               :to="item.link"
             >
-              <img
+              <NuxtImg
                 :src="item.image"
                 :alt="item.name"
-                class="w-full h-full object-cover max-h-[800px]"
+                class="md:w-full md:h-full object-cover max-h-[800px]"
+                height="650"
+                width="450"
                 @load="fixLibraryBug"
-              >
+              />
               <div
                 class="bottom-0 left-0 right-0 backdrop-blur-md bg-[#393939] p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:backdrop-brightness-50 xl:opacity-0 xl:absolute xl:bg-transparent"
               >
@@ -92,16 +94,6 @@
 import { computed } from 'vue'
 import { ref, onMounted, onUnmounted } from 'vue'
 import { PhCaretDown } from '@phosphor-icons/vue'
-import hiszpanbetImg from '~/assets/projects/hiszpanbet.png'
-import italyImg from '~/assets/projects/blog/instagram/italy.png'
-import relationshipsImg from '~/assets/projects/blog/instagram/relationships.png'
-import collectiveIllusionsImg from '~/assets/projects/blog/instagram/collective-illusions.png'
-import hikingImg from '~/assets/projects/blog/instagram/hiking.png'
-import notesImg from '~/assets/projects/blog/instagram/notes.png'
-import attributionImg from '~/assets/projects/blog/instagram/attribution.png'
-import interviewImg from '~/assets/blog/edducamp/interview.png'
-import piotrchojankowskiImg from '~/assets/projects/piotrchojankowski.png'
-import higherEducationImg from '~/assets/projects/blog/higher-education.jpg'
 
 type Card = 'business' | 'portfolio' | 'blog' | 'all'
 
@@ -156,70 +148,70 @@ onUnmounted(() => {
 const items = computed(() => [
   {
     name: 'hiszpanbet',
-    image: hiszpanbetImg,
+    image: 'projects/hiszpanbet.png',
     description: t('projects.hiszpanbet'),
     tags: ['business', 'portfolio'],
     link: 'https://www.hiszpanbet.pl',
   },
   {
     name: t('projects.blog.instagram.italy.name'),
-    image: italyImg,
+    image: 'projects/blog/instagram/italy.png',
     description: t('projects.blog.instagram.italy.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/p/C-V8QkRsg8Q/?img_index=1',
   },
   {
     name: t('projects.blog.instagram.reels.relationships.name'),
-    image: relationshipsImg,
+    image: 'projects/blog/instagram/relationships.png',
     description: t('projects.blog.instagram.reels.relationships.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/reel/C-GIvdts-xp/',
   },
   {
     name: t('projects.blog.instagram.reels.collective-illusions.name'),
-    image: collectiveIllusionsImg,
+    image: 'projects/blog/instagram/collective-illusions.png',
     description: t('projects.blog.instagram.reels.collective-illusions.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/reel/C9sDhuas6gA/',
   },
   {
     name: t('projects.blog.instagram.hiking.name'),
-    image: hikingImg,
+    image: 'projects/blog/instagram/hiking.png',
     description: t('projects.blog.instagram.hiking.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C9K9U0RMfmH/',
   },
   {
     name: t('projects.blog.instagram.notes.name'),
-    image: notesImg,
+    image: 'projects/blog/instagram/notes.png',
     description: t('projects.blog.instagram.notes.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C6BwzvAMV0w',
   },
   {
     name: t('projects.blog.instagram.attribution.name'),
-    image: attributionImg,
+    image: 'projects/blog/instagram/attribution.png',
     description: t('projects.blog.instagram.attribution.description'),
     tags: ['blog'],
     link: 'https://www.instagram.com/wozniaakslawek/p/C5a0trssz6A/',
   },
   {
     name: t('blog.edducamp2024.title'),
-    image: interviewImg,
+    image: 'blog/edducamp/interview.png',
     description: t('blog.edducamp2024.intro1') + ' ' + t('blog.edducamp2024.intro2'),
     tags: ['blog'],
     link: '/blog/edducamp2024',
   },
   {
     name: 'PiotrChojankowski.pl',
-    image: piotrchojankowskiImg,
+    image: 'projects/piotrchojankowski.png',
     description: t('projects.piotrchojankowski'),
     tags: ['business', 'portfolio'],
     link: 'https://www.piotrchojankowski.pl',
   },
   {
     name: t('projects.blog.higherEducation'),
-    image: higherEducationImg,
+    image: 'projects/blog/higher-education.jpg',
     tags: ['blog'],
     link: '/blog/higher-education',
   },

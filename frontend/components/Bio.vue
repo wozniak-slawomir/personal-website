@@ -52,25 +52,32 @@
           </p>
           <p>
             {{ $t('bio.story3') }} <br><br>
-            <img
-              src="~/assets/bio/spain.jpg"
+            <NuxtImg
+              width="400"
+              height="300"
+              src="/bio/spain.jpg"
               :alt="$t('alt.spain')"
               class="my-5 mx-auto max-h-[300px]"
-            >
+            />
           </p>
           <p>
             {{ $t('bio.story4') }}<br>
             {{ $t('bio.story5') }} <br><br>
-            <img
-              src="~/assets/bio/book.jpg"
+            <NuxtImg
+              width="225"
+              height="300"
+              src="/bio/book.jpg"
               :alt="$t('alt.book')"
               class="my-5 mx-auto max-h-[300px]"
-            >
-            {{ $t('bio.story6') }} <a
+            />
+            {{ $t('bio.story6') }} 
+            <a
               href="https://www.instagram.com/wozniaakslawek/"
               target="_blank"
               class="text-blue-400 underline"
-            >instagram</a>. <br><br>
+            >
+              instagram
+            </a>. <br><br>
           </p>
         </div>
         <div
@@ -127,41 +134,51 @@
             {{ $t('bio.personal.life1') }}
           </h3>
           <div class="flex flex-wrap">
-            <img
-              src="~/assets/bio/with-dog.jpg"
+            <NuxtImg
+              src="/bio/with-dog.jpg"
               :alt="$t('alt.dog')"
               class="mt-3 mx-auto max-h-[500px]"
-            >
-            <img
-              src="~/assets/bio/with-friends.jpg"
+              width="350"
+              height="500"
+            />
+            <NuxtImg
+              src="/bio/with-friends.jpg"
               :alt="$t('alt.friends')"
               class="mt-3 mx-auto max-h-[500px]"
-            >
+              width="375"
+              height="500"
+            />
           </div>
           <hr class="my-6 border-[color:#929292]">
           <h3 class="font-bold text-xl mb-3">
             {{ $t('bio.personal.life2') }}
           </h3>
-          <div class="flex flex-wrap">
-            <img
-              src="~/assets/bio/gym.jpg"
+          <div class="flex items-center flex-wrap">
+            <NuxtImg
+              src="/bio/gym.jpg"
               :alt="$t('alt.bodybuilding')"
-              class="mt-3 mx-auto max-h-[500px]"
-            >
-            <img
-              src="~/assets/bio/boxing.png"
+              class="mt-3 mx-auto max-h-[500px] md:h-[375px]"
+              width="500"
+              height="375"
+            />
+            <NuxtImg
+              src="/bio/boxing.png"
               :alt="$t('alt.boxing')"
               class="mt-3 mx-auto max-h-[500px]"
-            >
+              width="356"
+              height="450"
+            />
           </div>
         </div>
         <div v-if="bioState === 'skills'">
           <div class="flex flex-wrap">
-            <img
-              src="~/assets/bio/workstation.jpg"
+            <NuxtImg
+              src="/bio/workstation.jpg"
               :alt="$t('alt.workstation')"
               class="mr-auto max-h-[500px]"
-            >
+              width="504"
+              height="484"
+            />
             <div class="flex-1 px-5">
               <div class="flex flex-wrap">
                 <div class="flex-1">
@@ -208,11 +225,13 @@
                   </li>
                 </ul>
               </div>
-              <img
-                src="~/assets/bio/travel.jpg"
+              <NuxtImg
+                src="/bio/travel.jpg"
                 :alt="$t('alt.travel')"
                 class="ml-auto mr-auto md:mr-0 mt-5 mb-5 w-full md:w-auto h-auto md:h-[500px]"
-              >
+                height="500"
+                width="375"
+              />
             </div>
           </div>
         </div>
