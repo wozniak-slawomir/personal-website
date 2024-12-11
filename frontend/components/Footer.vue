@@ -60,9 +60,28 @@
       </div>
     </div>
     <hr class="border-[#464646] lg:my-10 my-7">
-    <div class="flex justify-between text-center flex-col gap-1 sm:flex-row sm:gap-0">
+    <div class="flex justify-between items-center text-center flex-col gap-1 sm:flex-row sm:gap-0">
       <span>Swarzędz 62-020 {{ $t('footer.poland') }}</span>
-      <div>
+      <div
+        class="mt-2 md:mt-0"
+      >
+        <span
+          class="text-lg font-semibold"
+        >
+          {{ $t('footer.partners') }}</span>
+        <NuxtLink
+          to="https://www.piotrchojankowski.pl"
+          target="_blank"
+          class="mt-4 block"
+        >
+          <img
+            src="~/assets/partners/nie-jestes-immortal.png"
+            alt="Piotr Chojankowski"
+            class="h-16 m-auto rounded-lg"
+          >
+        </NuxtLink>
+      </div>
+      <div class="mt-4 md:mt-0">
         <span>NIP: 7011029927</span>
         <span class="ml-5">© {{ date }}</span>
       </div>
