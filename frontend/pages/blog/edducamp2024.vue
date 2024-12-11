@@ -9,11 +9,13 @@
       <h2 class="mt-5 text-xl font-bold text-left">
         {{ $t('blog.edducamp2024.location.title') }}
       </h2>
-      <img
-        src="~assets/blog/edducamp/hilton.jpg"
+      <NuxtImg
+        src="/blog/edducamp/hilton.jpg"
         :alt="$t('blog.edducamp2024.location.alt')"
         class="mt-5 ml-auto mr-auto block w-80"
-      >
+        width="320"
+        height="426"
+      />
       <p class="mt-5">
         {{ $t('blog.edducamp2024.location.description') }}
       </p>
@@ -32,11 +34,13 @@
       <p class="mt-2">
         {{ $t('blog.edducamp2024.content.description3') }}
       </p>
-      <img
-        src="~assets/blog/edducamp/negotiations.jpg"
+      <NuxtImg
+        src="/blog/edducamp/negotiations.jpg"
         :alt="$t('blog.edducamp2024.negotiations.alt')"
         class="mt-5 ml-auto mr-auto block w-80"
-      >
+        width="320"
+        height="426"
+      />
       <p class="mt-2">
         {{ $t('blog.edducamp2024.content.negative') }}
       </p>
@@ -52,22 +56,26 @@
       <p class="mt-2">
         {{ $t('blog.edducamp2024.contest.description') }}
       </p>
-      <img
-        src="~assets/blog/edducamp/contest.jpg"
+      <NuxtImg
+        src="/blog/edducamp/contest.jpg"
         :alt="$t('blog.edducamp2024.contest.alt')"
         class="mt-5 ml-auto mr-auto block w-80"
-      >
+        width="320"
+        height="426"
+      />
       <h2 class="mt-5 text-xl font-bold">
         {{ $t('blog.edducamp2024.interview.title') }}
       </h2>
       <p class="mt-2">
         {{ $t('blog.edducamp2024.interview.description') }}
       </p>
-      <img
-        src="~assets/blog/edducamp/interview.png"
+      <NuxtImg
+        src="/blog/edducamp/interview.png"
         :alt="$t('blog.edducamp2024.interview.alt')"
         class="mt-5 ml-auto mr-auto block w-80"
-      >
+        width="320"
+        height="426"
+      />
       <h2 class="mt-5 text-xl font-bold">
         {{ $t('blog.edducamp2024.summary.title') }}
       </h2>
@@ -77,11 +85,13 @@
       <p>
         {{ $t('blog.edducamp2024.summary.description2') }}
       </p>
-      <img
-        src="~assets/blog/edducamp/finish.jpg"
+      <NuxtImg
+        src="/blog/edducamp/finish.jpg"
         :alt="$t('blog.edducamp2024.summary.alt')"
         class="mt-5 ml-auto mr-auto block w-80"
-      >
+        width="320"
+        height="426"
+      />
       <p class="mt-10">
         {{ $t('blog.edducamp2024.closing') }}
       </p>
