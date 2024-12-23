@@ -40,7 +40,7 @@
           />
         </a>
         <a
-          href="https://www.instagram.com/wozniaakslawek"
+          href="https://www.instagram.com/slawomirwozniakofficial/"
           aria-label="Instagram link"
           target="_blank"
         >

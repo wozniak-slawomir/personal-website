@@ -72,7 +72,7 @@
             />
             {{ $t('bio.story6') }} 
             <a
-              href="https://www.instagram.com/wozniaakslawek/"
+              href="https://www.instagram.com/slawomirwozniakofficial/"
               target="_blank"
               class="text-blue-400 underline"
             >
