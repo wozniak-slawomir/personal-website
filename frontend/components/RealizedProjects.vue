@@ -32,7 +32,7 @@
       </div>
       <masonry-wall
         :items="filteredItems"
-        :gap="24"                                  
+        :gap="24"
         :min-columns="columnsNum"
         :ssr-columns="columnsNum"
         :rtl="rtl"
@@ -41,9 +41,7 @@
       >
         <template #default="{ item }">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
-            <NuxtLink
-              :to="item.link"
-            >
+            <NuxtLink :to="item.link">
               <NuxtImg
                 :src="item.image"
                 :alt="item.name"
@@ -119,9 +117,9 @@ const handleResize = () => {
 
 const toggleSection = () => {
   isSectionExpanded.value = !isSectionExpanded.value
-    if (!isSectionExpanded.value) {
-      scrollToSection()
-    }
+  if (!isSectionExpanded.value) {
+    scrollToSection()
+  }
 }
 
 const scrollToSection = () => {
@@ -214,6 +212,13 @@ const items = computed(() => [
     image: 'projects/blog/higher-education.jpg',
     tags: ['blog'],
     link: '/blog/higher-education',
+  },
+  {
+    name: 'eccdna.pl',
+    image: 'projects/eccdna.png',
+    tags: ['portfolio'],
+    description: t('projects.eccdna'),
+    link: 'https://eccdna.pl',
   },
 ])
 
