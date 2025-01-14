@@ -129,7 +129,7 @@
             </li>
           </ul>
         </div>
-        <div v-if="bioState === 'personal life'">
+        <div v-show="bioState === 'personal life'">
           <h3 class="font-bold text-xl mb-3">
             {{ $t('bio.personal.life1') }}
           </h3>
@@ -170,7 +170,7 @@
             />
           </div>
         </div>
-        <div v-if="bioState === 'skills'">
+        <div v-show="bioState === 'skills'">
           <div class="flex flex-wrap">
             <NuxtImg
               src="/bio/workstation.jpg"
