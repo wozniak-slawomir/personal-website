@@ -12,8 +12,8 @@
         src="/portrait.png"
         class="lg:w-[384px] mx-auto"
         :alt="$t('alt.portrait')"
-        width="300"
-        height="450"
+        width="600"
+        height="900"
       />
     </div>
     <!-- <div class="partners">
