@@ -2,6 +2,7 @@
   <BlogPost
     :title="t('blog.higherEducation.title')"
     :dates="t('blog.higherEducation.dates')"
+    :tags="tags"
   >
     <template #content>
       <p>{{ t('blog.higherEducation.content1') }}</p>
@@ -233,7 +234,10 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
+const tags = ref<string[]>([])
+
 watch(locale, () => {
+  tags.value = [...t('blog.higherEducation.tags').split(', ')]
   useHead({
     title: t('blog.higherEducation.meta.title'),
     meta: [

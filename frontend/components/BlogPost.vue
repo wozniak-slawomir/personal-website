@@ -11,6 +11,10 @@
       {{ props.dates }}
     </div>
 
+    <div class="text-center mt-2">
+      {{ props.tags.map(el => `#${el}`).join(' ') }}
+    </div>
+
     <div class="bg-[#393939] mt-16 py-4 rounded-xl px-8">
       <slot name="content" />
     </div>
@@ -21,16 +25,11 @@
 <script lang="ts" setup>
 import { defineProps } from 'vue'
 
-const props = defineProps({
-  title: {
-    type: String,
-    required: true,
-  },
-  dates: {
-    type: String,
-    required: true,
-  },
-})
+const props = defineProps<{
+    title: string
+    dates: string
+    tags: string[]
+}>()
 </script>
 
 <style lang="scss" scoped>

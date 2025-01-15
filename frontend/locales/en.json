@@ -62,6 +62,7 @@
   "blog.higherEducation.content45": "Maybe grandma was right after all.",
   "blog.higherEducation.meta.title": "What does higher education do to a person?",
   "blog.higherEducation.meta.description": "Reflections on the impact of higher education on a person's life.",
+  "blog.higherEducation.tags": "education, business, psychology, friendship, learning, autonomy",
   "bio.menu.story": "STORY",
   "bio.menu.career": "CAREER",
   "bio.menu.achievements": "ACHIEVEMENTS",
@@ -241,5 +242,6 @@
   "blog.edducamp2024.negotiations.alt": "negotiations",
   "blog.edducamp2024.contest.alt": "contest",
   "blog.edducamp2024.interview.alt": "interview",
-  "blog.edducamp2024.summary.alt": "finish"
+  "blog.edducamp2024.summary.alt": "finish",
+  "blog.edducamp2024.tags": "business, psychology, conference, education, learning, impressions, review"
 }

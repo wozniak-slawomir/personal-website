@@ -2,6 +2,7 @@
   <BlogPost
     :title="$t('blog.edducamp2024.title')"
     :dates="$t('blog.edducamp2024.dates')"
+    :tags="tags"
   >
     <template #content>
       <p>{{ $t('blog.edducamp2024.intro1') }}</p>
@@ -105,7 +106,10 @@
 <script setup lang="ts">
 const { t, locale } = useI18n()
 
+const tags = ref<string[]>([])
+
 watch(locale, () => {
+  tags.value = [...t('blog.edducamp2024.tags').split(', ')]
   useHead({
     title: t('blog.edducamp2024.meta.title'),
     meta: [
