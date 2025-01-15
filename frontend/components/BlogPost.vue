@@ -1,5 +1,7 @@
 <template>
-  <BackButton class="mt-36 ml-4 sm:ml-16" />
+  <div class="container">
+    <BackButton class="mt-36" />
+  </div>
   <div class="max-w-2xl container mt-16 text-justify">
     <h1 class="text-4xl font-bold text-center">
       {{ props.title }}
