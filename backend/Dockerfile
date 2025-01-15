@@ -74,7 +74,7 @@ COPY backend/package.json .
 # the built application from the build stage into the image.
 COPY --from=deps /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/dist ./dist
-COPY --from=frontend /usr/src/app/frontend/dist ./dist/frontend
+COPY --from=frontend /usr/src/app/frontend/.output/public ./dist/frontend
 
 # Expose the port that the application listens on.
 EXPOSE 8000
