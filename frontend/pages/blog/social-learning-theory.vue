@@ -173,7 +173,7 @@ watch(locale, () => {
       },
       {
         property: 'og:image',
-        content: new URL('../assets/projects/blog/higher-education.jpg', import.meta.url).href,
+        content: '/projects/blog/social-learning-theory.png',
       },
     ],
   })

@@ -118,6 +118,22 @@ watch(locale, () => {
         name: 'description',
         content: t('blog.edducamp2024.meta.description'),
       },
+      {
+        name: 'keywords',
+        content: t('blog.socialLearningTheory.tags'),
+      },
+      {
+        property: 'og:title',
+        content: t('blog.edducamp2024.meta.title'),
+      },
+      {
+        property: 'og:description',
+        content: t('blog.edducamp2024.meta.description'),
+      },
+      {
+        property: 'og:image',
+        content: 'blog/edducamp/interview.png',
+      },
     ],
   })
 }, { immediate: true })
