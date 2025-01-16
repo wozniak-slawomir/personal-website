@@ -247,7 +247,7 @@ watch(locale, () => {
       },
       {
         name: 'keywords',
-        content: 'Software engineering, business, management, psychology, business psychology, blog, personal website, brand, friends, knowledge, university',
+        content: t('blog.socialLearningTheory.tags'),
       },
       {
         property: 'og:title',
@@ -259,7 +259,7 @@ watch(locale, () => {
       },
       {
         property: 'og:image',
-        content: new URL('../assets/projects/blog/higher-education.jpg', import.meta.url).href,
+        content: 'projects/blog/higher-education.jpg',
       },
     ],
   })

@@ -220,6 +220,12 @@ const items = computed(() => [
     description: t('projects.eccdna'),
     link: 'https://eccdna.pl',
   },
+  {
+    name: t('blog.socialLearningTheory.title'),
+    image: 'projects/blog/social-learning-theory.png',
+    tags: ['blog'],
+    link: '/blog/social-learning-theory',
+  },
 ])
 
 const filteredItems = computed(() => {
