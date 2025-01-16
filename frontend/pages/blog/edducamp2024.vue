@@ -134,6 +134,10 @@ watch(locale, () => {
         property: 'og:image',
         content: 'blog/edducamp/interview.png',
       },
+      {
+        property: 'og:url',
+        content: 'https://slawomir-wozniak.pl/blog/edducamp2024',
+      },
     ],
   })
 }, { immediate: true })
