@@ -61,24 +61,6 @@ const onContactClick = () => {
   $event('ContactModal:Open')
 }
 
-// const partners = [
-//   {
-//     alt: "Webwave",
-//     src: "/partners/webwave.svg",
-//   },
-//   {
-//     alt: "Nordea",
-//     src: "/partners/Nordea.png",
-//   },
-//   {
-//     alt: "Wirtualna Polska",
-//     src: "/partners/wp.png",
-//   },
-//   {
-//     alt: "Cognitran",
-//     src: "/partners/cognitran.svg",
-//   },
-// ];
 </script>
 
 <style lang="css" scoped>
