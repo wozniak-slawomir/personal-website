@@ -32,16 +32,16 @@
           <div class="flex flex-col">
             <!-- weird bug in library -->
             <button
-              v-for="item in (locales as unknown as string[])"
-              :key="item"
+              v-for="item in (locales)"
+              :key="item.code"
               class="p-2 rounded-md w-14 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-full hover:scale-110 duration-150"
-              @click="changeLanguage(item)"
+              @click="changeLanguage(item.code)"
             >
               <span
                 class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-                :class="item === 'en' ? 'fi-gb' : 'fi-' + item"
+                :class="item.code === 'en' ? 'fi-gb' : 'fi-' + item.code.toLowerCase()"
               />
-              <span class="align-middle mx-1 hidden sm:inline uppercase">{{ item }}</span>
+              <span class="align-middle mx-1 hidden sm:inline uppercase">{{ item.code }}</span>
             </button>
           </div>
         </div>
@@ -58,7 +58,7 @@ const { locales, locale, setLocale } = useI18n()
 
 const isMenuOpen = ref(false)
 
-const changeLanguage = (language : string) => {
+const changeLanguage = (language: typeof locale.value) => {
   setLocale(language)
   localStorage.setItem('language', language)
   isMenuOpen.value = false

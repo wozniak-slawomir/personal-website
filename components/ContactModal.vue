@@ -180,11 +180,8 @@ const onSubmit = (e: Event) => {
     e.preventDefault()
     if (!e.target) return
     isLoading.value = true
-    fetch(`${config.public.API_URL}/send-email`, {
+    fetch(`${config.public.API_URL}/contact`, {
         method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
         body: JSON.stringify({
             name: name.value,
             surname: surname.value,

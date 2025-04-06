@@ -21,7 +21,7 @@ useHead({
 })
 
 onBeforeMount(() =>{
-  const languageStored = localStorage.getItem('language')
+  const languageStored = localStorage.getItem('language') as typeof locale.value
   if (languageStored) {
     setLocale(languageStored || DEFAULT_LOCALE)
   }

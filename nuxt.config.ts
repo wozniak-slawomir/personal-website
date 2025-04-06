@@ -4,17 +4,21 @@ import { DEFAULT_LOCALE } from './const/defaultLocale'
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
+
   runtimeConfig: {
     public: {
-      API_URL: process.env.API_URL,
+      API_URL: process.env.VITE_API_URL || 'http://localhost:5000',
     },
   },
+
   build: {
     transpile: ['vue-toastification'],
   },
+
   nitro: {
     compressPublicAssets: true,
   },
+
   image: {
     inject: true,
     format: ['webp', 'png'],
@@ -25,6 +29,7 @@ export default defineNuxtConfig({
       xl: 1280,
     },
   },
+
   app: {
     head: {
       meta: [
@@ -98,7 +103,9 @@ export default defineNuxtConfig({
       ],
     },
   },
+
   modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image'],
+
   tailwindcss: {
     config: {
       theme: {
@@ -117,11 +124,35 @@ export default defineNuxtConfig({
       important: true,
     },
   },
+
   i18n: {
-    locales: [ 'en', 'pl', 'fr', 'es' ],
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json',
+      },
+      {
+        code: 'pl',
+        name: 'Polski',
+        file: 'pl.json',
+      },
+      {
+        code: 'fr',
+        name: 'Français',
+        file: 'fr.json',
+      },
+      {
+        code: 'es',
+        name: 'Español',
+        file: 'es.json',
+      },
+    ],
     defaultLocale: DEFAULT_LOCALE,
     detectBrowserLanguage: false,
     strategy: 'no_prefix',
   },
+
+  compatibilityDate: '2025-04-06',
 },
 )
