@@ -1,102 +1,75 @@
+# Nuxt 3 Minimal Starter
 
-# Sławomir Woźniak - Software Engineering
+Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
 
-> Welcome to my personal website repository! This repository contains the code and assets for my personal website, showcasing my work, projects, and interests.
+## Setup
 
-## Features
+Make sure to install the dependencies:
 
-- Bio with information about me
-- Client testimonials
-- Services description
-- Contact form
-
-# Backend
-
-### Technologies used
-
-- Node.js
-- Express.js
-- Docker
-- Webpack
-- Typescript
-
-### How to run backend
-
-1. Clone the repository:
-
-```sh
-git clone https://github.com/wozniak-slawomir/personal-website.git
-```
-
-2. Navigate to the project directory, then backend:
-
-```sh
-cd backend
-```
-
-3. Install dependencies:
-
-```sh
+```bash
+# npm
 npm install
+
+# pnpm
+pnpm install
+
+# yarn
+yarn install
+
+# bun
+bun install
 ```
 
-4. Start the server:
+## Development Server
 
-```sh
+Start the development server on `http://localhost:3000`:
+
+```bash
+# npm
 npm run dev
+
+# pnpm
+pnpm run dev
+
+# yarn
+yarn dev
+
+# bun
+bun run dev
 ```
 
-The backend server will start running on [http://localhost:8000](http://localhost:8000).
+## Production
 
-# Frontend
+Build the application for production:
 
-### Technologies used
+```bash
+# npm
+npm run build
 
-- Vue 3
-- Vue Router
-- Tailwind CSS
-- TypeScript
-- NuxtJS
-- ESLint
+# pnpm
+pnpm run build
 
-### How to run frontend
+# yarn
+yarn build
 
-1. Clone the repository:
-
-```sh
-git clone https://github.com/wozniak-slawomir/personal-website.git
+# bun
+bun run build
 ```
 
-2. Navigate to the project directory, then frontend:
+Locally preview production build:
 
-```sh
-cd personal-website
+```bash
+# npm
+npm run preview
+
+# pnpm
+pnpm run preview
+
+# yarn
+yarn preview
+
+# bun
+bun run preview
 ```
 
-```sh
-cd frontend
-```
-
-3. Install dependencies:
-
-```sh
-npm install
-```
-
-4. Start the developer server
-
-```sh
-npm run dev
-```
-
-5. Navigate to [http://localhost:3000](http://localhost:3000) in your web browser
-
-### How to build
-
-- run the command
-
-```sh
-npm run generate
-```
-
-After running the build command, the generated website will appear in the dist folder. This folder contains all the necessary files to deploy your website.
+Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.

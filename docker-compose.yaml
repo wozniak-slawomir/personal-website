@@ -1,13 +1,9 @@
 services:
-  backend:
+  frontend:
     build:
-      context: ./
-      dockerfile: backend/Dockerfile
-    image: wozniakslawomir/slawomir-wozniak-backend:latest
+      context: .
     ports:
-      - 8000:8000
-    volumes:
-      - ./backend:/app
+      - 3000:3000
   nginx:
     container_name: nginx
     restart: always
