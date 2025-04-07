@@ -1,14 +1,21 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import { DEFAULT_LOCALE } from './const/defaultLocale'
+import { config } from 'dotenv'
+config()
 
 export default defineNuxtConfig({
   devtools: { enabled: true },
-
   runtimeConfig: {
     public: {
-      API_URL: process.env.VITE_API_URL || 'http://localhost:5000',
+      API_URL: process.env.VITE_API_URL,
     },
+    VITE_SMTP_HOST: process.env.VITE_SMTP_HOST,
+    VITE_SMTP_PORT: process.env.VITE_SMTP_PORT,
+    VITE_SMTP_USER: process.env.VITE_SMTP_USER,
+    VITE_SMTP_PASS: process.env.VITE_SMTP_PASS,
+    VITE_MAIL_RECEIVER: process.env.VITE_MAIL_RECEIVER,
+    VITE_SENDER_EMAIL: process.env.VITE_SENDER_EMAIL,
   },
 
   build: {
