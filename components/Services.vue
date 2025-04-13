@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-8">
       <CardContainer class="w-full lg:w-auto">
         <CardBody
-          class=" group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
+          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
         >
           <CardItem
             :translate-z="100"
@@ -65,7 +65,7 @@
       </CardContainer>
       <CardContainer class="w-full lg:w-auto">
         <CardBody
-          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
+          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
         >
           <CardItem
             :translate-z="100"
@@ -124,7 +124,7 @@
       </CardContainer>
       <CardContainer class="w-full lg:w-auto">
         <CardBody
-          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:border-white/[0.2] dark:bg-black dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
+          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
         >
           <CardItem
             :translate-z="100"

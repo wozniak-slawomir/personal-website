@@ -1,14 +1,18 @@
 <template>
-  <div>
-    <Navbar />
-    <NuxtPage />
-    <Footer />
-    <ContactModal />
+  <div class="dark">
+    <AuroraBackground />
+    <div class="z-1 relative">
+      <Navbar />
+      <NuxtPage />
+      <Footer />
+      <ContactModal />
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import '~/assets/index.css'
+import { AuroraBackground } from '@/components/ui/aurora-background'
 import { DEFAULT_LOCALE } from '~/const/defaultLocale'
 import { computed, onBeforeMount } from 'vue'
 
