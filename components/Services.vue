@@ -186,7 +186,9 @@
 </template>
 
 <script setup lang="ts">
-import { CardContainer, CardBody, CardItem } from '@/components/ui/card-3d'
+import CardContainer from '@/components/ui/card-3d/CardContainer.vue'
+import CardItem from '@/components/ui/card-3d/CardItem.vue'
+import CardBody from '@/components/ui/card-3d/CardBody.vue'
 const { $event } = useNuxtApp()
 
 const onContactClick = () => {
