@@ -216,14 +216,29 @@ import MorphingTabs from './ui/morphing-tabs/MorphingTabs.vue'
 const { t } = useI18n()
 
 const bioTabs = computed(() => [
-  t('bio.menu.story'),
-  t('bio.menu.career'),
-  t('bio.menu.achievements'),
-  t('bio.menu.personal.life'),
-  t('bio.menu.skills'),
+  {
+    key: 'story',
+    label: t('bio.menu.story'),
+  },
+  {
+    key: 'career',
+    label: t('bio.menu.career'),
+  },
+  {
+    key: 'achievements',
+    label: t('bio.menu.achievements'),
+  },
+  {
+    key: 'personalLife',
+    label: t('bio.menu.personal.life'),
+  },
+  {
+    key: 'skills',
+    label: t('bio.menu.skills'),
+  },
 ])
 
-const [storyKey, careerKey, achievementsKey, personalLifeKey, skillsKey] = bioTabs.value
+const [storyKey, careerKey, achievementsKey, personalLifeKey, skillsKey] = bioTabs.value.map(tab => tab.key)
 const bioState = ref<string>(storyKey)
 
 const careerPositions = computed(() => [

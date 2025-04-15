@@ -6,16 +6,16 @@
   >
     <button
       v-for="tab in props.tabs"
-      :key="tab"
+      :key="tab.key"
       :class="cn('px-4 py-2 bg-foreground text-white transition-all duration-500', {
-        'border-solid border- border-[var(--primary)]': activeTab === tab,
+        'border-solid border-[var(--primary)]': activeTab === tab.key,
       })"
       :style="{
-        margin: `0 ${activeTab === tab ? props.margin : 0}px`,
+        margin: `0 ${activeTab === tab.key ? props.margin : 0}px`,
       }"
-      @click="emit('update:activeTab', tab)"
+      @click="emit('update:activeTab', tab.key)"
     >
-      {{ tab }}
+      {{ tab.label }}
     </button>
 
     <div class="absolute w-full">
@@ -63,7 +63,7 @@
 import { cn } from '@/lib/utils'
 
 interface Props {
-  tabs: string[];
+  tabs: { key: string, label: string }[];
   activeTab: string;
   margin?: number;
   class?: string;
