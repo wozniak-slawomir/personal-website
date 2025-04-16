@@ -5,38 +5,54 @@
 @tailwind utilities;
 
 :root {
-    font-family: "Outfit", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
+  font-family: "Outfit", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
 
-    --primary-text-color: #fff;
-    --secondary-text-color: rgba(255, 255, 255, 0.67);
-    --tertiary-text-color: rgb(146, 146, 146);
-    --primary-gradient: linear-gradient(90deg, rgba(156,121,69,1) 0%, rgba(243,235,163,1) 100%);
-    --secondary-gradient: linear-gradient(90deg, rgba(156,121,69,1) 0%, rgba(255, 254, 246, 1) 100%);
-    --background: 0, 0%, 15%;
-    --foreground: 0, 0%, 22%;
-    --primary: #9c7942;
-    --primary-color: rgba(156,121,69,1);
-    --secondary-color: #252525;
-    --tertiary-color: #fff;
+  --primary-text-color: #fff;
+  --secondary-text-color: rgba(255, 255, 255, 0.67);
+  --tertiary-text-color: rgb(146, 146, 146);
+  --primary-gradient: linear-gradient(90deg, rgba(156, 121, 69, 1) 0%, rgba(243, 235, 163, 1) 100%);
+  --secondary-gradient: linear-gradient(90deg, rgba(156, 121, 69, 1) 0%, rgba(255, 254, 246, 1) 100%);
+  --background: 0, 0%, 15%;
+  --foreground: 0, 0%, 22%;
+  --primary: #9c7942;
+  --primary-color: rgba(156, 121, 69, 1);
+  --secondary-color: #252525;
+  --border-color: rgba(255, 255, 255, 0.1);
 
-    --navbar-height: 88px;
+  --navbar-height: 88px;
 }
 
 html {
-    background-color: var(--secondary-color);
+  background-color: var(--secondary-color);
 }
 
 body {
-    overflow-x: hidden;
-    color: var(--primary-text-color);
+  overflow-x: hidden;
+  color: var(--primary-text-color);
 }
 
 .container {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    padding: 0 20px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 20px;
+}
+
+.masonry-wall-mask {
+  position: relative;
+  -webkit-mask-image: linear-gradient(to top, transparent, black 30%);
+  mask-image: linear-gradient(to top, transparent, black 30%);
+}
+
+.testimonials-mask {
+    mask-image: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 2%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 80%, rgba(255, 255, 255, 0) 98%, rgba(255, 255, 255, 0) 100%);
+
+  -webkit-mask-image: linear-gradient(90deg,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 2%, rgba(0, 0, 0, 1) 20%, rgba(0, 0, 0, 1) 50%, rgba(0, 0, 0, 1) 80%, rgba(255, 255, 255, 0) 98%, rgba(255, 255, 255, 0) 100%);
+}
+
+.glassmorphism {
+  @apply border-2 border-[var(--border-color)] bg-gradient-to-bl from-[rgba(255,255,255,0.1)] to-transparent;
 }

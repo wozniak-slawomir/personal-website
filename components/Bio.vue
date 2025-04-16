@@ -11,7 +11,7 @@
       />
     </div>
     <div>
-      <div class="bg-foreground rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
+      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
         <div
           v-if="bioState === storyKey"
           class="overflow-clip"

@@ -6,7 +6,7 @@
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-8">
       <CardContainer class="w-full lg:w-auto">
         <CardBody
-          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
+          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border glassmorphism p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-[var(--primary-color)]"
         >
           <CardItem
             :translate-z="100"
@@ -65,7 +65,7 @@
       </CardContainer>
       <CardContainer class="w-full lg:w-auto">
         <CardBody
-          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
+          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border glassmorphism p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-[var(--primary-color)]"
         >
           <CardItem
             :translate-z="100"
@@ -122,65 +122,65 @@
           </div>
         </CardBody>
       </CardContainer>
-      <CardContainer class="w-full lg:w-auto">
-        <CardBody
-          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-black/[0.1] bg-[#393939] p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-emerald-500/[0.1]"
-        >
-          <CardItem
-            :translate-z="100"
-            :translate-y="10"
-            class="text-xl font-bold"
+      <div class="flex flex-col items-center justify-center">
+        <CardContainer class="w-full lg:w-auto">
+          <CardBody
+            class="group/card relative size-auto w-full lg:w-auto rounded-3xl border glassmorphism p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-[var(--primary-color)]"
           >
-            {{ $t('services.audits.title') }}
-          </CardItem>
-          <CardItem
-            as="p"
-            translate-z="60"
-            class="mt-2 max-w-sm text-sm text-[#bbbbbb]"
-          >
-            {{ $t('services.audits.description') }}
-          </CardItem>
-          <CardItem
-            :translate-z="60"
-            class="mt-4 w-full text-2xl"
-          >
-            {{ $t('services.audits.price') }}
-          </CardItem>
-          <CardItem
-            :translate-z="100"
-            class="mt-4 w-full"
-          >
-            <img
-              src="/services/consulting.jpg"
-              height="1000"
-              width="1000"
-              class="h-60 w-full rounded-3xl object-cover group-hover/card:shadow-xl"
-              alt="thumbnail"
+            <CardItem
+              :translate-z="100"
+              :translate-y="10"
+              class="text-xl font-bold"
             >
-          </CardItem>
-          <CardItem
-            :translate-z="20"
-            as="div"
-            class="mt-4 text-sm text-[#bbbbbb]"
-          >
-            <ul class="pl-7 my-4 list-disc">
-              <li>{{ $t('services.audits.points1') }}</li>
-              <li>{{ $t('services.audits.points2') }}</li>
-              <li>{{ $t('services.audits.points3') }}</li>
-            </ul>
-          </CardItem>
-          <div class="mt-10 flex items-center justify-end">
+              {{ $t('services.audits.title') }}
+            </CardItem>
+            <CardItem
+              as="p"
+              translate-z="60"
+              class="mt-2 max-w-sm text-sm text-[#bbbbbb]"
+            >
+              {{ $t('services.audits.description') }}
+            </CardItem>
+            <CardItem
+              :translate-z="60"
+              class="mt-4 w-full text-2xl"
+            >
+              {{ $t('services.audits.price') }}
+            </CardItem>
+            <CardItem
+              :translate-z="100"
+              class="mt-4 w-full"
+            >
+              <img
+                src="/services/consulting.jpg"
+                height="1000"
+                width="1000"
+                class="h-60 w-full rounded-3xl object-cover group-hover/card:shadow-xl"
+                alt="thumbnail"
+              >
+            </CardItem>
             <CardItem
               :translate-z="20"
-              as="button"
-              class="px-20 py-4 rounded-full font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300 max-w-fit"
-              @click="onContactClick"
+              as="div"
+              class="mt-4 text-sm text-[#bbbbbb]"
             >
-              {{ $t("common.contact") }}
+              <ul class="pl-7 my-4 list-disc">
+                <li>{{ $t('services.audits.points1') }}</li>
+                <li>{{ $t('services.audits.points2') }}</li>
+                <li>{{ $t('services.audits.points3') }}</li>
+              </ul>
             </CardItem>
-          </div>
-        </CardBody>
-      </CardContainer>
+          </CardBody>
+        </CardContainer>
+        <div
+          :translate-z="20"
+          as="button"
+          class="px-20 py-4 rounded-full font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300 max-w-fit mt-10"
+          @click="onContactClick"
+        >
+          {{ $t("common.contact") }}
+        </div>
+      </div>
     </div>
   </div>
 </template>

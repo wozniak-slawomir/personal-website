@@ -160,6 +160,6 @@ export default defineNuxtConfig({
     strategy: 'no_prefix',
   },
 
-  compatibilityDate: '2025-04-06',
+  compatibilityDate: '2025-04-14',
 },
 )

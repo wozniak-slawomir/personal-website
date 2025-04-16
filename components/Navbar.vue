@@ -90,6 +90,6 @@ onUnmounted(() => {
     var(--secondary-color) 0%,
     rgba(0, 0, 0, 0.4) 70%,
     rgba(0, 0, 0, 0) 100%
-  );
+  ) !important;
 }
 </style>
