@@ -7,8 +7,8 @@
     <button
       v-for="tab in props.tabs"
       :key="tab.key"
-      :class="cn('px-4 py-2 my-2 lg:my-0 bg-foreground text-white transition-all duration-500', {
-        'text-[var(--primary-color)]': activeTab === tab.key,
+      :class="cn('px-4 py-2 my-2 lg:my-0 bg-foreground text-[var(--secondary-text-color)] transition-all duration-500', {
+        'text-[var(--primary-text-color)]': activeTab === tab.key,
       })"
       :style="{
         margin: `0 ${activeTab === tab.key ? props.margin : 0}px`,
