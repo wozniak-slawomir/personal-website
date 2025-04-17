@@ -1,7 +1,7 @@
 <template>
   <nav
     class="transition-all w-full h-[var(--navbar-height)] py-5 flex fixed top-0 z-20"
-    :class="{ 'navbar-darker': navbarDarker }"
+    :class="{'bg-[linear-gradient(to_bottom,var(--secondary-color)_0%,rgba(0,0,0,0.4)_70%,transparent_100%)]': navbarDarker }"
   >
     <div class="container justify-between items-center flex">
       <NuxtImg
@@ -82,14 +82,3 @@ onUnmounted(() => {
 })
 
 </script>
-
-<style lang="css" scoped>
-.navbar-darker {
-  background-image: linear-gradient(
-    to bottom,
-    var(--secondary-color) 0%,
-    rgba(0, 0, 0, 0.4) 70%,
-    rgba(0, 0, 0, 0) 100%
-  ) !important;
-}
-</style>
