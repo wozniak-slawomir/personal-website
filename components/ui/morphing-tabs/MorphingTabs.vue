@@ -1,14 +1,14 @@
 <template>
   <div
     v-if="props.tabs.length"
-    :class="cn('relative', props.class)"
+    :class="cn('relative mb-8', props.class)"
     style="filter: url(&quot;#exclusionTabsGoo&quot;)"
   >
     <button
       v-for="tab in props.tabs"
       :key="tab.key"
-      :class="cn('px-4 py-2 bg-foreground text-white transition-all duration-500', {
-        'border-solid border-[var(--primary)]': activeTab === tab.key,
+      :class="cn('px-4 py-2 my-2 lg:my-0 bg-foreground text-white transition-all duration-500', {
+        'text-[var(--primary-color)]': activeTab === tab.key,
       })"
       :style="{
         margin: `0 ${activeTab === tab.key ? props.margin : 0}px`,
