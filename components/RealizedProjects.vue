@@ -51,7 +51,11 @@
                 @load="fixLibraryBug"
               />
               <div
-                class="bottom-0 left-0 right-0 glassmorphism p-5 opacity-100 group-hover:opacity-100 transition-opacity duration-300 xl:opacity-0 xl:absolute xl:bg-transparent"
+                class="bottom-0 left-0 right-0 p-5 opacity-100
+                glassmorphism-mobile
+                group-hover:opacity-100 transition-opacity duration-300 xl:opacity-0 xl:absolute
+                xl:bg-[linear-gradient(to_top,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0.5)_80%,_transparent_100%)]
+                xl:group-hover:opacity-100 "
               >
                 <h3 class="text-2xl font-bold text-white uppercase">
                   {{ item.name }}
@@ -233,3 +237,11 @@ const filteredItems = computed(() => {
 })
 
 </script>
+
+<style scoped>
+    @media (max-width: 1280px) {
+      .glassmorphism-mobile {
+        @apply border-2 border-[var(--border-color)] bg-gradient-to-bl from-[rgba(255,255,255,0.1)] to-transparent;
+      }
+    }
+</style>

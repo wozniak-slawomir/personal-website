@@ -51,16 +51,6 @@
               <li>{{ $t('services.development.points3') }}</li>
             </ul>
           </CardItem>
-          <div class="mt-10 flex items-center justify-end">
-            <CardItem
-              :translate-z="20"
-              as="button"
-              class="px-20 py-4 rounded-full font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300 max-w-fit"
-              @click="onContactClick"
-            >
-              {{ $t("common.contact") }}
-            </CardItem>
-          </div>
         </CardBody>
       </CardContainer>
       <CardContainer class="w-full lg:w-auto">
@@ -110,16 +100,6 @@
               <li>{{ $t('services.coaching.points3') }}</li>
             </ul>
           </CardItem>
-          <div class="mt-10 flex items-center justify-end">
-            <CardItem
-              :translate-z="20"
-              as="button"
-              class="px-20 py-4 rounded-full font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300 max-w-fit"
-              @click="onContactClick"
-            >
-              {{ $t("common.contact") }}
-            </CardItem>
-          </div>
         </CardBody>
       </CardContainer>
       <div class="flex flex-col items-center justify-center">
@@ -172,14 +152,6 @@
             </CardItem>
           </CardBody>
         </CardContainer>
-        <div
-          :translate-z="20"
-          as="button"
-          class="px-20 py-4 rounded-full font-semibold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] active:opacity-50 duration-300 max-w-fit mt-10"
-          @click="onContactClick"
-        >
-          {{ $t("common.contact") }}
-        </div>
       </div>
     </div>
   </div>
@@ -189,9 +161,4 @@
 import CardContainer from '@/components/ui/card-3d/CardContainer.vue'
 import CardItem from '@/components/ui/card-3d/CardItem.vue'
 import CardBody from '@/components/ui/card-3d/CardBody.vue'
-const { $event } = useNuxtApp()
-
-const onContactClick = () => {
-  $event('ContactModal:Open')
-}
 </script>
