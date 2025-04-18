@@ -87,7 +87,7 @@
       <NuxtImg
         src="/blog/higher-education/friendship.jpg"
         alt="me"
-        class="mt-8 w-64 m-auto"
+        class="mt-8 w-64 m-auto rotate-180"
         width="500"
         height="375"
       />

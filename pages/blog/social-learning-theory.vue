@@ -29,14 +29,14 @@
         height="367"
       />
 
-      <p class="mt-4">
+      <div class="mt-4">
         {{ t('blog.socialLearningTheory.content3') }}
         <ul class="mt-4 list-disc list-inside">
           <li>{{ t('blog.socialLearningTheory.example1') }}</li>
           <li>{{ t('blog.socialLearningTheory.example2') }}</li>
           <li>{{ t('blog.socialLearningTheory.example3') }}</li>
         </ul>
-      </p>
+      </div>
 
       <p class="mt-2">
         {{ t('blog.socialLearningTheory.content5') }}
@@ -62,14 +62,14 @@
         </a>
         {{ t('blog.socialLearningTheory.content14') }}
       </p>
-      <p class="mt-2">
+      <div class="mt-2">
         {{ t('blog.socialLearningTheory.content8') }}
         <ul class="list-disc list-inside">
           <li>{{ t('blog.socialLearningTheory.stat1') }}</li>
           <li>{{ t('blog.socialLearningTheory.stat2') }}</li>
           <li>{{ t('blog.socialLearningTheory.stat3') }}</li>
         </ul>
-      </p>
+      </div>
       <p class="mt-2">
         {{ t('blog.socialLearningTheory.content9') }}
       </p>
@@ -107,7 +107,7 @@
         {{ t('blog.socialLearningTheory.content12') }}
       </p>
 
-      <p class="mt-4">
+      <div class="mt-4">
         {{ t('blog.socialLearningTheory.content13') }}
         <ul class="list-disc list-inside">
           <li>{{ t('blog.socialLearningTheory.summary1') }}</li>
@@ -115,7 +115,7 @@
           <li>{{ t('blog.socialLearningTheory.summary3') }}</li>
           <li>{{ t('blog.socialLearningTheory.summary4') }}</li>
         </ul>
-      </p>
+      </div>
 
       <p class="mt-6">
         {{ t('blog.socialLearningTheory.closing') }}

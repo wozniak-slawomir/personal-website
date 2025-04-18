@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[--secondary-color] container py-10 !mt-32 text-gray-300">
+  <footer class="container py-10 !mt-32 text-gray-300">
     <div class="flex justify-between items-center flex-col lg:flex-row gap-5">
       <NuxtImg
         src="/logo.png"

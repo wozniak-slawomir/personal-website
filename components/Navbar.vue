@@ -1,6 +1,7 @@
 <template>
   <nav
-    class="w-full h-[var(--navbar-height)] bg-[color:var(--secondary-color)] py-5 flex fixed top-0 z-20"
+    class="transition-all w-full h-[var(--navbar-height)] py-5 flex fixed top-0 z-20"
+    :class="{'bg-[linear-gradient(to_bottom,var(--secondary-color)_0%,rgba(0,0,0,0.4)_70%,transparent_100%)]': navbarDarker }"
   >
     <div class="container justify-between items-center flex">
       <NuxtImg
@@ -57,10 +58,27 @@ import { vOnClickOutside } from '@vueuse/components'
 const { locales, locale, setLocale } = useI18n()
 
 const isMenuOpen = ref(false)
+const scrollPosition = ref(0)
+const navbarDarker = ref(false)
 
 const changeLanguage = (language: typeof locale.value) => {
   setLocale(language)
   localStorage.setItem('language', language)
   isMenuOpen.value = false
 }
+
+const updateScroll = () => {
+  scrollPosition.value = window.scrollY
+  navbarDarker.value = scrollPosition.value > 100
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', updateScroll)
+  updateScroll()
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', updateScroll)
+})
+
 </script>

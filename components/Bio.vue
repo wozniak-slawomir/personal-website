@@ -3,47 +3,17 @@
     <h2 class="text-5xl font-bold text-center md:text-left">
       BIO
     </h2>
-    <div class="mb-0 mt-10 flex flex-wrap lg:my-10">
-      <button
-        :class="{ 'bg-[#474b59]': bioState === 'story' }"
-        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0 "
-        @click="bioState = 'story'"
-      >
-        {{ $t("bio.menu.story") }}
-      </button>
-      <button
-        :class="{ 'bg-[#474b59]': bioState === 'career' }"
-        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
-        @click="bioState = 'career'"
-      >
-        {{ $t("bio.menu.career") }}
-      </button>
-      <button
-        :class="{ 'bg-[#474b59]': bioState === 'achievements' }"
-        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
-        @click="bioState = 'achievements'"
-      >
-        {{ $t("bio.menu.achievements") }}
-      </button>
-      <button
-        :class="{ 'bg-[#474b59]': bioState === 'personal life' }"
-        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
-        @click="bioState = 'personal life'"
-      >
-        {{ $t("bio.menu.personal.life") }}
-      </button>
-      <button
-        :class="{ 'bg-[#474b59]': bioState === 'skills' }"
-        class="text-l p-3 flex-1 rounded-3xl bg-[#393939] hover:bg-[#464646] h-15 mr-5 px-5 duration-300 shadow mb-5 lg:mb-0"
-        @click="bioState = 'skills'"
-      >
-        {{ $t("bio.menu.skills") }}
-      </button>
+    <div class="mb-0 mt-10 lg:my-10">
+      <MorphingTabs
+        :tabs="bioTabs"
+        :active-tab="bioState"
+        @update:active-tab="bioState = $event"
+      />
     </div>
     <div>
-      <div class="bg-[#393939] rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
+      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
         <div
-          v-if="bioState === 'story'"
+          v-if="bioState === storyKey"
           class="overflow-clip"
         >
           <p>
@@ -81,7 +51,7 @@
           </p>
         </div>
         <div
-          v-if="bioState === 'career'"
+          v-if="bioState === careerKey"
           class="text-sm text-[color:#929292]"
         >
           <div
@@ -119,7 +89,7 @@
             </div>
           </div>
         </div>
-        <div v-if="bioState === 'achievements'">
+        <div v-if="bioState === achievementsKey">
           <ul class="list-disc pl-3">
             <li
               v-for="achievement in achievements"
@@ -129,7 +99,7 @@
             </li>
           </ul>
         </div>
-        <div v-show="bioState === 'personal life'">
+        <div v-show="bioState === personalLifeKey">
           <h3 class="font-bold text-xl mb-3">
             {{ $t('bio.personal.life1') }}
           </h3>
@@ -170,7 +140,7 @@
             />
           </div>
         </div>
-        <div v-show="bioState === 'skills'">
+        <div v-show="bioState === skillsKey">
           <div class="flex flex-wrap">
             <NuxtImg
               src="/bio/workstation.jpg"
@@ -242,16 +212,34 @@
 
 <script setup lang="ts">
 import { ref, computed } from 'vue'
+import MorphingTabs from './ui/morphing-tabs/MorphingTabs.vue'
 const { t } = useI18n()
 
-type BioState =
-  | 'story'
-  | 'career'
-  | 'achievements'
-  | 'personal life'
-  | 'skills';
+const bioTabs = computed(() => [
+  {
+    key: 'story',
+    label: t('bio.menu.story'),
+  },
+  {
+    key: 'career',
+    label: t('bio.menu.career'),
+  },
+  {
+    key: 'achievements',
+    label: t('bio.menu.achievements'),
+  },
+  {
+    key: 'personalLife',
+    label: t('bio.menu.personal.life'),
+  },
+  {
+    key: 'skills',
+    label: t('bio.menu.skills'),
+  },
+])
 
-const bioState = ref<BioState>('story')
+const [storyKey, careerKey, achievementsKey, personalLifeKey, skillsKey] = bioTabs.value.map(tab => tab.key)
+const bioState = ref<string>(storyKey)
 
 const careerPositions = computed(() => [
   {

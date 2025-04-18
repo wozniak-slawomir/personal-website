@@ -15,7 +15,7 @@
       {{ props.tags.map(el => `#${el}`).join(' ') }}
     </div>
 
-    <div class="bg-[#393939] mt-16 py-4 rounded-xl px-8">
+    <div class="glassmorphism mt-16 py-4 rounded-xl px-8">
       <slot name="content" />
     </div>
     <ContactMe />
