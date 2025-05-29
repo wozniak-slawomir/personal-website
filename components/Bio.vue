@@ -14,41 +14,65 @@
       <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
         <div
           v-if="bioState === storyKey"
-          class="overflow-clip"
+          class="space-y-12"
         >
-          <p>
-            {{ $t('bio.story1') }} <br>
-            {{ $t('bio.story2') }}<br><br>
-          </p>
-          <p>
-            {{ $t('bio.story3') }} <br><br>
+          <div class="relative">
             <NuxtImg
-              width="400"
-              height="300"
+              width="300"
+              height="225"
               src="/bio/spain.jpg"
               :alt="$t('alt.spain')"
-              class="my-5 mx-auto max-h-[300px]"
+              class="float-right ml-6 mb-4 rounded-2xl shadow-2xl transform rotate-2 hover:rotate-0 transition-transform duration-300"
             />
-          </p>
-          <p>
-            {{ $t('bio.story4') }}<br>
-            {{ $t('bio.story5') }} <br><br>
+            <div class="text-lg leading-relaxed space-y-4">
+              <p>
+                {{ $t('bio.story1') }}
+              </p>
+              <p>
+                {{ $t('bio.story2') }}
+              </p>
+              <p>
+                {{ $t('bio.story3') }}
+              </p>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t border-gray-600" />
+            </div>
+            <div class="relative flex justify-center">
+              <span class="bg-[#1a1a1a] px-4 text-gray-400">•••</span>
+            </div>
+          </div>
+
+          <div class="relative">
             <NuxtImg
-              width="225"
-              height="300"
+              width="200"
+              height="250"
               src="/bio/book.jpg"
               :alt="$t('alt.book')"
-              class="my-5 mx-auto max-h-[300px]"
+              class="float-left mr-6 mb-4 rounded-2xl shadow-2xl transform -rotate-2 hover:rotate-0 transition-transform duration-300"
             />
-            {{ $t('bio.story6') }} 
-            <a
-              href="https://www.instagram.com/slawomirwozniakofficial/"
-              target="_blank"
-              class="text-blue-400 underline"
-            >
-              instagram
-            </a>. <br><br>
-          </p>
+            <div class="text-lg leading-relaxed space-y-4">
+              <p>
+                {{ $t('bio.story4') }}
+              </p>
+              <p>
+                {{ $t('bio.story5') }}
+              </p>
+              <p>
+                {{ $t('bio.story6') }} 
+                <a
+                  href="https://www.instagram.com/slawomirwozniakofficial/"
+                  target="_blank"
+                  class="text-blue-400 underline hover:text-blue-300 transition-colors"
+                >
+                  instagram
+                </a>.
+              </p>
+            </div>
+          </div>
         </div>
         <div
           v-if="bioState === careerKey"
@@ -100,108 +124,140 @@
           </ul>
         </div>
         <div v-show="bioState === personalLifeKey">
-          <h3 class="font-bold text-xl mb-3">
+          <h3 class="font-bold text-3xl mb-8 text-center">
             {{ $t('bio.personal.life1') }}
           </h3>
-          <div class="flex flex-wrap">
-            <NuxtImg
-              src="/bio/with-dog.jpg"
-              :alt="$t('alt.dog')"
-              class="mt-3 mx-auto max-h-[500px]"
-              width="350"
-              height="500"
-            />
-            <NuxtImg
-              src="/bio/with-friends.jpg"
-              :alt="$t('alt.friends')"
-              class="mt-3 mx-auto max-h-[500px]"
-              width="375"
-              height="500"
-            />
+          
+          <div class="flex flex-wrap justify-center gap-8 mb-12">
+            <div class="rounded-2xl shadow-2xl overflow-hidden">
+              <NuxtImg
+                src="/bio/with-dog.jpg"
+                :alt="$t('alt.dog')"
+                class="h-96 w-auto object-cover"
+                width="350"
+                height="500"
+              />
+            </div>
+            
+            <div class="rounded-2xl shadow-2xl overflow-hidden md:translate-y-8">
+              <NuxtImg
+                src="/bio/with-friends.jpg"
+                :alt="$t('alt.friends')"
+                class="h-96 w-auto object-cover"
+                width="375"
+                height="500"
+              />
+            </div>
           </div>
-          <hr class="my-6 border-[color:#929292]">
-          <h3 class="font-bold text-xl mb-3">
-            {{ $t('bio.personal.life2') }}
-          </h3>
-          <div class="flex items-center flex-wrap">
-            <NuxtImg
-              src="/bio/gym.jpg"
-              :alt="$t('alt.bodybuilding')"
-              class="mt-3 mx-auto max-h-[500px] md:h-[375px]"
-              width="500"
-              height="375"
-            />
-            <NuxtImg
-              src="/bio/boxing.png"
-              :alt="$t('alt.boxing')"
-              class="mt-3 mx-auto max-h-[500px]"
-              width="356"
-              height="450"
-            />
+
+          <div class="relative my-16">
+            <div class="absolute inset-0 flex items-center">
+              <div class="w-full border-t-2 border-gradient-to-r from-transparent via-gray-600 to-transparent" />
+            </div>
+            <div class="relative flex justify-center">
+              <div class="bg-[#1a1a1a] px-8 py-2 rounded-full border border-gray-600">
+                <h3 class="font-bold text-2xl text-center text-white">
+                  {{ $t('bio.personal.life2') }}
+                </h3>
+              </div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap justify-center gap-8 mb-10">
+            <div class="rounded-2xl shadow-2xl overflow-hidden">
+              <NuxtImg
+                src="/bio/gym.jpg"
+                :alt="$t('alt.bodybuilding')"
+                class="h-64 w-auto object-cover"
+                width="500"
+                height="375"
+              />
+            </div>
+            
+            <div class="rounded-2xl shadow-2xl overflow-hidden lg:translate-y-8">
+              <NuxtImg
+                src="/bio/boxing.png"
+                :alt="$t('alt.boxing')"
+                class="h-64 w-auto object-cover"
+                width="356"
+                height="450"
+              />
+            </div>
           </div>
         </div>
         <div v-show="bioState === skillsKey">
-          <div class="flex flex-wrap">
-            <NuxtImg
-              src="/bio/workstation.jpg"
-              :alt="$t('alt.workstation')"
-              class="mr-auto max-h-[500px]"
-              width="504"
-              height="484"
-            />
-            <div class="flex-1 px-5">
-              <div class="flex flex-wrap">
-                <div class="flex-1">
-                  <h4 class="text-xl font-bold my-3 text-white">
-                    {{ $t('bio.skills.hard.proficient') }}:
-                  </h4>
-                  <ul class="list-disc pl-4">
-                    <li
-                      v-for="skill in skills.hard.proficient"
-                      :key="skill"
-                    >
-                      {{ skill }}
-                    </li>
-                  </ul>
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+            <div class="relative flex items-center group overflow-hidden rounded-2xl shadow-2xl">
+              <NuxtImg
+                src="/bio/workstation.jpg"
+                :alt="$t('alt.workstation')"
+                width="800"
+                height="500"
+                class="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              />
+            </div>
+            
+            <div class="space-y-8">
+              <div class="bg-gray-800/30 rounded-xl p-6 backdrop-blur-sm border border-gray-700/30">
+                <h4 class="text-xl font-bold mb-4 text-white flex items-center">
+                  <span class="w-3 h-3 bg-green-500 rounded-full mr-3" />
+                  {{ $t('bio.skills.hard.proficient') }}
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="skill in skills.hard.proficient"
+                    :key="skill"
+                    class="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-sm border border-blue-500/30 hover:bg-blue-600/30 transition-colors"
+                  >
+                    {{ skill }}
+                  </span>
                 </div>
-                <div class="flex-1">
-                  <h4 class="text-xl my-3 font-bold text-white">
-                    {{ $t('bio.skills.hard.used') }}:
-                  </h4>
-                  <ul class="list-disc pl-4">
-                    <li
-                      v-for="skill in skills.hard.used"
-                      :key="skill"
-                    >
-                      {{ skill }}
-                    </li>
-                  </ul>
+              </div>
+              
+              <div class="bg-gray-800/30 rounded-xl p-6 backdrop-blur-sm border border-gray-700/30">
+                <h4 class="text-xl font-bold mb-4 text-white flex items-center">
+                  <span class="w-3 h-3 bg-yellow-500 rounded-full mr-3" />
+                  {{ $t('bio.skills.hard.used') }}
+                </h4>
+                <div class="flex flex-wrap gap-2">
+                  <span
+                    v-for="skill in skills.hard.used"
+                    :key="skill"
+                    class="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm border border-purple-500/30 hover:bg-purple-600/30 transition-colors"
+                  >
+                    {{ skill }}
+                  </span>
                 </div>
               </div>
             </div>
           </div>
-          <div class="mt-10">
-            <div class="flex flex-col-reverse md:flex-row">
-              <div class="flex-1 mr-5">
-                <h3 class="text-3xl text-white font-bold">
-                  {{ $t('bio.skills.soft') }}:
-                </h3>
-                <ul class="list-disc pl-4 mt-6">
-                  <li
-                    v-for="skill in skills.soft"
-                    :key="skill"
-                  >
-                    {{ skill }}
-                  </li>
-                </ul>
-              </div>
+
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div class="lg:order-2 flex justify-center group overflow-hidden rounded-2xl shadow-2xl">
               <NuxtImg
                 src="/bio/travel.jpg"
                 :alt="$t('alt.travel')"
-                class="ml-auto mr-auto md:mr-0 mt-5 mb-5 w-full md:w-auto h-auto md:h-[500px]"
+                class="object-cover mx-auto transition-transform duration-300 group-hover:scale-105"
                 height="500"
                 width="375"
               />
+            </div>
+            
+            <div class="lg:order-1 bg-gray-800/30 rounded-xl p-8 backdrop-blur-sm border border-gray-700/30">
+              <h3 class="text-3xl text-white font-bold mb-6 flex items-center">
+                <span class="w-4 h-4 bg-orange-500 rounded-full mr-3" />
+                {{ $t('bio.skills.soft') }}
+              </h3>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div
+                  v-for="skill in skills.soft"
+                  :key="skill"
+                  class="flex items-center p-3 bg-gray-700/30 rounded-lg hover:bg-gray-700/50 transition-colors"
+                >
+                  <span class="w-2 h-2 bg-orange-400 rounded-full mr-3" />
+                  <span class="text-gray-300">{{ skill }}</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
