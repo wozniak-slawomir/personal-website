@@ -3,6 +3,7 @@
     class="transition-all w-full h-[var(--navbar-height)] py-5 flex fixed top-0 z-20"
     :class="{'bg-[linear-gradient(to_bottom,var(--secondary-color)_0%,rgba(0,0,0,0.4)_70%,transparent_100%)]': navbarDarker }"
   >
+    <div class="scroll-progress-bar" />
     <div class="container justify-between items-center flex">
       <NuxtImg
         src="/logo.png"
@@ -70,6 +71,9 @@ const changeLanguage = (language: typeof locale.value) => {
 const updateScroll = () => {
   scrollPosition.value = window.scrollY
   navbarDarker.value = scrollPosition.value > 100
+  const scrollHeight = document.body.scrollHeight - window.innerHeight
+  const progress = scrollHeight > 0 ? (window.scrollY / scrollHeight) : 0
+  document.documentElement.style.setProperty('--scroll-progress', `${progress * 100}%`)
 }
 
 onMounted(() => {
@@ -82,3 +86,17 @@ onUnmounted(() => {
 })
 
 </script>
+
+<style lang="css" scoped>
+.scroll-progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 4px;
+  width: var(--scroll-progress, 0%);
+  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  border-radius: 2px;
+  transition: width 0.2s ease;
+  z-index: 30;
+}
+</style>
