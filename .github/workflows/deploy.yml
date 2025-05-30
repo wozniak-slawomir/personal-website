@@ -26,6 +26,7 @@ jobs:
             username: ${{ secrets['SSH_USERNAME'] }}
             password: ${{ secrets['SSH_PASSWORD'] }}
             script: |
+              cd personal-website
               docker compose pull
               docker compose down
               docker compose up -d --remove-orphans
