@@ -11,6 +11,12 @@
 
   "hero.software.engineering": "Software Engineering",
   "hero.business.psychology": "Business Psychology",
+  "hero.software.feature1": "Landing pages",
+  "hero.software.feature2": "Web application development and planning",
+  "hero.software.feature3": "Technology implementation support",
+  "hero.psychology.feature1": "Interpersonal communication",
+  "hero.psychology.feature2": "Mental wellbeing",
+  "hero.psychology.feature3": "Stress management",
   "hero.wellbeing": "Wellbeing",
   "blog.higherEducation.conclusion": "Moral:",
   "blog.higherEducation.title": "What does higher education do to a person?",
@@ -286,5 +292,6 @@
   "blog.socialLearningTheory.reference1": "[1] Albert Bandura, Social Learning Theory, 1977",
   "blog.socialLearningTheory.reference2": "[2] Nicholas A. Christakis, M.D., Ph.D., M.P.H., and James H. Fowler, Ph.D., The Spread of Obesity in a Large Social Network over 32 Years, 2007",
   "blog.socialLearningTheory.reference3": "[3] Wing, R. R., & Jeffery, R. W., Benefits of recruiting participants with friends and increasing social support for weight loss and maintenance., 1999",
-  "blog.socialLearningTheory.meta.description": "How do you learn? Do you know how the people around you influence you? Read about the theory of social learning."
+  "blog.socialLearningTheory.meta.description": "How do you learn? Do you know how the people around you influence you? Read about the theory of social learning.",
+  "blog.socialLearningTheory.meta.title": "Observe and Learn!"
 }
