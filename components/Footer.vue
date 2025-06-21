@@ -30,7 +30,7 @@
           />
         </a>
         <a
-          href="mailto:wozniakslawomir.contact@gmail.com"
+          href="mailto:contact@slawomir-wozniak.pl"
           aria-label="Mail link"
           target="_blank"
         >

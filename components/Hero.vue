@@ -25,7 +25,16 @@
       />
     </div>
 
-    <div 
+    <div class="hidden md:flex absolute inset-0 items-center justify-center z-20 pointer-events-none">
+      <div class="px-6 py-2 rounded-full backdrop-blur-md bg-white/10">
+        <h2 class="text-3xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3]">
+          {{ $t('hero.chooseSide') }}
+        </h2>
+      </div>
+    </div>
+
+    <NuxtLink 
+      to="/code"
       class="section programming-section absolute left-0 top-0 w-1/2 h-full z-10 transition-all duration-700 ease-in-out hidden md:block opacity-50 hover:opacity-100"
       @mouseenter="hoveredSection = 'programming'"
     >
@@ -69,9 +78,10 @@
           </ul>
         </div>
       </div>
-    </div>
+    </NuxtLink>
 
-    <div 
+    <NuxtLink 
+      to="/mind"
       class="section psychology-section absolute right-0 top-0 w-1/2 h-full z-10 transition-all duration-700 ease-in-out hidden md:block opacity-50 hover:opacity-100"
       @mouseenter="hoveredSection = 'psychology'"
     >
@@ -115,17 +125,23 @@
           </ul>
         </div>
       </div>
-    </div>
+    </NuxtLink>
 
     <div class="md:hidden relative z-10 h-full p-4 [perspective:1000px] flex flex-col justify-between">
       <div class="relative z-10 flex flex-col justify-center space-y-8 mt-auto mb-auto">
-        <div 
+        <div class="px-4 py-2 rounded-full backdrop-blur-md bg-white/10 mx-auto mb-4">
+          <h2 class="text-center text-3xl font-bold text-[var(--primary-text-color)]">
+            {{ $t('hero.chooseSide') }}
+          </h2>
+        </div>
+        <NuxtLink 
+          to="/code"
           class="mobile-card programming-card transform-gpu [transform-style:preserve-3d]"
           :class="{ 
             'active-card': hoveredSection === 'programming',
             'inactive-card': hoveredSection === 'psychology'
           }"
-          @click="hoveredSection = 'programming'"
+          @mouseenter="hoveredSection = 'programming'"
         >
           <div class="relative bg-gradient-to-br from-[var(--secondary-color)]/95 via-[var(--primary-color)]/30 to-[var(--secondary-color)]/90 backdrop-blur-lg rounded-3xl border border-[var(--primary-color)]/30 shadow-2xl overflow-hidden">
             <div class="absolute -top-4 -right-4 transform rotate-12 hover:rotate-6 transition-transform duration-500">
@@ -170,15 +186,16 @@
               </ul>
             </div>
           </div>
-        </div>
+        </NuxtLink>
 
-        <div 
+        <NuxtLink 
+          to="/mind"
           class="mobile-card psychology-card transform-gpu [transform-style:preserve-3d]"
           :class="{ 
             'active-card': hoveredSection === 'psychology',
             'inactive-card': hoveredSection === 'programming'
           }"
-          @click="hoveredSection = 'psychology'"
+          @mouseenter="hoveredSection = 'psychology'"
         >
           <div class="relative bg-gradient-to-bl from-[var(--primary-color)]/90 via-[var(--secondary-color)]/30 to-[var(--primary-color)]/95 backdrop-blur-lg rounded-3xl border border-[var(--secondary-color)]/30 shadow-2xl overflow-hidden">
             <div class="absolute -top-4 -right-4 transform -rotate-12 hover:-rotate-6 transition-transform duration-500">
@@ -223,7 +240,7 @@
               </ul>
             </div>
           </div>
-        </div>
+        </NuxtLink>
       </div>
 
       <div class="mt-8 mb-4 text-center">

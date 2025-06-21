@@ -4,7 +4,6 @@
     <div class="z-1 relative">
       <Navbar />
       <NuxtPage />
-      <Footer />
       <ContactModal />
     </div>
   </div>
