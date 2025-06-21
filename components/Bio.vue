@@ -74,44 +74,8 @@
             </div>
           </div>
         </div>
-        <div
-          v-if="bioState === careerKey"
-          class="text-sm text-[color:#929292]"
-        >
-          <div
-            v-for="(position, index) in careerPositions"
-            :key="position.title"
-            class="mb-4"
-          >
-            <hr
-              v-if="index !== 0"
-              class="my-6 border-[color:#929292]"
-            >
-            <h3 class="text-3xl text-white font-bold">
-              {{ position.title }}
-            </h3>
-            <h4 class="text-xl text-white">
-              {{ position.company }}
-            </h4>
-            <div class="mb-5 mt-1">
-              {{ position.dateStart.getMonth() + 1 }}/{{ position.dateStart.getFullYear() }} - {{
-                position.dateEnd.getMonth() + 1 }}/{{ position.dateEnd.getFullYear() }}
-            </div>
-            <ul class="list-disc pl-3">
-              <li
-                v-for="point in position.keyPoints"
-                :key="point"
-              >
-                {{ point }}
-              </li>
-            </ul>
-            <div class="mt-3 text-white">
-              <p>
-                {{ $t('bio.career.technology') }}:
-                {{ position.technology.join(', ') }}
-              </p>
-            </div>
-          </div>
+        <div v-if="bioState === careerKey">
+          <CareerTimeline />
         </div>
         <div v-if="bioState === achievementsKey">
           <ul class="list-disc pl-3">
@@ -269,6 +233,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue'
 import MorphingTabs from './ui/morphing-tabs/MorphingTabs.vue'
+import CareerTimeline from './CareerTimeline.vue'
 const { t } = useI18n()
 
 const bioTabs = computed(() => [
@@ -297,67 +262,7 @@ const bioTabs = computed(() => [
 const [storyKey, careerKey, achievementsKey, personalLifeKey, skillsKey] = bioTabs.value.map(tab => tab.key)
 const bioState = ref<string>(storyKey)
 
-const careerPositions = computed(() => [
-  {
-    title: t('bio.career.enet.title'),
-    company: t('bio.career.enet.company'),
-    dateStart: new Date('2024-04'),
-    dateEnd: new Date(),
-    keyPoints: [
-      t('bio.career.enet.keyPoints1'),
-      t('bio.career.enet.keyPoints2'),
-    ],
-    technology: ['Vue', 'Typescript', 'HTML5', 'SCSS'],
-  },
-  {
-    title: t('bio.career.cognitran.title'),
-    company: t('bio.career.cognitran.company'),
-    dateStart: new Date('2022-12-01'),
-    dateEnd: new Date('2024-02-28'),
-    keyPoints: [
-      t('bio.career.cognitran.keyPoints1'),
-      t('bio.career.cognitran.keyPoints2'),
-      t('bio.career.cognitran.keyPoints3'),
-    ],
-    technology: ['React', 'Redux', 'Typescript', 'HTML5', 'SCSS', 'Jest', 'Testing Library'],
-  },
-  {
-    title: t('bio.career.wp.title'),
-    company: t('bio.career.wp.company'),
-    dateStart: new Date('2022-05-01'),
-    dateEnd: new Date('2022-11-30'),
-    keyPoints: [
-      t('bio.career.wp.keyPoints1'),
-      t('bio.career.wp.keyPoints2'),
-      t('bio.career.wp.keyPoints3'),
-    ],
-    technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
-  },
-  {
-    title: t('bio.career.nordea.title'),
-    company: t('bio.career.nordea.company'),
-    dateStart: new Date('2021-05-01'),
-    dateEnd: new Date('2022-04-30'),
-    keyPoints: [
-      t('bio.career.nordea.keyPoints1'),
-      t('bio.career.nordea.keyPoints2'),
-      t('bio.career.nordea.keyPoints3'),
-    ],
-    technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
-  },
-  {
-    title: t('bio.career.webwave.title'),
-    company: t('bio.career.webwave.company'),
-    dateStart: new Date('2020-04-01'),
-    dateEnd: new Date('2021-04-30'),
-    keyPoints: [
-      t('bio.career.webwave.keyPoints1'),
-      t('bio.career.webwave.keyPoints2'),
-      t('bio.career.webwave.keyPoints3'),
-    ],
-    technology: ['React', 'Redux', 'Typescript', 'HTML5', 'Styled Components', 'Jest', 'Testing Library'],
-  },
-])
+
 
 const achievements = computed(() => [
   t('bio.achievements1'),
