@@ -224,6 +224,13 @@ const items = computed(() => [
     link: 'https://eccdna.pl',
   },
   {
+    name: 'Mirecc Database',
+    image: 'projects/mirecc-dna.png',
+    tags: ['portfolio', 'code'],
+    description: t('projects.mirecc'),
+    link: 'https://mirecc.platinum.edu.pl/',
+  },
+  {
     name: t('blog.socialLearningTheory.title'),
     image: 'projects/blog/social-learning-theory.png',
     tags: ['blog', 'mind'],
@@ -232,7 +239,7 @@ const items = computed(() => [
   {
     name: 'nimbleninja.pl',
     image: 'projects/nimbleninja.png',
-    tags: ['portfolio', 'code'],
+    tags: ['portfolio', 'code', 'business'],
     description: t('projects.nimbleninja'),
     link: 'https://nimbleninja.pl',
   },
