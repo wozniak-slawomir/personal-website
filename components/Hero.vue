@@ -1,5 +1,5 @@
 <template>
-  <div class="relative container h-screen overflow-hidden pt-[var(--navbar-height)]">
+  <div class="relative container min-h-screen overflow-hidden pt-[var(--navbar-height)]">
     <div 
       class="absolute inset-0 z-0 opacity-0 transition-opacity duration-700 ease-in-out items-center hidden md:flex"
       :class="{ 'opacity-100': hoveredSection === 'programming' }"
