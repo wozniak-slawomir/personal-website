@@ -229,6 +229,13 @@ const items = computed(() => [
     tags: ['blog', 'mind'],
     link: '/blog/social-learning-theory',
   },
+  {
+    name: 'nimbleninja.pl',
+    image: 'projects/nimbleninja.png',
+    tags: ['portfolio', 'code'],
+    description: t('projects.nimbleninja'),
+    link: 'https://nimbleninja.pl',
+  },
 ])
 
 const filteredItems = computed(() => {
