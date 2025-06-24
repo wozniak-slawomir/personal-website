@@ -1,7 +1,7 @@
 <template>
   <div class="container mt-32">
     <h2 class="text-5xl font-bold text-center md:text-left">
-      BIO
+      {{ bioTitle }}
     </h2>
     <div class="mb-0 mt-10 lg:my-10">
       <MorphingTabs
@@ -149,7 +149,7 @@
             </div>
           </div>
         </div>
-        <div v-show="bioState === skillsKey">
+        <div v-show="bioState === skillsKey && props.mode === 'programming'">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div class="relative flex items-center group overflow-hidden rounded-2xl shadow-2xl">
               <NuxtImg
@@ -234,69 +234,146 @@
 import { ref, computed } from 'vue'
 import MorphingTabs from './ui/morphing-tabs/MorphingTabs.vue'
 import CareerTimeline from './CareerTimeline.vue'
+
+type BioMode = 'programming' | 'psychology'
+
+const props = defineProps<{
+  mode?: BioMode
+}>()
+
 const { t } = useI18n()
 
-const bioTabs = computed(() => [
-  {
-    key: 'story',
-    label: t('bio.menu.story'),
-  },
-  {
-    key: 'career',
-    label: t('bio.menu.career'),
-  },
-  {
-    key: 'achievements',
-    label: t('bio.menu.achievements'),
-  },
-  {
-    key: 'personalLife',
-    label: t('bio.menu.personal.life'),
-  },
-  {
-    key: 'skills',
-    label: t('bio.menu.skills'),
-  },
-])
+const bioTitle = computed(() => {
+  if (props.mode === 'programming') {
+    return t('bio.title.programming')
+  } else if (props.mode === 'psychology') {
+    return t('bio.title.psychology')
+  }
+  return 'BIO'
+})
 
-const [storyKey, careerKey, achievementsKey, personalLifeKey, skillsKey] = bioTabs.value.map(tab => tab.key)
+const bioTabs = computed(() => {
+  const tabs = [
+    {
+      key: 'story',
+      label: t('bio.menu.story'),
+    },
+    {
+      key: 'achievements',
+      label: t('bio.menu.achievements'),
+    },
+    {
+      key: 'personalLife',
+      label: t('bio.menu.personal.life'),
+    },
+  ]
+  
+  // Only add skills tab for programming mode
+  if (props.mode === 'programming') {
+    tabs.push(
+      {
+        key: 'career',
+        label: t('bio.menu.career'),
+      },
+      {
+        key: 'skills',
+        label: t('bio.menu.skills'),
+      },
+    )
+  }
+  
+  return tabs
+})
+
+const [storyKey, achievementsKey, personalLifeKey, careerKey, skillsKey] = bioTabs.value.map(tab => tab.key)
 const bioState = ref<string>(storyKey)
 
+const achievements = computed(() => {
+  if (props.mode === 'programming') {
+    return [
+      t('bio.achievements.programming1'),
+      t('bio.achievements.programming2'),
+      t('bio.achievements.programming3'),
+      t('bio.achievements.programming4'),
+      t('bio.achievements.programming5'),
+    ]
+  } else if (props.mode === 'psychology') {
+    return [
+      t('bio.achievements.psychology1'),
+      t('bio.achievements.psychology2'),
+      t('bio.achievements.psychology3'),
+    ]
+  }
+  return [
+    t('bio.achievements1'),
+    t('bio.achievements2'),
+    t('bio.achievements3'),
+    t('bio.achievements4'),
+    t('bio.achievements5'),
+  ]
+})
 
-
-const achievements = computed(() => [
-  t('bio.achievements1'),
-  t('bio.achievements2'),
-  t('bio.achievements3'),
-  t('bio.achievements4'),
-  t('bio.achievements5'),
-])
-
-const skills = computed(() => ({
-  hard: {
-    proficient: ['React', 'Redux', 'Typescript', 'Vue.js', 'Javascript', 'HTML5', 'SCSS', 'Bootstrap', 'Jest', 'Testing Library', 'Git', 'Axios', 'ESLint', 'REST', 'JSON', 'Webpack', 'NPM', 'OOP'],
-    used: ['JQuery', 'Scrum', 'Node.js', 'Express', 'Linux', 'Docker', 'Rust', 'MUI'],
-
-  },
-  soft: [
-    t('bio.skills.leadership'),
-    t('bio.skills.communication'),
-    t('bio.skills.problem.solving'),
-    t('bio.skills.teamwork'),
-    t('bio.skills.adaptability'),
-    t('bio.skills.time.management'),
-    t('bio.skills.creativity'),
-    t('bio.skills.critical.thinking'),
-    t('bio.skills.conflict.resolution'),
-    t('bio.skills.decision.making'),
-    t('bio.skills.empathy'),
-    t('bio.skills.flexibility'),
-    t('bio.skills.persuasion'),
-    t('bio.skills.stress.management'),
-    t('bio.skills.tolerance'),
-    t('bio.skills.work.ethic'),
-  ],
-}
-))
+const skills = computed(() => {
+  if (props.mode === 'programming') {
+    return {
+      hard: {
+        proficient: ['React', 'Redux', 'Typescript', 'Vue.js', 'Javascript', 'HTML5', 'SCSS', 'Bootstrap', 'Jest', 'Testing Library', 'Git', 'Axios', 'ESLint', 'REST', 'JSON', 'Webpack', 'NPM', 'OOP'],
+        used: ['JQuery', 'Scrum', 'Node.js', 'Express', 'Linux', 'Docker', 'Rust', 'MUI'],
+      },
+      soft: [
+        t('bio.skills.leadership'),
+        t('bio.skills.communication'),
+        t('bio.skills.problem.solving'),
+        t('bio.skills.teamwork'),
+        t('bio.skills.adaptability'),
+        t('bio.skills.time.management'),
+        t('bio.skills.creativity'),
+        t('bio.skills.critical.thinking'),
+      ],
+    }
+  } else if (props.mode === 'psychology') {
+    return {
+      hard: {
+        proficient: [t('bio.skills.psychology.research'), t('bio.skills.psychology.analysis'), t('bio.skills.psychology.assessment'), t('bio.skills.psychology.interviewing')],
+        used: [t('bio.skills.psychology.therapy'), t('bio.skills.psychology.coaching'), t('bio.skills.psychology.training'), t('bio.skills.psychology.consulting')],
+      },
+      soft: [
+        t('bio.skills.empathy'),
+        t('bio.skills.active.listening'),
+        t('bio.skills.conflict.resolution'),
+        t('bio.skills.stress.management'),
+        t('bio.skills.communication'),
+        t('bio.skills.patience'),
+        t('bio.skills.emotional.intelligence'),
+        t('bio.skills.persuasion'),
+      ],
+    }
+  }
+  
+  return {
+    hard: {
+      proficient: ['React', 'Redux', 'Typescript', 'Vue.js', 'Javascript', 'HTML5', 'SCSS', 'Bootstrap', 'Jest', 'Testing Library', 'Git', 'Axios', 'ESLint', 'REST', 'JSON', 'Webpack', 'NPM', 'OOP'],
+      used: ['JQuery', 'Scrum', 'Node.js', 'Express', 'Linux', 'Docker', 'Rust', 'MUI'],
+    },
+    soft: [
+      t('bio.skills.leadership'),
+      t('bio.skills.communication'),
+      t('bio.skills.problem.solving'),
+      t('bio.skills.teamwork'),
+      t('bio.skills.adaptability'),
+      t('bio.skills.time.management'),
+      t('bio.skills.creativity'),
+      t('bio.skills.critical.thinking'),
+      t('bio.skills.conflict.resolution'),
+      t('bio.skills.decision.making'),
+      t('bio.skills.empathy'),
+      t('bio.skills.flexibility'),
+      t('bio.skills.persuasion'),
+      t('bio.skills.stress.management'),
+      t('bio.skills.tolerance'),
+      t('bio.skills.work.ethic'),
+    ],
+  }
+})
 
 </script>

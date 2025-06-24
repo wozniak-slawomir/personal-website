@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Bio />
+    <Bio mode="psychology" />
     <RealizedProjects :tags="['mind']" />
     <ContactMe />
     <Footer />
