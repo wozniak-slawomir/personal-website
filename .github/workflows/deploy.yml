@@ -17,6 +17,14 @@ jobs:
             password: ${{ secrets['DOCKERHUB_PASSWORD'] }}
 
         - name: Build and push Docker images with Compose
+          env:
+            VITE_API_URL: /api
+            VITE_SMTP_HOST: ${{ variables['MAIL_HOST'] }}
+            VITE_SMTP_PORT: 587
+            VITE_SMTP_USER: ${{ variables['MY_EMAIL'] }}
+            VITE_SMTP_PASS: ${{ secrets['MAIL_PASSWORD'] }}
+            VITE_MAIL_RECEIVER: contact@slawomir-wozniak.pl
+            VITE_SENDER_MAIL: ${{ variables['SENDER_MAIL'] }}
           run: docker compose build && docker compose push
 
         - name: Log in to SSH server and deploy
