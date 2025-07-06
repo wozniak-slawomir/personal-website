@@ -2,6 +2,14 @@ services:
   frontend:
     build:
       context: .
+      args:
+        VITE_API_URL: ${VITE_API_URL}
+        VITE_SMTP_HOST: ${VITE_SMTP_HOST}
+        VITE_SMTP_PORT: ${VITE_SMTP_PORT}
+        VITE_SMTP_USER: ${VITE_SMTP_USER}
+        VITE_SMTP_PASS: ${VITE_SMTP_PASS}
+        VITE_MAIL_RECEIVER: ${VITE_MAIL_RECEIVER}
+        VITE_SENDER_EMAIL: ${VITE_SENDER_EMAIL}
     image: wozniakslawomir/personal-website-frontend:latest
     environment:
       - VITE_API_URL=${VITE_API_URL}
