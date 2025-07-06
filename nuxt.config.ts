@@ -15,7 +15,7 @@ export default defineNuxtConfig({
     VITE_SMTP_USER: process.env.VITE_SMTP_USER,
     VITE_SMTP_PASS: process.env.VITE_SMTP_PASS,
     VITE_MAIL_RECEIVER: process.env.VITE_MAIL_RECEIVER,
-    VITE_SENDER_EMAIL: process.env.VITE_SENDER_EMAIL,
+    VITE_SENDER_MAIL: process.env.VITE_SENDER_MAIL,
   },
 
   build: {

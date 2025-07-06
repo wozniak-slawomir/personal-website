@@ -1,29 +1,29 @@
 import nodemailer from 'nodemailer'
 
 interface ContactInfo {
-    name: string;
-    surname: string;
-    email: string;
-    phone_number: string;
-    message: string;
+  name: string;
+  surname: string;
+  email: string;
+  phone_number: string;
+  message: string;
 }
 
 export const sendMail = async (contactInfo: ContactInfo) => {
-    const config = useRuntimeConfig()
+  const config = useRuntimeConfig()
 
-    const transporter = nodemailer.createTransport({
-        host: config.VITE_SMTP_HOST,
-        port: Number(config.VITE_SMTP_PORT),
-        secure: false,
-        auth: {
-            user: config.VITE_SMTP_USER,
-            pass: config.VITE_SMTP_PASS,
-        },
-    })
+  const transporter = nodemailer.createTransport({
+    host: config.VITE_SMTP_HOST,
+    port: Number(config.VITE_SMTP_PORT),
+    secure: false,
+    auth: {
+      user: config.VITE_SMTP_USER,
+      pass: config.VITE_SMTP_PASS,
+    },
+  })
 
-    const { name, surname, email, phone_number, message } = contactInfo
-    
-    const htmlContent = `
+  const { name, surname, email, phone_number, message } = contactInfo
+
+  const htmlContent = `
     <!DOCTYPE html>
     <html>
         <head>
@@ -99,13 +99,13 @@ export const sendMail = async (contactInfo: ContactInfo) => {
     </html>
     `
 
-    const info = await transporter.sendMail({
-        from: `"No Reply" <${config.VITE_SENDER_EMAIL}>`,
-        to: config.VITE_MAIL_RECEIVER,
-        subject: 'New message from website!',
-        text: `Contact from: ${name} ${surname}\nEmail: ${email}\nPhone: ${phone_number}\n\nMessage:\n${message}`,
-        html: htmlContent,
-    })
+  const info = await transporter.sendMail({
+    from: `"No Reply" <${config.VITE_SENDER_MAIL}>`,
+    to: config.VITE_MAIL_RECEIVER,
+    subject: 'New message from website!',
+    text: `Contact from: ${name} ${surname}\nEmail: ${email}\nPhone: ${phone_number}\n\nMessage:\n${message}`,
+    html: htmlContent,
+  })
 
-    return info
+  return info
 }
