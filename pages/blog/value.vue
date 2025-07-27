@@ -105,7 +105,7 @@ watch(locale, () => {
       },
       {
         property: 'og:image',
-        content: 'projects/blog/value.jpg',
+        content: 'blog/value/value.jpg',
       },
       {
         property: 'og:url',
