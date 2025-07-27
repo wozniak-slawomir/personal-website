@@ -243,6 +243,12 @@ const items = computed(() => [
     description: t('projects.nimbleninja'),
     link: 'https://nimbleninja.pl',
   },
+  {
+    name: t('blog.value.title'),
+    image: 'projects/blog/value.jpg',
+    tags: ['blog', 'mind'],
+    link: '/blog/value',
+  },
 ])
 
 const filteredItems = computed(() => {
