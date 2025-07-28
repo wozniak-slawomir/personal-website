@@ -16,7 +16,6 @@ jobs:
       - name: PR Agent action step
         uses: qodo-ai/pr-agent@main
         env:
-          OPENAI_API_BASE: "https://openrouter.ai/api/v1"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OPENROUTER__KEY: ${{ secrets.OPENROUTER_API_KEY }}
           # Set the model to work with OpenRouter
