@@ -105,7 +105,7 @@ watch(locale, () => {
       },
       {
         property: 'og:image',
-        content: 'blog/value/value.jpg',
+        content: 'https://slawomir-wozniak.pl/blog/value/value.jpg',
       },
       {
         property: 'og:url',
