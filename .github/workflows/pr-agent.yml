@@ -18,7 +18,7 @@ jobs:
         env:
           OPENAI_API_BASE: "https://openrouter.ai/api/v1"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENAI_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER__KEY: ${{ secrets.OPENROUTER_API_KEY }}
           # Set the model to work with OpenRouter
           config.model: "openrouter/qwen/qwen-3-coder-free"
           config.fallback_models: '["openrouter/moonshotai/kimi-k2:free"]'
