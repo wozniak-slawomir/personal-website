@@ -1,8 +1,10 @@
 name: PR Agent
 on:
   push:
-    branches:
+    branches: 
       - pr-test
+  pull_request:
+    types: [opened, reopened, ready_for_review]
   issue_comment:
 jobs:
   pr_agent_job:
@@ -12,18 +14,22 @@ jobs:
       issues: write
       pull-requests: write
       contents: write
+    name: Run pr agent on every pull request, respond to user comments
     steps:
+      - name: Checkout PR code
+        uses: actions/checkout@v3
       - name: PR Agent action step
+        id: pragent
         uses: qodo-ai/pr-agent@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENROUTER__KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          OPENROUTER_KEY: ${{ secrets.OPENROUTER_API_KEY }}
           # Set the model to work with OpenRouter
-          config.model: "openrouter/qwen/qwen-3-coder-free"
-          config.fallback_models: '["openrouter/moonshotai/kimi-k2:free"]'
-          OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
+          config.model: "openrouter/qwen/qwen3-coder:free"
           OPENROUTER_BASE_URL: "https://openrouter.ai/api/v1"
           # Tool configuration
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true"
           github_action_config.auto_improve: "true"
+          # Additional configuration for better reliability
+          config.ai_timeout: "120"
