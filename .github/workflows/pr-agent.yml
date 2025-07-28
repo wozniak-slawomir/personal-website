@@ -23,10 +23,7 @@ jobs:
         uses: qodo-ai/pr-agent@main
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OPENROUTER_KEY: ${{ secrets.OPENROUTER_API_KEY }}
-          # Set the model to work with OpenRouter
-          config.model: "openrouter/qwen/qwen3-coder:free"
-          OPENROUTER_BASE_URL: "https://openrouter.ai/api/v1"
+          OPENROUTER__KEY: ${{ secrets.OPENROUTER_API_KEY }}
           # Tool configuration
           github_action_config.auto_review: "true"
           github_action_config.auto_describe: "true"
