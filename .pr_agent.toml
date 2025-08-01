@@ -1,7 +1,8 @@
 [config]
-model = "openrouter/qwen/qwen3-coder:free"
-fallback_models = ["openrouter/deepseek/deepseek-chat"]
-custom_model_max_tokens=20000
-
-[pr_reviewer]
-extra_instructions = "Focus on security issues and code quality."
+model="openrouter/qwen/qwen-2.5-coder-32b-instruct:free"
+custom_model_max_tokens=4000
+[github_action_config]
+auto_review = true
+auto_describe = true
+auto_improve = true
+pr_actions = ['opened', 'reopened', 'ready_for_review', 'review_requested', 'synchronize']
