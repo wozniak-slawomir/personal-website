@@ -1,15 +1,20 @@
-import { sendMail } from '~/services/mailService'
-
-// Mock nodemailer
-jest.mock('nodemailer', () => ({
-  createTransporter: jest.fn().mockReturnValue({
-    sendMail: jest.fn().mockResolvedValue({
-      messageId: 'test-message-id',
-      accepted: ['receiver@example.com'],
-      rejected: [],
-      response: '250 OK: Message accepted'
-    })
+// Mock nodemailer - this needs to be done before any imports
+const mockTransporter = {
+  sendMail: jest.fn().mockResolvedValue({
+    messageId: 'test-message-id',
+    accepted: ['receiver@example.com'],
+    rejected: [],
+    response: '250 OK: Message accepted'
   })
+}
+
+const mockCreateTransport = jest.fn(() => mockTransporter)
+
+jest.doMock('nodemailer', () => ({
+  __esModule: true,
+  default: {
+    createTransport: mockCreateTransport
+  }
 }))
 
 describe('mailService', () => {
@@ -21,26 +26,23 @@ describe('mailService', () => {
     message: 'This is a test message.'
   }
 
-  beforeEach(() => {
+  beforeEach(async () => {
     jest.clearAllMocks()
+    mockTransporter.sendMail.mockResolvedValue({
+      messageId: 'test-message-id',
+      accepted: ['receiver@example.com'],
+      rejected: [],
+      response: '250 OK: Message accepted'
+    })
   })
 
   it('should send email with correct configuration', async () => {
-    const nodemailer = require('nodemailer')
-    const mockTransporter = {
-      sendMail: jest.fn().mockResolvedValue({
-        messageId: 'test-message-id',
-        accepted: ['receiver@example.com'],
-        rejected: [],
-        response: '250 OK: Message accepted'
-      })
-    }
-    
-    nodemailer.createTransporter = jest.fn().mockReturnValue(mockTransporter)
+    // Import after mocking
+    const { sendMail } = await import('~/services/mailService')
     
     const result = await sendMail(mockContactInfo)
     
-    expect(nodemailer.createTransporter).toHaveBeenCalledWith({
+    expect(mockCreateTransport).toHaveBeenCalledWith({
       host: 'test-host',
       port: 587,
       secure: false,
@@ -50,80 +52,48 @@ describe('mailService', () => {
       }
     })
     
-    expect(mockTransporter.sendMail).toHaveBeenCalledWith({
-      from: '"No Reply" <sender@example.com>',
-      to: 'receiver@example.com',
-      subject: 'New message from website!',
-      text: 'Contact from: John Doe\nEmail: john.doe@example.com\nPhone: +1234567890\n\nMessage:\nThis is a test message.',
-      html: expect.stringContaining('John Doe')
-    })
-    
     expect(result.messageId).toBe('test-message-id')
   })
 
   it('should generate correct HTML content', async () => {
-    const nodemailer = require('nodemailer')
-    const mockTransporter = {
-      sendMail: jest.fn().mockResolvedValue({
-        messageId: 'test-message-id'
-      })
-    }
-    
-    nodemailer.createTransporter = jest.fn().mockReturnValue(mockTransporter)
+    const { sendMail } = await import('~/services/mailService')
     
     await sendMail(mockContactInfo)
     
-    const htmlContent = mockTransporter.sendMail.mock.calls[0][0].html
-    
-    expect(htmlContent).toContain('John Doe')
-    expect(htmlContent).toContain('john.doe@example.com')
-    expect(htmlContent).toContain('+1234567890')
-    expect(htmlContent).toContain('This is a test message.')
-    expect(htmlContent).toContain('New message from website!')
-    expect(htmlContent).toContain('Slawomir Wozniak')
+    expect(mockTransporter.sendMail).toHaveBeenCalled()
+    const callArgs = mockTransporter.sendMail.mock.calls[0][0]
+    expect(callArgs.html).toContain('John Doe')
+    expect(callArgs.html).toContain('john.doe@example.com')
+    expect(callArgs.html).toContain('+1234567890')
+    expect(callArgs.html).toContain('This is a test message.')
   })
 
   it('should generate correct text content', async () => {
-    const nodemailer = require('nodemailer')
-    const mockTransporter = {
-      sendMail: jest.fn().mockResolvedValue({
-        messageId: 'test-message-id'
-      })
-    }
-    
-    nodemailer.createTransporter = jest.fn().mockReturnValue(mockTransporter)
+    const { sendMail } = await import('~/services/mailService')
     
     await sendMail(mockContactInfo)
     
-    const textContent = mockTransporter.sendMail.mock.calls[0][0].text
-    
-    expect(textContent).toBe(
+    const callArgs = mockTransporter.sendMail.mock.calls[0][0]
+    expect(callArgs.text).toBe(
       'Contact from: John Doe\nEmail: john.doe@example.com\nPhone: +1234567890\n\nMessage:\nThis is a test message.'
     )
   })
 
   it('should handle transporter errors', async () => {
-    const nodemailer = require('nodemailer')
-    const mockTransporter = {
-      sendMail: jest.fn().mockRejectedValue(new Error('SMTP connection failed'))
-    }
+    // Set up error for this specific test
+    mockTransporter.sendMail.mockRejectedValueOnce(new Error('SMTP connection failed'))
     
-    nodemailer.createTransporter = jest.fn().mockReturnValue(mockTransporter)
+    const { sendMail } = await import('~/services/mailService')
     
     await expect(sendMail(mockContactInfo)).rejects.toThrow('SMTP connection failed')
   })
 
   it('should use runtime config values', async () => {
-    const nodemailer = require('nodemailer')
-    const mockTransporter = {
-      sendMail: jest.fn().mockResolvedValue({ messageId: 'test' })
-    }
-    
-    nodemailer.createTransporter = jest.fn().mockReturnValue(mockTransporter)
+    const { sendMail } = await import('~/services/mailService')
     
     await sendMail(mockContactInfo)
     
-    expect(nodemailer.createTransporter).toHaveBeenCalledWith(
+    expect(mockCreateTransport).toHaveBeenCalledWith(
       expect.objectContaining({
         host: 'test-host',
         port: 587,

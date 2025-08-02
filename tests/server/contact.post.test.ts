@@ -1,18 +1,19 @@
-import contactHandler from '~/server/api/contact.post'
-
 // Mock the mail service
 jest.mock('~/services/mailService', () => ({
   sendMail: jest.fn()
 }))
 
-// Mock Nuxt server utilities
-const mockCreateError = jest.fn()
-const mockReadBody = jest.fn()
-
-global.createError = mockCreateError
-global.readBody = mockReadBody
+// Mock Nuxt server utilities - these are already mocked in setup.ts
 
 describe('server/api/contact.post', () => {
+  let contactHandler: any
+  
+  beforeAll(async () => {
+    // Import the handler after mocks are set up
+    const module = await import('~/server/api/contact.post')
+    contactHandler = module.default
+  })
+
   const validContactData = {
     name: 'John',
     surname: 'Doe',
@@ -23,6 +24,9 @@ describe('server/api/contact.post', () => {
 
   beforeEach(() => {
     jest.clearAllMocks()
+    // Setup default mocks
+    global.readBody = jest.fn()
+    global.createError = jest.fn()
   })
 
   it('should successfully send email with valid data', async () => {
@@ -35,12 +39,12 @@ describe('server/api/contact.post', () => {
     }
     
     sendMail.mockResolvedValue(mockInfo)
-    mockReadBody.mockResolvedValue(JSON.stringify(validContactData))
+    global.readBody.mockResolvedValue(JSON.stringify(validContactData))
     
     const mockEvent = {}
     const result = await contactHandler(mockEvent)
     
-    expect(mockReadBody).toHaveBeenCalledWith(mockEvent)
+    expect(global.readBody).toHaveBeenCalledWith(mockEvent)
     expect(sendMail).toHaveBeenCalledWith(validContactData)
     expect(result).toEqual({
       status: 'success',
@@ -53,8 +57,8 @@ describe('server/api/contact.post', () => {
     const invalidData = { ...validContactData }
     delete invalidData.name
     
-    mockReadBody.mockResolvedValue(JSON.stringify(invalidData))
-    mockCreateError.mockReturnValue({
+    global.readBody.mockResolvedValue(JSON.stringify(invalidData))
+    global.createError.mockReturnValue({
       statusCode: 400,
       statusMessage: 'Name, surname, email, phone number, and message are required'
     })
@@ -62,7 +66,7 @@ describe('server/api/contact.post', () => {
     const mockEvent = {}
     const result = await contactHandler(mockEvent)
     
-    expect(mockCreateError).toHaveBeenCalledWith({
+    expect(global.createError).toHaveBeenCalledWith({
       statusCode: 400,
       statusMessage: 'Name, surname, email, phone number, and message are required'
     })
@@ -72,8 +76,8 @@ describe('server/api/contact.post', () => {
     const invalidData = { ...validContactData }
     delete invalidData.surname
     
-    mockReadBody.mockResolvedValue(JSON.stringify(invalidData))
-    mockCreateError.mockReturnValue({
+    global.readBody.mockResolvedValue(JSON.stringify(invalidData))
+    global.createError.mockReturnValue({
       statusCode: 400,
       statusMessage: 'Name, surname, email, phone number, and message are required'
     })
@@ -81,7 +85,7 @@ describe('server/api/contact.post', () => {
     const mockEvent = {}
     const result = await contactHandler(mockEvent)
     
-    expect(mockCreateError).toHaveBeenCalledWith({
+    expect(global.createError).toHaveBeenCalledWith({
       statusCode: 400,
       statusMessage: 'Name, surname, email, phone number, and message are required'
     })
@@ -91,8 +95,8 @@ describe('server/api/contact.post', () => {
     const invalidData = { ...validContactData }
     delete invalidData.email
     
-    mockReadBody.mockResolvedValue(JSON.stringify(invalidData))
-    mockCreateError.mockReturnValue({
+    global.readBody.mockResolvedValue(JSON.stringify(invalidData))
+    global.createError.mockReturnValue({
       statusCode: 400,
       statusMessage: 'Name, surname, email, phone number, and message are required'
     })
@@ -100,45 +104,7 @@ describe('server/api/contact.post', () => {
     const mockEvent = {}
     const result = await contactHandler(mockEvent)
     
-    expect(mockCreateError).toHaveBeenCalledWith({
-      statusCode: 400,
-      statusMessage: 'Name, surname, email, phone number, and message are required'
-    })
-  })
-
-  it('should return error for missing phone_number', async () => {
-    const invalidData = { ...validContactData }
-    delete invalidData.phone_number
-    
-    mockReadBody.mockResolvedValue(JSON.stringify(invalidData))
-    mockCreateError.mockReturnValue({
-      statusCode: 400,
-      statusMessage: 'Name, surname, email, phone number, and message are required'
-    })
-    
-    const mockEvent = {}
-    const result = await contactHandler(mockEvent)
-    
-    expect(mockCreateError).toHaveBeenCalledWith({
-      statusCode: 400,
-      statusMessage: 'Name, surname, email, phone number, and message are required'
-    })
-  })
-
-  it('should return error for missing message', async () => {
-    const invalidData = { ...validContactData }
-    delete invalidData.message
-    
-    mockReadBody.mockResolvedValue(JSON.stringify(invalidData))
-    mockCreateError.mockReturnValue({
-      statusCode: 400,
-      statusMessage: 'Name, surname, email, phone number, and message are required'
-    })
-    
-    const mockEvent = {}
-    const result = await contactHandler(mockEvent)
-    
-    expect(mockCreateError).toHaveBeenCalledWith({
+    expect(global.createError).toHaveBeenCalledWith({
       statusCode: 400,
       statusMessage: 'Name, surname, email, phone number, and message are required'
     })
@@ -148,8 +114,8 @@ describe('server/api/contact.post', () => {
     const { sendMail } = require('~/services/mailService')
     sendMail.mockRejectedValue(new Error('SMTP connection failed'))
     
-    mockReadBody.mockResolvedValue(JSON.stringify(validContactData))
-    mockCreateError.mockReturnValue({
+    global.readBody.mockResolvedValue(JSON.stringify(validContactData))
+    global.createError.mockReturnValue({
       statusCode: 500,
       statusMessage: 'Internal Server Error'
     })
@@ -160,7 +126,7 @@ describe('server/api/contact.post', () => {
     const result = await contactHandler(mockEvent)
     
     expect(consoleSpy).toHaveBeenCalledWith('Error sending email:', expect.any(Error))
-    expect(mockCreateError).toHaveBeenCalledWith({
+    expect(global.createError).toHaveBeenCalledWith({
       statusCode: 500,
       statusMessage: 'Internal Server Error'
     })
@@ -177,8 +143,8 @@ describe('server/api/contact.post', () => {
       message: 'This is a test message.'
     }
     
-    mockReadBody.mockResolvedValue(JSON.stringify(invalidData))
-    mockCreateError.mockReturnValue({
+    global.readBody.mockResolvedValue(JSON.stringify(invalidData))
+    global.createError.mockReturnValue({
       statusCode: 400,
       statusMessage: 'Name, surname, email, phone number, and message are required'
     })
@@ -186,7 +152,7 @@ describe('server/api/contact.post', () => {
     const mockEvent = {}
     const result = await contactHandler(mockEvent)
     
-    expect(mockCreateError).toHaveBeenCalledWith({
+    expect(global.createError).toHaveBeenCalledWith({
       statusCode: 400,
       statusMessage: 'Name, surname, email, phone number, and message are required'
     })

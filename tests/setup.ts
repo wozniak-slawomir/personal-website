@@ -21,11 +21,22 @@ global.useRuntimeConfig = jest.fn(() => ({
   VITE_SENDER_MAIL: 'sender@example.com'
 }))
 
+// Mock Nuxt server functions
+global.defineEventHandler = jest.fn((handler) => handler)
+global.readBody = jest.fn()
+global.createError = jest.fn()
+
+// Mock Vue composables
+global.watch = jest.fn()
+global.computed = jest.fn((fn) => ({ value: fn() }))
+global.onBeforeMount = jest.fn((callback) => callback())
+
 // Mock Nuxt components
 config.global.stubs = {
   'NuxtLink': { template: '<a><slot /></a>' },
   'NuxtImg': { template: '<img />' },
-  'NuxtPage': { template: '<div />' }
+  'NuxtPage': { template: '<div />' },
+  'AuroraBackground': { template: '<div class="aurora-background" />' }
 }
 
 // Mock console methods to reduce noise in tests
@@ -35,3 +46,11 @@ global.console = {
   error: jest.fn(),
   log: jest.fn()
 }
+
+// Mock DEFAULT_LOCALE
+jest.mock('~/const/defaultLocale', () => ({
+  DEFAULT_LOCALE: 'en'
+}))
+
+// Configure Vue Test Utils globally
+config.global.plugins = []
