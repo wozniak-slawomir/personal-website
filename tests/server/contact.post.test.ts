@@ -1,9 +1,6 @@
-// Mock the mail service
 jest.mock('~/services/mailService', () => ({
   sendMail: jest.fn()
 }))
-
-// Mock Nuxt server utilities - these are already mocked in setup.ts
 
 describe('server/api/contact.post', () => {
   let contactHandler: any
@@ -24,7 +21,6 @@ describe('server/api/contact.post', () => {
 
   beforeEach(() => {
     jest.clearAllMocks()
-    // Setup default mocks
     global.readBody = jest.fn()
     global.createError = jest.fn()
   })

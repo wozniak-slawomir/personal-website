@@ -1,4 +1,3 @@
-// Mock nodemailer - this needs to be done before any imports
 const mockTransporter = {
   sendMail: jest.fn().mockResolvedValue({
     messageId: 'test-message-id',
@@ -37,7 +36,6 @@ describe('mailService', () => {
   })
 
   it('should send email with correct configuration', async () => {
-    // Import after mocking
     const { sendMail } = await import('~/services/mailService')
     
     const result = await sendMail(mockContactInfo)
@@ -80,7 +78,6 @@ describe('mailService', () => {
   })
 
   it('should handle transporter errors', async () => {
-    // Set up error for this specific test
     mockTransporter.sendMail.mockRejectedValueOnce(new Error('SMTP connection failed'))
     
     const { sendMail } = await import('~/services/mailService')
