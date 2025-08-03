@@ -17,7 +17,8 @@ module.exports = {
   moduleNameMapper: {
     '^@/(.*)$': '<rootDir>/$1',
     '^~/(.*)$': '<rootDir>/$1',
-    '\\.(css|less|scss|sass)$': 'identity-obj-proxy'
+    '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
+    '@phosphor-icons/vue': '<rootDir>/tests/mocks/phosphor-icons.js'
   },
   collectCoverageFrom: [
     'components/**/*.{js,ts,vue}',
@@ -32,5 +33,8 @@ module.exports = {
   extensionsToTreatAsEsm: ['.ts', '.vue'],
   testEnvironmentOptions: {
     customExportConditions: ['node', 'node-addons']
-  }
+  },
+  transformIgnorePatterns: [
+    'node_modules/(?!(@phosphor-icons/vue|other-esm-module)/)'
+  ]
 }
