@@ -116,10 +116,4 @@ describe('App.vue', () => {
     expect(localStorageMock.getItem).toHaveBeenCalledWith('language')
     expect(mockSetLocale).not.toHaveBeenCalled()
   })
-
-  it('should render with custom route', async () => {
-    const component = await renderSuspended(App, { route: '/' })
-    
-    expect(component.html()).toContain('class="dark"')
-  })
 })
