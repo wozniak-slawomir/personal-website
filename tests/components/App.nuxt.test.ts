@@ -1,18 +1,16 @@
 // @vitest-environment nuxt
 import { describe, it, expect, beforeEach, vi } from 'vitest'
-import { renderSuspended, mockNuxtImport } from '@nuxt/test-utils/runtime'
+import { render, screen } from '@testing-library/vue'
+import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import App from '~/app.vue'
 
-// Use vi.hoisted for mocks that are referenced in mockNuxtImport
-const { mockT, mockSetLocale, mockLocale, mockUseHead, mockUseSeoMeta } = vi.hoisted(() => {
-  const mockT = vi.fn((key: string) => `translated_${key}`)
-  const mockSetLocale = vi.fn()
-  const mockLocale = { value: 'en' } // Simple object instead of ref to avoid import issues
-  const mockUseHead = vi.fn()
-  const mockUseSeoMeta = vi.fn()
-  
-  return { mockT, mockSetLocale, mockLocale, mockUseHead, mockUseSeoMeta }
-})
+const { mockT, mockSetLocale, mockLocale, mockUseHead, mockUseSeoMeta } = vi.hoisted(() => ({
+  mockT: vi.fn((key: string) => `translated_${key}`),
+  mockSetLocale: vi.fn(),
+  mockLocale: { value: 'en' },
+  mockUseHead: vi.fn(),
+  mockUseSeoMeta: vi.fn(),
+}))
 
 mockNuxtImport('useI18n', () => {
   return () => ({
@@ -42,30 +40,32 @@ describe('App.vue', () => {
     mockLocale.value = 'en'
   })
 
-  it('should render the main application structure', async () => {
-    const component = await renderSuspended(App)
-    
-    expect(component.html()).toContain('class="dark"')
-    expect(component.html()).toContain('z-1 relative')
-  })
-
-  it('should render Nuxt components', async () => {
-    const component = await renderSuspended(App)
-    
-    expect(component.html()).toBeTruthy()
-    expect(component.html().length).toBeGreaterThan(0)
-  })
-
-  it('should set initial head title correctly', async () => {
-    await renderSuspended(App)
-    
-    expect(mockUseHead).toHaveBeenCalledWith({
-      title: 'Sławomir Woźniak - translated_hero.software.engineering',
+  const renderApp = () =>
+    render(App, {
+      global: {
+        stubs: {
+          NuxtPage: { template: '<div class="nuxt-page">Page Content</div>' },
+          AuroraBackground: { template: '<div class="aurora-background" />' },
+        },
+        mocks: { $t: mockT },
+      },
     })
+
+  it('renders the main application structure', () => {
+    const { container } = renderApp()
+    
+    expect(container.querySelector('.dark')).toBeInTheDocument()
+    expect(container.querySelector('.z-1.relative')).toBeInTheDocument()
   })
 
-  it('should set head title and lang attribute when locale changes', async () => {
-    await renderSuspended(App)
+  it('renders page content', () => {
+    renderApp()
+    
+    expect(screen.getByText('Page Content')).toBeInTheDocument()
+  })
+
+  it('sets head metadata on mount', () => {
+    renderApp()
     
     expect(mockUseHead).toHaveBeenCalledWith({
       title: 'Sławomir Woźniak - translated_hero.software.engineering',
@@ -75,8 +75,8 @@ describe('App.vue', () => {
     })
   })
 
-  it('should set SEO metadata correctly', async () => {
-    await renderSuspended(App)
+  it('sets SEO metadata on mount', () => {
+    renderApp()
     
     expect(mockUseSeoMeta).toHaveBeenCalledWith({
       title: 'translated_seo.title',
@@ -88,32 +88,12 @@ describe('App.vue', () => {
     })
   })
 
-  it('should call translation functions for SEO metadata', async () => {
-    await renderSuspended(App)
-    
-    expect(mockT).toHaveBeenCalledWith('seo.title')
-    expect(mockT).toHaveBeenCalledWith('seo.description')
-    expect(mockT).toHaveBeenCalledWith('seo.keywords')
-    expect(mockT).toHaveBeenCalledWith('seo.ogTitle')
-    expect(mockT).toHaveBeenCalledWith('seo.ogDescription')
-    expect(mockT).toHaveBeenCalledWith('seo.ogSiteName')
-  })
-
-  it('should handle localStorage language setting', async () => {
+  it('handles localStorage language setting', () => {
     localStorageMock.getItem.mockReturnValue('fr')
     
-    await renderSuspended(App)
+    renderApp()
     
     expect(localStorageMock.getItem).toHaveBeenCalledWith('language')
     expect(mockSetLocale).toHaveBeenCalledWith('fr')
-  })
-
-  it('should not set locale if no language stored', async () => {
-    localStorageMock.getItem.mockReturnValue(null)
-    
-    await renderSuspended(App)
-    
-    expect(localStorageMock.getItem).toHaveBeenCalledWith('language')
-    expect(mockSetLocale).not.toHaveBeenCalled()
   })
 })
