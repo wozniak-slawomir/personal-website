@@ -20,6 +20,7 @@ module.exports = {
     quotes: ['error', 'single'],
     semi: ['error', 'never'],
     'vue/no-multiple-template-root': 'off',
+    '@typescript-eslint/no-non-null-assertion': 'off',
   },
   overrides: [
     {

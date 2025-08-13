@@ -25,3 +25,6 @@ logs
 
 .vscode
 .github/copilot-instructions.md
+
+# Test coverage
+coverage
