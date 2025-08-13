@@ -1,4 +1,3 @@
-// @vitest-environment nuxt
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen } from '@testing-library/vue'
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
@@ -45,13 +44,13 @@ describe('Services.vue', () => {
       global: {
         stubs: {
           CardContainer: { 
-            template: '<div class="card-container"><slot /></div>' 
+            template: '<div class="card-container"><slot /></div>', 
           },
           CardBody: { 
-            template: '<div class="card-body"><slot /></div>' 
+            template: '<div class="card-body"><slot /></div>', 
           },
           CardItem: { 
-            template: '<div class="card-item"><slot /></div>' 
+            template: '<div class="card-item"><slot /></div>', 
           },
         },
         mocks: { $t: mockT },

@@ -1,4 +1,3 @@
-// @vitest-environment nuxt
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/vue'
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
@@ -85,30 +84,19 @@ describe('Bio.vue', () => {
     expect(mockT).toHaveBeenCalledWith('bio.title.psychology')
   })
 
-  it('renders MorphingTabs component with correct props', () => {
-    renderBio({ mode: 'programming' })
-    
-    const morphingTabs = screen.getByTestId('morphing-tabs')
-    expect(morphingTabs).toBeInTheDocument()
-  })
-
   it('switches to achievements section when MorphingTabs emits update', async () => {
     const { container } = renderBio({ mode: 'programming' })
     
-    // Initially achievements list should not be visible
     expect(container.querySelector('ul.list-disc')).toBeNull()
 
-    // Simulate tab change to achievements
     await fireEvent.click(screen.getByTestId('morphing-tabs'))
 
-    // Now achievements list should be visible
     expect(container.querySelector('ul.list-disc')).toBeInTheDocument()
   })
 
   it('renders psychology-specific tabs without career and skills', () => {
     renderBio({ mode: 'psychology' })
     
-    // Should call basic tabs
     expect(mockT).toHaveBeenCalledWith('bio.menu.story')
     expect(mockT).toHaveBeenCalledWith('bio.menu.achievements')
     expect(mockT).toHaveBeenCalledWith('bio.menu.personal.life')

@@ -1,4 +1,3 @@
-// @vitest-environment nuxt
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/vue'
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
@@ -15,7 +14,7 @@ mockNuxtImport('useI18n', () => {
     t: mockT, 
     locale: mockLocale, 
     locales: [{ code: 'en' }, { code: 'pl' }], 
-    setLocale: mockSetLocale 
+    setLocale: mockSetLocale,
   })
 })
 
@@ -32,7 +31,7 @@ describe('Navbar.vue', () => {
     vi.clearAllMocks()
     Object.defineProperty(window, 'localStorage', { 
       value: localStorageMock, 
-      writable: true 
+      writable: true, 
     })
   })
 
@@ -42,17 +41,17 @@ describe('Navbar.vue', () => {
         stubs: {
           NuxtImg: { 
             template: '<img :src="src" :alt="alt" />', 
-            props: ['src', 'alt', 'width', 'height'] 
+            props: ['src', 'alt', 'width', 'height'], 
           },
           NuxtLink: { 
             template: '<a :href="to"><slot /></a>', 
-            props: ['to'] 
+            props: ['to'], 
           },
         },
         directives: { 
           'on-click-outside': {
             mounted: () => undefined,
-          }
+          },
         },
         mocks: { $t: mockT },
       },
@@ -78,6 +77,7 @@ describe('Navbar.vue', () => {
   it('opens language menu when language selector is clicked', async () => {
     const { container } = renderNavbar()
     
+    // TODO: Change the element to button/dropdown
     const langSelector = container.querySelector('.cursor-pointer')
     expect(langSelector).toBeInTheDocument()
     

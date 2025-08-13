@@ -1,13 +1,47 @@
 name: build-action
 on: push
 jobs:
+  test:
+    name: Run tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+        env:
+          NUXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'
+      - name: Run tests
+        run: npm test
+        env:
+          NUXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'
+
   build:
     name: Build package
     runs-on: ubuntu-latest
+    needs: test
     steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-    - name: Install dependencies
-      run: npm install
-    - name: Build
-      run: npm run build
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm ci
+        env:
+          NUXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'
+      - name: Build
+        run: npm run build
+        env:
+          NUXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'

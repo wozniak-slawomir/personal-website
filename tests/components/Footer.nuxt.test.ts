@@ -1,4 +1,3 @@
-// @vitest-environment nuxt
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen } from '@testing-library/vue'
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
@@ -15,7 +14,6 @@ const { mockT } = vi.hoisted(() => ({
   }),
 }))
 
-// In case any composables from useNuxtApp are accessed in the component tree
 mockNuxtImport('useNuxtApp', () => {
   return () => ({})
 })

@@ -1,10 +1,8 @@
-// @vitest-environment nuxt
 import { describe, it, expect, beforeEach, vi } from 'vitest'
 import { render, screen, fireEvent } from '@testing-library/vue'
 import { mockNuxtImport } from '@nuxt/test-utils/runtime'
 import Hero from '~/components/Hero.vue'
 
-// Hoisted mocks
 const { mockT, mockEvent } = vi.hoisted(() => ({
   mockT: vi.fn((key: string) => `translated_${key}`),
   mockEvent: vi.fn(),
@@ -18,7 +16,6 @@ mockNuxtImport('useI18n', () => {
   return () => ({ t: mockT, locale: { value: 'en' } })
 })
 
-// Stub external icon component
 vi.mock('@phosphor-icons/vue', () => ({
   PhCheckCircle: { name: 'PhCheckCircle', template: '<div class="ph-check-circle">✓</div>', props: ['size'] },
 }))
