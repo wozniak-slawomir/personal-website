@@ -114,7 +114,6 @@ watch(locale, () => {
     title: t('blog.edducamp2024.meta.title'),
     meta: [
       {
-        hid: 'description',
         name: 'description',
         content: t('blog.edducamp2024.meta.description'),
       },
@@ -129,14 +128,6 @@ watch(locale, () => {
       {
         property: 'og:description',
         content: t('blog.edducamp2024.meta.description'),
-      },
-      {
-        property: 'og:image',
-        content: 'blog/edducamp/interview.png',
-      },
-      {
-        property: 'og:url',
-        content: 'https://slawomir-wozniak.pl/blog/edducamp2024',
       },
     ],
   })

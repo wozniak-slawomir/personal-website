@@ -30,6 +30,7 @@
     "nodemailer": "^6.10.0",
     "nuxt": "^3.16.2",
     "nuxt-schema-org": "^5.0.6",
+    "nuxt-seo-utils": "^7.0.14",
     "swiper": "^11.0.7",
     "tailwindcss": "^3.0.23",
     "vue": "^3.4.29",

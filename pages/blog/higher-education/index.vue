@@ -257,14 +257,6 @@ watch(locale, () => {
         property: 'og:description',
         content: t('blog.higherEducation.meta.description'),
       },
-      {
-        property: 'og:image',
-        content: 'projects/blog/higher-education.jpg',
-      },
-      {
-        property: 'og:url',
-        content: 'https://slawomir-wozniak.pl/blog/higher-education',
-      },
     ],
   })
 }, { immediate: true })

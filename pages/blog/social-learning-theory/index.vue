@@ -171,14 +171,6 @@ watch(locale, () => {
         property: 'og:description',
         content: t('blog.socialLearningTheory.meta.description'),
       },
-      {
-        property: 'og:image',
-        content: '/projects/blog/social-learning-theory.png',
-      },
-      {
-        property: 'og:url',
-        content: 'https://slawomir-wozniak.pl/blog/social-learning-theory',
-      },
     ],
   })
 }, { immediate: true })

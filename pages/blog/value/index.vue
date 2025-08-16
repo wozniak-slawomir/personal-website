@@ -103,14 +103,6 @@ watch(locale, () => {
         property: 'og:description',
         content: t('blog.value.meta.description'),
       },
-      {
-        property: 'og:image',
-        content: 'https://slawomir-wozniak.pl/blog/value/value.jpg',
-      },
-      {
-        property: 'og:url',
-        content: 'https://slawomir-wozniak.pl/blog/value',
-      },
     ],
   })
 }, { immediate: true })

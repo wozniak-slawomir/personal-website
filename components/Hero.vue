@@ -27,9 +27,9 @@
 
     <div class="hidden md:flex absolute inset-0 items-center justify-center z-20 pointer-events-none">
       <div class="px-6 py-2 rounded-full backdrop-blur-md bg-white/10">
-        <h2 class="text-3xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3]">
+        <h1 class="text-3xl font-extrabold tracking-wide text-transparent bg-clip-text bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3]">
           {{ $t('hero.chooseSide') }}
-        </h2>
+        </h1>
       </div>
     </div>
 

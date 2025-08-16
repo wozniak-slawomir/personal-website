@@ -58,30 +58,6 @@ export default defineNuxtConfig({
           name: 'keywords',
           content: 'Software engineering, business, management, psychology, business psychology, science, blog, personal website, brand',
         },
-        {
-          property: 'og:title',
-          content: 'Slawomir Wozniak - Software Engineering/Business Psychology',
-        },
-        {
-          property: 'og:description',
-          content: 'Experienced software engineer interested in business, management, psychology and science in general. Building a better future for all of us.',
-        },
-        {
-          property: 'og:image',
-          content: 'https://slawomir-wozniak.pl/og-image.jpg',
-        },
-        {
-          property: 'og:url',
-          content: 'https://slawomir-wozniak.pl',
-        },
-        {
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          property: 'og:site_name',
-          content: 'Slawomir Wozniak',
-        },
       ],
       link: [
         {
@@ -98,10 +74,6 @@ export default defineNuxtConfig({
           rel: 'preconnect',
           href: 'https://fonts.googleapis.com',
         },
-        {
-          rel: 'canonical',
-          href: 'https://slawomir-wozniak.pl',
-        },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       ],
       script: [
@@ -114,7 +86,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', 'motion-v/nuxt', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-schema-org'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', 'motion-v/nuxt', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-schema-org', 'nuxt-seo-utils'],
 
   tailwindcss: {
     config: {
