@@ -5,6 +5,9 @@ import { config } from 'dotenv'
 config()
 
 export default defineNuxtConfig({
+  site: {
+    url: 'https://slawomir-wozniak.pl',
+  },
   devtools: { enabled: true },
   runtimeConfig: {
     public: {
@@ -111,7 +114,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', 'motion-v/nuxt'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', 'motion-v/nuxt', '@nuxtjs/sitemap', '@nuxtjs/robots'],
 
   tailwindcss: {
     config: {
