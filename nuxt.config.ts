@@ -51,14 +51,6 @@ export default defineNuxtConfig({
         {
           charset: 'utf-8',
         },
-        {
-          name: 'description',
-          content: 'Experienced software engineer interested in business, management, psychology and science in general. Building a better future for all of us.',
-        },
-        {
-          name: 'keywords',
-          content: 'Software engineering, business, management, psychology, business psychology, science, blog, personal website, brand',
-        },
       ],
       link: [
         {

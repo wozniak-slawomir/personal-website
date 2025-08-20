@@ -152,26 +152,16 @@ const tags = ref<string[]>([])
 
 watch(locale, () => {
   tags.value = [...t('blog.socialLearningTheory.tags').split(', ')]
-  useHead({
+  useSeoMeta({
     title: t('blog.socialLearningTheory.title'),
-    meta: [
-      {
-        name: 'description',
-        content: t('blog.socialLearningTheory.meta.description'),
-      },
-      {
-        name: 'keywords',
-        content: t('blog.socialLearningTheory.tags'),
-      },
-      {
-        property: 'og:title',
-        content: t('blog.socialLearningTheory.title'),
-      },
-      {
-        property: 'og:description',
-        content: t('blog.socialLearningTheory.meta.description'),
-      },
-    ],
+    description: t('blog.socialLearningTheory.meta.description'),
+    keywords: t('blog.socialLearningTheory.tags'),
+    ogTitle: t('blog.socialLearningTheory.title'),
+    ogDescription: t('blog.socialLearningTheory.meta.description'),
+    ogSiteName: t('seo.ogSiteName'),
+    ogImage: '/og-image.jpg',
+    ogUrl: 'https://slawomir-wozniak.pl/blog/social-learning-theory',
+    twitterCard: 'summary_large_image',
   })
 }, { immediate: true })
 </script>

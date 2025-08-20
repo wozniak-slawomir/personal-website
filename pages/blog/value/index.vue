@@ -86,24 +86,18 @@ watch(locale, () => {
   tags.value = [...t('blog.value.tags').split(', ')]
   useHead({
     title: t('blog.value.meta.title'),
-    meta: [
-      {
-        name: 'description',
-        content: t('blog.value.meta.description'),
-      },
-      {
-        name: 'keywords',
-        content: tags,
-      },
-      {
-        property: 'og:title',
-        content: t('blog.value.title'),
-      },
-      {
-        property: 'og:description',
-        content: t('blog.value.meta.description'),
-      },
-    ],
+  })
+  
+  useSeoMeta({
+    title: t('blog.value.meta.title'),
+    description: t('blog.value.meta.description'),
+    keywords: t('blog.value.tags'),
+    ogTitle: t('blog.value.title'),
+    ogDescription: t('blog.value.meta.description'),
+    ogSiteName: t('seo.ogSiteName'),
+    ogImage: '/og-image.jpg',
+    ogUrl: 'https://slawomir-wozniak.pl/blog/value',
+    twitterCard: 'summary_large_image',
   })
 }, { immediate: true })
 </script>

@@ -240,24 +240,18 @@ watch(locale, () => {
   tags.value = [...t('blog.higherEducation.tags').split(', ')]
   useHead({
     title: t('blog.higherEducation.meta.title'),
-    meta: [
-      {
-        name: 'description',
-        content: t('blog.higherEducation.meta.description'),
-      },
-      {
-        name: 'keywords',
-        content: t('blog.socialLearningTheory.tags'),
-      },
-      {
-        property: 'og:title',
-        content: t('blog.higherEducation.title'),
-      },
-      {
-        property: 'og:description',
-        content: t('blog.higherEducation.meta.description'),
-      },
-    ],
+  })
+  
+  useSeoMeta({
+    title: t('blog.higherEducation.meta.title'),
+    description: t('blog.higherEducation.meta.description'),
+    keywords: t('blog.higherEducation.tags'),
+    ogTitle: t('blog.higherEducation.title'),
+    ogDescription: t('blog.higherEducation.meta.description'),
+    ogSiteName: t('seo.ogSiteName'),
+    ogImage: '/og-image.jpg',
+    ogUrl: 'https://slawomir-wozniak.pl/blog/higher-education',
+    twitterCard: 'summary_large_image',
   })
 }, { immediate: true })
 </script>
