@@ -81,7 +81,9 @@ export default defineNuxtConfig({
           src: 'https://www.googletagmanager.com/gtag/js?id=G-DFBHM9ZDXV',
           async: true,
         },
-        'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');',
+        {
+          innerHTML: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');',
+        },
       ],
     },
   },

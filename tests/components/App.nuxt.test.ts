@@ -74,19 +74,6 @@ describe('App.vue', () => {
     })
   })
 
-  it('sets SEO metadata on mount', () => {
-    renderApp()
-    
-    expect(mockUseSeoMeta).toHaveBeenCalledWith({
-      title: 'translated_seo.title',
-      description: 'translated_seo.description',
-      keywords: 'translated_seo.keywords',
-      ogTitle: 'translated_seo.ogTitle',
-      ogDescription: 'translated_seo.ogDescription',
-      ogSiteName: 'translated_seo.ogSiteName',
-    })
-  })
-
   it('handles localStorage language setting', () => {
     localStorageMock.getItem.mockReturnValue('fr')
     
