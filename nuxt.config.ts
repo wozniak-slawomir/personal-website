@@ -42,6 +42,7 @@ export default defineNuxtConfig({
 
   app: {
     head: {
+      titleTemplate: '%s',
       meta: [
         {
           name: 'viewport',
