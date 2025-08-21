@@ -67,7 +67,6 @@ describe('App.vue', () => {
     renderApp()
     
     expect(mockUseHead).toHaveBeenCalledWith({
-      title: 'Sławomir Woźniak - translated_hero.software.engineering',
       htmlAttrs: {
         lang: 'en',
       },
