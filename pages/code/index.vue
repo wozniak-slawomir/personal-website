@@ -24,10 +24,10 @@ const title = computed(() => `${t('hero.software.engineering')} - ${t('seo.ogSit
 watch(locale, () => {
   useSeoMeta({
     title: title.value,
-    description: t('seo.description'),
+    description: t('seo.code.description'),
     keywords: 'software engineering, web development, programming, coding, full-stack development',
     ogTitle: title.value,
-    ogDescription: t('seo.description'),
+    ogDescription: t('seo.code.description'),
     ogSiteName: t('seo.ogSiteName'),
     ogImage: '/og-image.jpg',
     ogUrl: 'https://slawomir-wozniak.pl/code',

@@ -10,6 +10,10 @@
   "seo.ogDescription": "Experienced programmer interested in psychology, business, and management. I strive to build a better future for all of us.",
   "seo.ogSiteName": "Slawomir Wozniak",
 
+  "seo.homepage.description": "Software engineer interested in psychology, business, and management. I strive to build a better future for all of us.",
+  "seo.code.description": "Software services including web application development, websites and technology implementation support. Full-stack solutions.",
+  "seo.mind.description": "My experiences with business psychology focused on interpersonal communication, mental wellbeing, and stress management. Let's learn together.",
+
   "hero.software.engineering": "Software Engineering",
   "hero.business.psychology": "Business Psychology",
   "hero.software.feature1": "Landing pages",

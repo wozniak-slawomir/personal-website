@@ -22,10 +22,10 @@ const title = computed(() => `${t('hero.business.psychology')} - ${t('seo.ogSite
 watch(locale, () => {
   useSeoMeta({
     title: title.value,
-    description: t('seo.description'),
+    description: t('seo.mind.description'),
     keywords: 'business psychology, psychology, mental wellbeing, coaching, stress management',
     ogTitle: title.value,
-    ogDescription: t('seo.description'),
+    ogDescription: t('seo.mind.description'),
     ogSiteName: t('seo.ogSiteName'),
     ogImage: '/og-image.jpg',
     ogUrl: 'https://slawomir-wozniak.pl/mind',
