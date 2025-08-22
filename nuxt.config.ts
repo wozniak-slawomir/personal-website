@@ -70,9 +70,32 @@ export default defineNuxtConfig({
           href: 'https://fonts.gstatic.com',
           crossorigin: 'anonymous',
         },
+        {
+          rel: 'preload',
+          href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap',
+          as: 'style',
+          onload: 'this.onload=null;this.rel=\'stylesheet\'',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap',
+          media: 'print',
+          onload: 'this.media=\'all\'',
+        },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       ],
       script: [
+        {
+          innerHTML: `
+            // Fallback font loading for critical FCP
+            if (!document.fonts || !document.fonts.check('1em Outfit')) {
+              var link = document.createElement('link');
+              link.rel = 'stylesheet';
+              link.href = 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap';
+              document.head.appendChild(link);
+            }
+          `,
+        },
         {
           src: 'https://www.googletagmanager.com/gtag/js?id=G-DFBHM9ZDXV',
           async: true,
