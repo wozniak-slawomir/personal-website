@@ -130,6 +130,7 @@ jobs:
             --lighthouse.settings.onlyCategories performance \
             --browsertime.iterations 3 \
             --browser chrome \
+            --mobile \
             --suppressDomainFolder \
             --gzipHAR \
             --browsertime.headless \
