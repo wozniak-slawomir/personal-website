@@ -131,6 +131,7 @@ jobs:
             --browsertime.iterations 3 \
             --browser chrome \
             --mobile \
+            -d 2 \
             --suppressDomainFolder \
             --gzipHAR \
             --browsertime.headless \
