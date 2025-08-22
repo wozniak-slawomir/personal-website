@@ -283,27 +283,53 @@ jobs:
             try {
               const budgetData = JSON.parse(fs.readFileSync('performance-results/budgetResult.json', 'utf8'));
               
-              // Add working tests summary
+              // Get all tested URLs/routes
+              const allUrls = new Set();
+              if (budgetData.working) Object.keys(budgetData.working).forEach(url => allUrls.add(url));
+              if (budgetData.failing) Object.keys(budgetData.failing).forEach(url => allUrls.add(url));
+              
+              // Add routes information
+              if (allUrls.size > 0) {
+                detailedResults += '\n### 🌐 Tested Routes\n\n';
+                detailedResults += '| Route | Total Tests | Passed | Failed | Pass Rate |\n';
+                detailedResults += '|-------|-------------|--------|--------|-----------|\n';
+                
+                for (const url of Array.from(allUrls).sort()) {
+                  const workingCount = budgetData.working?.[url]?.length || 0;
+                  const failingCount = budgetData.failing?.[url]?.length || 0;
+                  const total = workingCount + failingCount;
+                  const passRate = total > 0 ? Math.round((workingCount / total) * 100) : 0;
+                  const routeName = url.replace('http://localhost:3000', '') || '/';
+                  const statusIcon = passRate === 100 ? '✅' : passRate >= 90 ? '⚠️' : '❌';
+                  
+                  detailedResults += `| \`${routeName}\` | ${total} | ${workingCount} | ${failingCount} | ${statusIcon} ${passRate}% |\n`;
+                }
+                detailedResults += '\n';
+              }
+              
+              // Add working tests summary with route context
               if (budgetData.working && Object.keys(budgetData.working).length > 0) {
-                detailedResults += '\n### ✅ Passing Tests\n\n';
-                for (const url of Object.keys(budgetData.working)) {
+                detailedResults += '\n### ✅ Passing Tests by Route\n\n';
+                for (const url of Object.keys(budgetData.working).sort()) {
                   const workingTests = budgetData.working[url];
-                  detailedResults += `<details><summary>📊 ${workingTests.length} tests passing</summary>\n\n`;
-                  detailedResults += '| Metric | Value | Limit | Type |\n';
-                  detailedResults += '|--------|-------|-------|------|\n';
+                  const routeName = url.replace('http://localhost:3000', '') || '/';
+                  detailedResults += `<details><summary>📊 Route \`${routeName}\` - ${workingTests.length} tests passing</summary>\n\n`;
+                  detailedResults += '| Metric | Current Value | Limit | Type |\n';
+                  detailedResults += '|--------|---------------|-------|------|\n';
                   workingTests.forEach(test => {
                     detailedResults += `| ${test.metric} | ${test.friendlyValue} | ${test.friendlyLimit} | ${test.type} |\n`;
                   });
-                  detailedResults += '\n</details>\n';
+                  detailedResults += '\n</details>\n\n';
                 }
               }
               
-              // Add failing tests details
+              // Add failing tests details with route context
               if (budgetData.failing && Object.keys(budgetData.failing).length > 0) {
-                detailedResults += '\n### ❌ Failing Tests\n\n';
-                for (const url of Object.keys(budgetData.failing)) {
+                detailedResults += '\n### ❌ Failing Tests by Route\n\n';
+                for (const url of Object.keys(budgetData.failing).sort()) {
                   const failingTests = budgetData.failing[url];
-                  detailedResults += `**${failingTests.length} test(s) failing:**\n\n`;
+                  const routeName = url.replace('http://localhost:3000', '') || '/';
+                  detailedResults += `#### 🚨 Route \`${routeName}\` - ${failingTests.length} test(s) failing\n\n`;
                   detailedResults += '| Metric | Current Value | Limit | Exceeded By | Type |\n';
                   detailedResults += '|--------|---------------|-------|-------------|------|\n';
                   failingTests.forEach(test => {
@@ -333,10 +359,10 @@ jobs:
               
               // Add performance categories summary
               if (budgetData.working || budgetData.failing) {
-                detailedResults += '\n### 📊 Performance Categories\n\n';
+                detailedResults += '\n### 📊 Performance Categories (All Routes Combined)\n\n';
                 const categories = {};
                 
-                // Count by type
+                // Count by type across all routes
                 if (budgetData.working) {
                   Object.values(budgetData.working).flat().forEach(test => {
                     categories[test.type] = categories[test.type] || { pass: 0, fail: 0 };
@@ -350,13 +376,13 @@ jobs:
                   });
                 }
                 
-                detailedResults += '| Category | Passed | Failed | Status |\n';
-                detailedResults += '|----------|--------|--------|---------|\n';
+                detailedResults += '| Category | Passed | Failed | Total | Pass Rate |\n';
+                detailedResults += '|----------|--------|--------|-------|----------|\n';
                 for (const [type, counts] of Object.entries(categories)) {
                   const total = counts.pass + counts.fail;
                   const percentage = Math.round((counts.pass / total) * 100);
                   const statusEmoji = percentage === 100 ? '✅' : percentage >= 80 ? '⚠️' : '❌';
-                  detailedResults += `| ${type} | ${counts.pass} | ${counts.fail} | ${statusEmoji} ${percentage}% |\n`;
+                  detailedResults += `| ${type} | ${counts.pass} | ${counts.fail} | ${total} | ${statusEmoji} ${percentage}% |\n`;
                 }
               }
               
@@ -387,7 +413,7 @@ jobs:
             ---
             > 💡 **Note:** This is a non-blocking test. The PR can be merged regardless of performance results.
             > 
-            > ${passed ? '🎉 Great job! Your changes maintain excellent performance.' : '🔧 Consider optimizing the failing metrics before merging.'}`;
+            > ${passed ? '🎉 Great job! Your changes maintain excellent performance across all tested routes.' : '🔧 Consider optimizing the failing metrics before merging to improve overall performance.'}`;
             
             github.rest.issues.createComment({
               issue_number: context.issue.number,
