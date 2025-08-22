@@ -1,0 +1,267 @@
+name: Performance Testing
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'URL to test (optional, defaults to localhost)'
+        required: false
+        default: 'http://localhost:3000'
+
+jobs:
+  performance-test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+        env:
+          NUXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'
+
+      - name: Build application
+        run: npm run build
+        env:
+          NUXT_TELEMETRY_DISABLED: '1'
+          CI: 'true'
+
+      - name: Create performance budget
+        run: |
+          # Use the committed budget file or create a default one
+          if [ ! -f ".github/performance-budget.json" ]; then
+            cat > budget.json << 'EOF'
+          {
+            "budget": {
+              "score": {
+                "performance": 90
+              },
+              "lighthouse": {
+                "performance": 90
+              },
+              "timings": {
+                "firstContentfulPaint": 2000,
+                "largestContentfulPaint": 4000,
+                "SpeedIndex": 3000
+              },
+              "requests": {
+                "total": 100
+              },
+              "transferSize": {
+                "total": 2000000
+              }
+            }
+          }
+          EOF
+          else
+            cp .github/performance-budget.json budget.json
+          fi
+
+      - name: Set target URL
+        id: url
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ -n "${{ github.event.inputs.url }}" ]; then
+            echo "target_url=${{ github.event.inputs.url }}" >> $GITHUB_OUTPUT
+          else
+            echo "target_url=http://localhost:3000" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Start application in background
+        run: |
+          echo "Starting Nuxt application..."
+          npm run preview &
+          APP_PID=$!
+          echo "APP_PID=$APP_PID" >> $GITHUB_ENV
+          echo "Application started with PID: $APP_PID"
+
+      - name: Wait for application to be ready
+        run: |
+          echo "Waiting for application to be ready..."
+          for i in {1..60}; do
+            if curl -sSf "${{ steps.url.outputs.target_url }}" > /dev/null 2>&1; then
+              echo "Application is responding!"
+              sleep 5  # Give it a few more seconds to fully initialize
+              break
+            fi
+            echo "Attempt $i: Application not ready, waiting 5 seconds..."
+            sleep 5
+          done
+          
+          # Final check
+          if ! curl -sSf "${{ steps.url.outputs.target_url }}" > /dev/null 2>&1; then
+            echo "❌ Application failed to start properly"
+            exit 1
+          fi
+          echo "✅ Application is ready for testing"
+
+      - name: Run sitespeed.io performance test
+        id: performance_test
+        run: |
+          # Create output directory
+          mkdir -p performance-results
+          
+          # Run sitespeed.io with Docker
+          # Use host networking to access localhost from container
+          docker run --rm \
+            --network="host" \
+            -v "$(pwd):/sitespeed.io" \
+            sitespeedio/sitespeed.io:38.1.1 \
+            "${{ steps.url.outputs.target_url }}" \
+            --budget.configPath budget.json \
+            --budget.output json \
+            --outputFolder performance-results \
+            --plugins.remove lighthouse \
+            --plugins.add lighthouse \
+            --lighthouse.settings.onlyCategories performance \
+            --browsertime.iterations 3 \
+            --browser chrome \
+            --suppressDomainFolder \
+            --gzipHAR \
+            --browsertime.headless \
+            || echo "performance_failed=true" >> $GITHUB_OUTPUT
+
+      - name: Stop application
+        if: always()
+        run: |
+          if [ -n "$APP_PID" ]; then
+            echo "Stopping application with PID: $APP_PID"
+            kill $APP_PID || true
+            # Also kill any remaining node processes
+            pkill -f "node.*nuxt" || true
+          fi
+
+      - name: Install bc for calculations
+        run: sudo apt-get update && sudo apt-get install -y bc
+
+      - name: Parse performance results
+        id: parse_results
+        run: |
+          if [ -f "performance-results/budgetResult.json" ]; then
+            # Parse the budget results
+            budget_results=$(cat performance-results/budgetResult.json)
+            
+            # Count total tests and failed tests
+            total_tests=$(echo "$budget_results" | jq '.budget | length')
+            failed_tests=$(echo "$budget_results" | jq '[.budget[] | select(.isOk == false)] | length')
+            passed_tests=$((total_tests - failed_tests))
+            
+            # Calculate pass percentage
+            if [ "$total_tests" -gt 0 ]; then
+              pass_percentage=$(echo "scale=2; $passed_tests * 100 / $total_tests" | bc -l)
+            else
+              pass_percentage=0
+            fi
+            
+            echo "total_tests=$total_tests" >> $GITHUB_OUTPUT
+            echo "passed_tests=$passed_tests" >> $GITHUB_OUTPUT
+            echo "failed_tests=$failed_tests" >> $GITHUB_OUTPUT
+            echo "pass_percentage=$pass_percentage" >> $GITHUB_OUTPUT
+            
+            # Check if we meet the 90% threshold
+            if (( $(echo "$pass_percentage >= 90" | bc -l) )); then
+              echo "performance_passed=true" >> $GITHUB_OUTPUT
+              echo "✅ Performance test PASSED with $pass_percentage% of tests passing"
+            else
+              echo "performance_passed=false" >> $GITHUB_OUTPUT
+              echo "❌ Performance test FAILED with $pass_percentage% of tests passing (threshold: 90%)"
+            fi
+          else
+            echo "❌ No budget results found"
+            echo "performance_passed=false" >> $GITHUB_OUTPUT
+            echo "total_tests=0" >> $GITHUB_OUTPUT
+            echo "passed_tests=0" >> $GITHUB_OUTPUT
+            echo "failed_tests=0" >> $GITHUB_OUTPUT
+            echo "pass_percentage=0" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Generate performance summary
+        run: |
+          echo "## 🚀 Performance Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Target URL:** ${{ steps.url.outputs.target_url }}" >> $GITHUB_STEP_SUMMARY
+          echo "**Test Date:** $(date -u '+%Y-%m-%d %H:%M:%S UTC')" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ "${{ steps.parse_results.outputs.performance_passed }}" = "true" ]; then
+            echo "### ✅ Performance Budget: PASSED" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "### ❌ Performance Budget: FAILED" >> $GITHUB_STEP_SUMMARY
+          fi
+          
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "| Metric | Value |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| Total Tests | ${{ steps.parse_results.outputs.total_tests }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Passed Tests | ${{ steps.parse_results.outputs.passed_tests }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Failed Tests | ${{ steps.parse_results.outputs.failed_tests }} |" >> $GITHUB_STEP_SUMMARY
+          echo "| Pass Percentage | ${{ steps.parse_results.outputs.pass_percentage }}% |" >> $GITHUB_STEP_SUMMARY
+          echo "| Required Threshold | 90% |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          if [ -f "performance-results/index.html" ]; then
+            echo "📊 **Detailed performance report available in artifacts**" >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload performance results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: performance-results
+          path: performance-results/
+          retention-days: 30
+
+      - name: Comment on PR (if applicable)
+        uses: actions/github-script@v7
+        if: github.event_name == 'pull_request'
+        with:
+          script: |
+            const passPercentage = parseFloat('${{ steps.parse_results.outputs.pass_percentage }}');
+            const passed = '${{ steps.parse_results.outputs.performance_passed }}' === 'true';
+            const emoji = passed ? '✅' : '❌';
+            const status = passed ? 'PASSED' : 'FAILED';
+            
+            const body = `## ${emoji} Performance Test Results
+            
+            **Status:** ${status} (${passPercentage}% of tests passing)
+            **Threshold:** 90%
+            **URL Tested:** ${{ steps.url.outputs.target_url }} (local build)
+            
+            | Metric | Value |
+            |--------|-------|
+            | Total Tests | ${{ steps.parse_results.outputs.total_tests }} |
+            | Passed | ${{ steps.parse_results.outputs.passed_tests }} |
+            | Failed | ${{ steps.parse_results.outputs.failed_tests }} |
+            
+            📊 [View detailed performance report in artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            
+            > Note: This is a non-blocking test. The PR can be merged regardless of performance results.`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: body
+            });
+
+      - name: Final status check
+        run: |
+          if [ "${{ steps.parse_results.outputs.performance_passed }}" = "true" ]; then
+            echo "🎉 Performance test passed! Local build meets the 90% performance threshold."
+            exit 0
+          else
+            echo "⚠️ Performance test failed, but this is non-blocking. Check the results above."
+            echo "The build completed successfully regardless of this result."
+            # Exit with 0 to make this non-blocking
+            exit 0
+          fi
