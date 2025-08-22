@@ -1,10 +1,9 @@
 <template>
   <div>
-    <div class="container mt-32 text-3xl lg:text-5xl text-gray-900 uppercase">
-      <LetterPullup 
-        :words="t('hero.business.psychology')" 
-        :delay="0.08"
-      />
+    <div class="container mt-32 text-3xl lg:text-5xl font-bold text-center uppercase">
+      <h1>
+        {{ t('hero.business.psychology') }}
+      </h1>
     </div>
     <Bio mode="psychology" />
     <RealizedProjects :tags="['mind']" />
@@ -14,7 +13,6 @@
 </template>
   
 <script setup lang="ts">
-import LetterPullup from '@/components/ui/letter-pullup/LetterPullup.vue'
 const { t, locale } = useI18n()
 
 const title = computed(() => `${t('hero.business.psychology')} - ${t('seo.ogSiteName')}`)

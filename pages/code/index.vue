@@ -1,10 +1,9 @@
 <template>
   <div>
-    <div class="container mt-32 text-3xl lg:text-5xl text-gray-900 uppercase">
-      <LetterPullup 
-        :words="t('hero.software.engineering')" 
-        :delay="0.08"
-      />
+    <div class="container mt-32 text-3xl lg:text-5xl font-bold text-center uppercase">
+      <h1>
+        {{ t('hero.software.engineering') }}
+      </h1>
     </div>
     <Bio mode="programming" />
     <RealizedProjects :tags="['code']" />
@@ -17,7 +16,6 @@
   
 <script setup lang="ts">
 const { t, locale } = useI18n()
-import LetterPullup from '@/components/ui/letter-pullup/LetterPullup.vue'
 
 const title = computed(() => `${t('hero.software.engineering')} - ${t('seo.ogSiteName')}`)
 
