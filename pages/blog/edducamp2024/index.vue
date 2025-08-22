@@ -16,6 +16,7 @@
         class="mt-5 ml-auto mr-auto block w-80"
         width="320"
         height="426"
+        preload
       />
       <p class="mt-5">
         {{ $t('blog.edducamp2024.location.description') }}

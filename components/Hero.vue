@@ -8,6 +8,7 @@
         src="/code-portrait.png"
         class="object-cover object-center mx-auto"
         :alt="$t('alt.portrait')"
+        preload
         width="450"
         height="675"
       />
@@ -20,6 +21,7 @@
         src="/portrait.png"
         class="object-cover object-center mx-auto"
         :alt="$t('alt.portrait')"
+        preload
         width="450"
         height="675"
       />
@@ -150,6 +152,7 @@
                 <NuxtPicture
                   src="/code-portrait.png"
                   class="relative object-cover rounded-2xl shadow-xl"
+                  preload
                   :alt="$t('alt.portrait')"
                   width="130"
                   height="195"
@@ -204,6 +207,7 @@
                 <NuxtPicture
                   src="/portrait.png"
                   class="relative object-cover rounded-2xl shadow-xl"
+                  preload
                   :alt="$t('alt.portrait')"
                   width="130"
                   height="195"

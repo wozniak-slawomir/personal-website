@@ -25,18 +25,27 @@ export default defineNuxtConfig({
     transpile: ['vue-toastification'],
   },
 
+  vite: {
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['vue', 'vue-router'],
+            animations: ['motion-v'],
+          },
+        },
+      },
+    },
+  },
+
   nitro: {
     compressPublicAssets: true,
   },
 
   image: {
     inject: true,
-    screens: {
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-    },
+    quality: 80,
+    format: ['webp', 'avif'],
   },
 
   app: {
@@ -53,18 +62,13 @@ export default defineNuxtConfig({
       ],
       link: [
         {
-          rel: 'preload',
-          href: 'https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap',
-          as: 'style',
-          onload: 'this.onload=null;this.rel=\'stylesheet\'',
+          rel: 'preconnect',
+          href: 'https://fonts.googleapis.com',
         },
         {
           rel: 'preconnect',
           href: 'https://fonts.gstatic.com',
-        },
-        {
-          rel: 'preconnect',
-          href: 'https://fonts.googleapis.com',
+          crossorigin: 'anonymous',
         },
         { rel: 'icon', type: 'image/x-icon', href: '/favicon.png' },
       ],
@@ -72,9 +76,11 @@ export default defineNuxtConfig({
         {
           src: 'https://www.googletagmanager.com/gtag/js?id=G-DFBHM9ZDXV',
           async: true,
+          defer: true,
         },
         {
           innerHTML: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');',
+          defer: true,
         },
       ],
     },

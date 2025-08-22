@@ -9,6 +9,7 @@
         <NuxtPicture
           src="/logo.png"
           class="max-w-full md:max-w-[400px] min-w-[100px] mr-3 md:mr-0"
+          preload
           :alt="$t('alt.slawomir')"
           width="400"
           height="30"
