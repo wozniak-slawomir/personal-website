@@ -158,55 +158,65 @@ jobs:
             echo "📋 Budget results structure:"
             cat performance-results/budgetResult.json | jq '.' || echo "❌ Invalid JSON format"
             
-            # Parse the budget results with null checks
+            # Parse the budget results with the correct structure
             budget_results=$(cat performance-results/budgetResult.json)
             
-            # Check if budget array exists and is not null
-            budget_exists=$(echo "$budget_results" | jq 'has("budget") and (.budget != null)')
+            # Count working and failing tests for all URLs
+            working_tests=0
+            failing_tests=0
             
-            if [ "$budget_exists" = "true" ]; then
-              # Count total tests and failed tests with null safety
-              total_tests=$(echo "$budget_results" | jq '.budget | if type == "array" then length else 0 end')
-              failed_tests=$(echo "$budget_results" | jq '[.budget[]? | select(.isOk == false)] | length')
-              
-              # Ensure we have valid numbers
-              if [ "$total_tests" = "null" ] || [ -z "$total_tests" ]; then
-                total_tests=0
-              fi
-              if [ "$failed_tests" = "null" ] || [ -z "$failed_tests" ]; then
-                failed_tests=0
-              fi
-              
-              passed_tests=$((total_tests - failed_tests))
-              
-              # Calculate pass percentage
-              if [ "$total_tests" -gt 0 ]; then
-                pass_percentage=$(echo "scale=2; $passed_tests * 100 / $total_tests" | bc -l)
-              else
-                pass_percentage=0
-              fi
-              
-              echo "📊 Results: $passed_tests/$total_tests tests passed ($pass_percentage%)"
+            # Count working tests
+            if echo "$budget_results" | jq -e '.working' > /dev/null; then
+              for url in $(echo "$budget_results" | jq -r '.working | keys[]'); do
+                url_working=$(echo "$budget_results" | jq ".working[\"$url\"] | length")
+                working_tests=$((working_tests + url_working))
+              done
+            fi
+            
+            # Count failing tests
+            if echo "$budget_results" | jq -e '.failing' > /dev/null; then
+              for url in $(echo "$budget_results" | jq -r '.failing | keys[]'); do
+                url_failing=$(echo "$budget_results" | jq ".failing[\"$url\"] | length")
+                failing_tests=$((failing_tests + url_failing))
+              done
+            fi
+            
+            total_tests=$((working_tests + failing_tests))
+            passed_tests=$working_tests
+            
+            # Calculate pass percentage
+            if [ "$total_tests" -gt 0 ]; then
+              pass_percentage=$(echo "scale=2; $passed_tests * 100 / $total_tests" | bc -l)
             else
-              echo "❌ Budget array not found or is null in results"
-              total_tests=0
-              failed_tests=0
-              passed_tests=0
               pass_percentage=0
             fi
             
+            echo "📊 Results: $passed_tests/$total_tests tests passed ($pass_percentage%)"
+            echo "✅ Working tests: $working_tests"
+            echo "❌ Failing tests: $failing_tests"
+            
             echo "total_tests=$total_tests" >> $GITHUB_OUTPUT
             echo "passed_tests=$passed_tests" >> $GITHUB_OUTPUT
-            echo "failed_tests=$failed_tests" >> $GITHUB_OUTPUT
+            echo "failed_tests=$failing_tests" >> $GITHUB_OUTPUT
             echo "pass_percentage=$pass_percentage" >> $GITHUB_OUTPUT
             
             # Check if we meet the 90% threshold
             if (( $(echo "$pass_percentage >= 90" | bc -l) )); then
               echo "performance_passed=true" >> $GITHUB_OUTPUT
-              echo "✅ Performance test PASSED with $pass_percentage% of tests passing"
+              echo "🎉 Performance test PASSED with $pass_percentage% of tests passing"
             else
               echo "performance_passed=false" >> $GITHUB_OUTPUT
-              echo "❌ Performance test FAILED with $pass_percentage% of tests passing (threshold: 90%)"
+              echo "⚠️ Performance test FAILED with $pass_percentage% of tests passing (threshold: 90%)"
+              
+              # Show details of failing tests
+              echo ""
+              echo "🔍 Failing tests details:"
+              if echo "$budget_results" | jq -e '.failing' > /dev/null; then
+                for url in $(echo "$budget_results" | jq -r '.failing | keys[]'); do
+                  echo "URL: $url"
+                  echo "$budget_results" | jq -r ".failing[\"$url\"][] | \"  - \(.metric): \(.friendlyValue) (limit: \(.friendlyLimit))\""
+                done
+              fi
             fi
           else
             echo "❌ No budget results found at performance-results/budgetResult.json"
