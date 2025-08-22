@@ -26,6 +26,7 @@
           class="mt-8 w-64 m-auto block"
           width="320"
           height="426"
+          preload
         />
         <figcaption class="text-center mt-2">
           {{ t('blog.value.figure1.caption') }}
