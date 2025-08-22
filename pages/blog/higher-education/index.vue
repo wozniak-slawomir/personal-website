@@ -23,7 +23,7 @@
         <NuxtPicture
           src="/blog/higher-education/handstand.jpg"
           alt="handstand"
-          class="mt-8 w-64 m-auto"
+          class="mt-8 w-64 m-auto block"
           width="320"
           height="426"
         />
@@ -119,8 +119,8 @@
 
       <NuxtPicture
         src="/blog/higher-education/contest.png"
-        alt="me"
-        class="mt-8 w-128 m-auto"
+        alt="contest"
+        class="mt-8 w-128 m-auto block"
         width="270"
         height="100"
       />
@@ -179,7 +179,7 @@
         <NuxtPicture
           src="/blog/higher-education/interview.png"
           alt="interview"
-          class="mt-8 w-64 m-auto"
+          class="mt-8 w-64 m-auto block"
           width="320"
           height="426"
         />

@@ -23,7 +23,7 @@
         <NuxtPicture
           src="/blog/value/80000hours.webp"
           alt="80k hours book"
-          class="mt-8 w-64 m-auto"
+          class="mt-8 w-64 m-auto block"
           width="320"
           height="426"
         />
