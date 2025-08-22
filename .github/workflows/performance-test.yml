@@ -148,18 +148,46 @@ jobs:
         id: parse_results
         run: |
           if [ -f "performance-results/budgetResult.json" ]; then
-            # Parse the budget results
+            echo "📄 Budget results file found, parsing..."
+            
+            # Debug: Show the structure of the JSON file
+            echo "📋 Budget results structure:"
+            cat performance-results/budgetResult.json | jq '.' || echo "❌ Invalid JSON format"
+            
+            # Parse the budget results with null checks
             budget_results=$(cat performance-results/budgetResult.json)
             
-            # Count total tests and failed tests
-            total_tests=$(echo "$budget_results" | jq '.budget | length')
-            failed_tests=$(echo "$budget_results" | jq '[.budget[] | select(.isOk == false)] | length')
-            passed_tests=$((total_tests - failed_tests))
+            # Check if budget array exists and is not null
+            budget_exists=$(echo "$budget_results" | jq 'has("budget") and (.budget != null)')
             
-            # Calculate pass percentage
-            if [ "$total_tests" -gt 0 ]; then
-              pass_percentage=$(echo "scale=2; $passed_tests * 100 / $total_tests" | bc -l)
+            if [ "$budget_exists" = "true" ]; then
+              # Count total tests and failed tests with null safety
+              total_tests=$(echo "$budget_results" | jq '.budget | if type == "array" then length else 0 end')
+              failed_tests=$(echo "$budget_results" | jq '[.budget[]? | select(.isOk == false)] | length')
+              
+              # Ensure we have valid numbers
+              if [ "$total_tests" = "null" ] || [ -z "$total_tests" ]; then
+                total_tests=0
+              fi
+              if [ "$failed_tests" = "null" ] || [ -z "$failed_tests" ]; then
+                failed_tests=0
+              fi
+              
+              passed_tests=$((total_tests - failed_tests))
+              
+              # Calculate pass percentage
+              if [ "$total_tests" -gt 0 ]; then
+                pass_percentage=$(echo "scale=2; $passed_tests * 100 / $total_tests" | bc -l)
+              else
+                pass_percentage=0
+              fi
+              
+              echo "📊 Results: $passed_tests/$total_tests tests passed ($pass_percentage%)"
             else
+              echo "❌ Budget array not found or is null in results"
+              total_tests=0
+              failed_tests=0
+              passed_tests=0
               pass_percentage=0
             fi
             
@@ -177,7 +205,9 @@ jobs:
               echo "❌ Performance test FAILED with $pass_percentage% of tests passing (threshold: 90%)"
             fi
           else
-            echo "❌ No budget results found"
+            echo "❌ No budget results found at performance-results/budgetResult.json"
+            echo "📁 Checking what files were created:"
+            ls -la performance-results/ || echo "Performance results directory not found"
             echo "performance_passed=false" >> $GITHUB_OUTPUT
             echo "total_tests=0" >> $GITHUB_OUTPUT
             echo "passed_tests=0" >> $GITHUB_OUTPUT
