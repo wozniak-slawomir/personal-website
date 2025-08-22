@@ -4,7 +4,7 @@
       class="absolute inset-0 z-0 opacity-0 transition-opacity duration-700 ease-in-out items-center hidden md:flex"
       :class="{ 'opacity-100': hoveredSection === 'programming' }"
     >
-      <NuxtImg
+      <NuxtPicture
         src="/code-portrait.png"
         class="object-cover object-center mx-auto"
         :alt="$t('alt.portrait')"
@@ -16,7 +16,7 @@
       class="absolute inset-0 z-0 opacity-0 transition-opacity duration-700 ease-in-out items-center hidden md:flex"
       :class="{ 'opacity-100': hoveredSection === 'psychology' }"
     >
-      <NuxtImg
+      <NuxtPicture
         src="/portrait.png"
         class="object-cover object-center mx-auto"
         :alt="$t('alt.portrait')"
@@ -147,7 +147,7 @@
             <div class="absolute -top-4 -right-4 transform rotate-12 hover:rotate-6 transition-transform duration-500">
               <div class="relative">
                 <div class="absolute inset-0 bg-[var(--primary-color)]/20 rounded-2xl blur-xl transform scale-110" />
-                <NuxtImg
+                <NuxtPicture
                   src="/code-portrait.png"
                   class="relative object-cover rounded-2xl shadow-xl"
                   :alt="$t('alt.portrait')"
@@ -201,7 +201,7 @@
             <div class="absolute -top-4 -right-4 transform -rotate-12 hover:-rotate-6 transition-transform duration-500">
               <div class="relative">
                 <div class="absolute inset-0 bg-[var(--secondary-color)]/20 rounded-2xl blur-xl transform scale-110" />
-                <NuxtImg
+                <NuxtPicture
                   src="/portrait.png"
                   class="relative object-cover rounded-2xl shadow-xl"
                   :alt="$t('alt.portrait')"

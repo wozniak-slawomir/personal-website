@@ -20,7 +20,7 @@
       </p>
 
       <figure>
-        <NuxtImg
+        <NuxtPicture
           src="/blog/higher-education/handstand.jpg"
           alt="handstand"
           class="mt-8 w-64 m-auto"
@@ -52,7 +52,7 @@
         {{ t('blog.higherEducation.content11') }}
       </p>
 
-      <NuxtImg
+      <NuxtPicture
         src="/blog/higher-education/enrollment-confirmation.png"
         alt="potwierdzenie zapisu na studia"
         class="mt-8 w-128 m-auto"
@@ -84,7 +84,7 @@
         {{ t('blog.higherEducation.content17') }}
       </p>
 
-      <NuxtImg
+      <NuxtPicture
         src="/blog/higher-education/friendship.jpg"
         alt="me"
         class="mt-8 w-64 m-auto rotate-180"
@@ -117,7 +117,7 @@
         {{ t('blog.higherEducation.content23') }}
       </p>
 
-      <NuxtImg
+      <NuxtPicture
         src="/blog/higher-education/contest.png"
         alt="me"
         class="mt-8 w-128 m-auto"
@@ -176,7 +176,7 @@
       </p>
 
       <figure>
-        <NuxtImg
+        <NuxtPicture
           src="/blog/higher-education/interview.png"
           alt="interview"
           class="mt-8 w-64 m-auto"

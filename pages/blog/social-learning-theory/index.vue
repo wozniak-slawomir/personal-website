@@ -21,7 +21,7 @@
         {{ t('blog.socialLearningTheory.bandura2') }}
       </p>
 
-      <NuxtImg
+      <NuxtPicture
         src="/blog/social-learning-theory/photo1.jpg"
         alt="People laughing"
         class="mt-4 mx-auto"
@@ -73,7 +73,7 @@
       <p class="mt-2">
         {{ t('blog.socialLearningTheory.content9') }}
       </p>
-      <NuxtImg
+      <NuxtPicture
         src="/blog/social-learning-theory/photo2.jpg"
         alt="Fast food"
         class="mt-4 mx-auto"
@@ -96,7 +96,7 @@
       <p class="mt-2">
         {{ t('blog.socialLearningTheory.content11') }}
       </p>
-      <NuxtImg
+      <NuxtPicture
         src="/blog/social-learning-theory/clusters.png"
         alt="Social network"
         class="mt-4 mx-auto"

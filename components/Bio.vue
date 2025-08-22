@@ -17,7 +17,7 @@
           class="space-y-12"
         >
           <div class="relative">
-            <NuxtImg
+            <NuxtPicture
               width="300"
               height="225"
               src="/bio/spain.jpg"
@@ -47,7 +47,7 @@
           </div>
 
           <div class="relative">
-            <NuxtImg
+            <NuxtPicture
               width="200"
               height="250"
               src="/bio/book.jpg"
@@ -94,7 +94,7 @@
           
           <div class="flex flex-wrap justify-center gap-8 mb-12">
             <div class="rounded-2xl shadow-2xl overflow-hidden">
-              <NuxtImg
+              <NuxtPicture
                 src="/bio/with-dog.jpg"
                 :alt="$t('alt.dog')"
                 class="h-96 w-auto object-cover"
@@ -104,7 +104,7 @@
             </div>
             
             <div class="rounded-2xl shadow-2xl overflow-hidden md:translate-y-8">
-              <NuxtImg
+              <NuxtPicture
                 src="/bio/with-friends.jpg"
                 :alt="$t('alt.friends')"
                 class="h-96 w-auto object-cover"
@@ -129,7 +129,7 @@
 
           <div class="flex flex-wrap justify-center gap-8 mb-10">
             <div class="rounded-2xl shadow-2xl overflow-hidden">
-              <NuxtImg
+              <NuxtPicture
                 src="/bio/gym.jpg"
                 :alt="$t('alt.bodybuilding')"
                 class="h-64 w-auto object-cover"
@@ -139,7 +139,7 @@
             </div>
             
             <div class="rounded-2xl shadow-2xl overflow-hidden lg:translate-y-8">
-              <NuxtImg
+              <NuxtPicture
                 src="/bio/boxing.png"
                 :alt="$t('alt.boxing')"
                 class="h-64 w-auto object-cover"
@@ -152,7 +152,7 @@
         <div v-show="bioState === skillsKey && props.mode === 'programming'">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             <div class="relative flex items-center group overflow-hidden rounded-2xl shadow-2xl">
-              <NuxtImg
+              <NuxtPicture
                 src="/bio/workstation.jpg"
                 :alt="$t('alt.workstation')"
                 width="800"
@@ -198,7 +198,7 @@
 
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div class="lg:order-2 flex justify-center group overflow-hidden rounded-2xl shadow-2xl">
-              <NuxtImg
+              <NuxtPicture
                 src="/bio/travel.jpg"
                 :alt="$t('alt.travel')"
                 class="object-cover mx-auto transition-transform duration-300 group-hover:scale-105"

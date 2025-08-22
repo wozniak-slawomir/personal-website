@@ -31,7 +31,6 @@ export default defineNuxtConfig({
 
   image: {
     inject: true,
-    format: ['webp', 'png'],
     screens: {
       sm: 640,
       md: 768,

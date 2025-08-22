@@ -6,7 +6,7 @@
     <div class="scroll-progress-bar" />
     <div class="container justify-between items-center flex">
       <NuxtLink to="/">
-        <NuxtImg
+        <NuxtPicture
           src="/logo.png"
           class="max-w-full md:max-w-[400px] min-w-[100px] mr-3 md:mr-0"
           :alt="$t('alt.slawomir')"

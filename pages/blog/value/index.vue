@@ -20,7 +20,7 @@
         {{ t('blog.value.content3') }}
       </p>
       <figure>
-        <NuxtImg
+        <NuxtPicture
           src="/blog/value/80000hours.webp"
           alt="80k hours book"
           class="mt-8 w-64 m-auto"
@@ -55,7 +55,7 @@
         </a>.
         {{ t('blog.value.content6b') }}
       </p>
-      <NuxtImg
+      <NuxtPicture
         src="/blog/value/insta-coffee-logo.png"
         alt="Insta Coffee logo"
         class="mt-8 w-full m-auto"

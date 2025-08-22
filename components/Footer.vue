@@ -1,7 +1,7 @@
 <template>
   <footer class="container py-10 !mt-32 text-gray-300">
     <div class="flex justify-between items-center flex-col lg:flex-row gap-5">
-      <NuxtImg
+      <NuxtPicture
         src="/logo.png"
         :alt="$t('alt.slawomir')"
         class="max-w-[400px] w-full lg:h-[30px]"
@@ -76,7 +76,7 @@
           target="_blank"
           class="mt-4 block"
         >
-          <NuxtImg
+          <NuxtPicture
             src="/partners/nie-jestes-immortal.png"
             alt="Piotr Chojankowski"
             class="h-16 m-auto rounded-lg"

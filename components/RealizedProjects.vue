@@ -42,7 +42,7 @@
         <template #default="{ item }">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
             <NuxtLink :to="item.link">
-              <NuxtImg
+              <NuxtPicture
                 :src="item.image"
                 :alt="item.name"
                 class="w-full md:h-full object-cover max-h-[800px]"
