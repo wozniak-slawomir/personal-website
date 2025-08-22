@@ -105,6 +105,7 @@ export default defineNuxtConfig({
         {
           innerHTML: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');',
           defer: true,
+          type: 'text/partytown',
         },
       ],
     },
