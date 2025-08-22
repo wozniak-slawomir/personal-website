@@ -10,6 +10,7 @@
   >
     <div class="absolute h-[100vh] w-[100vw] inset-0 overflow-hidden">
       <div
+        v-if="isLoaded"
         :class="
           cn(
             'filter blur-[10px] invert dark:invert-0 pointer-events-none absolute -inset-[10px] opacity-50 will-change-transform;',
@@ -31,6 +32,7 @@
 
 <script setup lang="ts">
 import { cn } from '@/lib/utils'
+import { ref, onMounted } from 'vue'
 
 interface AuroraBackgroundProps {
   radialGradient?: boolean;
@@ -39,6 +41,15 @@ interface AuroraBackgroundProps {
 
 const props = withDefaults(defineProps<AuroraBackgroundProps>(), {
   radialGradient: true,
+})
+
+const isLoaded = ref(false)
+
+onMounted(() => {
+  // Delay aurora background to improve FCP
+  setTimeout(() => {
+    isLoaded.value = true
+  }, 100)
 })
 </script>
 
