@@ -31,12 +31,6 @@ export default defineNuxtConfig({
 
   image: {
     inject: true,
-    screens: {
-      sm: 640,
-      md: 768,
-      lg: 1024,
-      xl: 1280,
-    },
   },
 
   app: {
