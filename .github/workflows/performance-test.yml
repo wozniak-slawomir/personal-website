@@ -272,26 +272,122 @@ jobs:
         if: github.event_name == 'pull_request'
         with:
           script: |
+            const fs = require('fs');
             const passPercentage = parseFloat('${{ steps.parse_results.outputs.pass_percentage }}');
             const passed = '${{ steps.parse_results.outputs.performance_passed }}' === 'true';
             const emoji = passed ? '✅' : '❌';
             const status = passed ? 'PASSED' : 'FAILED';
             
+            // Read the budget results for detailed information
+            let detailedResults = '';
+            try {
+              const budgetData = JSON.parse(fs.readFileSync('performance-results/budgetResult.json', 'utf8'));
+              
+              // Add working tests summary
+              if (budgetData.working && Object.keys(budgetData.working).length > 0) {
+                detailedResults += '\n### ✅ Passing Tests\n\n';
+                for (const url of Object.keys(budgetData.working)) {
+                  const workingTests = budgetData.working[url];
+                  detailedResults += `<details><summary>📊 ${workingTests.length} tests passing</summary>\n\n`;
+                  detailedResults += '| Metric | Value | Limit | Type |\n';
+                  detailedResults += '|--------|-------|-------|------|\n';
+                  workingTests.forEach(test => {
+                    detailedResults += `| ${test.metric} | ${test.friendlyValue} | ${test.friendlyLimit} | ${test.type} |\n`;
+                  });
+                  detailedResults += '\n</details>\n';
+                }
+              }
+              
+              // Add failing tests details
+              if (budgetData.failing && Object.keys(budgetData.failing).length > 0) {
+                detailedResults += '\n### ❌ Failing Tests\n\n';
+                for (const url of Object.keys(budgetData.failing)) {
+                  const failingTests = budgetData.failing[url];
+                  detailedResults += `**${failingTests.length} test(s) failing:**\n\n`;
+                  detailedResults += '| Metric | Current Value | Limit | Exceeded By | Type |\n';
+                  detailedResults += '|--------|---------------|-------|-------------|------|\n';
+                  failingTests.forEach(test => {
+                    let exceededBy = '';
+                    if (test.limitType === 'max') {
+                      const current = typeof test.value === 'number' ? test.value : 0;
+                      const limit = typeof test.limit === 'number' ? test.limit : 0;
+                      const diff = current - limit;
+                      if (test.type === 'transferSize') {
+                        exceededBy = `+${(diff / 1000).toFixed(1)} KB`;
+                      } else if (test.metric.includes('Time') || test.metric.includes('Paint')) {
+                        exceededBy = `+${diff} ms`;
+                      } else {
+                        exceededBy = `+${diff}`;
+                      }
+                    } else if (test.limitType === 'min') {
+                      const current = typeof test.value === 'number' ? test.value : 0;
+                      const limit = typeof test.limit === 'number' ? test.limit : 0;
+                      const diff = limit - current;
+                      exceededBy = `-${diff} points`;
+                    }
+                    detailedResults += `| **${test.metric}** | ${test.friendlyValue} | ${test.friendlyLimit} | ${exceededBy} | ${test.type} |\n`;
+                  });
+                  detailedResults += '\n';
+                }
+              }
+              
+              // Add performance categories summary
+              if (budgetData.working || budgetData.failing) {
+                detailedResults += '\n### 📊 Performance Categories\n\n';
+                const categories = {};
+                
+                // Count by type
+                if (budgetData.working) {
+                  Object.values(budgetData.working).flat().forEach(test => {
+                    categories[test.type] = categories[test.type] || { pass: 0, fail: 0 };
+                    categories[test.type].pass++;
+                  });
+                }
+                if (budgetData.failing) {
+                  Object.values(budgetData.failing).flat().forEach(test => {
+                    categories[test.type] = categories[test.type] || { pass: 0, fail: 0 };
+                    categories[test.type].fail++;
+                  });
+                }
+                
+                detailedResults += '| Category | Passed | Failed | Status |\n';
+                detailedResults += '|----------|--------|--------|---------|\n';
+                for (const [type, counts] of Object.entries(categories)) {
+                  const total = counts.pass + counts.fail;
+                  const percentage = Math.round((counts.pass / total) * 100);
+                  const statusEmoji = percentage === 100 ? '✅' : percentage >= 80 ? '⚠️' : '❌';
+                  detailedResults += `| ${type} | ${counts.pass} | ${counts.fail} | ${statusEmoji} ${percentage}% |\n`;
+                }
+              }
+              
+            } catch (error) {
+              detailedResults = '\n> ⚠️ Could not parse detailed results from budget file.\n';
+            }
+            
             const body = `## ${emoji} Performance Test Results
             
-            **Status:** ${status} (${passPercentage}% of tests passing)
-            **Threshold:** 90%
-            **URL Tested:** ${{ steps.url.outputs.target_url }} (local build)
+            **Status:** ${status} (${passPercentage}% of tests passing)  
+            **Threshold:** 90% (${passed ? 'Met' : 'Not met'})  
+            **URL Tested:** ${{ steps.url.outputs.target_url }} (local build)  
+            **Test Date:** ${new Date().toISOString().split('T')[0]}
             
+            ### 📈 Summary
             | Metric | Value |
             |--------|-------|
             | Total Tests | ${{ steps.parse_results.outputs.total_tests }} |
             | Passed | ${{ steps.parse_results.outputs.passed_tests }} |
             | Failed | ${{ steps.parse_results.outputs.failed_tests }} |
+            | Pass Rate | ${passPercentage}% |
+            | Status | ${passed ? '✅ PASSED' : '❌ FAILED'} |
+            ${detailedResults}
             
-            📊 [View detailed performance report in artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
+            ### � Additional Resources
+            �📊 [View detailed performance report in artifacts](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})
             
-            > Note: This is a non-blocking test. The PR can be merged regardless of performance results.`;
+            ---
+            > 💡 **Note:** This is a non-blocking test. The PR can be merged regardless of performance results.
+            > 
+            > ${passed ? '🎉 Great job! Your changes maintain excellent performance.' : '🔧 Consider optimizing the failing metrics before merging.'}`;
             
             github.rest.issues.createComment({
               issue_number: context.issue.number,
