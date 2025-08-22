@@ -100,6 +100,7 @@ export default defineNuxtConfig({
           src: 'https://www.googletagmanager.com/gtag/js?id=G-DFBHM9ZDXV',
           async: true,
           defer: true,
+          type: 'text/partytown',
         },
         {
           innerHTML: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');',
@@ -109,7 +110,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', 'motion-v/nuxt', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-schema-org', 'nuxt-seo-utils'],
+  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', 'motion-v/nuxt', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-schema-org', 'nuxt-seo-utils', '@nuxtjs/partytown'],
 
   tailwindcss: {
     config: {
