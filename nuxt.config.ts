@@ -53,7 +53,7 @@ export default defineNuxtConfig({
     },
     // Blog pages - ISR with stale-while-revalidate
     '/blog/**': { 
-      isr: true,
+      isr: 3600,
       headers: { 
         'Cache-Control': 'public, max-age=1800, s-maxage=3600, stale-while-revalidate=86400'
       }
@@ -76,7 +76,6 @@ export default defineNuxtConfig({
       headers: { 
         'Cache-Control': 'no-cache, no-store, must-revalidate'
       },
-      cors: true
     },
     // Static assets - long-term caching
     '/_nuxt/**': { 
