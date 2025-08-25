@@ -42,6 +42,50 @@ export default defineNuxtConfig({
     compressPublicAssets: true,
   },
 
+  // Route Rules for caching strategy
+  routeRules: {
+    // Static generation with long-term caching
+    '/': {
+      prerender: true,
+      headers: { 
+        'Cache-Control': 'public, max-age=3600, s-maxage=86400' // 1 hour browser, 24 hours CDN
+      }
+    },
+    // Blog pages - ISR with stale-while-revalidate
+    '/blog/**': { 
+      isr: true,
+      headers: { 
+        'Cache-Control': 'public, max-age=1800, s-maxage=3600, stale-while-revalidate=86400'
+      }
+    },
+    // Code and Mind pages - static with medium-term caching
+    '/code/**': { 
+      prerender: true,
+      headers: { 
+        'Cache-Control': 'public, max-age=3600, s-maxage=7200'
+      }
+    },
+    '/mind/**': { 
+      prerender: true,
+      headers: { 
+        'Cache-Control': 'public, max-age=3600, s-maxage=7200'
+      }
+    },
+    // API routes - no caching for dynamic data
+    '/api/**': { 
+      headers: { 
+        'Cache-Control': 'no-cache, no-store, must-revalidate'
+      },
+      cors: true
+    },
+    // Static assets - long-term caching
+    '/_nuxt/**': { 
+      headers: { 
+        'Cache-Control': 'public, max-age=31536000, immutable'
+      }
+    }
+  },
+
   image: {
     inject: true,
     quality: 80,
