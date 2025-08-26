@@ -46,7 +46,6 @@ export default defineNuxtConfig({
   routeRules: {
     // Static generation with long-term caching
     '/': {
-      prerender: true,
       headers: { 
         'Cache-Control': 'public, max-age=3600, s-maxage=86400' // 1 hour browser, 24 hours CDN
       }
@@ -60,13 +59,13 @@ export default defineNuxtConfig({
     },
     // Code and Mind pages - static with medium-term caching
     '/code/**': { 
-      prerender: true,
+      isr: 3600,
       headers: { 
         'Cache-Control': 'public, max-age=3600, s-maxage=7200'
       }
     },
     '/mind/**': { 
-      prerender: true,
+      isr: 3600,
       headers: { 
         'Cache-Control': 'public, max-age=3600, s-maxage=7200'
       }
