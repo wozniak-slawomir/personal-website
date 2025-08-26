@@ -44,7 +44,6 @@ export default defineNuxtConfig({
 
   // Route Rules for caching strategy
   routeRules: {
-    // Static generation with long-term caching
     '/': {
       headers: { 
         'Cache-Control': 'public, max-age=3600, s-maxage=86400' // 1 hour browser, 24 hours CDN
@@ -52,12 +51,11 @@ export default defineNuxtConfig({
     },
     // Blog pages - ISR with stale-while-revalidate
     '/blog/**': { 
-      isr: 3600,
+      isr: 86400,
       headers: { 
         'Cache-Control': 'public, max-age=1800, s-maxage=3600, stale-while-revalidate=86400'
       }
     },
-    // Code and Mind pages - static with medium-term caching
     '/code/**': { 
       isr: 3600,
       headers: { 
