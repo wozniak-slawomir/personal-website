@@ -156,6 +156,7 @@
                   :alt="$t('alt.portrait')"
                   width="130"
                   height="195"
+                  sizes="130px"
                 />
               </div>
             </div>
@@ -211,6 +212,7 @@
                   :alt="$t('alt.portrait')"
                   width="130"
                   height="195"
+                  sizes="130px"
                 />
               </div>
             </div>
