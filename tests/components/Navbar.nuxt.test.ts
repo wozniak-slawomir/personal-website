@@ -5,7 +5,7 @@ import Navbar from '~/components/Navbar.vue'
 
 const { mockT, mockLocale, mockSetLocale } = vi.hoisted(() => ({
   mockT: vi.fn((key: string) => `translated_${key}`),
-  mockLocale: { value: 'en' },
+  mockLocale: 'en',
   mockSetLocale: vi.fn(),
 }))
 
@@ -57,18 +57,18 @@ describe('Navbar.vue', () => {
 
   it('renders navbar with logo', () => {
     const { container } = renderNavbar()
-    
+
     expect(container.querySelector('nav')).toBeInTheDocument()
-    expect(screen.getByRole('img')).toBeInTheDocument()
+    expect(screen.getByAltText('translated_alt.slawomir')).toBeInTheDocument()
   })
 
   it('displays language selector interface', () => {
     const { container } = renderNavbar()
-    
+
     const langSelector = container.querySelector('.cursor-pointer')
     expect(langSelector).toBeInTheDocument()
-    
-    const flagElement = container.querySelector('.fi')
+
+    const flagElement = container.querySelector('img[src*="/flags/"]')
     expect(flagElement).toBeInTheDocument()
   })
 
@@ -100,8 +100,8 @@ describe('Navbar.vue', () => {
 
   it('has proper accessibility structure', () => {
     renderNavbar()
-    
+
     expect(screen.getByRole('navigation')).toBeInTheDocument()
-    expect(screen.getByRole('img')).toBeInTheDocument()
+    expect(screen.getByAltText('translated_alt.slawomir')).toBeInTheDocument()
   })
 })
