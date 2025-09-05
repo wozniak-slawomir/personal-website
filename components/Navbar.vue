@@ -21,9 +21,10 @@
           :class="isMenuOpen ? 'rounded-t-[25px]' : 'rounded-[25px]'"
           @click=" isMenuOpen = !isMenuOpen"
         >
-          <span
-            class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-            :class="locale === 'en' ? 'fi-gb' : 'fi-' + locale"
+          <img
+            :src="`/flags/${locale === 'en' ? 'gb' : locale}.svg`"
+            :alt="`${locale === 'en' ? 'gb' : locale} flag`"
+            class="rounded-full w-6 h-6 align-middle mx-1 inline-block"
           />
           <p class="align-middle mx-1 hidden sm:inline uppercase">
             {{ locale }}
@@ -42,9 +43,10 @@
               class="p-2 rounded-md w-14 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-full hover:scale-110 duration-150"
               @click="changeLanguage(item.code)"
             >
-              <span
-                class="fi fis rounded-full w-6 h-6 align-middle mx-1"
-                :class="item.code === 'en' ? 'fi-gb' : 'fi-' + item.code.toLowerCase()"
+              <img
+                :src="`/flags/${item.code === 'en' ? 'gb' : item.code.toLowerCase()}.svg`"
+                :alt="`${item.code === 'en' ? 'gb' : item.code.toLowerCase()} flag`"
+                class="rounded-full w-6 h-6 align-middle mx-1 inline-block"
               />
               <span class="align-middle mx-1 hidden sm:inline uppercase">{{ item.code }}</span>
             </button>
@@ -57,7 +59,6 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import '/node_modules/flag-icons/css/flag-icons.min.css'
 import { vOnClickOutside } from '@vueuse/components'
 const { locales, locale, setLocale } = useI18n()
 

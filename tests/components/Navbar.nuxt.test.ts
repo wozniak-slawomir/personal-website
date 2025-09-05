@@ -18,8 +18,6 @@ mockNuxtImport('useI18n', () => {
   })
 })
 
-vi.mock('/node_modules/flag-icons/css/flag-icons.min.css', () => ({}))
-
 describe('Navbar.vue', () => {
   const localStorageMock = {
     getItem: vi.fn(),

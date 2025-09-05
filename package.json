@@ -23,7 +23,6 @@
     "@vueuse/core": "^10.11.1",
     "@yeger/vue-masonry-wall": "^5.0.14",
     "dotenv": "^16.4.7",
-    "flag-icons": "^7.2.3",
     "lucide-vue-next": "^0.487.0",
     "mitt": "^3.0.1",
     "motion-v": "^1.7.0",
