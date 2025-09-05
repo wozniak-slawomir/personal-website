@@ -85,7 +85,7 @@ export default defineNuxtConfig({
   image: {
     inject: true,
     quality: 80,
-    format: ['avif', 'webp'],
+    format: ['webp', 'avif'],
   },
 
   app: {
