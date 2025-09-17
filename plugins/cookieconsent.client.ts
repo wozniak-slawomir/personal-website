@@ -314,6 +314,19 @@ const config: CookieConsentConfig = {
 }
 
 export default defineNuxtPlugin(async () => {
+  // Don't run cookie consent during testing
+  if (process.env.NODE_ENV === 'test' || typeof window === 'undefined') {
+    return {
+      provide: {
+        CC: {
+          showPreferences: () => {},
+          validConsent: () => false,
+          reset: () => {},
+        },
+      },
+    }
+  }
+
   await CookieConsent.run(config)
 
   return {
