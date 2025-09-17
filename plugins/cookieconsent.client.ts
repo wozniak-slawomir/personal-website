@@ -43,7 +43,16 @@ const config: CookieConsentConfig = {
   },
 
   language: {
-    default: (typeof window !== 'undefined' && localStorage.getItem('language')) || 'en',
+    default: (() => {
+      const storedLanguage = localStorage.getItem('language')
+      if (storedLanguage) return storedLanguage
+      
+      const browserLanguage = navigator.language || navigator.languages?.[0] || 'en'
+      const languageCode = browserLanguage.split('-')[0].toLowerCase()
+      
+      const supportedLanguages = ['en', 'pl', 'fr', 'es']
+      return supportedLanguages.includes(languageCode) ? languageCode : 'en'
+    })(),
     translations: {
       en: {
         consentModal: {
@@ -319,8 +328,10 @@ export default defineNuxtPlugin(async () => {
     return {
       provide: {
         CC: {
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           showPreferences: () => {},
           validConsent: () => false,
+          // eslint-disable-next-line @typescript-eslint/no-empty-function
           reset: () => {},
         },
       },
