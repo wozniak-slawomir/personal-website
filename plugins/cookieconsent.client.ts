@@ -62,7 +62,6 @@ const config: CookieConsentConfig = {
           acceptAllBtn: 'Accept all',
           acceptNecessaryBtn: 'Reject all',
           showPreferencesBtn: 'Manage preferences',
-          footer: '<a href="/privacy" class="cc__link">Privacy Policy</a>',
         },
         preferencesModal: {
           title: 'Cookie preferences',
@@ -128,7 +127,6 @@ const config: CookieConsentConfig = {
           acceptAllBtn: 'Zaakceptuj wszystkie',
           acceptNecessaryBtn: 'Odrzuć wszystkie',
           showPreferencesBtn: 'Zarządzaj preferencjami',
-          footer: '<a href="/privacy" class="cc__link">Polityka Prywatności</a>',
         },
         preferencesModal: {
           title: 'Preferencje plików cookie',
@@ -194,7 +192,6 @@ const config: CookieConsentConfig = {
           acceptAllBtn: 'Tout accepter',
           acceptNecessaryBtn: 'Tout rejeter',
           showPreferencesBtn: 'Gérer les préférences',
-          footer: '<a href="/privacy" class="cc__link">Politique de Confidentialité</a>',
         },
         preferencesModal: {
           title: 'Préférences des cookies',
@@ -260,7 +257,6 @@ const config: CookieConsentConfig = {
           acceptAllBtn: 'Aceptar todo',
           acceptNecessaryBtn: 'Rechazar todo',
           showPreferencesBtn: 'Gestionar preferencias',
-          footer: '<a href="/privacy" class="cc__link">Política de Privacidad</a>',
         },
         preferencesModal: {
           title: 'Preferencias de cookies',
