@@ -21,14 +21,3 @@ services:
       - VITE_SENDER_MAIL=${VITE_SENDER_MAIL}
     ports:
       - 3000:3000
-  nginx:
-    container_name: nginx
-    restart: always
-    image: wozniakslawomir/personal-website-nginx:latest
-    build:
-      context: ./Nginx
-    network_mode: host
-    volumes:
-      - ./Nginx/error.log:/etc/nginx/error_log.log
-      - ./certbot/www:/var/www/certbot
-      - /etc/letsencrypt:/etc/letsencrypt
