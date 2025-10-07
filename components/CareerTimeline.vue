@@ -9,17 +9,30 @@
       #[item.id]
     >
       <div
-        class="w-full rounded-2xl p-6 shadow-lg bg-[rgba(0,0,0,0.1)]"
+        class="w-full rounded-2xl bg-[rgba(0,0,0,0.1)] p-6 shadow-lg"
       >
-        <h3 class="mb-2 text-xl font-bold text-neutral-800 dark:text-neutral-200">
+        <p
+          class="mb-2 text-sm font-semibold text-neutral-500 md:hidden dark:text-neutral-400"
+        >
+          {{ t(item.date) }}
+        </p>
+        <h3 class="mb-1 text-xl font-bold text-neutral-800 dark:text-neutral-200">
           {{ t(item.title) }}
-          <span
-            v-if="item.company"
-            class="font-normal text-neutral-500 dark:text-neutral-400"
-          >
-            @ {{ t(item.company) }}
-          </span>
         </h3>
+        <p
+          v-if="item.company || item.employmentType"
+          class="mb-1 text-neutral-500 dark:text-neutral-400"
+        >
+          <span v-if="item.company">{{ t(item.company) }}</span>
+          <span v-if="item.company && item.employmentType"> · </span>
+          <span v-if="item.employmentType">{{ t(item.employmentType) }}</span>
+        </p>
+        <p
+          v-if="item.location"
+          class="mb-3 text-neutral-500 dark:text-neutral-400"
+        >
+          {{ t(item.location) }}
+        </p>
         <div v-if="Array.isArray(item.description)">
           <ul class="list-disc space-y-1 pl-5 text-neutral-600 dark:text-neutral-300">
             <li
@@ -50,67 +63,45 @@ const { t } = useI18n()
 
 const timelineItems = ref([
   {
-    id: 'entrepreneur',
-    date: 'bio.career.entrepreneur.dates',
-    title: 'bio.career.entrepreneur.title',
-    description: [
-      'bio.career.entrepreneur.keyPoints1',
-      'bio.career.entrepreneur.keyPoints2',
-      'bio.career.entrepreneur.keyPoints3',
-      'bio.career.entrepreneur.keyPoints4',
-    ],
-  },
-  {
     id: 'mozaiq',
     date: 'bio.career.mozaiq.dates',
     title: 'bio.career.mozaiq.title',
     company: 'bio.career.mozaiq.company',
+    employmentType: 'bio.career.mozaiq.employmentType',
+    location: 'bio.career.mozaiq.location',
     description: [
       'bio.career.mozaiq.keyPoints1',
       'bio.career.mozaiq.keyPoints2',
       'bio.career.mozaiq.keyPoints3',
       'bio.career.mozaiq.keyPoints4',
-      'bio.career.mozaiq.keyPoints5',
     ],
   },
   {
-    id: 'enet',
-    date: 'bio.career.enet.dates',
-    title: 'bio.career.enet.title',
-    company: 'bio.career.enet.company',
-    description: ['bio.career.enet.keyPoints1', 'bio.career.enet.keyPoints2'],
+    id: 'selfEmployed',
+    date: 'bio.career.selfEmployed.dates',
+    title: 'bio.career.selfEmployed.title',
+    company: 'bio.career.selfEmployed.company',
+    location: 'bio.career.selfEmployed.location',
+    description: [
+      'bio.career.selfEmployed.keyPoints1',
+      'bio.career.selfEmployed.keyPoints2',
+      'bio.career.selfEmployed.keyPoints3',
+      'bio.career.selfEmployed.keyPoints4',
+      'bio.career.selfEmployed.keyPoints5',
+    ],
   },
   {
     id: 'cognitran',
     date: 'bio.career.cognitran.dates',
     title: 'bio.career.cognitran.title',
     company: 'bio.career.cognitran.company',
+    location: 'bio.career.cognitran.location',
     description: [
       'bio.career.cognitran.keyPoints1',
       'bio.career.cognitran.keyPoints2',
       'bio.career.cognitran.keyPoints3',
-    ],
-  },
-  {
-    id: 'wp',
-    date: 'bio.career.wp.dates',
-    title: 'bio.career.wp.title',
-    company: 'bio.career.wp.company',
-    description: [
-      'bio.career.wp.keyPoints1',
-      'bio.career.wp.keyPoints2',
-      'bio.career.wp.keyPoints3',
-    ],
-  },
-  {
-    id: 'nordea',
-    date: 'bio.career.nordea.dates',
-    title: 'bio.career.nordea.title',
-    company: 'bio.career.nordea.company',
-    description: [
-      'bio.career.nordea.keyPoints1',
-      'bio.career.nordea.keyPoints2',
-      'bio.career.nordea.keyPoints3',
+      'bio.career.cognitran.keyPoints4',
+      'bio.career.cognitran.keyPoints5',
     ],
   },
   {
@@ -118,11 +109,16 @@ const timelineItems = ref([
     date: 'bio.career.webwave.dates',
     title: 'bio.career.webwave.title',
     company: 'bio.career.webwave.company',
-    description: [
-      'bio.career.webwave.keyPoints1',
-      'bio.career.webwave.keyPoints2',
-      'bio.career.webwave.keyPoints3',
-    ],
+    location: 'bio.career.webwave.location',
+    description: [],
+  },
+  {
+    id: 'lekseek',
+    date: 'bio.career.lekseek.dates',
+    title: 'bio.career.lekseek.title',
+    company: 'bio.career.lekseek.company',
+    location: 'bio.career.lekseek.location',
+    description: [],
   },
 ])
 
