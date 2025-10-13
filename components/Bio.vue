@@ -3,19 +3,13 @@
     <h2 class="text-5xl font-bold text-center md:text-left">
       {{ bioTitle }}
     </h2>
-    <div class="mb-0 mt-10 lg:my-10">
-      <MorphingTabs
-        :tabs="bioTabs"
-        :active-tab="bioState"
-        @update:active-tab="bioState = $event"
-      />
-    </div>
-    <div>
-      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 mt-0 shadow">
-        <div
-          v-if="bioState === storyKey"
-          class="space-y-12"
-        >
+    
+    <div class="mt-10">
+      <h3 class="text-3xl font-bold mb-6">
+        {{ $t('bio.menu.story') }}
+      </h3>
+      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
+        <div class="space-y-12">
           <div class="relative">
             <NuxtPicture
               width="300"
@@ -74,153 +68,183 @@
             </div>
           </div>
         </div>
-        <div v-if="bioState === careerKey">
-          <CareerTimeline />
-        </div>
-        <div v-if="bioState === achievementsKey">
-          <ul class="list-disc pl-3">
-            <li
-              v-for="achievement in achievements"
-              :key="achievement"
-            >
-              {{ achievement }}
-            </li>
-          </ul>
-        </div>
-        <div v-show="bioState === personalLifeKey">
-          <h3 class="font-bold text-3xl mb-8 text-center">
-            {{ $t('bio.personal.life1') }}
-          </h3>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <h3 class="text-3xl font-bold mb-6">
+        {{ $t('bio.menu.achievements') }}
+      </h3>
+      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
+        <ul class="list-disc pl-3">
+          <li
+            v-for="achievement in achievements"
+            :key="achievement"
+          >
+            {{ achievement }}
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-10">
+      <h3 class="text-3xl font-bold mb-6">
+        {{ $t('bio.menu.personal.life') }}
+      </h3>
+      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
+        <h3 class="font-bold text-3xl mb-8 text-center">
+          {{ $t('bio.personal.life1') }}
+        </h3>
+        
+        <div class="flex flex-wrap justify-center gap-8 mb-12">
+          <div class="rounded-2xl shadow-2xl overflow-hidden">
+            <NuxtPicture
+              src="/bio/with-dog.jpg"
+              :alt="$t('alt.dog')"
+              class="h-96 w-auto object-cover"
+              width="350"
+              height="500"
+            />
+          </div>
           
-          <div class="flex flex-wrap justify-center gap-8 mb-12">
-            <div class="rounded-2xl shadow-2xl overflow-hidden">
-              <NuxtPicture
-                src="/bio/with-dog.jpg"
-                :alt="$t('alt.dog')"
-                class="h-96 w-auto object-cover"
-                width="350"
-                height="500"
-              />
-            </div>
-            
-            <div class="rounded-2xl shadow-2xl overflow-hidden md:translate-y-8">
-              <NuxtPicture
-                src="/bio/with-friends.jpg"
-                :alt="$t('alt.friends')"
-                class="h-96 w-auto object-cover"
-                width="375"
-                height="500"
-              />
-            </div>
+          <div class="rounded-2xl shadow-2xl overflow-hidden md:translate-y-8">
+            <NuxtPicture
+              src="/bio/with-friends.jpg"
+              :alt="$t('alt.friends')"
+              class="h-96 w-auto object-cover"
+              width="375"
+              height="500"
+            />
           </div>
+        </div>
 
-          <div class="relative my-16">
-            <div class="absolute inset-0 flex items-center">
-              <div class="w-full border-t-2 border-gradient-to-r from-transparent via-gray-600 to-transparent" />
-            </div>
-            <div class="relative flex justify-center">
-              <div class="bg-[#1a1a1a] px-8 py-2 rounded-full border border-gray-600">
-                <h3 class="font-bold text-2xl text-center text-white">
-                  {{ $t('bio.personal.life2') }}
-                </h3>
-              </div>
-            </div>
+        <div class="relative my-16">
+          <div class="absolute inset-0 flex items-center">
+            <div class="w-full border-t-2 border-gradient-to-r from-transparent via-gray-600 to-transparent" />
           </div>
-
-          <div class="flex flex-wrap justify-center gap-8 mb-10">
-            <div class="rounded-2xl shadow-2xl overflow-hidden">
-              <NuxtPicture
-                src="/bio/gym.jpg"
-                :alt="$t('alt.bodybuilding')"
-                class="h-64 w-auto object-cover"
-                width="500"
-                height="375"
-              />
-            </div>
-            
-            <div class="rounded-2xl shadow-2xl overflow-hidden lg:translate-y-8">
-              <NuxtPicture
-                src="/bio/boxing.png"
-                :alt="$t('alt.boxing')"
-                class="h-64 w-auto object-cover"
-                width="356"
-                height="450"
-              />
+          <div class="relative flex justify-center">
+            <div class="bg-[#1a1a1a] px-8 py-2 rounded-full border border-gray-600">
+              <h3 class="font-bold text-2xl text-center text-white">
+                {{ $t('bio.personal.life2') }}
+              </h3>
             </div>
           </div>
         </div>
-        <div v-show="bioState === skillsKey && props.mode === 'programming'">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
-            <div class="relative flex items-center group overflow-hidden rounded-2xl shadow-2xl">
-              <NuxtPicture
-                src="/bio/workstation.jpg"
-                :alt="$t('alt.workstation')"
-                width="800"
-                height="500"
-                class="w-full object-cover transition-transform duration-300 group-hover:scale-105"
-              />
+
+        <div class="flex flex-wrap justify-center gap-8 mb-10">
+          <div class="rounded-2xl shadow-2xl overflow-hidden">
+            <NuxtPicture
+              src="/bio/gym.jpg"
+              :alt="$t('alt.bodybuilding')"
+              class="h-64 w-auto object-cover"
+              width="500"
+              height="375"
+            />
+          </div>
+          
+          <div class="rounded-2xl shadow-2xl overflow-hidden lg:translate-y-8">
+            <NuxtPicture
+              src="/bio/boxing.png"
+              :alt="$t('alt.boxing')"
+              class="h-64 w-auto object-cover"
+              width="356"
+              height="450"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div
+      v-if="props.mode === 'programming'"
+      class="mt-10"
+    >
+      <h3 class="text-3xl font-bold mb-6">
+        {{ $t('bio.menu.career') }}
+      </h3>
+      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
+        <CareerTimeline />
+      </div>
+    </div>
+
+    <div
+      v-if="props.mode === 'programming'"
+      class="mt-10"
+    >
+      <h3 class="text-3xl font-bold mb-6">
+        {{ $t('bio.menu.skills') }}
+      </h3>
+      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
+          <div class="relative flex items-center group overflow-hidden rounded-2xl shadow-2xl">
+            <NuxtPicture
+              src="/bio/workstation.jpg"
+              :alt="$t('alt.workstation')"
+              width="800"
+              height="500"
+              class="w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          </div>
+          
+          <div class="space-y-8">
+            <div class="bg-gray-800/30 rounded-xl p-6 backdrop-blur-sm border border-gray-700/30">
+              <h4 class="text-xl font-bold mb-4 text-white flex items-center">
+                <span class="w-3 h-3 bg-green-500 rounded-full mr-3" />
+                {{ $t('bio.skills.hard.proficient') }}
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="skill in skills.hard.proficient"
+                  :key="skill"
+                  class="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-sm border border-blue-500/30 hover:bg-blue-600/30 transition-colors"
+                >
+                  {{ skill }}
+                </span>
+              </div>
             </div>
             
-            <div class="space-y-8">
-              <div class="bg-gray-800/30 rounded-xl p-6 backdrop-blur-sm border border-gray-700/30">
-                <h4 class="text-xl font-bold mb-4 text-white flex items-center">
-                  <span class="w-3 h-3 bg-green-500 rounded-full mr-3" />
-                  {{ $t('bio.skills.hard.proficient') }}
-                </h4>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    v-for="skill in skills.hard.proficient"
-                    :key="skill"
-                    class="px-3 py-1 bg-blue-600/20 text-blue-300 rounded-full text-sm border border-blue-500/30 hover:bg-blue-600/30 transition-colors"
-                  >
-                    {{ skill }}
-                  </span>
-                </div>
-              </div>
-              
-              <div class="bg-gray-800/30 rounded-xl p-6 backdrop-blur-sm border border-gray-700/30">
-                <h4 class="text-xl font-bold mb-4 text-white flex items-center">
-                  <span class="w-3 h-3 bg-yellow-500 rounded-full mr-3" />
-                  {{ $t('bio.skills.hard.used') }}
-                </h4>
-                <div class="flex flex-wrap gap-2">
-                  <span
-                    v-for="skill in skills.hard.used"
-                    :key="skill"
-                    class="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm border border-purple-500/30 hover:bg-purple-600/30 transition-colors"
-                  >
-                    {{ skill }}
-                  </span>
-                </div>
+            <div class="bg-gray-800/30 rounded-xl p-6 backdrop-blur-sm border border-gray-700/30">
+              <h4 class="text-xl font-bold mb-4 text-white flex items-center">
+                <span class="w-3 h-3 bg-yellow-500 rounded-full mr-3" />
+                {{ $t('bio.skills.hard.used') }}
+              </h4>
+              <div class="flex flex-wrap gap-2">
+                <span
+                  v-for="skill in skills.hard.used"
+                  :key="skill"
+                  class="px-3 py-1 bg-purple-600/20 text-purple-300 rounded-full text-sm border border-purple-500/30 hover:bg-purple-600/30 transition-colors"
+                >
+                  {{ skill }}
+                </span>
               </div>
             </div>
           </div>
+        </div>
 
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div class="lg:order-2 flex justify-center group overflow-hidden rounded-2xl shadow-2xl">
-              <NuxtPicture
-                src="/bio/travel.jpg"
-                :alt="$t('alt.travel')"
-                class="object-cover mx-auto transition-transform duration-300 group-hover:scale-105"
-                height="500"
-                width="375"
-              />
-            </div>
-            
-            <div class="lg:order-1 bg-gray-800/30 rounded-xl p-8 backdrop-blur-sm border border-gray-700/30">
-              <h3 class="text-3xl text-white font-bold mb-6 flex items-center">
-                <span class="w-4 h-4 bg-orange-500 rounded-full mr-3" />
-                {{ $t('bio.skills.soft') }}
-              </h3>
-              <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                <div
-                  v-for="skill in skills.soft"
-                  :key="skill"
-                  class="flex items-center p-3 bg-gray-700/30 rounded-lg hover:bg-gray-700/50 transition-colors"
-                >
-                  <span class="w-2 h-2 bg-orange-400 rounded-full mr-3" />
-                  <span class="text-gray-300">{{ skill }}</span>
-                </div>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+          <div class="lg:order-2 flex justify-center group overflow-hidden rounded-2xl shadow-2xl">
+            <NuxtPicture
+              src="/bio/travel.jpg"
+              :alt="$t('alt.travel')"
+              class="object-cover mx-auto transition-transform duration-300 group-hover:scale-105"
+              height="500"
+              width="375"
+            />
+          </div>
+          
+          <div class="lg:order-1 bg-gray-800/30 rounded-xl p-8 backdrop-blur-sm border border-gray-700/30">
+            <h3 class="text-3xl text-white font-bold mb-6 flex items-center">
+              <span class="w-4 h-4 bg-orange-500 rounded-full mr-3" />
+              {{ $t('bio.skills.soft') }}
+            </h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div
+                v-for="skill in skills.soft"
+                :key="skill"
+                class="flex items-center p-3 bg-gray-700/30 rounded-lg hover:bg-gray-700/50 transition-colors"
+              >
+                <span class="w-2 h-2 bg-orange-400 rounded-full mr-3" />
+                <span class="text-gray-300">{{ skill }}</span>
               </div>
             </div>
           </div>
@@ -231,8 +255,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import MorphingTabs from './ui/morphing-tabs/MorphingTabs.vue'
+import { computed } from 'vue'
 import CareerTimeline from './CareerTimeline.vue'
 
 type BioMode = 'programming' | 'psychology'
@@ -251,42 +274,6 @@ const bioTitle = computed(() => {
   }
   return 'BIO'
 })
-
-const bioTabs = computed(() => {
-  const tabs = [
-    {
-      key: 'story',
-      label: t('bio.menu.story'),
-    },
-    {
-      key: 'achievements',
-      label: t('bio.menu.achievements'),
-    },
-    {
-      key: 'personalLife',
-      label: t('bio.menu.personal.life'),
-    },
-  ]
-  
-  // Only add skills tab for programming mode
-  if (props.mode === 'programming') {
-    tabs.push(
-      {
-        key: 'career',
-        label: t('bio.menu.career'),
-      },
-      {
-        key: 'skills',
-        label: t('bio.menu.skills'),
-      },
-    )
-  }
-  
-  return tabs
-})
-
-const [storyKey, achievementsKey, personalLifeKey, careerKey, skillsKey] = bioTabs.value.map(tab => tab.key)
-const bioState = ref<string>(storyKey)
 
 const achievements = computed(() => {
   if (props.mode === 'programming') {
