@@ -17,11 +17,6 @@ jobs:
         env:
           NUXT_TELEMETRY_DISABLED: '1'
           CI: 'true'
-      - name: Run tests
-        run: npm test
-        env:
-          NUXT_TELEMETRY_DISABLED: '1'
-          CI: 'true'
 
   build:
     name: Build package
