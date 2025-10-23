@@ -15,9 +15,15 @@
           height="30"
         />
       </NuxtLink>
-      <div class="flex">
+      <div class="flex items-center gap-4 relative">
+        <NuxtLink
+          to="/newsletter"
+          class="hidden md:block hover:text-[var(--primary-color)] transition-colors duration-300 font-semibold text-sm uppercase"
+        >
+          {{ $t('navbar.newsletter') }}
+        </NuxtLink>
         <div
-          class="p-3 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-14 text-center sm:w-24 h-min z-20"
+          class="p-3 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-14 text-center sm:w-24 h-min z-20 relative"
           :class="isMenuOpen ? 'rounded-t-[25px]' : 'rounded-[25px]'"
           @click=" isMenuOpen = !isMenuOpen"
         >
@@ -33,7 +39,7 @@
         <div
           v-if="isMenuOpen"
           v-on-click-outside="() => isMenuOpen = false"
-          class="absolute rounded-[25px] top-8 pt-10 pb-2 bg-[#393939] z-10 sm:w-24"
+          class="absolute rounded-b-[25px] top-full right-0 pt-2 pb-2 bg-[#393939] z-10 w-14 sm:w-24 -mt-1"
         >
           <div class="flex flex-col">
             <!-- weird bug in library -->

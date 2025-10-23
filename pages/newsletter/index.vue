@@ -1,0 +1,78 @@
+<template>
+  <div class="container min-h-screen flex items-center justify-center py-20">
+    <div class="glassmorphism p-8 md:p-12 rounded-3xl max-w-md w-full">
+      <form 
+        method="post" 
+        action="https://listmonk.slawomir-wozniak.pl/subscription/form" 
+        class="listmonk-form"
+      >
+        <h3 class="text-3xl font-bold mb-6 text-center bg-clip-text text-transparent bg-[image:var(--primary-gradient)]">
+          {{ $t('newsletter.title') }}
+        </h3>
+
+        <p class="text-[var(--secondary-text-color)] mb-6 text-center">
+          {{ $t('newsletter.description') }}
+        </p>
+
+        <input type="hidden" name="nonce" />
+
+        <div class="mb-4">
+          <label for="email" class="block text-sm font-semibold mb-2">
+            {{ $t('newsletter.email.label') }}
+            <span class="text-red-500">*</span>
+          </label>
+          <input 
+            id="email"
+            type="email" 
+            name="email" 
+            required 
+            :placeholder="$t('newsletter.email.placeholder')" 
+            class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]"
+          />
+        </div>
+
+        <div class="mb-4">
+          <label for="name" class="block text-sm font-semibold mb-2">
+            {{ $t('newsletter.name.label') }}
+          </label>
+          <input 
+            id="name"
+            type="text" 
+            name="name" 
+            :placeholder="$t('newsletter.name.placeholder')" 
+            class="w-full p-2 rounded-lg h-14 bg-[#252525] border-0 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[var(--primary-color)]"
+          />
+        </div>
+
+        <input 
+          id="9c921" 
+          type="hidden" 
+          name="l" 
+          value="9c92165a-5916-4c0a-8daa-881f11c74cb7"
+        />
+
+        <button 
+          type="submit"
+          class="w-full px-8 py-4 rounded-full bg-[image:var(--primary-gradient)] text-black font-bold text-lg transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] duration-300"
+        >
+          {{ $t('newsletter.submit') }}
+        </button>
+      </form>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+const { t, locale } = useI18n()
+
+watch(locale, () => {
+  useSeoMeta({
+    title: t('seo.newsletter.title'),
+    description: t('seo.newsletter.description'),
+    ogTitle: t('seo.newsletter.title'),
+    ogDescription: t('seo.newsletter.description'),
+    ogSiteName: t('seo.ogSiteName'),
+    twitterCard: 'summary_large_image',
+  })
+}, { immediate: true })
+</script>
