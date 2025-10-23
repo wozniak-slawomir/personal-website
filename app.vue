@@ -1,6 +1,5 @@
 <template>
   <div class="dark">
-    <AuroraBackground />
     <div class="z-1 relative">
       <Navbar />
       <NuxtPage />
