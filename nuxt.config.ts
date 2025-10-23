@@ -62,12 +62,6 @@ export default defineNuxtConfig({
         'Cache-Control': 'public, max-age=3600, s-maxage=7200'
       }
     },
-    '/mind/**': { 
-      isr: 3600,
-      headers: { 
-        'Cache-Control': 'public, max-age=3600, s-maxage=7200'
-      }
-    },
     // API routes - no caching for dynamic data
     '/api/**': { 
       headers: { 

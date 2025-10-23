@@ -155,10 +155,7 @@
       </div>
     </div>
 
-    <div
-      v-if="props.mode === 'programming'"
-      class="mt-10"
-    >
+    <div class="mt-10">
       <h3 class="text-3xl font-bold mb-6">
         {{ $t('bio.menu.career') }}
       </h3>
@@ -167,10 +164,7 @@
       </div>
     </div>
 
-    <div
-      v-if="props.mode === 'programming'"
-      class="mt-10"
-    >
+    <div class="mt-10">
       <h3 class="text-3xl font-bold mb-6">
         {{ $t('bio.menu.skills') }}
       </h3>
@@ -258,85 +252,23 @@
 import { computed } from 'vue'
 import CareerTimeline from './CareerTimeline.vue'
 
-type BioMode = 'programming' | 'psychology'
-
-const props = defineProps<{
-  mode?: BioMode
-}>()
-
 const { t } = useI18n()
 
 const bioTitle = computed(() => {
-  if (props.mode === 'programming') {
-    return t('bio.title.programming')
-  } else if (props.mode === 'psychology') {
-    return t('bio.title.psychology')
-  }
-  return 'BIO'
+  return t('bio.title.programming')
 })
 
 const achievements = computed(() => {
-  if (props.mode === 'programming') {
-    return [
-      t('bio.achievements.programming1'),
-      t('bio.achievements.programming2'),
-      t('bio.achievements.programming3'),
-      t('bio.achievements.programming4'),
-      t('bio.achievements.programming5'),
-    ]
-  } else if (props.mode === 'psychology') {
-    return [
-      t('bio.achievements.psychology1'),
-      t('bio.achievements.psychology2'),
-      t('bio.achievements.psychology3'),
-    ]
-  }
   return [
-    t('bio.achievements1'),
-    t('bio.achievements2'),
-    t('bio.achievements3'),
-    t('bio.achievements4'),
-    t('bio.achievements5'),
+    t('bio.achievements.programming1'),
+    t('bio.achievements.programming2'),
+    t('bio.achievements.programming3'),
+    t('bio.achievements.programming4'),
+    t('bio.achievements.programming5'),
   ]
 })
 
 const skills = computed(() => {
-  if (props.mode === 'programming') {
-    return {
-      hard: {
-        proficient: ['React', 'Redux', 'Typescript', 'Vue.js', 'Javascript', 'HTML5', 'SCSS', 'Bootstrap', 'Jest', 'Testing Library', 'Git', 'Axios', 'ESLint', 'REST', 'JSON', 'Webpack', 'NPM', 'OOP'],
-        used: ['JQuery', 'Scrum', 'Node.js', 'Express', 'Linux', 'Docker', 'Rust', 'MUI'],
-      },
-      soft: [
-        t('bio.skills.leadership'),
-        t('bio.skills.communication'),
-        t('bio.skills.problem.solving'),
-        t('bio.skills.teamwork'),
-        t('bio.skills.adaptability'),
-        t('bio.skills.time.management'),
-        t('bio.skills.creativity'),
-        t('bio.skills.critical.thinking'),
-      ],
-    }
-  } else if (props.mode === 'psychology') {
-    return {
-      hard: {
-        proficient: [t('bio.skills.psychology.research'), t('bio.skills.psychology.analysis'), t('bio.skills.psychology.assessment'), t('bio.skills.psychology.interviewing')],
-        used: [t('bio.skills.psychology.therapy'), t('bio.skills.psychology.coaching'), t('bio.skills.psychology.training'), t('bio.skills.psychology.consulting')],
-      },
-      soft: [
-        t('bio.skills.empathy'),
-        t('bio.skills.active.listening'),
-        t('bio.skills.conflict.resolution'),
-        t('bio.skills.stress.management'),
-        t('bio.skills.communication'),
-        t('bio.skills.patience'),
-        t('bio.skills.emotional.intelligence'),
-        t('bio.skills.persuasion'),
-      ],
-    }
-  }
-  
   return {
     hard: {
       proficient: ['React', 'Redux', 'Typescript', 'Vue.js', 'Javascript', 'HTML5', 'SCSS', 'Bootstrap', 'Jest', 'Testing Library', 'Git', 'Axios', 'ESLint', 'REST', 'JSON', 'Webpack', 'NPM', 'OOP'],

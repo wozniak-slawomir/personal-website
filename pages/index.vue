@@ -1,7 +1,7 @@
 <template>
   <div>
     <Hero />
-    <Bio mode="programming" />
+    <Bio />
     <RealizedProjects :tags="['code']" />
     <Testimonials />
     <Services />
