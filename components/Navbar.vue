@@ -8,10 +8,10 @@
       <NuxtLink to="/">
         <NuxtPicture
           src="/logo.png"
-          class="max-w-full md:max-w-[400px] min-w-[100px] mr-3 md:mr-0"
+          class="max-w-full md:max-w-[425px] min-w-[100px] mr-3 md:mr-0"
           preload
           :alt="$t('alt.slawomir')"
-          width="400"
+          width="425"
           height="30"
         />
       </NuxtLink>

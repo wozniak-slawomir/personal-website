@@ -4,8 +4,8 @@
       <NuxtPicture
         src="/logo.png"
         :alt="$t('alt.slawomir')"
-        class="max-w-[400px] w-full lg:h-[30px]"
-        width="400"
+        class="max-w-[425px] w-full lg:h-[30px]"
+        width="425"
         height="30"
       />
       <div class="flex gap-5 text-white">
