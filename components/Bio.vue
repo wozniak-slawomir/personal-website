@@ -157,15 +157,6 @@
 
     <div class="mt-10">
       <h3 class="text-3xl font-bold mb-6">
-        {{ $t('bio.menu.career') }}
-      </h3>
-      <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
-        <CareerTimeline />
-      </div>
-    </div>
-
-    <div class="mt-10">
-      <h3 class="text-3xl font-bold mb-6">
         {{ $t('bio.menu.skills') }}
       </h3>
       <div class="glassmorphism rounded-2xl w-12/12 flex justify-between flex-col p-8 shadow">
@@ -250,7 +241,6 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import CareerTimeline from './CareerTimeline.vue'
 
 const { t } = useI18n()
 
