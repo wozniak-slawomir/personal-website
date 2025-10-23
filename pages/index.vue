@@ -1,7 +1,7 @@
 <template>
   <div>
     <Hero />
-    <RealizedProjects :tags="['code']" />
+    <RealizedProjects />
     <Testimonials />
     <Services />
     <ContactMe />

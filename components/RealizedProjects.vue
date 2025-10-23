@@ -9,13 +9,6 @@
       </h2>
       <div class="mb-5 mt-10 flex flex-wrap lg:my-10 gap-5">
         <button
-          :class="{ 'bg-[#474b59]': activeFilter === 'business' }"
-          class="text-l p-3 flex-1 rounded-3xl glassmorphism hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter = activeFilter === 'business' ? 'all' : 'business'"
-        >
-          {{ $t('projects.filter.business') }}
-        </button>
-        <button
           :class="{ 'bg-[#474b59]': activeFilter === 'portfolio' }"
           class="text-l p-3 flex-1 rounded-3xl glassmorphism hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
           @click="activeFilter = activeFilter === 'portfolio' ? 'all' : 'portfolio'"
@@ -92,7 +85,7 @@
 import { ref, onMounted, onUnmounted, computed } from 'vue'
 import { PhCaretDown } from '@phosphor-icons/vue'
 
-type Card = 'business' | 'portfolio' | 'blog' | 'all'
+type Card = 'portfolio' | 'blog' | 'all'
 
 const props = defineProps<{
   tags?: string[]
@@ -151,102 +144,102 @@ const items = computed(() => [
     name: 'hiszpanbet',
     image: 'projects/hiszpanbet.png',
     description: t('projects.hiszpanbet'),
-    tags: ['business', 'portfolio', 'code'],
+    tags: ['portfolio'],
     link: 'https://www.hiszpanbet.pl',
   },
   {
     name: t('projects.blog.instagram.italy.name'),
     image: 'projects/blog/instagram/italy.png',
     description: t('projects.blog.instagram.italy.description'),
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: 'https://www.instagram.com/p/C-V8QkRsg8Q/?img_index=1',
   },
   {
     name: t('projects.blog.instagram.reels.relationships.name'),
     image: 'projects/blog/instagram/relationships.png',
     description: t('projects.blog.instagram.reels.relationships.description'),
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: 'https://www.instagram.com/reel/C-GIvdts-xp/',
   },
   {
     name: t('projects.blog.instagram.reels.collective-illusions.name'),
     image: 'projects/blog/instagram/collective-illusions.png',
     description: t('projects.blog.instagram.reels.collective-illusions.description'),
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: 'https://www.instagram.com/slawomirwozniakofficial/reel/C9sDhuas6gA/',
   },
   {
     name: t('projects.blog.instagram.hiking.name'),
     image: 'projects/blog/instagram/hiking.png',
     description: t('projects.blog.instagram.hiking.description'),
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: 'https://www.instagram.com/slawomirwozniakofficial/p/C9K9U0RMfmH/',
   },
   {
     name: t('projects.blog.instagram.notes.name'),
     image: 'projects/blog/instagram/notes.png',
     description: t('projects.blog.instagram.notes.description'),
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: 'https://www.instagram.com/slawomirwozniakofficial/p/C6BwzvAMV0w',
   },
   {
     name: t('projects.blog.instagram.attribution.name'),
     image: 'projects/blog/instagram/attribution.png',
     description: t('projects.blog.instagram.attribution.description'),
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: 'https://www.instagram.com/slawomirwozniakofficial/p/C5a0trssz6A/',
   },
   {
     name: t('blog.edducamp2024.title'),
     image: 'blog/edducamp/interview.png',
     description: t('blog.edducamp2024.intro1') + ' ' + t('blog.edducamp2024.intro2'),
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: '/blog/edducamp2024',
   },
   {
     name: 'PiotrChojankowski.pl',
     image: 'projects/piotrchojankowski.png',
     description: t('projects.piotrchojankowski'),
-    tags: ['business', 'portfolio', 'code'],
+    tags: ['portfolio'],
     link: 'https://www.piotrchojankowski.pl',
   },
   {
     name: t('projects.blog.higherEducation'),
     image: 'projects/blog/higher-education.jpg',
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: '/blog/higher-education',
   },
   {
     name: 'eccdna.pl',
     image: 'projects/eccdna.png',
-    tags: ['portfolio', 'code'],
+    tags: ['portfolio'],
     description: t('projects.eccdna'),
     link: 'https://eccdna.pl',
   },
   {
     name: 'Mirecc Database',
     image: 'projects/mirecc-dna.png',
-    tags: ['portfolio', 'code'],
+    tags: ['portfolio'],
     description: t('projects.mirecc'),
     link: 'https://mirecc.platinum.edu.pl/',
   },
   {
     name: t('blog.socialLearningTheory.title'),
     image: 'projects/blog/social-learning-theory.png',
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: '/blog/social-learning-theory',
   },
   {
     name: 'nimbleninja.pl',
     image: 'projects/nimbleninja.png',
-    tags: ['portfolio', 'code', 'business'],
+    tags: ['portfolio'],
     description: t('projects.nimbleninja'),
     link: 'https://nimbleninja.pl',
   },
   {
     name: t('blog.value.title'),
     image: 'projects/blog/value.jpg',
-    tags: ['blog', 'mind'],
+    tags: ['blog'],
     link: '/blog/value',
   },
 ])
