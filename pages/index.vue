@@ -1,7 +1,6 @@
 <template>
   <div>
     <Hero />
-    <Bio />
     <RealizedProjects :tags="['code']" />
     <Testimonials />
     <Services />
