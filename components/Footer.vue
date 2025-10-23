@@ -77,7 +77,7 @@
           class="mt-4 block"
         >
           <NuxtPicture
-            src="/partners/nie-jestes-immortal.png"
+            src="/partners/piotrchojankowski.png"
             alt="Piotr Chojankowski"
             class="h-16 m-auto rounded-lg"
             width="150"
