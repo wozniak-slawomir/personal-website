@@ -1,6 +1,12 @@
 <template>
   <div>
     <Hero />
+    <Bio mode="programming" />
+    <RealizedProjects :tags="['code']" />
+    <Testimonials />
+    <Services />
+    <ContactMe />
+    <Footer />
   </div>
 </template>
 
