@@ -10,7 +10,6 @@
 
 <script setup lang="ts">
 import '~/assets/index.css'
-import { AuroraBackground } from '@/components/ui/aurora-background'
 import { DEFAULT_LOCALE } from '~/const/defaultLocale'
 import { onBeforeMount } from 'vue'
 
