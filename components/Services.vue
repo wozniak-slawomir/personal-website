@@ -55,7 +55,7 @@
       </CardContainer>
       <CardContainer class="w-full lg:w-auto">
         <CardBody
-          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border glassmorphism p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-[var(--primary-color)]"
+          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-[var(--primary-color)] glassmorphism p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-[var(--primary-color)]"
         >
           <CardItem
             :translate-z="100"
