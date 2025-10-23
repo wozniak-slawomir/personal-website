@@ -26,6 +26,15 @@
           >
             {{ link.label }}
           </NuxtLink>
+          
+          <!-- Contact CTA - appears when navbar is sticky -->
+          <button
+            v-if="navbarDarker"
+            class="px-4 py-2 rounded-full font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase"
+            @click="onContactClick"
+          >
+            {{ $t('common.contact') }}
+          </button>
         </div>
 
         <button
@@ -109,6 +118,14 @@
             {{ link.label }}
           </NuxtLink>
           
+          <!-- Contact CTA for mobile - always visible -->
+          <button
+            class="w-full px-4 py-3 mt-2 rounded-xl font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase"
+            @click="onContactClick(); isNavMenuOpen = false"
+          >
+            {{ $t('common.contact') }}
+          </button>
+          
           <div class="border-t border-gray-700 my-2"></div>
           
           <div class="flex flex-col gap-1">
@@ -140,6 +157,7 @@ import { vOnClickOutside } from '@vueuse/components'
 
 const { locales, locale, setLocale, t } = useI18n()
 const route = useRoute()
+const { $event } = useNuxtApp()
 
 const isMenuOpen = ref(false)
 const isNavMenuOpen = ref(false)
@@ -161,6 +179,10 @@ const changeLanguage = (language: typeof locale.value) => {
 }
 
 const isActive = (path: string) => route.path === path
+
+const onContactClick = () => {
+  $event('ContactModal:Open')
+}
 
 const handleClickOutside = (event: Event) => {
   if (!isNavMenuOpen.value) return
