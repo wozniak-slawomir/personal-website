@@ -10,21 +10,11 @@
       />
       <div class="flex gap-5 text-white">
         <a
-          href="https://www.linkedin.com/in/slawek-wozniak/"
+          href="https://www.linkedin.com/in/wozniak-slawomir"
           aria-label="Linkedin link"
           target="_blank"
         >
           <PhLinkedinLogo
-            :size="45"
-            class="h-12"
-          />
-        </a>
-        <a
-          href="https://github.com/wozniak-slawomir"
-          aria-label="Github link"
-          target="_blank"
-        >
-          <PhGithubLogo
             :size="45"
             class="h-12"
           />
@@ -45,6 +35,26 @@
           target="_blank"
         >
           <PhInstagramLogo
+            :size="45"
+            class="h-12"
+          />
+        </a>
+        <a
+          href="https://tiktok.com/@slawomirwozniakofficial"
+          aria-label="TikTok link"
+          target="_blank"
+        >
+          <PhTiktokLogo
+            :size="45"
+            class="h-12"
+          />
+        </a>
+        <a
+          href="https://youtube.com/@SlawomirWozniakOfficial"
+          aria-label="YouTube link"
+          target="_blank"
+        >
+          <PhYoutubeLogo
             :size="45"
             class="h-12"
           />
@@ -94,6 +104,6 @@
 </template>
 
 <script setup lang="ts">
-import { PhInstagramLogo, PhGithubLogo, PhLinkedinLogo, PhEnvelopeSimple, PhPhone } from '@phosphor-icons/vue'
+import { PhInstagramLogo, PhLinkedinLogo, PhEnvelopeSimple, PhPhone, PhTiktokLogo, PhYoutubeLogo } from '@phosphor-icons/vue'
 const date = new Date().getFullYear()
 </script>
