@@ -1,14 +1,14 @@
 <template>
-  <div class="container min-h-screen flex items-center justify-center py-20">
+  <div class="container min-h-screen flex flex-col items-center justify-center py-20">
+    <h1 class="text-5xl font-bold mb-16 text-center text-white">
+      {{ $t('newsletter.title') }}
+    </h1>
     <div class="glassmorphism p-8 md:p-12 rounded-3xl max-w-md w-full">
       <form 
         method="post" 
         action="https://listmonk.slawomir-wozniak.pl/subscription/form" 
         class="listmonk-form"
       >
-        <h3 class="text-3xl font-bold mb-6 text-center bg-clip-text text-transparent bg-[image:var(--primary-gradient)]">
-          {{ $t('newsletter.title') }}
-        </h3>
 
         <p class="text-[var(--secondary-text-color)] mb-6 text-center">
           {{ $t('newsletter.description') }}
