@@ -102,6 +102,7 @@
   "modal.email": "Email",
   "modal.phone": "Numer telefonu",
   "modal.message": "Wiadomość",
+  "modal.submit": "Wysyłam!",
   "error.not.found": "Strona nie została znaleziona",
   "error.back": "Wróć do strony głównej",
   "error.internal.server": "Błąd serwera wewnętrznego, przepraszamy za problem po naszej stronie",

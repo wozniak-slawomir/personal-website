@@ -159,6 +159,7 @@
   "modal.email": "Email",
   "modal.phone": "Phone number",
   "modal.message": "Message",
+  "modal.submit": "Let's send!",
   "error.not.found": "Page not found",
   "error.back": "Go back to home",
   "error.internal.server": "Internal server error, sorry something went wrong on our side",
