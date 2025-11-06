@@ -8,7 +8,7 @@
           <span class="text-[var(--primary-color)]">.</span>
         </h1>
         <div class="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-[var(--secondary-text-color)] font-light">
-          {{ $t("hero.software.engineering") }}
+          {{ $t("hero.subtitle") }}
         </div>
         <ul class="space-y-3 md:space-y-4 text-base md:text-lg mb-8 md:mb-12">
           <li class="flex items-center text-[var(--primary-text-color)]">
