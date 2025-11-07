@@ -118,6 +118,33 @@ import { ref } from 'vue'
 import { PhCircleNotch } from '@phosphor-icons/vue'
 import { useToast } from 'vue-toastification'
 const config = useRuntimeConfig()
+const { t } = useI18n()
+
+useHead({
+    title: t('seo.contact.title'),
+    meta: [
+        {
+            name: 'description',
+            content: t('seo.contact.description'),
+        },
+        {
+            property: 'og:title',
+            content: t('seo.contact.title'),
+        },
+        {
+            property: 'og:description',
+            content: t('seo.contact.description'),
+        },
+        {
+            name: 'twitter:title',
+            content: t('seo.contact.title'),
+        },
+        {
+            name: 'twitter:description',
+            content: t('seo.contact.description'),
+        },
+    ],
+})
 
 const toast = useToast()
 const name = ref('')
