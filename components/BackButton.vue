@@ -1,9 +1,8 @@
 /* From Uiverse.io by AKAspidey01 */ 
 <template>
-  <button
-    class="text-center rounded-2xl h-10 relative text-white text-lg font-semibold group"
-    type="button"
-    @click="goBack"
+  <NuxtLink
+    to="/"
+    class="text-center rounded-2xl h-10 relative text-white text-lg font-semibold group inline-flex items-center"
   >
     <div
       class="bg-[#393939] rounded-xl h-[80%] w-[33%] flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[106%] z-10 duration-500"
@@ -27,16 +26,8 @@
     <p class="ml-12">
       {{ $t('common.goBack') }}
     </p>
-  </button>
+  </NuxtLink>
 </template>
 
 <script setup>
-import { useRouter } from 'vue-router'
-
-const router = useRouter()
-
-const goBack = () => {
-    router.push('/')
-}
-
 </script>

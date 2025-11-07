@@ -1,5 +1,8 @@
 <template>
   <div class="container min-h-screen flex flex-col items-center justify-center py-20">
+    <div class="w-full max-w-md mb-8 self-start">
+      <BackButton />
+    </div>
     <h1 class="text-5xl font-bold mb-16 text-center text-white">
       {{ $t('newsletter.title') }}
     </h1>

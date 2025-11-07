@@ -1,5 +1,8 @@
 <template>
   <div class="container min-h-screen my-16 flex flex-col items-center justify-center py-20">
+    <div class="w-full max-w-[500px] mb-8 self-start">
+      <BackButton />
+    </div>
     <h1 class="text-5xl font-bold mb-16 text-center text-white">
       {{ $t('common.contact') }}
     </h1>
