@@ -242,6 +242,13 @@ const items = computed(() => [
     tags: ['blog'],
     link: '/blog/value',
   },
+    {
+    name: t('blog.changesOnProfile.title'),
+    image: 'blog/zmiany-na-profilu/see-you-later.png',
+    description: t('blog.changesOnProfile.meta.description'),
+    tags: ['blog'],
+    link: '/blog/zmiany-na-profilu',
+  },
 ])
 
 const filteredItems = computed(() => {
