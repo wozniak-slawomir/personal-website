@@ -154,7 +154,7 @@ watch(locale, () => {
     ogTitle: t('blog.changesOnProfile.title'),
     ogDescription: t('blog.changesOnProfile.meta.description'),
     ogSiteName: t('seo.ogSiteName'),
-    ogImage: 'blog/zmiany-na-profilu/see-you-later.png',
+    ogImage: 'blog/zmiany-na-profilu/og-image.png',
     ogUrl: 'https://slawomir-wozniak.pl/blog/zmiany-na-profilu',
     twitterCard: 'summary_large_image',
   })
