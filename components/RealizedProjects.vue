@@ -254,7 +254,7 @@ const items = computed(() => [
     image: 'blog/technologia-wrog-czy-partner/frustration.jpg',
     description: t('blog.technologyPartner.meta.description'),
     tags: ['blog'],
-    link: '/blog/technologia-wroga-czy-partner',
+    link: '/blog/technologia-wrog-czy-partner',
   },
 ])
 
