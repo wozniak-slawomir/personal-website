@@ -141,6 +141,7 @@
   "footer.partners": "Partners",
   "newsletter.title": "Join the newsletter",
   "newsletter.description": "Learn how to use technology to build a business.",
+  "newsletter.spam.disclaimer": "⚠️ Please check your spam folder after signing up! Our confirmation emails sometimes end up there.",
   "newsletter.email.label": "Email",
   "newsletter.email.placeholder": "Email",
   "newsletter.name.label": "Name",
