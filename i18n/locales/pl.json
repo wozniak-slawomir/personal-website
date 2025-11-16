@@ -84,6 +84,7 @@
   "footer.partners": "Partnerzy",
   "newsletter.title": "Dołącz do newslettera",
   "newsletter.description": "Dowiedz się, jak wykorzystać technologię do budowy biznesu.",
+  "newsletter.spam.disclaimer": "⚠️ Sprawdź folder spam po zapisaniu się! Nasze maile z potwierdzeniem czasami tam trafiają.",
   "newsletter.email.label": "Email",
   "newsletter.email.placeholder": "Email",
   "newsletter.name.label": "Nazwa/imię",

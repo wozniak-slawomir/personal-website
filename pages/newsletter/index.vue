@@ -17,6 +17,12 @@
           {{ $t('newsletter.description') }}
         </p>
 
+        <div class="mb-6 p-4 rounded-lg bg-yellow-500/10 border-2 border-yellow-500/30">
+          <p class="text-yellow-200 text-sm text-center">
+            {{ $t('newsletter.spam.disclaimer') }}
+          </p>
+        </div>
+
         <input type="hidden" name="nonce" />
 
         <div class="mb-4">
