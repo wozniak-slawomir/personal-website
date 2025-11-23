@@ -256,6 +256,13 @@ const items = computed(() => [
     tags: ['blog'],
     link: '/blog/technologia-wrog-czy-partner',
   },
+  {
+    name: t('blog.meetingThatCouldBeVideo.title'),
+    image: 'blog/spotkanie-ktore-moglo-byc-wideo/meeting.jpg',
+    description: t('blog.meetingThatCouldBeVideo.meta.description'),
+    tags: ['blog'],
+    link: '/blog/spotkanie-ktore-moglo-byc-wideo',
+  },
 ])
 
 const filteredItems = computed(() => {
