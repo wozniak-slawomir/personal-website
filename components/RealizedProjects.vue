@@ -263,6 +263,13 @@ const items = computed(() => [
     tags: ['blog'],
     link: '/blog/spotkanie-ktore-moglo-byc-wideo',
   },
+  {
+    name: t('blog.aiStrateg.title'),
+    image: 'blog/ai-strateg/chess.jpg',
+    description: t('blog.aiStrateg.meta.description'),
+    tags: ['blog'],
+    link: '/blog/ai-strateg',
+  },
 ])
 
 const filteredItems = computed(() => {
