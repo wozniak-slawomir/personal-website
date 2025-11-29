@@ -120,6 +120,10 @@ export default defineNuxtConfig({
       ],
       script: [
         {
+          src: 'https://t.contentsquare.net/uxa/23ef54d6e14ea.js',
+          async: true,
+        },
+        {
           innerHTML: `
             // Fallback font loading for critical FCP
             if (!document.fonts || !document.fonts.check('1em Outfit')) {
