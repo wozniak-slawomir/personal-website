@@ -270,6 +270,13 @@ const items = computed(() => [
     tags: ['blog'],
     link: '/blog/ai-strateg',
   },
+  {
+    name: t('blog.gift.title'),
+    image: 'blog/prezent-ktorego-nie-da-sie-kupic/og-image.jpg',
+    description: t('blog.gift.meta.description'),
+    tags: ['blog'],
+    link: '/blog/prezent-ktorego-nie-da-sie-kupic',
+  },
 ])
 
 const filteredItems = computed(() => {
