@@ -40,6 +40,25 @@
           </p>
         </div>
 
+        <!-- Authority Section -->
+        <div class="mt-12 pt-8 border-t border-gray-700">
+           <div class="flex flex-col md:flex-row gap-8 items-center">
+             <div class="w-full md:w-1/3">
+                <NuxtPicture
+                  src="/bio/z-grzesiakiem.jpeg"
+                  alt="Mateusz Grzesiak"
+                  class="rounded-xl shadow-lg w-full"
+                  :img-attrs="{ class: 'rounded-xl' }"
+                />
+             </div>
+             <div class="w-full md:w-2/3">
+               <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)] italic">
+                 "{{ $t('bio.authority.description') }}"
+               </p>
+             </div>
+           </div>
+        </div>
+
         <!-- Benefits Section -->
         <div class="mt-12 pt-8 border-t border-gray-700">
           <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center">
