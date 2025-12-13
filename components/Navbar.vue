@@ -27,14 +27,14 @@
             {{ link.label }}
           </NuxtLink>
           
-          <!-- Contact CTA - appears when navbar is sticky -->
-          <button
+          <!-- Newsletter CTA - appears when navbar is sticky -->
+          <NuxtLink
             v-if="navbarDarker"
+            to="/newsletter"
             class="px-4 py-2 rounded-full font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase"
-            @click="onContactClick"
           >
-            {{ $t('common.contact') }}
-          </button>
+            {{ $t('navbar.newsletter') }}
+          </NuxtLink>
         </div>
 
         <button
@@ -118,13 +118,14 @@
             {{ link.label }}
           </NuxtLink>
           
-          <!-- Contact CTA for mobile - always visible -->
-          <button
-            class="w-full px-4 py-3 mt-2 rounded-xl font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase"
-            @click="onContactClick(); isNavMenuOpen = false"
+          <!-- Newsletter CTA for mobile - always visible -->
+          <NuxtLink
+            to="/newsletter"
+            class="w-full px-4 py-3 mt-2 rounded-xl font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase text-center"
+            @click="isNavMenuOpen = false"
           >
-            {{ $t('common.contact') }}
-          </button>
+            {{ $t('navbar.newsletter') }}
+          </NuxtLink>
           
           <div class="border-t border-gray-700 my-2"></div>
           
@@ -168,7 +169,7 @@ const mobileNavButton = ref<HTMLButtonElement | null>(null)
 const navLinks = computed(() => [
   { to: '/', label: t('navbar.home') },
   { to: '/bio', label: t('navbar.bio') },
-  { to: '/newsletter', label: t('navbar.newsletter') },
+  { to: '/contact', label: t('common.contact') },
 ])
 
 const changeLanguage = (language: typeof locale.value) => {

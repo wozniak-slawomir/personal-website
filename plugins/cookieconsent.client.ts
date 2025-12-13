@@ -50,13 +50,13 @@ const config: CookieConsentConfig = {
       const browserLanguage = navigator.language || navigator.languages?.[0] || 'en'
       const languageCode = browserLanguage.split('-')[0].toLowerCase()
       
-      const supportedLanguages = ['en', 'pl', 'fr', 'es']
+      const supportedLanguages = ['en', 'pl']
       return supportedLanguages.includes(languageCode) ? languageCode : 'en'
     })(),
     translations: {
       en: {
         consentModal: {
-          title: 'We value your privacy',
+          title: 'I value your privacy',
           description:
             'This website uses essential cookies to ensure its proper operation and tracking cookies to understand how you interact with it. The latter will be set only after consent.',
           acceptAllBtn: 'Accept all',
@@ -72,7 +72,7 @@ const config: CookieConsentConfig = {
             {
               title: 'Cookie usage',
               description:
-                'We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept all", you consent to our use of cookies.',
+                'I use cookies to enhance your browsing experience, serve personalized content, and analyze my traffic. By clicking "Accept all", you consent to my use of cookies.',
             },
             {
               title: 'Strictly necessary cookies',
@@ -83,7 +83,7 @@ const config: CookieConsentConfig = {
             {
               title: 'Performance and analytics cookies',
               description:
-                'These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.',
+                'These cookies help me understand how visitors interact with my website by collecting and reporting information anonymously.',
               linkedCategory: 'analytics',
               cookieTable: {
                 headers: {
@@ -108,20 +108,20 @@ const config: CookieConsentConfig = {
             {
               title: 'Advertisement and targeting cookies',
               description:
-                'These cookies may be set through our site by our advertising partners to build a profile of your interests.',
+                'These cookies may be set through my site by my advertising partners to build a profile of your interests.',
               linkedCategory: 'ads',
             },
             {
               title: 'More information',
               description:
-                'For any questions regarding our cookie policy, please <a class="cc__link" href="/contact">contact us</a>.',
+                'For any questions regarding my cookie policy, please <a class="cc__link" href="/contact">contact me</a>.',
             },
           ],
         },
       },
       pl: {
         consentModal: {
-          title: 'Szanujemy Twoją prywatność',
+          title: 'Szanuję Twoją prywatność',
           description:
             'Ta strona używa niezbędnych plików cookie do zapewnienia prawidłowego działania oraz plików cookie śledzących, aby zrozumieć, jak z nią wchodzisz w interakcję. Te ostatnie będą ustawione tylko po wyrażeniu zgody.',
           acceptAllBtn: 'Zaakceptuj wszystkie',
@@ -137,7 +137,7 @@ const config: CookieConsentConfig = {
             {
               title: 'Użycie plików cookie',
               description:
-                'Używamy plików cookie, aby ulepszyć Twoje doświadczenie przeglądania, dostarczać spersonalizowane treści i analizować nasz ruch. Klikając "Zaakceptuj wszystkie", wyrażasz zgodę na nasze użycie plików cookie.',
+                'Używam plików cookie, aby ulepszyć Twoje doświadczenie przeglądania, dostarczać spersonalizowane treści i analizować mój ruch. Klikając "Zaakceptuj wszystkie", wyrażasz zgodę na użycie plików cookie.',
             },
             {
               title: 'Niezbędne pliki cookie',
@@ -148,7 +148,7 @@ const config: CookieConsentConfig = {
             {
               title: 'Pliki cookie wydajności i analityki',
               description:
-                'Te pliki cookie pomagają nam zrozumieć, jak odwiedzający wchodzą w interakcję z naszą stroną internetową, zbierając i raportując informacje anonimowo.',
+                'Te pliki cookie pomagają mi zrozumieć, jak odwiedzający wchodzą w interakcję z moją stroną internetową, zbierając i raportując informacje anonimowo.',
               linkedCategory: 'analytics',
               cookieTable: {
                 headers: {
@@ -173,143 +173,13 @@ const config: CookieConsentConfig = {
             {
               title: 'Pliki cookie reklamowe i targetujące',
               description:
-                'Te pliki cookie mogą być ustawiane przez naszą stronę przez naszych partnerów reklamowych w celu stworzenia profilu Twoich zainteresowań.',
+                'Te pliki cookie mogą być ustawiane dla moich partnerów reklamowych w celu stworzenia profilu Twoich zainteresowań.',
               linkedCategory: 'ads',
             },
             {
               title: 'Więcej informacji',
               description:
-                'W przypadku pytań dotyczących naszej polityki plików cookie, prosimy o <a class="cc__link" href="/contact">kontakt</a>.',
-            },
-          ],
-        },
-      },
-      fr: {
-        consentModal: {
-          title: 'Nous respectons votre vie privée',
-          description:
-            'Ce site web utilise des cookies essentiels pour assurer son bon fonctionnement et des cookies de suivi pour comprendre comment vous interagissez avec lui. Ces derniers ne seront définis qu\'après consentement.',
-          acceptAllBtn: 'Tout accepter',
-          acceptNecessaryBtn: 'Tout rejeter',
-          showPreferencesBtn: 'Gérer les préférences',
-        },
-        preferencesModal: {
-          title: 'Préférences des cookies',
-          acceptAllBtn: 'Tout accepter',
-          acceptNecessaryBtn: 'Tout rejeter',
-          savePreferencesBtn: 'Enregistrer les préférences',
-          sections: [
-            {
-              title: 'Utilisation des cookies',
-              description:
-                'Nous utilisons des cookies pour améliorer votre expérience de navigation, fournir du contenu personnalisé et analyser notre trafic. En cliquant sur "Tout accepter", vous consentez à notre utilisation des cookies.',
-            },
-            {
-              title: 'Cookies strictement nécessaires',
-              description:
-                'Ces cookies sont essentiels au bon fonctionnement du site web. Ils ne peuvent pas être désactivés.',
-              linkedCategory: 'necessary',
-            },
-            {
-              title: 'Cookies de performance et d\'analyse',
-              description:
-                'Ces cookies nous aident à comprendre comment les visiteurs interagissent avec notre site web en collectant et rapportant des informations de manière anonyme.',
-              linkedCategory: 'analytics',
-              cookieTable: {
-                headers: {
-                  name: 'Cookie',
-                  domain: 'Domaine',
-                  desc: 'Description',
-                },
-                body: [
-                  {
-                    name: '_ga',
-                    domain: location.hostname,
-                    desc: 'Utilisé pour distinguer les utilisateurs dans Google Analytics',
-                  },
-                  {
-                    name: '_gid',
-                    domain: location.hostname,
-                    desc: 'Utilisé pour distinguer les utilisateurs dans Google Analytics',
-                  },
-                ],
-              },
-            },
-            {
-              title: 'Cookies publicitaires et de ciblage',
-              description:
-                'Ces cookies peuvent être définis sur notre site par nos partenaires publicitaires pour créer un profil de vos intérêts.',
-              linkedCategory: 'ads',
-            },
-            {
-              title: 'Plus d\'informations',
-              description:
-                'Pour toute question concernant notre politique de cookies, veuillez nous <a class="cc__link" href="/contact">contacter</a>.',
-            },
-          ],
-        },
-      },
-      es: {
-        consentModal: {
-          title: 'Valoramos tu privacidad',
-          description:
-            'Este sitio web utiliza cookies esenciales para garantizar su correcto funcionamiento y cookies de seguimiento para entender cómo interactúas con él. Estas últimas solo se establecerán después del consentimiento.',
-          acceptAllBtn: 'Aceptar todo',
-          acceptNecessaryBtn: 'Rechazar todo',
-          showPreferencesBtn: 'Gestionar preferencias',
-        },
-        preferencesModal: {
-          title: 'Preferencias de cookies',
-          acceptAllBtn: 'Aceptar todo',
-          acceptNecessaryBtn: 'Rechazar todo',
-          savePreferencesBtn: 'Guardar preferencias',
-          sections: [
-            {
-              title: 'Uso de cookies',
-              description:
-                'Utilizamos cookies para mejorar tu experiencia de navegación, ofrecer contenido personalizado y analizar nuestro tráfico. Al hacer clic en "Aceptar todo", consientes nuestro uso de cookies.',
-            },
-            {
-              title: 'Cookies estrictamente necesarias',
-              description:
-                'Estas cookies son esenciales para que el sitio web funcione correctamente. No se pueden desactivar.',
-              linkedCategory: 'necessary',
-            },
-            {
-              title: 'Cookies de rendimiento y análisis',
-              description:
-                'Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web recopilando e informando información de forma anónima.',
-              linkedCategory: 'analytics',
-              cookieTable: {
-                headers: {
-                  name: 'Cookie',
-                  domain: 'Dominio',
-                  desc: 'Descripción',
-                },
-                body: [
-                  {
-                    name: '_ga',
-                    domain: location.hostname,
-                    desc: 'Utilizada para distinguir usuarios en Google Analytics',
-                  },
-                  {
-                    name: '_gid',
-                    domain: location.hostname,
-                    desc: 'Utilizada para distinguir usuarios en Google Analytics',
-                  },
-                ],
-              },
-            },
-            {
-              title: 'Cookies publicitarias y de segmentación',
-              description:
-                'Estas cookies pueden ser establecidas en nuestro sitio por nuestros socios publicitarios para crear un perfil de tus intereses.',
-              linkedCategory: 'ads',
-            },
-            {
-              title: 'Más información',
-              description:
-                'Para cualquier pregunta sobre nuestra política de cookies, por favor <a class="cc__link" href="/contact">contáctanos</a>.',
+                'W przypadku pytań dotyczących polityki plików cookie, proszę o <a class="cc__link" href="/contact">kontakt</a>.',
             },
           ],
         },

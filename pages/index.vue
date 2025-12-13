@@ -4,7 +4,7 @@
     <RealizedProjects />
     <Testimonials />
     <Services />
-    <ContactMe />
+    <CTASection />
     <Footer />
   </div>
 </template>
