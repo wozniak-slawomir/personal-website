@@ -28,20 +28,8 @@
     <!-- Story Section -->
     <div class="glassmorphism rounded-2xl p-8 md:p-12 shadow-xl">
       <div class="max-w-4xl mx-auto space-y-8">
-        <div class="text-lg md:text-xl leading-relaxed space-y-6 text-[var(--secondary-text-color)]">
-          <p>
-            {{ $t('bio.story1') }}
-          </p>
-          <p>
-            {{ $t('bio.story2') }}
-          </p>
-          <p>
-            {{ $t('bio.story3') }}
-          </p>
-        </div>
-
         <!-- Authority Section -->
-        <div class="mt-12 pt-8 border-t border-gray-700">
+        <div class="mt-12 pt-8">
            <div class="flex flex-col md:flex-row gap-8 items-center">
              <div class="w-full md:w-1/3">
                 <NuxtPicture
@@ -52,8 +40,8 @@
                 />
              </div>
              <div class="w-full md:w-2/3">
-               <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)] italic">
-                 "{{ $t('bio.authority.description') }}"
+               <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
+                 {{ $t('bio.authority.description') }}
                </p>
              </div>
            </div>
@@ -154,6 +142,25 @@
                <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
                  {{ $t('bio.education.description3') }}
                </p>
+             </div>
+           </div>
+        </div>
+
+        <!-- Salsa Section -->
+        <div class="mt-12 pt-8 border-t border-gray-700">
+           <div class="flex flex-col md:flex-row gap-8 items-center">
+             <div class="w-full md:w-2/3 order-2 md:order-1">
+               <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
+                 {{ $t('bio.salsa.description') }}
+               </p>
+             </div>
+             <div class="w-full md:w-1/3 order-1 md:order-2">
+                <video
+                  src="/bio/salsa.mp4"
+                  poster="/bio/salsa.png"
+                  controls
+                  class="rounded-xl shadow-lg w-full"
+                />
              </div>
            </div>
         </div>
