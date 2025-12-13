@@ -151,6 +151,9 @@
                <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
                  {{ $t('bio.education.description2') }}
                </p>
+               <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
+                 {{ $t('bio.education.description3') }}
+               </p>
              </div>
            </div>
         </div>
