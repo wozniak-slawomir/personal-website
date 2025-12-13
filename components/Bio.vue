@@ -96,6 +96,43 @@
            </div>
         </div>
 
+        <!-- Public Speaking Section -->
+        <div class="mt-12 pt-8 border-t border-gray-700">
+           <div class="flex flex-col gap-8">
+             <div class="flex flex-col md:flex-row gap-8 items-center">
+               <div class="w-full md:w-1/3">
+                  <NuxtPicture
+                    src="/bio/edducamp-wystapienie.jpeg"
+                    alt="Wystąpienie Edducamp"
+                    class="rounded-xl shadow-lg w-full"
+                    :img-attrs="{ class: 'rounded-xl' }"
+                  />
+               </div>
+               <div class="w-full md:w-2/3">
+                 <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
+                   {{ $t('bio.public_speaking.description1') }}
+                 </p>
+               </div>
+             </div>
+             
+             <div class="flex flex-col md:flex-row gap-8 items-center">
+               <div class="w-full md:w-2/3 order-2 md:order-1">
+                 <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
+                   {{ $t('bio.public_speaking.description2') }}
+                 </p>
+               </div>
+               <div class="w-full md:w-1/3 order-1 md:order-2">
+                  <NuxtPicture
+                    src="/bio/pitch-dating.jpeg"
+                    alt="Pitch Dating"
+                    class="rounded-xl shadow-lg w-full"
+                    :img-attrs="{ class: 'rounded-xl' }"
+                  />
+               </div>
+             </div>
+           </div>
+        </div>
+
         <!-- Benefits Section -->
         <div class="mt-12 pt-8 border-t border-gray-700">
           <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center">
