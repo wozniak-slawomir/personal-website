@@ -133,6 +133,28 @@
            </div>
         </div>
 
+        <!-- Higher Education Section -->
+        <div class="mt-12 pt-8 border-t border-gray-700">
+           <div class="flex flex-col md:flex-row gap-8 items-center">
+             <div class="w-full md:w-1/3">
+                <NuxtPicture
+                  src="/bio/psychologia-w-biznesie.jpg"
+                  alt="Psychologia w biznesie"
+                  class="rounded-xl shadow-lg w-full"
+                  :img-attrs="{ class: 'rounded-xl' }"
+                />
+             </div>
+             <div class="w-full md:w-2/3 space-y-6">
+               <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
+                 {{ $t('bio.education.description1') }}
+               </p>
+               <p class="text-lg md:text-xl leading-relaxed text-[var(--secondary-text-color)]">
+                 {{ $t('bio.education.description2') }}
+               </p>
+             </div>
+           </div>
+        </div>
+
         <!-- Benefits Section -->
         <div class="mt-12 pt-8 border-t border-gray-700">
           <h3 class="text-2xl md:text-3xl font-bold mb-8 text-center">
