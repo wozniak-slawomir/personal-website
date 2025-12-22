@@ -7,6 +7,9 @@
         <a href="https://www.linkedin.com/in/wozniak-slawomir" aria-label="Linkedin link" target="_blank">
           <PhLinkedinLogo :size="45" class="h-12" />
         </a>
+        <a href="https://www.facebook.com/profile.php?id=61582978407745" aria-label="Facebook link" target="_blank">
+          <PhFacebookLogo :size="45" class="h-12" />
+        </a>
         <a href="mailto:contact@slawomir-wozniak.pl" aria-label="Mail link" target="_blank">
           <PhEnvelopeSimple :size="45" class="h-12" />
         </a>
@@ -55,6 +58,6 @@
 </template>
 
 <script setup lang="ts">
-import { PhInstagramLogo, PhLinkedinLogo, PhEnvelopeSimple, PhPhone, PhTiktokLogo, PhYoutubeLogo } from '@phosphor-icons/vue'
+import { PhInstagramLogo, PhLinkedinLogo, PhEnvelopeSimple, PhPhone, PhTiktokLogo, PhYoutubeLogo, PhFacebookLogo } from '@phosphor-icons/vue'
 const date = new Date().getFullYear()
 </script>

@@ -8,12 +8,36 @@
           width="425" height="30" />
       </NuxtLink>
       <div class="flex items-center gap-4 relative">
-        <div class="hidden lg:flex items-center gap-4">
+        <div class="hidden xl:flex items-center gap-4">
           <NuxtLink v-for="link in navLinks" :key="link.to" :to="link.to"
             class="hover:text-[var(--primary-color)] transition-colors duration-300 font-semibold text-sm uppercase"
             :class="{ 'text-[var(--primary-color)]': isActive(link.to) }">
             {{ link.label }}
           </NuxtLink>
+
+          <!-- Social Media Icons - subtle and secondary -->
+          <div class="flex items-center gap-2 ml-2 border-l border-gray-700 pl-4">
+            <a href="https://www.linkedin.com/in/wozniak-slawomir" aria-label="Linkedin" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhLinkedinLogo :size="20" />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61582978407745" aria-label="Facebook" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhFacebookLogo :size="20" />
+            </a>
+            <a href="https://www.instagram.com/slawomirwozniakofficial/" aria-label="Instagram" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhInstagramLogo :size="20" />
+            </a>
+            <a href="https://tiktok.com/@slawomirwozniakofficial" aria-label="TikTok" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhTiktokLogo :size="20" />
+            </a>
+            <a href="https://youtube.com/@SlawomirWozniakOfficial" aria-label="YouTube" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhYoutubeLogo :size="20" />
+            </a>
+          </div>
 
           <!-- Newsletter CTA - appears when navbar is sticky -->
           <NuxtLink v-if="navbarDarker" to="/newsletter"
@@ -23,7 +47,7 @@
         </div>
 
         <button ref="mobileNavButton" type="button"
-          class="lg:hidden p-3 ml-2 rounded-full border border-gray-700 hover:border-white transition-colors duration-300"
+          class="xl:hidden p-3 ml-2 rounded-full border border-gray-700 hover:border-white transition-colors duration-300"
           :aria-expanded="isNavMenuOpen" aria-controls="mobile-nav" @click="isNavMenuOpen = !isNavMenuOpen">
           <span class="sr-only">Toggle navigation</span>
           <span class="block w-5 h-0.5 bg-white transition-transform duration-300"
@@ -33,7 +57,7 @@
           <span class="block w-5 h-0.5 bg-white transition-transform duration-300"
             :class="isNavMenuOpen ? '-translate-y-[6px] -rotate-45' : ''" />
         </button>
-        <div class="relative hidden lg:block">
+        <div class="relative hidden xl:block">
           <div class="p-3 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-14 text-center sm:w-24 h-min z-20"
             :class="isMenuOpen ? 'rounded-t-[25px]' : 'rounded-[25px]'" @click="isMenuOpen = !isMenuOpen">
             <img :src="`/flags/${locale === 'en' ? 'gb' : locale}.svg`" :alt="`${locale === 'en' ? 'gb' : locale} flag`"
@@ -59,7 +83,7 @@
         </div>
       </div>
 
-      <div v-if="isNavMenuOpen" id="mobile-nav" class="lg:hidden absolute left-0 right-0 top-[calc(100%+1rem)] z-10">
+      <div v-if="isNavMenuOpen" id="mobile-nav" class="xl:hidden absolute left-0 right-0 top-[calc(100%+1rem)] z-10">
         <div class="rounded-2xl border border-gray-700 bg-[#1a1a1a]/95 backdrop-blur p-4 flex flex-col gap-2 shadow-xl">
           <NuxtLink v-for="link in navLinks" :key="`mobile-${link.to}`" :to="link.to"
             class="uppercase text-sm font-semibold py-2 px-3 rounded-xl hover:text-[var(--primary-color)] transition-colors duration-200"
@@ -73,6 +97,32 @@
             @click="isNavMenuOpen = false">
             {{ $t('navbar.newsletter') }}
           </NuxtLink>
+
+          <div class="border-t border-gray-700 my-2"></div>
+
+          <!-- Social Media Icons for mobile -->
+          <div class="flex justify-center gap-4 py-2">
+            <a href="https://www.linkedin.com/in/wozniak-slawomir" aria-label="Linkedin" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhLinkedinLogo :size="24" />
+            </a>
+            <a href="https://www.facebook.com/profile.php?id=61582978407745" aria-label="Facebook" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhFacebookLogo :size="24" />
+            </a>
+            <a href="https://www.instagram.com/slawomirwozniakofficial/" aria-label="Instagram" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhInstagramLogo :size="24" />
+            </a>
+            <a href="https://tiktok.com/@slawomirwozniakofficial" aria-label="TikTok" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhTiktokLogo :size="24" />
+            </a>
+            <a href="https://youtube.com/@SlawomirWozniakOfficial" aria-label="YouTube" target="_blank"
+              class="text-gray-400 hover:text-[var(--primary-color)] transition-colors duration-300">
+              <PhYoutubeLogo :size="24" />
+            </a>
+          </div>
 
           <div class="border-t border-gray-700 my-2"></div>
 
@@ -96,6 +146,7 @@
 <script setup lang="ts">
 import { ref, computed, watch, onMounted, onUnmounted } from 'vue'
 import { vOnClickOutside } from '@vueuse/components'
+import { PhInstagramLogo, PhLinkedinLogo, PhTiktokLogo, PhYoutubeLogo, PhFacebookLogo } from '@phosphor-icons/vue'
 
 const { locales, locale, setLocale, t } = useI18n()
 const route = useRoute()
