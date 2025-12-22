@@ -1,22 +1,48 @@
 <template>
   <div class="container min-h-screen flex flex-col items-center justify-center py-20">
-    <div class="w-full max-w-md mb-8 self-start">
+    <div class="w-full max-w-4xl mb-8 self-start">
       <BackButton />
     </div>
-    <h1 class="text-5xl font-bold mb-16 text-center text-white">
-      {{ $t('newsletter.title') }}
-    </h1>
+    
+    <div class="max-w-4xl w-full mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 text-center text-white">
+        {{ $t('newsletter.title') }}
+      </h1>
+      <p class="text-xl text-gray-300 text-center mb-12">
+        {{ $t('cta.subtitle') }}
+      </p>
+
+      <div class="grid md:grid-cols-3 gap-6 mb-12">
+        <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
+          <div class="text-3xl mb-3">🔧</div>
+          <h3 class="font-semibold mb-2 text-lg">{{ $t('cta.benefit1.title') }}</h3>
+          <p class="text-sm text-gray-400">{{ $t('cta.benefit1.description') }}</p>
+        </div>
+        
+        <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
+          <div class="text-3xl mb-3">💰</div>
+          <h3 class="font-semibold mb-2 text-lg">{{ $t('cta.benefit2.title') }}</h3>
+          <p class="text-sm text-gray-400">{{ $t('cta.benefit2.description') }}</p>
+        </div>
+        
+        <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
+          <div class="text-3xl mb-3">🎯</div>
+          <h3 class="font-semibold mb-2 text-lg">{{ $t('cta.benefit3.title') }}</h3>
+          <p class="text-sm text-gray-400">{{ $t('cta.benefit3.description') }}</p>
+        </div>
+      </div>
+
+      <p class="text-center text-sm text-gray-400 mb-8">
+        {{ $t('cta.frequency') }}
+      </p>
+    </div>
+
     <div class="glassmorphism p-8 md:p-12 rounded-3xl max-w-md w-full">
       <form 
         method="post" 
         action="https://listmonk.slawomir-wozniak.pl/subscription/form" 
         class="listmonk-form"
       >
-
-        <p class="text-[var(--secondary-text-color)] mb-6 text-center">
-          {{ $t('newsletter.description') }}
-        </p>
-
         <div class="mb-6 p-4 rounded-lg bg-yellow-500/10 border-2 border-yellow-500/30">
           <p class="text-yellow-200 text-sm text-center">
             {{ $t('newsletter.spam.disclaimer') }}
@@ -64,8 +90,12 @@
           type="submit"
           class="w-full px-8 py-4 rounded-full bg-[image:var(--primary-gradient)] text-black font-bold text-lg transition-all transform-gpu hover:-translate-y-1 shadow-[4.0px_8.0px_8.0px_rgba(0,0,0,0.38)] hover:bg-[image:var(--secondary-gradient)] duration-300"
         >
-          {{ $t('newsletter.submit') }}
+          {{ $t('cta.button') }}
         </button>
+        
+        <p class="text-xs text-gray-500 mt-4 text-center">
+          {{ $t('cta.noSpam') }}
+        </p>
       </form>
     </div>
   </div>
