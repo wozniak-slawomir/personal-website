@@ -682,5 +682,46 @@
         "name": "Legimi"
       }
     }
+  },
+  "pricing": {
+    "title": "Investment in Your Peace of Mind and Security",
+    "guarantee": "Satisfaction Guarantee: 30 days of technical support and startup warranty for every implementation",
+    "interested_message": "Hello, I am interested in the package: {package}.",
+    "packages": {
+      "authority": {
+        "title": "Digital Authority (Professional Website)",
+        "subtitle": "For experts building a personal brand.",
+        "button": "I Build Authority",
+        "feature1": "30 days of technical care and security guarantee: I will take the risk of failure off you after implementation.",
+        "feature2": "Individual design building trust: Website design based on psychological mechanisms that convert visitors into clients.",
+        "feature3": "SEO optimization for authority in Google: Technical preparation of the site so that your name works for you in the search engine."
+      },
+      "independence": {
+        "title": "Operational Independence",
+        "subtitle": "Stop renting tools. Start owning them.",
+        "anchor": "SaaS Market Value: 9000 PLN/year",
+        "button": "I Reclaim Independence",
+        "tag": "Recommended Choice",
+        "feature1": "Own Newsletter system (Listmonk) – no fees for subscribers",
+        "feature2": "Private company cloud (Nextcloud) – Your data on your server",
+        "feature3": "No license fees (Lifetime savings)"
+      },
+      "commerce": {
+        "title": "Sovereign Commerce",
+        "subtitle": "Sell digital and physical products without commission.",
+        "button": "I Open My Own Store",
+        "feature1": "Full store ownership (WooCommerce/EDD)",
+        "feature2": "Payment gateways without hidden subscriptions"
+      },
+      "partnership": {
+        "title": "Fractional CTO",
+        "subtitle": "Your external technology arm.",
+        "period": "/ month",
+        "button": "Apply for Cooperation",
+        "feature1": "Strategic supervision of IT development in the company",
+        "feature2": "Priority availability (Hotline)",
+        "feature3": "Package of 10 expert hours per month"
+      }
+    }
   }
 }

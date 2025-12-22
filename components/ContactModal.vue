@@ -153,7 +153,10 @@ const hideContactModal = () => {
     document.body.style.overflowY = 'auto'
 }
 
-const showContactModal = () => {
+const showContactModal = (payload?: { message?: string }) => {
+    if (payload?.message) {
+        message.value = payload.message
+    }
     renderContactModal.value = true
     document.body.style.overflowY = 'hidden'
 }
@@ -169,11 +172,13 @@ watch(renderContactModal, () => {
   } else {
     isMounted.value = false
     isCircleRendered.value = false
+    // Clear message when closing if it was pre-filled? 
+    // Better not to clear it automatically in case user wants to come back, 
   }
 })
 
-$listen('ContactModal:Open', () => {
-  showContactModal()
+$listen('ContactModal:Open', (payload: any) => {
+  showContactModal(payload)
 })
 
 const onSubmit = (e: Event) => {

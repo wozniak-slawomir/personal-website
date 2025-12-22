@@ -3,7 +3,7 @@
     <Hero />
     <RealizedProjects />
     <Testimonials />
-    <Services />
+    <Pricing />
     <CTASection />
     <Footer />
   </div>

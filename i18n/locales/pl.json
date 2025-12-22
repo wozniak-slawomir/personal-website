@@ -680,5 +680,46 @@
         "name": "Legimi"
       }
     }
+  },
+  "pricing": {
+    "title": "Inwestycja w Twój Spokój i Bezpieczeństwo",
+    "guarantee": "Gwarancja Satysfakcji: 30 dni wsparcia technicznego i gwarancji rozruchowej do każdego wdrożenia",
+    "interested_message": "Dzień dobry, jestem zainteresowany pakietem: {package}.",
+    "packages": {
+      "authority": {
+        "title": "Cyfrowy Autorytet (Profesjonalna Strona Internetowa)",
+        "subtitle": "Dla ekspertów budujących markę osobistą.",
+        "button": "Buduję Autorytet",
+        "feature1": "30 dni opieki technicznej i gwarancji bezpieczeństwa: Zdejmę z Ciebie ryzyko awarii po wdrożeniu.",
+        "feature2": "Indywidualny design budujący zaufanie: Projekt strony oparty o mechanizmy psychologiczne, które konwertują odwiedzających w klientów.",
+        "feature3": "Optymalizacja SEO pod autorytet w Google: Techniczne przygotowanie witryny, aby Twoje nazwisko pracowało na Ciebie w wyszukiwarce."
+      },
+      "independence": {
+        "title": "Operacyjna Niezależność",
+        "subtitle": "Przestań wynajmować narzędzia. Zacznij je posiadać.",
+        "anchor": "Wartość rynkowa SaaS: 9000 PLN/rok",
+        "button": "Odzyskuję Niezależność",
+        "tag": "Rekomendowany Wybór",
+        "feature1": "Własny system Newslettera (Listmonk) – bez opłat za subskrybentów",
+        "feature2": "Prywatna chmura firmowa (Nextcloud) – Twoje dane na Twoim serwerze",
+        "feature3": "Brak opłat licencyjnych (Dożywotnia oszczędność)"
+      },
+      "commerce": {
+        "title": "Suwerenny Handel",
+        "subtitle": "Sprzedawaj produkty cyfrowe i fizyczne bez prowizji.",
+        "button": "Otwieram Własny Sklep",
+        "feature1": "Pełna własność sklepu (WooCommerce/EDD)",
+        "feature2": "Bramki płatności bez ukrytych abonamentów"
+      },
+      "partnership": {
+        "title": "Fractional CTO",
+        "subtitle": "Twoje zewnętrzne ramię technologiczne.",
+        "period": "/ miesięcznie",
+        "button": "Aplikuj o Współpracę",
+        "feature1": "Strategiczny nadzór nad rozwojem IT w firmie",
+        "feature2": "Priorytetowa dostępność (Hotline)",
+        "feature3": "Pakiet 10 godzin eksperckich w miesiącu"
+      }
+    }
   }
 }
