@@ -40,17 +40,23 @@ export default defineNuxtConfig({
 
   nitro: {
     compressPublicAssets: true,
+    prerender: {
+      crawlLinks: true, // Crawler will follow links to find and optimize images
+      failOnError: false, // Don't fail build if some images are missed
+    }
   },
 
   // Route Rules for caching strategy
   routeRules: {
     '/': {
+      prerender: true, // Prerender homepage with images
       headers: { 
         'Cache-Control': 'public, max-age=3600, s-maxage=86400' // 1 hour browser, 24 hours CDN
       }
     },
     // Blog pages - ISR with stale-while-revalidate
-    '/blog/**': { 
+    '/blog/**': {
+      prerender: true, // Prerender all blog pages with images
       isr: 86400,
       headers: { 
         'Cache-Control': 'public, max-age=1800, s-maxage=3600, stale-while-revalidate=86400'
@@ -80,6 +86,7 @@ export default defineNuxtConfig({
     inject: true,
     quality: 80,
     format: ['webp', 'avif'],
+    provider: 'ipx', // Use ipx provider for local image optimization with Sharp
   },
 
   app: {
