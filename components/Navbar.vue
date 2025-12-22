@@ -159,7 +159,7 @@ const navbarDarker = ref(false)
 const mobileNavButton = ref<HTMLButtonElement | null>(null)
 
 const navLinks = computed(() => [
-  { to: '/', label: t('navbar.home') },
+  { to: '/portfolio', label: t('navbar.portfolio') },
   { to: '/wizja', label: t('navbar.vision') },
   { to: '/bio', label: t('navbar.bio') },
   { to: '/contact', label: t('common.contact') },

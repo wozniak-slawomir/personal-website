@@ -1,8 +1,11 @@
 <template>
   <div>
     <Hero />
-    <RealizedProjects />
     <Testimonials />
+    <Comparison />
+    <Benefits />
+    <Process />
+    <FAQ />
     <Pricing />
     <CTASection />
     <Footer />

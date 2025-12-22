@@ -29,8 +29,6 @@
         :min-columns="columnsNum"
         :ssr-columns="columnsNum"
         :rtl="rtl"
-        :class="isSectionExpanded ? 'max-h-none' : 'max-h-[800px] masonry-wall-mask'"
-        class="overflow-hidden duration-300"
       >
         <template #default="{ item }">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
@@ -64,26 +62,12 @@
           </div>
         </template>
       </masonry-wall>
-      <div class="relative pt-10">
-        <button
-          class="py-3 px-20 glassmorphism hover:bg-[#464646] duration-300 flex justify-center items-center mx-auto rounded-3xl"
-          @click="toggleSection"
-        >
-          {{ isSectionExpanded ? $t('projects.show.less') : $t('projects.show.more') }}
-          <PhCaretDown
-            size="30"
-            class="text-white ml-3 transform transition-transform duration-300"
-            :class="isSectionExpanded ? 'rotate-180' : ''"
-          />
-        </button>
-      </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
-import { PhCaretDown } from '@phosphor-icons/vue'
 
 type Card = 'portfolio' | 'blog' | 'all'
 
@@ -91,12 +75,8 @@ const props = defineProps<{
   tags?: string[]
 }>()
 
-const { t } = useI18n()
-
 const columnsNum = ref(4)
 const activeFilter = ref<Card>('all')
-const isSectionExpanded = ref(false)
-const realizedProjectsSection = ref<HTMLElement | null>(null)
 
 const handleResize = () => {
   const screenWidth = window.innerWidth
@@ -108,19 +88,6 @@ const handleResize = () => {
     columnsNum.value = 2
   } else {
     columnsNum.value = 1
-  }
-}
-
-const toggleSection = () => {
-  isSectionExpanded.value = !isSectionExpanded.value
-  if (!isSectionExpanded.value) {
-    scrollToSection()
-  }
-}
-
-const scrollToSection = () => {
-  if (realizedProjectsSection.value) {
-    realizedProjectsSection.value.scrollIntoView({ behavior: 'smooth' })
   }
 }
 
