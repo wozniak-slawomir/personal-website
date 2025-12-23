@@ -14,27 +14,21 @@
 
       <div class="grid md:grid-cols-3 gap-6 mb-12">
         <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
-          <div class="text-3xl mb-3">🔧</div>
           <h3 class="font-semibold mb-2 text-lg">{{ $t('cta.benefit1.title') }}</h3>
           <p class="text-sm text-gray-400">{{ $t('cta.benefit1.description') }}</p>
         </div>
         
         <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
-          <div class="text-3xl mb-3">💰</div>
           <h3 class="font-semibold mb-2 text-lg">{{ $t('cta.benefit2.title') }}</h3>
           <p class="text-sm text-gray-400">{{ $t('cta.benefit2.description') }}</p>
         </div>
         
         <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
-          <div class="text-3xl mb-3">🎯</div>
           <h3 class="font-semibold mb-2 text-lg">{{ $t('cta.benefit3.title') }}</h3>
           <p class="text-sm text-gray-400">{{ $t('cta.benefit3.description') }}</p>
         </div>
       </div>
 
-      <p class="text-center text-sm text-gray-400 mb-8">
-        {{ $t('cta.frequency') }}
-      </p>
     </div>
 
     <div class="glassmorphism p-8 md:p-12 rounded-3xl max-w-md w-full">
@@ -93,7 +87,11 @@
           {{ $t('cta.button') }}
         </button>
         
-        <p class="text-xs text-gray-500 mt-4 text-center">
+        <p class="text-sm text-gray-300 mt-4 text-center">
+          {{ $t('cta.newsletter.info') }}
+        </p>
+        
+        <p class="text-xs text-gray-500 mt-2 text-center">
           {{ $t('cta.noSpam') }}
         </p>
       </form>

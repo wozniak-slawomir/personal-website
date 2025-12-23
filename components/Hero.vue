@@ -33,12 +33,15 @@
             <span>{{ $t("hero.software.feature3") }}</span>
           </li>
         </ul>
+        <p class="text-sm text-gray-400 mb-4">
+          {{ $t("hero.cta.calculator.hint") }}
+        </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <NuxtLink
             to="/newsletter"
             class="px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:opacity-50 w-full sm:w-auto text-center"
           >
-            {{ $t("navbar.newsletter") }}
+            {{ $t("hero.cta.calculator") }}
           </NuxtLink>
           <button
             class="px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold border-2 border-[var(--primary-color)] text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105 hover:bg-[var(--primary-color)] hover:text-black shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:opacity-50 w-full sm:w-auto"
