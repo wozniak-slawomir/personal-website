@@ -5,7 +5,7 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
-const { totalYearlyCost, total5YearCost, zombieYearlyCost, conflicts, resetCalculator } = useCalculator();
+const { totalYearlyCost, total5YearCost, zombieYearlyCost, wellSpentYearlyCost, conflicts, resetCalculator } = useCalculator();
 
 const isPerfectScore = computed(() => zombieYearlyCost.value === 0);
 
@@ -43,21 +43,23 @@ const emit = defineEmits(['restart']);
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div>
                     <p class="text-gray-400 uppercase tracking-wider text-sm mb-1">
-                        {{ isPerfectScore ? $t('calculator.results.yearly_investment') : $t('calculator.results.yearly_loss') }}
+                        {{ $t('calculator.results.money_well_spent') }}
                     </p>
-                    <p class="text-4xl md:text-5xl font-bold"
-                        :class="isPerfectScore ? 'text-green-500' : 'text-[#9c7942]'">{{
-                            formatCurrency(totalYearlyCost) }}</p>
+                    <p class="text-4xl md:text-5xl font-bold text-green-500">{{
+                        formatCurrency(wellSpentYearlyCost) }}</p>
                     <p class="text-xs text-gray-500 mt-2">
-                        {{ isPerfectScore ? $t('calculator.results.perfect_score_money_desc') : $t('calculator.results.your_score_money_desc') }}
+                        {{ $t('calculator.results.money_well_spent_desc') }}
                     </p>
                 </div>
 
                 <div class="border-t md:border-t-0 md:border-l border-gray-700 pt-6 md:pt-0 md:pl-6">
-                    <p class="text-gray-400 uppercase tracking-wider text-sm mb-1">{{ $t('calculator.results.perspective_5_years') }}</p>
-                    <p class="text-3xl md:text-4xl font-bold text-white">{{ formatCurrency(total5YearCost) }}</p>
+                    <p class="text-gray-400 uppercase tracking-wider text-sm mb-1">
+                        {{ $t('calculator.results.money_wasted') }}
+                    </p>
+                    <p class="text-4xl md:text-5xl font-bold" :class="zombieYearlyCost > 0 ? 'text-red-500' : 'text-gray-500'">{{
+                        formatCurrency(zombieYearlyCost) }}</p>
                     <p class="text-xs text-gray-500 mt-2">
-                        {{ isPerfectScore ? $t('calculator.results.perfect_score_5_years_desc') : $t('calculator.results.your_score_5_years_desc') }}
+                        {{ $t('calculator.results.money_wasted_desc') }}
                     </p>
                 </div>
             </div>

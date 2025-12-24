@@ -1,7 +1,7 @@
 import type { SubscriptionTool } from '~/types/calculator';
 
 export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
-  // --- Creative & Marketing (Mapped to 'creative') ---
+  // Creative & Marketing
   {
     id: 'adobe_cc_all',
     name: 'calculator.tools.adobe_cc_all.name',
@@ -11,6 +11,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     riskLevel: 'medium',
     conflictId: 'canva_pro',
     conflictMessage: 'calculator.tools.adobe_cc_all.conflictMessage',
+    icon: 'adobe',
   },
   {
     id: 'adobe_cc_single',
@@ -19,6 +20,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     currency: 'EUR',
     category: 'creative',
     riskLevel: 'medium',
+    icon: 'adobe',
   },
   {
     id: 'canva_pro',
@@ -29,6 +31,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     riskLevel: 'very-high',
     conflictId: 'adobe_cc_all',
     conflictMessage: 'calculator.tools.canva_pro.conflictMessage',
+    icon: 'canva',
   },
   {
     id: 'canva_team',
@@ -37,6 +40,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     currency: 'PLN',
     category: 'creative',
     riskLevel: 'high',
+    icon: 'canva',
   },
   {
     id: 'figma_pro',
@@ -65,6 +69,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     riskLevel: 'very-high',
     conflictId: 'semrush_pro',
     conflictMessage: 'calculator.tools.ahrefs_lite.conflictMessage',
+    icon: 'ahrefs',
   },
   {
     id: 'semrush_pro',
@@ -84,6 +89,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     currency: 'PLN',
     category: 'creative',
     riskLevel: 'medium',
+    icon: 'openai',
   },
   {
     id: 'mailchimp_standard',
@@ -95,7 +101,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     icon: 'mailchimp',
   },
 
-  // --- Infrastructure & Communication (Mapped to 'infrastructure') ---
+  // Infrastructure & Communication
   {
     id: 'm365_personal',
     name: 'calculator.tools.m365_personal.name',
@@ -105,6 +111,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     riskLevel: 'low',
     conflictId: 'google_workspace_starter',
     conflictMessage: 'calculator.tools.m365_personal.conflictMessage',
+    icon: 'microsoft',
   },
   {
     id: 'm365_premium',
@@ -115,6 +122,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     riskLevel: 'low',
     conflictId: 'google_workspace_std',
     conflictMessage: 'calculator.tools.m365_premium.conflictMessage',
+    icon: 'microsoft',
   },
   {
     id: 'google_workspace_starter',
@@ -198,6 +206,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     riskLevel: 'medium',
     conflictId: 'm365_premium',
     conflictMessage: 'calculator.tools.slack_pro.conflictMessage',
+    icon: 'slack',
   },
   {
     id: 'asana_starter',
@@ -219,16 +228,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     conflictMessage: 'calculator.tools.trello_std.conflictMessage',
     icon: 'trello',
   },
-  {
-    id: 'monday_std',
-    name: 'calculator.tools.monday_std.name',
-    price: 12.00,
-    currency: 'EUR',
-    category: 'infrastructure',
-    riskLevel: 'medium',
-    conflictId: 'trello_std',
-    conflictMessage: 'calculator.tools.monday_std.conflictMessage',
-  },
+
   {
     id: 'notion_plus',
     name: 'calculator.tools.notion_plus.name',
@@ -268,7 +268,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     icon: 'norton',
   },
 
-  // --- Lifestyle & Entertainment (Mapped to 'lifestyle') ---
+  // Lifestyle & Entertainment
   {
     id: 'netflix_prem',
     name: 'calculator.tools.netflix_prem.name',
@@ -283,6 +283,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     price: 49.99,
     currency: 'PLN',
     category: 'lifestyle',
+    icon: 'disney',
   },
   {
     id: 'hbo_max',
@@ -317,13 +318,7 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     currency: 'PLN',
     category: 'lifestyle',
   },
-  {
-    id: 'dieta_pudelkow',
-    name: 'calculator.tools.dieta_pudelkow.name',
-    price: 1950.00,
-    currency: 'PLN',
-    category: 'lifestyle',
-  },
+
   {
     id: 'legimi',
     name: 'calculator.tools.legimi.name',
@@ -331,4 +326,162 @@ export const SUBSCRIPTION_TOOLS: SubscriptionTool[] = [
     currency: 'PLN',
     category: 'lifestyle',
   },
+
+  // Development & IT
+  {
+    id: 'jetbrains_all',
+    name: 'calculator.tools.jetbrains_all.name',
+    price: 28.90,
+    currency: 'EUR',
+    category: 'development',
+    riskLevel: 'medium',
+    icon: 'jetbrains',
+  },
+  {
+    id: 'github_team',
+    name: 'calculator.tools.github_team.name',
+    price: 4.00,
+    currency: 'USD',
+    category: 'development',
+    riskLevel: 'low',
+    icon: 'github',
+  },
+  {
+    id: 'jira_standard',
+    name: 'calculator.tools.jira_standard.name',
+    price: 8.15,
+    currency: 'USD',
+    category: 'development',
+    riskLevel: 'medium',
+    icon: 'jira',
+  },
+  {
+    id: 'digitalocean',
+    name: 'calculator.tools.digitalocean.name',
+    price: 24.00,
+    currency: 'USD',
+    category: 'development',
+    riskLevel: 'low',
+    icon: 'digitalocean',
+  },
+  {
+    id: 'vercel_pro',
+    name: 'calculator.tools.vercel_pro.name',
+    price: 20.00,
+    currency: 'USD',
+    category: 'development',
+    riskLevel: 'medium',
+    icon: 'vercel',
+  },
+  {
+    id: 'docker_pro',
+    name: 'calculator.tools.docker_pro.name',
+    price: 9.00,
+    currency: 'USD',
+    category: 'development',
+    riskLevel: 'medium',
+    icon: 'docker',
+  },
+  {
+    id: 'gitlab_premium',
+    name: 'calculator.tools.gitlab_premium.name',
+    price: 29.00,
+    currency: 'USD',
+    category: 'development',
+    riskLevel: 'medium',
+    icon: 'gitlab',
+    conflictId: 'github_team',
+    conflictMessage: 'calculator.tools.gitlab_premium.conflictMessage',
+  },
+
+  // Sales & CRM
+  {
+    id: 'linkedin_sales',
+    name: 'calculator.tools.linkedin_sales.name',
+    price: 99.99,
+    currency: 'USD',
+    category: 'sales',
+    riskLevel: 'high',
+    icon: 'linkedin',
+  },
+  {
+    id: 'hubspot_sales',
+    name: 'calculator.tools.hubspot_sales.name',
+    price: 50.00,
+    currency: 'USD',
+    category: 'sales',
+    riskLevel: 'medium',
+    icon: 'hubspot',
+    conflictId: 'salesforce_essentials',
+    conflictMessage: 'calculator.tools.hubspot_sales.conflictMessage',
+  },
+  {
+    id: 'salesforce_essentials',
+    name: 'calculator.tools.salesforce_essentials.name',
+    price: 25.00,
+    currency: 'EUR',
+    category: 'sales',
+    riskLevel: 'medium',
+    icon: 'salesforce',
+    conflictId: 'hubspot_sales',
+    conflictMessage: 'calculator.tools.salesforce_essentials.conflictMessage',
+  },
+  {
+    id: 'pipedrive_pro',
+    name: 'calculator.tools.pipedrive_pro.name',
+    price: 49.00,
+    currency: 'EUR',
+    category: 'sales',
+    riskLevel: 'medium',
+  },
+  {
+    id: 'calendly_pro',
+    name: 'calculator.tools.calendly_pro.name',
+    price: 12.00,
+    currency: 'USD',
+    category: 'sales',
+    riskLevel: 'medium',
+    icon: 'calendly',
+  },
+
+  // E-commerce
+  {
+    id: 'shopify_basic',
+    name: 'calculator.tools.shopify_basic.name',
+    price: 36.00,
+    currency: 'USD',
+    category: 'ecommerce',
+    riskLevel: 'low',
+    icon: 'shopify',
+  },
+  {
+    id: 'allegro_smart',
+    name: 'calculator.tools.allegro_smart.name',
+    price: 49.00,
+    currency: 'PLN',
+    category: 'ecommerce',
+    riskLevel: 'low',
+    icon: 'allegro',
+  },
+
+  {
+    id: 'woocommerce_hosting',
+    name: 'calculator.tools.woocommerce_hosting.name',
+    price: 79.00,
+    currency: 'PLN',
+    category: 'ecommerce',
+    riskLevel: 'low',
+    icon: 'woocommerce',
+  },
+  {
+    id: 'prestashop_hosting',
+    name: 'calculator.tools.prestashop_hosting.name',
+    price: 99.00,
+    currency: 'PLN',
+    category: 'ecommerce',
+    riskLevel: 'low',
+    icon: 'prestashop',
+  },
+
 ];
+

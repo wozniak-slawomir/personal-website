@@ -2,15 +2,20 @@
 import { ref } from 'vue';
 import ToolSelector from './ToolSelector.vue';
 import ResultsView from './ResultsView.vue';
+import SegmentSelector from './SegmentSelector.vue';
 import { useCalculator } from '~/composables/useCalculator';
 
-type Phase = 'hook' | 'input' | 'processing' | 'result';
+type Phase = 'hook' | 'segment' | 'input' | 'processing' | 'result';
 
 const currentPhase = ref<Phase>('hook');
 const { resetCalculator } = useCalculator();
 
 const startCalculator = () => {
     resetCalculator();
+    currentPhase.value = 'segment';
+};
+
+const onSegmentSelected = () => {
     currentPhase.value = 'input';
 };
 
@@ -51,6 +56,11 @@ const restart = () => {
                 class="mt-8 px-8 py-4 bg-[#9c7942] hover:bg-[#8a6b3a] text-white text-lg font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-[#9c7942]/20">
                 {{ $t('calculator.hook.start_audit') }}
             </button>
+        </div>
+
+        <!-- Phase 1.5: Segment Selection -->
+        <div v-if="currentPhase === 'segment'" class="animate-fade-in">
+            <SegmentSelector @selected="onSegmentSelected" />
         </div>
 
         <!-- Phase 2: Input -->
@@ -108,3 +118,4 @@ const restart = () => {
     }
 }
 </style>
+

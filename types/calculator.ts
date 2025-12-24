@@ -1,4 +1,6 @@
-export type ToolCategory = 'creative' | 'infrastructure' | 'lifestyle';
+export type ToolCategory = 'creative' | 'infrastructure' | 'lifestyle' | 'development' | 'sales' | 'ecommerce';
+
+export type UserSegment = 'marketing' | 'dev' | 'sales' | 'ecommerce' | 'office' | 'personal';
 
 export interface SubscriptionTool {
   id: string;
@@ -20,4 +22,5 @@ export interface UserSelection {
 export interface CalculatorState {
   selections: UserSelection[];
   peopleCounts: Record<ToolCategory, number>; // Number of people per department/category
+  selectedSegment?: UserSegment;
 }

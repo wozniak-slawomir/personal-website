@@ -15,10 +15,44 @@
       "analyzing": "Analiza wydatków...",
       "searching": "Szukanie wampirów subskrypcyjnych..."
     },
+    "segment": {
+      "title": "Zanim zaczniemy: W jakiej branży generujesz koszty?",
+      "description": "Dostosujemy listę narzędzi do Twojej specyfiki, abyś nie tracił czasu."
+    },
+    "segments": {
+      "marketing": {
+        "label": "Marketing i Kreacja",
+        "description": "Design, treści, SEO"
+      },
+      "dev": {
+        "label": "Programowanie i IT",
+        "description": "Kod, hosting, DevOps"
+      },
+      "sales": {
+        "label": "Sprzedaż i CRM",
+        "description": "Leady, klienci, transakcje"
+      },
+      "ecommerce": {
+        "label": "E-commerce",
+        "description": "Sklepy, logistyka, płatności"
+      },
+      "office": {
+        "label": "Biuro i Operacje",
+        "description": "Produktywność, komunikacja"
+      },
+      "personal": {
+        "label": "Osobiste",
+        "description": "Rozrywka, lifestyle"
+      }
+    },
     "categories": {
       "creative": "Kreatywne & Marketing",
+      "development": "Programowanie & IT",
+      "sales": "Sprzedaż & CRM",
+      "ecommerce": "E-commerce",
       "infrastructure": "Infrastruktura & Komunikacja",
-      "lifestyle": "Lifestyle & Rozrywka"
+      "lifestyle": "Lifestyle & Rozrywka",
+      "recommended": "Polecane"
     },
     "tool": {
       "used_last_30_days": "Używane w ostatnich 30 dniach?",
@@ -31,6 +65,10 @@
       "your_score_title": "Twój Wynik",
       "perfect_score_desc": "Twoja firma jest wolna od wampirów subskrypcyjnych.",
       "your_score_desc": "Zobacz, ile kapitału ucieka z Twojej firmy.",
+      "money_well_spent": "Pieniądze Dobrze Wydane",
+      "money_well_spent_desc": "Roczny koszt narzędzi, których aktywnie używasz i z których korzystasz.",
+      "money_wasted": "Pieniądze Zmarnowane",
+      "money_wasted_desc": "Roczny koszt nieużywanych subskrypcji (narzędzia zombie).",
       "yearly_investment": "Roczna Inwestycja",
       "yearly_loss": "Roczna Strata",
       "perfect_score_money_desc": "To kwota, która pracuje na rozwój Twojej firmy.",
@@ -187,6 +225,63 @@
       },
       "legimi": {
         "name": "Legimi"
+      },
+      "jetbrains_all": {
+        "name": "JetBrains Wszystkie Produkty"
+      },
+      "github_team": {
+        "name": "GitHub Team"
+      },
+      "jira_standard": {
+        "name": "Jira Software Standard"
+      },
+      "digitalocean": {
+        "name": "DigitalOcean Droplet"
+      },
+      "vercel_pro": {
+        "name": "Vercel Pro"
+      },
+      "docker_pro": {
+        "name": "Docker Pro"
+      },
+      "gitlab_premium": {
+        "name": "GitLab Premium",
+        "conflictMessage": "Posiadasz GitHub. GitLab może być zbędny."
+      },
+      "linkedin_sales": {
+        "name": "LinkedIn Sales Navigator"
+      },
+      "hubspot_sales": {
+        "name": "HubSpot Sales Hub",
+        "conflictMessage": "Konflikt: Posiadasz Salesforce. Te narzędzia CRM się dublują."
+      },
+      "salesforce_essentials": {
+        "name": "Salesforce Essentials",
+        "conflictMessage": "Konflikt: Posiadasz HubSpot. Te narzędzia CRM się dublują."
+      },
+      "pipedrive_pro": {
+        "name": "Pipedrive Professional"
+      },
+      "calendly_pro": {
+        "name": "Calendly Pro"
+      },
+      "shopify_basic": {
+        "name": "Shopify Basic"
+      },
+      "allegro_smart": {
+        "name": "Allegro Smart!"
+      },
+      "baselinker": {
+        "name": "BaseLinker"
+      },
+      "woocommerce_hosting": {
+        "name": "WooCommerce + Hosting"
+      },
+      "prestashop_hosting": {
+        "name": "PrestaShop + Hosting"
+      },
+      "furgonetka": {
+        "name": "Furgonetka"
       }
     }
   }

@@ -15,10 +15,44 @@
             "analyzing": "Analyzing expenses...",
             "searching": "Searching for subscription vampires..."
         },
+        "segment": {
+            "title": "Before we begin: What's your industry?",
+            "description": "We'll tailor the tool list to your needs so you don't waste time."
+        },
+        "segments": {
+            "marketing": {
+                "label": "Marketing & Creative",
+                "description": "Design, content, SEO"
+            },
+            "dev": {
+                "label": "Development & IT",
+                "description": "Code, hosting, DevOps"
+            },
+            "sales": {
+                "label": "Sales & CRM",
+                "description": "Leads, clients, deals"
+            },
+            "ecommerce": {
+                "label": "E-commerce",
+                "description": "Stores, logistics, payments"
+            },
+            "office": {
+                "label": "Office & Operations",
+                "description": "Productivity, communication"
+            },
+            "personal": {
+                "label": "Personal",
+                "description": "Entertainment, lifestyle"
+            }
+        },
         "categories": {
             "creative": "Creative & Marketing",
+            "development": "Development & IT",
+            "sales": "Sales & CRM",
+            "ecommerce": "E-commerce",
             "infrastructure": "Infrastructure & Communication",
-            "lifestyle": "Lifestyle & Entertainment"
+            "lifestyle": "Lifestyle & Entertainment",
+            "recommended": "Recommended"
         },
         "tool": {
             "used_last_30_days": "Used in the last 30 days?",
@@ -31,6 +65,10 @@
             "your_score_title": "Your Score",
             "perfect_score_desc": "Your company is free from subscription vampires.",
             "your_score_desc": "See how much capital is leaking from your company.",
+            "money_well_spent": "Money Used Well",
+            "money_well_spent_desc": "Yearly cost of tools you actively use and benefit from.",
+            "money_wasted": "Money Wasted",
+            "money_wasted_desc": "Yearly cost of unused subscriptions (zombie tools).",
             "yearly_investment": "Yearly Investment",
             "yearly_loss": "Yearly Loss",
             "perfect_score_money_desc": "This is the amount working for your company's growth.",
@@ -187,6 +225,63 @@
             },
             "legimi": {
                 "name": "Legimi"
+            },
+            "jetbrains_all": {
+                "name": "JetBrains All Products"
+            },
+            "github_team": {
+                "name": "GitHub Team"
+            },
+            "jira_standard": {
+                "name": "Jira Software Standard"
+            },
+            "digitalocean": {
+                "name": "DigitalOcean Droplet"
+            },
+            "vercel_pro": {
+                "name": "Vercel Pro"
+            },
+            "docker_pro": {
+                "name": "Docker Pro"
+            },
+            "gitlab_premium": {
+                "name": "GitLab Premium",
+                "conflictMessage": "You have GitHub. GitLab might be redundant."
+            },
+            "linkedin_sales": {
+                "name": "LinkedIn Sales Navigator"
+            },
+            "hubspot_sales": {
+                "name": "HubSpot Sales Hub",
+                "conflictMessage": "Conflict: You have Salesforce. These CRM tools overlap."
+            },
+            "salesforce_essentials": {
+                "name": "Salesforce Essentials",
+                "conflictMessage": "Conflict: You have HubSpot. These CRM tools overlap."
+            },
+            "pipedrive_pro": {
+                "name": "Pipedrive Professional"
+            },
+            "calendly_pro": {
+                "name": "Calendly Pro"
+            },
+            "shopify_basic": {
+                "name": "Shopify Basic"
+            },
+            "allegro_smart": {
+                "name": "Allegro Smart!"
+            },
+            "baselinker": {
+                "name": "BaseLinker"
+            },
+            "woocommerce_hosting": {
+                "name": "WooCommerce + Hosting"
+            },
+            "prestashop_hosting": {
+                "name": "PrestaShop + Hosting"
+            },
+            "furgonetka": {
+                "name": "Furgonetka"
             }
         }
     }
