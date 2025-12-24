@@ -1,0 +1,193 @@
+{
+  "calculator": {
+    "hook": {
+      "title_part1": "Czy Twoja firma płaci",
+      "title_part2": "\"Podatek od Zapominalstwa\"?",
+      "description": "Sprawdź, ile \"Zombies\" zjada Twój budżet. To zajmie 3 minuty.",
+      "start_audit": "Rozpocznij Audyt"
+    },
+    "input": {
+      "title": "Wybierz swoje narzędzia",
+      "description": "Zaznacz wszystko, za co płacisz co miesiąc.",
+      "calculate_loss": "Oblicz Stratę"
+    },
+    "processing": {
+      "analyzing": "Analiza wydatków...",
+      "searching": "Szukanie wampirów subskrypcyjnych..."
+    },
+    "categories": {
+      "creative": "Kreatywne & Marketing",
+      "infrastructure": "Infrastruktura & Komunikacja",
+      "lifestyle": "Lifestyle & Rozrywka"
+    },
+    "tool": {
+      "used_last_30_days": "Używane w ostatnich 30 dniach?",
+      "zombie": "Zombie",
+      "people_count": "Liczba osób w dziale/firmie",
+      "people_count_desc": "Dla tej kategorii narzędzi (domyślnie 1)"
+    },
+    "results": {
+      "perfect_score_title": "Gratulacje! Perfekcyjny Wynik",
+      "your_score_title": "Twój Wynik",
+      "perfect_score_desc": "Twoja firma jest wolna od wampirów subskrypcyjnych.",
+      "your_score_desc": "Zobacz, ile kapitału ucieka z Twojej firmy.",
+      "yearly_investment": "Roczna Inwestycja",
+      "yearly_loss": "Roczna Strata",
+      "perfect_score_money_desc": "To kwota, która pracuje na rozwój Twojej firmy.",
+      "your_score_money_desc": "To kwota, która znika z Twojego konta co roku.",
+      "perspective_5_years": "Perspektywa 5 lat",
+      "perfect_score_5_years_desc": "Planowane koszty operacyjne.",
+      "your_score_5_years_desc": "Tyle stracisz, jeśli nic nie zmienisz.",
+      "you_just_gave_away": "Właśnie oddałeś:",
+      "to_silicon_valley": "Gigantom z Doliny Krzemowej. Za nic.",
+      "digital_hygiene": "Twoja higiena cyfrowa jest",
+      "exemplary": "Wzorowa",
+      "keep_it_up": "Nie marnujesz zasobów. Tak trzymać!",
+      "zombie_indicator": "Wskaźnik Zombie",
+      "no_unused_subs": "Brak nieużywanych subskrypcji.",
+      "paying_for_unused": "Płacisz za nieużywane narzędzia:",
+      "year": "rok",
+      "all_tools_used": "Wszystkie opłacane narzędzia są aktywnie wykorzystywane.",
+      "pure_loss": "To czysta strata. Narzędzia nieotwierane od 30 dni.",
+      "conflicts_and_doubles": "Konflikty i Duble",
+      "no_conflicts": "Nie wykryto oczywistych konfliktów w wybranych narzędziach.",
+      "want_to_optimize": "Chcesz zoptymalizować coś jeszcze?",
+      "stop_financial_bleeding": "Zatrzymaj krwotok finansowy",
+      "perfect_score_cta_desc": "Finanse masz pod kontrolą. A jak wygląda Twoja strategia marki osobistej? Sprawdźmy to.",
+      "your_score_cta_desc": "To nie Twoja wina. Systemy subskrypcyjne są zaprojektowane tak, byś o nich zapomniał. Ale teraz już wiesz. Czas na działanie.",
+      "book_consultation": "Umów darmową konsultację",
+      "recalculate": "Przelicz ponownie"
+    },
+    "context": {
+      "car": "Używany samochód miejski",
+      "vacation": "Egzotyczne wakacje dla dwojga",
+      "laptop": "Topowy Laptop (MacBook Pro)",
+      "phone": "Nowy iPhone / Flagowy Smartfon",
+      "spa": "Weekend w SPA",
+      "coffee": "Roczny zapas dobrej kawy"
+    },
+    "tools": {
+      "adobe_cc_all": {
+        "name": "Adobe CC (Wszystkie aplikacje)",
+        "conflictMessage": "Posiadasz Canvę? Adobe CC to potężne narzędzie, ale czy wszyscy go potrzebują?"
+      },
+      "adobe_cc_single": {
+        "name": "Adobe CC (Pojedyncza aplikacja)"
+      },
+      "canva_pro": {
+        "name": "Canva Pro",
+        "conflictMessage": "Posiadasz Adobe CC? Canva może być zbędnym wydatkiem."
+      },
+      "canva_team": {
+        "name": "Canva Team"
+      },
+      "figma_pro": {
+        "name": "Figma Professional"
+      },
+      "figma_org": {
+        "name": "Figma Organization"
+      },
+      "ahrefs_lite": {
+        "name": "Ahrefs Lite",
+        "conflictMessage": "Konflikt: Posiadasz już Semrush. Te narzędzia się dublują."
+      },
+      "semrush_pro": {
+        "name": "Semrush Pro",
+        "conflictMessage": "Konflikt: Posiadasz już Ahrefs. Te narzędzia się dublują."
+      },
+      "chatgpt_plus": {
+        "name": "ChatGPT Plus"
+      },
+      "mailchimp_standard": {
+        "name": "Mailchimp Standard"
+      },
+      "m365_personal": {
+        "name": "Microsoft 365 Personal",
+        "conflictMessage": "Dublujesz ekosystemy biurowe (Microsoft + Google)."
+      },
+      "m365_premium": {
+        "name": "Microsoft 365 Premium",
+        "conflictMessage": "Dublujesz ekosystemy biurowe (Microsoft + Google)."
+      },
+      "google_workspace_starter": {
+        "name": "Google Workspace Starter",
+        "conflictMessage": "Dublujesz ekosystemy biurowe (Google + Microsoft)."
+      },
+      "google_workspace_std": {
+        "name": "Google Workspace Standard",
+        "conflictMessage": "Dublujesz ekosystemy biurowe (Google + Microsoft)."
+      },
+      "dropbox_plus": {
+        "name": "Dropbox Plus",
+        "conflictMessage": "Masz OneDrive w pakiecie Microsoft. Dropbox jest zbędny."
+      },
+      "google_one": {
+        "name": "Google One (2TB)"
+      },
+      "icloud_plus": {
+        "name": "iCloud+ (2TB)"
+      },
+      "wetransfer_pro": {
+        "name": "WeTransfer Pro",
+        "conflictMessage": "Masz Google Drive. WeTransfer Pro jest zbędny."
+      },
+      "zoom_pro": {
+        "name": "Zoom Pro",
+        "conflictMessage": "Masz Teams w pakiecie Microsoft. Zoom jest zbędny."
+      },
+      "slack_pro": {
+        "name": "Slack Pro",
+        "conflictMessage": "Masz Teams w pakiecie Microsoft. Slack może być zbędny."
+      },
+      "asana_starter": {
+        "name": "Asana Starter"
+      },
+      "trello_std": {
+        "name": "Trello Standard",
+        "conflictMessage": "Monday ma funkcje Trello. Dublujesz narzędzia."
+      },
+      "monday_std": {
+        "name": "Monday.com Standard",
+        "conflictMessage": "Trello dubluje funkcje Monday."
+      },
+      "notion_plus": {
+        "name": "Notion Plus",
+        "conflictMessage": "Notion często zastępuje Trello."
+      },
+      "nordvpn": {
+        "name": "NordVPN Standard"
+      },
+      "1password": {
+        "name": "1Password Business"
+      },
+      "norton_360": {
+        "name": "Norton 360 Deluxe"
+      },
+      "netflix_prem": {
+        "name": "Netflix Premium"
+      },
+      "disney_plus": {
+        "name": "Disney+ Premium"
+      },
+      "hbo_max": {
+        "name": "HBO Max Standard"
+      },
+      "spotify_prem": {
+        "name": "Spotify Premium",
+        "conflictMessage": "Konflikt: YouTube Premium zawiera YouTube Music. Płacisz podwójnie za muzykę."
+      },
+      "youtube_prem": {
+        "name": "YouTube Premium"
+      },
+      "multisport": {
+        "name": "MultiSport"
+      },
+      "dieta_pudelkow": {
+        "name": "Dieta Pudełkowa"
+      },
+      "legimi": {
+        "name": "Legimi"
+      }
+    }
+  }
+}

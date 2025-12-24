@@ -187,12 +187,28 @@ export default defineNuxtConfig({
       {
         code: 'en',
         name: 'English',
-        file: 'en.json',
+        files: [
+          'en/common.json',
+          'en/homepage.json',
+          'en/blog.json',
+          'en/calculator.json',
+          'en/bio.json',
+          'en/services.json',
+          'en/vision.json'
+        ],
       },
       {
         code: 'pl',
         name: 'Polski',
-        file: 'pl.json',
+        files: [
+          'pl/common.json',
+          'pl/homepage.json',
+          'pl/blog.json',
+          'pl/calculator.json',
+          'pl/bio.json',
+          'pl/services.json',
+          'pl/vision.json'
+        ],
       },
     ],
     defaultLocale: DEFAULT_LOCALE,

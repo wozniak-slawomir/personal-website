@@ -1,0 +1,193 @@
+{
+    "calculator": {
+        "hook": {
+            "title_part1": "Is your company paying",
+            "title_part2": "\"The Forgetfulness Tax\"?",
+            "description": "Check how many \"Zombies\" are eating your budget. It takes 3 minutes.",
+            "start_audit": "Start Audit"
+        },
+        "input": {
+            "title": "Choose your tools",
+            "description": "Select everything you pay for monthly.",
+            "calculate_loss": "Calculate Loss"
+        },
+        "processing": {
+            "analyzing": "Analyzing expenses...",
+            "searching": "Searching for subscription vampires..."
+        },
+        "categories": {
+            "creative": "Creative & Marketing",
+            "infrastructure": "Infrastructure & Communication",
+            "lifestyle": "Lifestyle & Entertainment"
+        },
+        "tool": {
+            "used_last_30_days": "Used in the last 30 days?",
+            "zombie": "Zombie",
+            "people_count": "Number of people in department/company",
+            "people_count_desc": "For this tool category (default 1)"
+        },
+        "results": {
+            "perfect_score_title": "Congratulations! Perfect Score",
+            "your_score_title": "Your Score",
+            "perfect_score_desc": "Your company is free from subscription vampires.",
+            "your_score_desc": "See how much capital is leaking from your company.",
+            "yearly_investment": "Yearly Investment",
+            "yearly_loss": "Yearly Loss",
+            "perfect_score_money_desc": "This is the amount working for your company's growth.",
+            "your_score_money_desc": "This is the amount disappearing from your account every year.",
+            "perspective_5_years": "5-Year Perspective",
+            "perfect_score_5_years_desc": "Planned operational costs.",
+            "your_score_5_years_desc": "This is how much you'll lose if you change nothing.",
+            "you_just_gave_away": "You just gave away:",
+            "to_silicon_valley": "To Silicon Valley giants. For nothing.",
+            "digital_hygiene": "Your digital hygiene is",
+            "exemplary": "Exemplary",
+            "keep_it_up": "You're not wasting resources. Keep it up!",
+            "zombie_indicator": "Zombie Indicator",
+            "no_unused_subs": "No unused subscriptions.",
+            "paying_for_unused": "You are paying for unused tools:",
+            "year": "year",
+            "all_tools_used": "All paid tools are actively used.",
+            "pure_loss": "This is pure loss. Tools not opened for 30 days.",
+            "conflicts_and_doubles": "Conflicts and Duplicates",
+            "no_conflicts": "No obvious conflicts detected in selected tools.",
+            "want_to_optimize": "Want to optimize something else?",
+            "stop_financial_bleeding": "Stop the financial bleeding",
+            "perfect_score_cta_desc": "You have finances under control. How about your personal brand strategy? Let's check it.",
+            "your_score_cta_desc": "It's not your fault. Subscription systems are designed to make you forget about them. But now you know. Time for action.",
+            "book_consultation": "Book a free consultation",
+            "recalculate": "Recalculate"
+        },
+        "context": {
+            "car": "Used city car",
+            "vacation": "Exotic vacation for two",
+            "laptop": "Top Laptop (MacBook Pro)",
+            "phone": "New iPhone / Flagship Smartphone",
+            "spa": "Weekend at SPA",
+            "coffee": "Yearly supply of good coffee"
+        },
+        "tools": {
+            "adobe_cc_all": {
+                "name": "Adobe CC (All Apps)",
+                "conflictMessage": "Do you have Canva? Adobe CC is a powerful tool, but does everyone need it?"
+            },
+            "adobe_cc_single": {
+                "name": "Adobe CC (Single App)"
+            },
+            "canva_pro": {
+                "name": "Canva Pro",
+                "conflictMessage": "Do you have Adobe CC? Canva might be an unnecessary expense."
+            },
+            "canva_team": {
+                "name": "Canva Team"
+            },
+            "figma_pro": {
+                "name": "Figma Professional"
+            },
+            "figma_org": {
+                "name": "Figma Organization"
+            },
+            "ahrefs_lite": {
+                "name": "Ahrefs Lite",
+                "conflictMessage": "Conflict: You already have Semrush. These tools overlap."
+            },
+            "semrush_pro": {
+                "name": "Semrush Pro",
+                "conflictMessage": "Conflict: You already have Ahrefs. These tools overlap."
+            },
+            "chatgpt_plus": {
+                "name": "ChatGPT Plus"
+            },
+            "mailchimp_standard": {
+                "name": "Mailchimp Standard"
+            },
+            "m365_personal": {
+                "name": "Microsoft 365 Personal",
+                "conflictMessage": "You are duplicating office ecosystems (Microsoft + Google)."
+            },
+            "m365_premium": {
+                "name": "Microsoft 365 Premium",
+                "conflictMessage": "You are duplicating office ecosystems (Microsoft + Google)."
+            },
+            "google_workspace_starter": {
+                "name": "Google Workspace Starter",
+                "conflictMessage": "You are duplicating office ecosystems (Google + Microsoft)."
+            },
+            "google_workspace_std": {
+                "name": "Google Workspace Standard",
+                "conflictMessage": "You are duplicating office ecosystems (Google + Microsoft)."
+            },
+            "dropbox_plus": {
+                "name": "Dropbox Plus",
+                "conflictMessage": "You have OneDrive in the Microsoft package. Dropbox is unnecessary."
+            },
+            "google_one": {
+                "name": "Google One (2TB)"
+            },
+            "icloud_plus": {
+                "name": "iCloud+ (2TB)"
+            },
+            "wetransfer_pro": {
+                "name": "WeTransfer Pro",
+                "conflictMessage": "You have Google Drive. WeTransfer Pro is unnecessary."
+            },
+            "zoom_pro": {
+                "name": "Zoom Pro",
+                "conflictMessage": "You have Teams in the Microsoft package. Zoom is unnecessary."
+            },
+            "slack_pro": {
+                "name": "Slack Pro",
+                "conflictMessage": "You have Teams in the Microsoft package. Slack might be unnecessary."
+            },
+            "asana_starter": {
+                "name": "Asana Starter"
+            },
+            "trello_std": {
+                "name": "Trello Standard",
+                "conflictMessage": "Monday has Trello features. You are duplicating tools."
+            },
+            "monday_std": {
+                "name": "Monday.com Standard",
+                "conflictMessage": "Trello duplicates Monday features."
+            },
+            "notion_plus": {
+                "name": "Notion Plus",
+                "conflictMessage": "Notion often replaces Trello."
+            },
+            "nordvpn": {
+                "name": "NordVPN Standard"
+            },
+            "1password": {
+                "name": "1Password Business"
+            },
+            "norton_360": {
+                "name": "Norton 360 Deluxe"
+            },
+            "netflix_prem": {
+                "name": "Netflix Premium"
+            },
+            "disney_plus": {
+                "name": "Disney+ Premium"
+            },
+            "hbo_max": {
+                "name": "HBO Max Standard"
+            },
+            "spotify_prem": {
+                "name": "Spotify Premium",
+                "conflictMessage": "Conflict: YouTube Premium includes YouTube Music. You are paying double for music."
+            },
+            "youtube_prem": {
+                "name": "YouTube Premium"
+            },
+            "multisport": {
+                "name": "MultiSport"
+            },
+            "dieta_pudelkow": {
+                "name": "Box Diet"
+            },
+            "legimi": {
+                "name": "Legimi"
+            }
+        }
+    }
+}

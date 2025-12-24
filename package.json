@@ -8,7 +8,9 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "test": "vitest run"
+    "test": "vitest run",
+    "i18n:cleanup": "node scripts/i18n-cleanup.mjs",
+    "i18n:cleanup:fix": "node scripts/i18n-cleanup.mjs --fix"
   },
   "dependencies": {
     "@nuxt/image": "^1.8.1",
