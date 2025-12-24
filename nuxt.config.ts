@@ -194,7 +194,8 @@ export default defineNuxtConfig({
           'en/calculator.json',
           'en/bio.json',
           'en/services.json',
-          'en/vision.json'
+          'en/vision.json',
+          'en/contact.json'
         ],
       },
       {
@@ -207,7 +208,8 @@ export default defineNuxtConfig({
           'pl/calculator.json',
           'pl/bio.json',
           'pl/services.json',
-          'pl/vision.json'
+          'pl/vision.json',
+          'pl/contact.json'
         ],
       },
     ],
