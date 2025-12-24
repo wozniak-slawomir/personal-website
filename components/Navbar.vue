@@ -150,7 +150,7 @@ import { PhInstagramLogo, PhLinkedinLogo, PhTiktokLogo, PhYoutubeLogo, PhFaceboo
 
 const { locales, locale, setLocale, t } = useI18n()
 const route = useRoute()
-const { $event } = useNuxtApp()
+
 
 const isMenuOpen = ref(false)
 const isNavMenuOpen = ref(false)
@@ -174,9 +174,7 @@ const changeLanguage = (language: typeof locale.value) => {
 
 const isActive = (path: string) => route.path === path
 
-const onContactClick = () => {
-  $event('ContactModal:Open')
-}
+
 
 const handleClickOutside = (event: Event) => {
   if (!isNavMenuOpen.value) return

@@ -158,7 +158,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { PhCircleNotch, PhChatCircleText, PhStethoscope, PhHandshake } from '@phosphor-icons/vue'
 import { useToast } from 'vue-toastification'
 const config = useRuntimeConfig()
@@ -191,12 +191,21 @@ useHead({
 })
 
 const toast = useToast()
+const route = useRoute()
 const name = ref('')
 const surname = ref('')
 const message = ref('')
 const email = ref('')
 const phoneNumber = ref('')
 const isLoading = ref(false)
+
+onMounted(() => {
+  const packageKey = route.query.package as string
+  if (packageKey) {
+    const packageTitle = t(`pricing.packages.${packageKey}.title`)
+    message.value = t('pricing.interested_message', { package: packageTitle })
+  }
+})
 
 const onSubmit = (e: Event) => {
     e.preventDefault()

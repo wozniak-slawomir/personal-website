@@ -3,7 +3,7 @@
     <div class="z-1 relative">
       <Navbar />
       <NuxtPage />
-      <ContactModal />
+
     </div>
   </div>
 </template>

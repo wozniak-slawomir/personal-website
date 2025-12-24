@@ -218,12 +218,12 @@
           <p class="text-xl md:text-2xl leading-relaxed font-medium mb-8">
             {{ $t('bio.cta') }}
           </p>
-          <button
-            class="px-10 md:px-14 py-4 md:py-5 rounded-full font-semibold text-lg bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:opacity-50"
-            @click="onContactClick"
+          <NuxtLink
+            to="/contact"
+            class="px-10 md:px-14 py-4 md:py-5 rounded-full font-semibold text-lg bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:opacity-50 inline-block text-center"
           >
             {{ $t("common.contact") }}
-          </button>
+          </NuxtLink>
         </div>
       </div>
     </div>
@@ -236,13 +236,11 @@ import { computed } from 'vue'
 import { PhShieldCheck, PhLightning, PhHandshake } from '@phosphor-icons/vue'
 
 const { t } = useI18n()
-const { $event } = useNuxtApp()
+
 
 const bioTitle = computed(() => {
   return t('bio.title.programming')
 })
 
-const onContactClick = () => {
-  $event('ContactModal:Open')
-}
+
 </script>

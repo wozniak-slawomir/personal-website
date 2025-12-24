@@ -43,12 +43,12 @@
           >
             {{ $t("hero.cta.calculator") }}
           </NuxtLink>
-          <button
-            class="px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold border-2 border-[var(--primary-color)] text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105 hover:bg-[var(--primary-color)] hover:text-black shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:opacity-50 w-full sm:w-auto"
-            @click="onContactClick"
+          <NuxtLink
+            to="/contact"
+            class="px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold border-2 border-[var(--primary-color)] text-[var(--primary-color)] transition-all duration-300 transform hover:scale-105 hover:bg-[var(--primary-color)] hover:text-black shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:opacity-50 w-full sm:w-auto inline-block text-center"
           >
             {{ $t("common.contact") }}
-          </button>
+          </NuxtLink>
         </div>
       </div>
 
@@ -72,12 +72,10 @@
 <script setup lang="ts">
 import { PhCheckCircle } from '@phosphor-icons/vue'
 import { provide } from 'vue'
-const { $event } = useNuxtApp()
+
 
 provide('weight', 'fill')
 
-const onContactClick = () => {
-  $event('ContactModal:Open')
-}
+
 </script>
 

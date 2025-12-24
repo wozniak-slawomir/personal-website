@@ -106,7 +106,7 @@ import { useI18n } from 'vue-i18n'
 import { PRICING_PACKAGES } from '@/const/pricing'
 
 const { t } = useI18n()
-const { $event } = useNuxtApp()
+
 
 const formatPrice = (price: number) => {
   return new Intl.NumberFormat('pl-PL', {
@@ -116,9 +116,12 @@ const formatPrice = (price: number) => {
 }
 
 const handleContact = (packageKey: string) => {
-  const packageTitle = t(`pricing.packages.${packageKey}.title`)
-  const message = t('pricing.interested_message', { package: packageTitle })
-  $event('ContactModal:Open', { message })
+  return navigateTo({
+    path: '/contact',
+    query: {
+      package: packageKey
+    }
+  })
 }
 
 // Schema.org JSON-LD
