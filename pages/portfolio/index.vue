@@ -1,7 +1,7 @@
 <template>
   <div>
     <RealizedProjects />
-    <Footer />
+
   </div>
 </template>
 

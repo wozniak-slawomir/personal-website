@@ -3,6 +3,7 @@
     <div class="z-1 relative">
       <Navbar />
       <NuxtPage />
+      <Footer />
 
     </div>
   </div>

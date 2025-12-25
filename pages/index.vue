@@ -8,7 +8,7 @@
     <FAQ />
     <Pricing />
     <CTASection />
-    <Footer />
+
   </div>
 </template>
 
