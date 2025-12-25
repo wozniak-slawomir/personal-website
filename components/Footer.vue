@@ -35,6 +35,9 @@
       <NuxtLink to="/bio" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('navbar.bio') }}
       </NuxtLink>
+      <NuxtLink to="/blog" class="hover:text-[var(--primary-color)] transition-colors">
+        {{ $t('navbar.blog') }}
+      </NuxtLink>
       <NuxtLink to="/contact" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('common.contact') }}
       </NuxtLink>
