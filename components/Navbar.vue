@@ -58,25 +58,20 @@
             :class="isNavMenuOpen ? '-translate-y-[6px] -rotate-45' : ''" />
         </button>
         <div class="relative hidden xl:block">
-          <div class="p-3 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-14 text-center sm:w-24 h-min z-20"
-            :class="isMenuOpen ? 'rounded-t-[25px]' : 'rounded-[25px]'" @click="isMenuOpen = !isMenuOpen">
+          <div class="p-1.5 bg-[#393939] cursor-pointer hover:bg-[#474b59] w-auto min-w-[36px] text-center h-min z-20 flex items-center justify-center"
+            :class="isMenuOpen ? 'rounded-t-[18px]' : 'rounded-[18px]'" @click="isMenuOpen = !isMenuOpen">
             <img :src="`/flags/${locale === 'en' ? 'gb' : locale}.svg`" :alt="`${locale === 'en' ? 'gb' : locale} flag`"
-              class="rounded-full w-6 h-6 align-middle mx-1 inline-block" />
-            <p class="align-middle mx-1 hidden sm:inline uppercase">
-              {{ locale }}
-            </p>
+              class="rounded-full w-5 h-5 align-middle select-none" />
           </div>
           <div v-if="isMenuOpen" v-on-click-outside="() => isMenuOpen = false"
-            class="absolute rounded-b-[25px] top-full right-0 pt-2 pb-2 bg-[#393939] z-30 w-14 sm:w-24 -mt-1">
-            <div class="flex flex-col">
-              <!-- weird bug in library -->
+            class="absolute rounded-b-[18px] top-full right-0 pt-1 pb-1 bg-[#393939] z-30 w-[36px] -mt-1 flex flex-col items-center shadow-lg overflow-hidden">
+            <div class="flex flex-col w-full">
               <button v-for="item in (locales)" :key="item.code"
-                class="p-2 rounded-md w-14 text-center sm:text-left sm:pl-[18px] hover:font-bold sm:w-full hover:scale-110 duration-150"
+                class="p-1.5 w-full hover:bg-[#505463] transition-colors duration-150 flex justify-center"
                 @click="changeLanguage(item.code)">
                 <img :src="`/flags/${item.code === 'en' ? 'gb' : item.code.toLowerCase()}.svg`"
                   :alt="`${item.code === 'en' ? 'gb' : item.code.toLowerCase()} flag`"
-                  class="rounded-full w-6 h-6 align-middle mx-1 inline-block" />
-                <span class="align-middle mx-1 hidden sm:inline uppercase">{{ item.code }}</span>
+                  class="rounded-full w-5 h-5 align-middle select-none" />
               </button>
             </div>
           </div>
