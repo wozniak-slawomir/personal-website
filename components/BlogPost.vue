@@ -3,7 +3,7 @@
     <div class="container">
       <BackButton class="mt-36" />
     </div>
-    <div class="max-w-2xl container mt-16 text-justify">
+    <main class="max-w-2xl container mt-16 text-justify">
       <h1 class="text-4xl font-bold text-center">
         {{ props.title }}
       </h1>
@@ -20,7 +20,7 @@
         <slot name="content" />
       </div>
       <CTASection />
-    </div>
+    </main>
   </div>
 </template>
 
@@ -31,7 +31,3 @@ const props = defineProps<{
     tags: string[]
 }>()
 </script>
-
-<style lang="scss" scoped>
-
-</style>

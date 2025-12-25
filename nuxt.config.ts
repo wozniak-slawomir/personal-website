@@ -162,7 +162,21 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['@nuxtjs/tailwindcss', '@nuxtjs/i18n', '@nuxt/image', 'motion-v/nuxt', '@nuxtjs/sitemap', '@nuxtjs/robots', 'nuxt-schema-org', 'nuxt-seo-utils', '@nuxtjs/partytown'],
+  modules: [
+    '@nuxtjs/tailwindcss', 
+    '@nuxtjs/i18n', 
+    '@nuxt/image', 
+    'motion-v/nuxt', 
+    '@nuxtjs/sitemap', 
+    '@nuxtjs/robots', 
+    'nuxt-schema-org', 
+    'nuxt-seo-utils', 
+    '@nuxtjs/partytown',
+  ],
+
+  sitemap: {
+    sources: ['/api/sitemap'],
+  },
 
   tailwindcss: {
     config: {
