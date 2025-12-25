@@ -249,7 +249,20 @@ export default defineNuxtConfig({
   },
 
   sitemap: {
-    sources: ['/api/sitemap'],
+    urls: () => {
+      // Read pre-generated sitemap data (created by npm run generate:sitemap)
+      const fs = require('fs')
+      const path = require('path')
+      const dataFile = path.resolve(process.cwd(), 'const/sitemapData.json')
+      
+      if (fs.existsSync(dataFile)) {
+        return JSON.parse(fs.readFileSync(dataFile, 'utf-8'))
+      }
+      
+      // Fallback: return empty array if file doesn't exist yet
+      console.warn('⚠️ sitemapData.json not found. Run "npm run generate:sitemap" first.')
+      return []
+    }
   },
 
   tailwindcss: {
