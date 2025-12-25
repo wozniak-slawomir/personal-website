@@ -24,7 +24,6 @@ logs
 !.env.example
 
 .vscode
-.github/copilot-instructions.md
 
 # Test coverage
 coverage

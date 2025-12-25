@@ -172,7 +172,81 @@ export default defineNuxtConfig({
     'nuxt-schema-org', 
     'nuxt-seo-utils', 
     '@nuxtjs/partytown',
+    'nuxt-llms',
   ],
+
+  llms: {
+    domain: 'https://slawomir-wozniak.pl',
+    title: 'Sławomir Woźniak - Twój partner w technologii i biznesie',
+    description: 'Partner technologiczny dla małych biznesów. Pomagam nie-technicznym przedsiębiorcom zrozumieć i wdrożyć narzędzia technologiczne. Programista obeznany z technologiami internetowymi, skupiony na wartości dodanej dla użytkownika.',
+    sections: [
+      {
+        title: 'O mnie',
+        description: 'Kim jestem i jakie wartości wyznaję. Partnerska relacja, skupienie na wiedzy i jakości.',
+        links: [
+          {
+            title: 'Bio',
+            description: 'Krótka biografia - IT, Psychologia, Biznes. Doświadczenie i specjalizacja.',
+            href: '/bio',
+          },
+          {
+            title: 'Wizja',
+            description: 'Misja, wizja i wartości. Partnerstwo, jakość, zaufanie i dobro społeczeństwa.',
+            href: '/wizja',
+          },
+        ],
+      },
+      {
+        title: 'Usługi',
+        description: 'Rozwiązania technologiczne dla przedsiębiorców na początkowym stadium z wysoką elastycznością.',
+        links: [
+          {
+            title: 'Portfolio',
+            description: 'Zrealizowane projekty i wdrożenia technologiczne dla małych biznesów.',
+            href: '/portfolio',
+          },
+          {
+            title: 'Kalkulator subskrypcji',
+            description: 'Narzędzie do obliczania kosztów subskrypcji narzędzi i usług.',
+            href: '/kalkulator-subskrypcji',
+          },
+        ],
+      },
+      {
+        title: 'Blog',
+        description: 'Artykuły dla osób refleksyjnych, potrafiących skupić uwagę na treści. Technologia wspierająca biznes.',
+        links: [
+          {
+            title: 'Artykuły blogowe',
+            description: 'Artykuły o technologii, biznesie i rozwoju. Fakty z domieszką własnych komentarzy.',
+            href: '/blog/[slug]',
+          },
+        ],
+      },
+      {
+        title: 'Kontakt',
+        description: 'Nawiąż współpracę. Partnerstwo w zarabianiu pieniędzy i budowaniu relacji.',
+        links: [
+          {
+            title: 'Formularz kontaktowy',
+            description: 'Strona z formularzem kontaktowym do nawiązania współpracy.',
+            href: '/contact',
+          },
+          {
+            title: 'Newsletter',
+            description: 'Zapisz się, aby otrzymywać najnowsze artykuły o technologii i biznesie.',
+            href: '/newsletter',
+          },
+        ],
+      },
+    ],
+    notes: [
+      'Strona w języku polskim.',
+      'Dla przedsiębiorców szukających kreatywnych rozwiązań technologicznych.',
+      'Skupienie na wartości biznesowej, nie tylko technologicznej.',
+      'Zaktualizowano 25 grudnia 2025.',
+    ],
+  },
 
   sitemap: {
     sources: ['/api/sitemap'],
