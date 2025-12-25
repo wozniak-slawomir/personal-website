@@ -20,7 +20,7 @@ export const PRICING_PACKAGES: Record<'authority' | 'independence' | 'commerce' 
     price: 5500,
     originalPrice: 9000,
     currency: 'PLN',
-    schemaType: 'Product',
+    schemaType: 'Service',
     highlighted: true,
   },
   commerce: {
