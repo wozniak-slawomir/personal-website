@@ -177,8 +177,8 @@ export default defineNuxtConfig({
 
   llms: {
     domain: 'https://slawomir-wozniak.pl',
-    title: 'Sławomir Woźniak - Twój partner w technologii i biznesie',
-    description: 'Partner technologiczny dla małych biznesów. Pomagam nie-technicznym przedsiębiorcom zrozumieć i wdrożyć narzędzia technologiczne. Programista obeznany z technologiami internetowymi, skupiony na wartości dodanej dla użytkownika.',
+    title: 'Sławomir Woźniak – Twój Partner Technologiczny & Dedykowane Oprogramowanie',
+    description: 'Programista, który myśli jak przedsiębiorca. Łączę strategię z psychologią biznesu, by tworzyć zyskowne aplikacje. Tworzę oprogramowanie realizujące cele biznesowe.',
     sections: [
       {
         title: 'O mnie',

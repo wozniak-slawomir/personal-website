@@ -3,36 +3,13 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center w-full p-6 md:p-12 lg:p-16">
       <!-- Left side: Text and CTA -->
       <div class="max-w-2xl order-2 md:order-1">
-        <h1 class="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold mb-4 md:mb-6 leading-tight">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
           <span class="text-[var(--primary-text-color)] drop-shadow-lg">{{ $t("hero.title") }}</span>
-          <span class="text-[var(--primary-color)]">.</span>
         </h1>
         <div class="text-lg sm:text-xl md:text-2xl mb-6 md:mb-8 text-[var(--secondary-text-color)] font-light">
           {{ $t("hero.subtitle") }}
         </div>
-        <ul class="space-y-3 md:space-y-4 text-base md:text-lg mb-8 md:mb-12">
-          <li class="flex items-center text-[var(--primary-text-color)]">
-            <PhCheckCircle 
-              class="mr-3 text-[var(--primary-color)] flex-shrink-0" 
-              :size="24" 
-            />
-            <span>{{ $t("hero.software.feature1") }}</span>
-          </li>
-          <li class="flex items-center text-[var(--primary-text-color)]">
-            <PhCheckCircle 
-              class="mr-3 text-[var(--primary-color)] flex-shrink-0" 
-              :size="24" 
-            />
-            <span>{{ $t("hero.software.feature2") }}</span>
-          </li>
-          <li class="flex items-center text-[var(--primary-text-color)]">
-            <PhCheckCircle 
-              class="mr-3 text-[var(--primary-color)] flex-shrink-0" 
-              :size="24" 
-            />
-            <span>{{ $t("hero.software.feature3") }}</span>
-          </li>
-        </ul>
+
         <p class="text-sm text-gray-400 mb-4">
           {{ $t("hero.cta.calculator.hint") }}
         </p>
@@ -70,7 +47,6 @@
 </template>
 
 <script setup lang="ts">
-import { PhCheckCircle } from '@phosphor-icons/vue'
 import { provide } from 'vue'
 
 
