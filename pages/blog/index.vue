@@ -1,36 +1,42 @@
 <template>
   <div class="container mt-32 mb-20">
-    <h1 class="text-5xl font-bold my-10 text-center uppercase md:text-left">
+    <h1 class="text-5xl font-bold my-10 text-center uppercase">
       {{ $t('projects.filter.blog') }}
     </h1>
+    <p class="text-center text-xl text-[var(--secondary-text-color)] max-w-2xl mb-12 mx-auto">
+      {{ $t('blog.subtitle') }}
+    </p>
     <div class="flex flex-col gap-10 max-w-4xl mx-auto">
-      <div
+      <article
         v-for="item in blogItems"
         :key="item.name"
-        class="relative rounded-2xl overflow-hidden group min-h-fit w-full shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        class="group relative overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] transition-all duration-300 hover:shadow-lg hover:border-[var(--primary-color)]/30"
       >
-        <NuxtLink :to="item.link" class="block relative">
-           <NuxtPicture
-              :src="item.image"
-              :alt="item.name"
-              class="w-full h-[400px] object-cover transition-transform duration-500 group-hover:scale-105"
-              width="1200"
-              height="400"
-            />
-            <div
-              class="absolute bottom-0 left-0 right-0 p-4 md:p-8
-              bg-gradient-to-t from-black/90 via-black/60 to-transparent
-              flex flex-col justify-end h-full"
-            >
-              <h2 class="text-sm md:text-3xl font-bold text-white uppercase mb-2 md:mb-4 drop-shadow-md">
+        <NuxtLink :to="item.link" class="flex flex-col md:flex-row h-full">
+           <!-- Content Section (Left) -->
+           <div class="flex-1 flex flex-col justify-center items-start p-8 text-left order-2 md:order-1 relative z-10 bg-[var(--card-bg)]">
+              <h2 class="text-2xl md:text-3xl font-bold uppercase mb-4 drop-shadow-sm group-hover:text-[var(--primary-color)] transition-colors">
                 {{ item.name }}
               </h2>
-              <p v-if="item.description" class="text-white text-xs md:text-lg max-w-3xl drop-shadow-sm line-clamp-1">
+              <p v-if="item.description" class="text-[var(--secondary-text-color)] text-base md:text-lg max-w-lg line-clamp-3">
                 {{ item.description }}
               </p>
-            </div>
+           </div>
+
+           <!-- Image Section (Right) -->
+           <div class="w-full md:w-2/5 h-64 md:h-auto order-1 md:order-2 overflow-hidden relative">
+             <div class="absolute inset-0 bg-gradient-to-t from-[var(--card-bg)] to-transparent md:hidden z-10"></div> <!-- Mobile gradient for blend -->
+             <NuxtPicture
+                :src="item.image"
+                :alt="item.name"
+                class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                width="800"
+                height="600"
+                :imgAttrs="{ class: 'w-full h-full object-cover' }"
+              />
+           </div>
         </NuxtLink>
-      </div>
+      </article>
     </div>
   </div>
 </template>
