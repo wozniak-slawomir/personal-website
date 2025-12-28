@@ -7,5 +7,8 @@
     "contact.benefits.item2.title": "Initial diagnosis",
     "contact.benefits.item2.desc": "I will point out possible directions during the first conversation.",
     "contact.benefits.item3.title": "No obligations",
-    "contact.benefits.item3.desc": "A conversation is not a contract. Let's see if we are a good fit."
+    "contact.benefits.item3.desc": "A conversation is not a contract. Let's see if we are a good fit.",
+    "contact.form.success": "Message sent successfully",
+    "contact.form.error": "Failed to send message",
+    "contact.form.rateLimitError": "Too many attempts. Please try again in an hour."
 }

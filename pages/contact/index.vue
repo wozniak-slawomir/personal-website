@@ -222,18 +222,20 @@ const onSubmit = (e: Event) => {
         }),
     }).then(res => {
         if (res.ok) {
-            toast.success('Message sent successfully')
+            toast.success(t('contact.form.success'))
             // Reset form
             name.value = ''
             surname.value = ''
             email.value = ''
             phoneNumber.value = ''
             message.value = ''
+        } else if (res.status === 429) {
+            toast.error(t('contact.form.rateLimitError'))
         } else {
-            toast.error('Failed to send message')
+            toast.error(t('contact.form.error'))
         }
     }).catch(() => {
-        toast.error('Failed to send message')
+        toast.error(t('contact.form.error'))
     }).finally(() => {
         isLoading.value = false
     })

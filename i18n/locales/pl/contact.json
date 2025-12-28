@@ -7,5 +7,8 @@
     "contact.benefits.item2.title": "Wstępna diagnoza",
     "contact.benefits.item2.desc": "Już podczas pierwszej rozmowy wskażę możliwe kierunki działania.",
     "contact.benefits.item3.title": "Brak zobowiązań",
-    "contact.benefits.item3.desc": "Rozmowa to nie kontrakt. Sprawdźmy, czy jest nam po drodze."
+    "contact.benefits.item3.desc": "Rozmowa to nie kontrakt. Sprawdźmy, czy jest nam po drodze.",
+    "contact.form.success": "Wiadomość wysłana pomyślnie",
+    "contact.form.error": "Nie udało się wysłać wiadomości",
+    "contact.form.rateLimitError": "Zbyt wiele prób. Spróbuj ponownie za godzinę."
 }

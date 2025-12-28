@@ -112,5 +112,13 @@ export const contentItems: ContentItem[] = [
     link: '/blog/prezent-ktorego-nie-da-sie-kupic',
     lastmod: '2025-12-07T19:07:10+01:00'
   },
+  {
+    name: (t) => t('blog.professionalWebsite.title'),
+    image: 'blog/profesjonalna-strona-www/og-image.jpg',
+    description: (t) => t('blog.professionalWebsite.meta.description'),
+    tags: ['blog'],
+    link: '/blog/profesjonalna-strona-www',
+    lastmod: '2025-12-28T17:55:00+01:00'
+  },
 ]
 

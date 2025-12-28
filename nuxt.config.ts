@@ -74,6 +74,17 @@ export default defineNuxtConfig({
         'Cache-Control': 'no-cache, no-store, must-revalidate'
       },
     },
+    // Rate limiting for contact form - 3 submissions per hour
+    '/api/contact': {
+      security: {
+        rateLimiter: {
+          tokensPerInterval: 3,
+          interval: 3600000, // 1 hour in milliseconds
+          headers: true,
+          throwError: true,
+        },
+      },
+    },
     // Static assets - long-term caching
     '/_nuxt/**': { 
       headers: { 
@@ -173,7 +184,12 @@ export default defineNuxtConfig({
     'nuxt-seo-utils', 
     '@nuxtjs/partytown',
     'nuxt-llms',
+    'nuxt-security',
   ],
+
+  security: {
+    rateLimiter: false, // Disable global rate limiting
+  },
 
   llms: {
     domain: 'https://slawomir-wozniak.pl',
