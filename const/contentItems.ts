@@ -120,5 +120,13 @@ export const contentItems: ContentItem[] = [
     link: '/blog/profesjonalna-strona-www',
     lastmod: '2025-12-28T17:55:00+01:00'
   },
+  {
+    name: (t) => t('blog.vendorLockIn.title'),
+    image: 'blog/pulapka-vendor-lock-in/og-image.jpg',
+    description: (t) => t('blog.vendorLockIn.meta.description'),
+    tags: ['blog'],
+    link: '/blog/pulapka-vendor-lock-in',
+    lastmod: '2025-12-28T18:34:00+01:00'
+  },
 ]
 
