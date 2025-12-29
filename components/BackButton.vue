@@ -1,8 +1,8 @@
 /* From Uiverse.io by AKAspidey01 */ 
 <template>
-  <NuxtLink
-    to="/"
-    class="text-center rounded-2xl h-10 relative text-white text-lg font-semibold group inline-flex items-center"
+  <button
+    @click="handleGoBack"
+    class="text-center rounded-2xl h-10 relative text-white text-lg font-semibold group inline-flex items-center cursor-pointer"
   >
     <div
       class="bg-[#393939] rounded-xl h-[80%] w-[33%] flex items-center justify-center absolute left-1 top-[4px] group-hover:w-[106%] z-10 duration-500"
@@ -26,8 +26,20 @@
     <p class="ml-12">
       {{ $t('common.goBack') }}
     </p>
-  </NuxtLink>
+  </button>
 </template>
 
 <script setup>
+const router = useRouter()
+
+const handleGoBack = () => {
+  // Check if there's internal navigation history
+  // window.history.state?.back contains the previous route path in Nuxt/Vue Router
+  if (window.history.state?.back) {
+    router.back()
+  } else {
+    // Fallback to home page if no internal history exists
+    router.push('/')
+  }
+}
 </script>
