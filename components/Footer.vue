@@ -3,7 +3,7 @@
     <div class="flex justify-between items-center flex-col lg:flex-row gap-5">
       <NuxtPicture src="/logo.png" :alt="$t('alt.slawomir')" class="max-w-[425px] w-full lg:h-[30px]" width="425"
         height="30" />
-      <div class="flex gap-5 text-white">
+      <div class="flex flex-wrap gap-5 text-white justify-center">
         <a href="https://www.linkedin.com/in/wozniak-slawomir" aria-label="Linkedin link" target="_blank">
           <PhLinkedinLogo :size="45" class="h-12" />
         </a>
