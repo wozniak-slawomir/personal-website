@@ -29,16 +29,16 @@
     </div>
     <hr class="border-[#464646] lg:my-10 my-7">
     <div class="flex justify-center gap-6 mb-8 text-sm font-semibold uppercase tracking-wider">
-      <NuxtLink to="/wizja" class="hover:text-[var(--primary-color)] transition-colors">
+      <NuxtLink :to="localePath('/wizja')" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('navbar.vision') }}
       </NuxtLink>
-      <NuxtLink to="/bio" class="hover:text-[var(--primary-color)] transition-colors">
+      <NuxtLink :to="localePath('/bio')" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('navbar.bio') }}
       </NuxtLink>
-      <NuxtLink to="/blog" class="hover:text-[var(--primary-color)] transition-colors">
+      <NuxtLink :to="localePath('/blog')" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('navbar.blog') }}
       </NuxtLink>
-      <NuxtLink to="/contact" class="hover:text-[var(--primary-color)] transition-colors">
+      <NuxtLink :to="localePath('/contact')" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('common.contact') }}
       </NuxtLink>
     </div>
@@ -62,5 +62,7 @@
 
 <script setup lang="ts">
 import { PhInstagramLogo, PhLinkedinLogo, PhEnvelopeSimple, PhPhone, PhTiktokLogo, PhYoutubeLogo, PhFacebookLogo } from '@phosphor-icons/vue'
+
+const localePath = useLocalePath()
 const date = new Date().getFullYear()
 </script>

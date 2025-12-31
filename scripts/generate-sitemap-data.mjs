@@ -139,9 +139,16 @@ function generateSitemapData() {
         })
     }
 
-    // Write to JSON file
-    fs.writeFileSync(outputFile, JSON.stringify(sitemapEntries, null, 2))
-    console.log(`✅ Generated sitemap data with ${sitemapEntries.length} entries to ${outputFile}`)
+    // Write to JSON file - add _i18nTransform to generate all locale versions
+    const allEntries = sitemapEntries.map(entry => ({
+        loc: entry.loc,
+        lastmod: entry.lastmod,
+        images: entry.images,
+        _i18nTransform: true  // Automatically generates /en prefix versions
+    }))
+
+    fs.writeFileSync(outputFile, JSON.stringify(allEntries, null, 2))
+    console.log(`✅ Generated sitemap data with ${allEntries.length} entries (will be expanded to all locales) to ${outputFile}`)
 }
 
 generateSitemapData()

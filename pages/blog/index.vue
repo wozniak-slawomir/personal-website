@@ -12,7 +12,7 @@
         :key="item.name"
         class="group relative overflow-hidden rounded-2xl border border-[var(--border-color)] bg-[var(--card-bg)] transition-all duration-300 hover:shadow-lg hover:border-[var(--primary-color)]/30"
       >
-        <NuxtLink :to="item.link" class="flex flex-col md:flex-row h-full">
+        <NuxtLink :to="getItemLink(item.link)" class="flex flex-col md:flex-row h-full">
            <!-- Content Section (Left) -->
            <div class="flex-1 flex flex-col justify-center items-start p-8 text-left order-2 md:order-1 relative z-10 bg-[var(--card-bg)]">
               <h2 class="text-2xl md:text-3xl font-bold uppercase mb-4 drop-shadow-sm group-hover:text-[var(--primary-color)] transition-colors">
@@ -42,7 +42,15 @@
 </template>
 
 <script setup lang="ts">
+const localePath = useLocalePath()
 const { items } = useContentItems()
+
+const getItemLink = (link: string) => {
+  // External links start with http(s) - use as-is
+  if (link.startsWith('http')) return link
+  // Internal links - wrap with localePath
+  return localePath(link)
+}
 
 const blogItems = computed(() => {
   return items.value

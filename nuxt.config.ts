@@ -301,9 +301,11 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    baseUrl: 'https://slawomir-wozniak.pl',
     locales: [
       {
         code: 'en',
+        language: 'en',
         name: 'English',
         files: [
           'en/common.json',
@@ -318,7 +320,9 @@ export default defineNuxtConfig({
       },
       {
         code: 'pl',
+        language: 'pl',
         name: 'Polski',
+        isCatchallLocale: true,
         files: [
           'pl/common.json',
           'pl/homepage.json',
@@ -333,7 +337,7 @@ export default defineNuxtConfig({
     ],
     defaultLocale: DEFAULT_LOCALE,
     detectBrowserLanguage: false,
-    strategy: 'no_prefix',
+    strategy: 'prefix_except_default',
   },
 
   compatibilityDate: '2025-04-14',

@@ -32,7 +32,7 @@
       >
         <template #default="{ item }">
           <div class="relative rounded-2xl overflow-hidden group min-h-fit">
-            <NuxtLink :to="item.link">
+            <NuxtLink :to="getItemLink(item.link)">
               <NuxtPicture
                 :src="item.image"
                 :alt="item.name"
@@ -68,6 +68,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted, computed } from 'vue'
+
+const localePath = useLocalePath()
 
 type Card = 'portfolio' | 'blog' | 'all'
 
@@ -107,6 +109,13 @@ onUnmounted(() => {
 })
 
 const { items } = useContentItems()
+
+const getItemLink = (link: string) => {
+  // External links start with http(s) - use as-is
+  if (link.startsWith('http')) return link
+  // Internal links - wrap with localePath
+  return localePath(link)
+}
 
 const filteredItems = computed(() => {
   let baseItems = items.value

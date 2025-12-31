@@ -5,6 +5,7 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
 const { t } = useI18n();
+const localePath = useLocalePath();
 const { totalYearlyCost, total5YearCost, zombieYearlyCost, wellSpentYearlyCost, conflicts, resetCalculator } = useCalculator();
 
 const isPerfectScore = computed(() => zombieYearlyCost.value === 0);
@@ -131,10 +132,10 @@ const emit = defineEmits(['restart']);
             </p>
 
             <div class="flex flex-col md:flex-row items-center justify-center gap-4">
-                <a href="/contact"
+                <NuxtLink :to="localePath('/contact')"
                     class="px-8 py-4 bg-[#9c7942] hover:bg-[#8a6b3a] text-white font-bold rounded transition-colors w-full md:w-auto">
                     {{ $t('calculator.results.book_consultation') }}
-                </a>
+                </NuxtLink>
                 <button @click="emit('restart')"
                     class="px-8 py-4 bg-transparent border border-gray-500 text-gray-300 hover:text-white hover:border-white font-bold rounded transition-colors w-full md:w-auto">
                     {{ $t('calculator.results.recalculate') }}

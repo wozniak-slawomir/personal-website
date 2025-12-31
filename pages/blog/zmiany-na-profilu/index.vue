@@ -74,12 +74,12 @@
       </ul>
       <p class="mt-4">
         {{ t('blog.changesOnProfile.whatWillChange.newsletter1') }}
-        <a
-          href="/newsletter"
+        <NuxtLink
+          :to="localePath('/newsletter')"
           class="font-semibold underline"
         >
           {{ t('blog.changesOnProfile.whatWillChange.newsletter2') }}
-        </a>
+        </NuxtLink>
       </p>
       <p class="mt-4">
         {{ t('blog.changesOnProfile.whatWillChange.content3') }}
@@ -90,12 +90,12 @@
       </h2>
       <p class="mt-4">
         {{ t('blog.changesOnProfile.nextStep.content1') }}
-        <a
-          href="https://slawomir-wozniak.pl/newsletter"
+        <NuxtLink
+          :to="localePath('/newsletter')"
           class="font-semibold underline"
         >
           tutaj
-        </a>
+        </NuxtLink>
         {{ t('blog.changesOnProfile.nextStep.content2') }}
       </p>
       <p class="mt-4">
@@ -138,6 +138,7 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 
 const tags = ref<string[]>([])
 

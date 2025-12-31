@@ -11,7 +11,7 @@
             {{ errorMessage }}
           </p>
           <NuxtLink
-            to="/"
+            :to="localePath('/')"
             class="text-blue-500 hover:underline"
           >
             {{ $t('error.back') }}
@@ -30,6 +30,7 @@ import { computed, onBeforeMount, ref, watch } from 'vue'
 import { useI18n } from 'vue-i18n'
 
 const { t, locale, setLocale } = useI18n()
+const localePath = useLocalePath()
 
 const error = ref({
   statusCode: 404,

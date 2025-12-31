@@ -219,7 +219,7 @@
             {{ $t('bio.cta') }}
           </p>
           <NuxtLink
-            to="/contact"
+            :to="localePath('/contact')"
             class="px-10 md:px-14 py-4 md:py-5 rounded-full font-semibold text-lg bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:opacity-50 inline-block text-center"
           >
             {{ $t("common.contact") }}
@@ -236,6 +236,7 @@ import { computed } from 'vue'
 import { PhShieldCheck, PhLightning, PhHandshake } from '@phosphor-icons/vue'
 
 const { t } = useI18n()
+const localePath = useLocalePath()
 
 
 const bioTitle = computed(() => {

@@ -3,15 +3,16 @@
     :class="{ 'bg-[linear-gradient(to_bottom,var(--secondary-color)_0%,rgba(0,0,0,0.4)_70%,transparent_100%)]': navbarDarker }">
     <div class="scroll-progress-bar" />
     <div class="container justify-between items-center flex">
-      <NuxtLink to="/">
+      <NuxtLink :to="localePath('/')">
+
         <NuxtPicture src="/logo.png" class="max-w-full md:max-w-[425px] min-w-[100px]" preload :alt="$t('alt.slawomir')"
           width="425" height="30" />
       </NuxtLink>
       <div class="flex items-center gap-4 relative">
         <div class="hidden xl:flex items-center gap-4">
-          <NuxtLink v-for="link in navLinks" :key="link.to" :to="link.to"
+          <NuxtLink v-for="link in navLinks" :key="link.path" :to="link.to"
             class="hover:text-[var(--primary-color)] transition-colors duration-300 font-semibold text-sm uppercase"
-            :class="{ 'text-[var(--primary-color)]': isActive(link.to) }">
+            :class="{ 'text-[var(--primary-color)]': isActive(link.path) }">
             {{ link.label }}
           </NuxtLink>
 
@@ -40,7 +41,7 @@
           </div>
 
           <!-- Newsletter CTA - appears when navbar is sticky -->
-          <NuxtLink v-if="navbarDarker" to="/newsletter"
+          <NuxtLink v-if="navbarDarker" :to="localePath('/newsletter')"
             class="px-4 py-2 rounded-full font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase">
             {{ $t('navbar.newsletter') }}
           </NuxtLink>
@@ -80,14 +81,14 @@
 
       <div v-if="isNavMenuOpen" id="mobile-nav" class="xl:hidden absolute left-0 right-0 top-[calc(100%+1rem)] z-10">
         <div class="rounded-2xl border border-gray-700 bg-[#1a1a1a]/95 backdrop-blur p-4 flex flex-col gap-2 shadow-xl">
-          <NuxtLink v-for="link in navLinks" :key="`mobile-${link.to}`" :to="link.to"
+          <NuxtLink v-for="link in navLinks" :key="`mobile-${link.path}`" :to="link.to"
             class="uppercase text-sm font-semibold py-2 px-3 rounded-xl hover:text-[var(--primary-color)] transition-colors duration-200"
-            :class="{ 'text-[var(--primary-color)]': isActive(link.to) }" @click="isNavMenuOpen = false">
+            :class="{ 'text-[var(--primary-color)]': isActive(link.path) }" @click="isNavMenuOpen = false">
             {{ link.label }}
           </NuxtLink>
 
           <!-- Newsletter CTA for mobile - always visible -->
-          <NuxtLink to="/newsletter"
+          <NuxtLink :to="localePath('/newsletter')"
             class="w-full px-4 py-3 mt-2 rounded-xl font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase text-center"
             @click="isNavMenuOpen = false">
             {{ $t('navbar.newsletter') }}
@@ -144,6 +145,7 @@ import { vOnClickOutside } from '@vueuse/components'
 import { PhInstagramLogo, PhLinkedinLogo, PhTiktokLogo, PhYoutubeLogo, PhFacebookLogo } from '@phosphor-icons/vue'
 
 const { locales, locale, setLocale, t } = useI18n()
+const localePath = useLocalePath()
 const route = useRoute()
 
 
@@ -154,11 +156,11 @@ const navbarDarker = ref(false)
 const mobileNavButton = ref<HTMLButtonElement | null>(null)
 
 const navLinks = computed(() => [
-  { to: '/portfolio', label: t('navbar.portfolio') },
-  { to: '/blog', label: t('navbar.blog') },
-  { to: '/wizja', label: t('navbar.vision') },
-  { to: '/bio', label: t('navbar.bio') },
-  { to: '/contact', label: t('common.contact') },
+  { path: '/portfolio', to: localePath('/portfolio'), label: t('navbar.portfolio') },
+  { path: '/blog', to: localePath('/blog'), label: t('navbar.blog') },
+  { path: '/wizja', to: localePath('/wizja'), label: t('navbar.vision') },
+  { path: '/bio', to: localePath('/bio'), label: t('navbar.bio') },
+  { path: '/contact', to: localePath('/contact'), label: t('common.contact') },
 ])
 
 const changeLanguage = (language: typeof locale.value) => {
@@ -168,7 +170,7 @@ const changeLanguage = (language: typeof locale.value) => {
   isNavMenuOpen.value = false
 }
 
-const isActive = (path: string) => route.path === path
+const isActive = (path: string) => route.path === path || route.path === localePath(path)
 
 
 
