@@ -17,7 +17,13 @@
         {{ t('blog.value.content2b') }}
       </p>
       <p class="mt-4">
-        {{ t('blog.value.content3') }}
+        {{ t('blog.value.content3Prefix') }}
+        <a
+          href="https://www.effectivealtruism.org/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >{{ t('blog.value.content3Link') }}</a>{{ t('blog.value.content3Suffix') }}
       </p>
       <figure>
         <NuxtPicture

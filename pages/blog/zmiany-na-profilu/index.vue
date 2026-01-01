@@ -36,7 +36,13 @@
         {{ t('blog.changesOnProfile.nextStage.content1') }}
       </p>
       <p class="mt-4">
-        {{ t('blog.changesOnProfile.nextStage.content2') }}
+        {{ t('blog.changesOnProfile.nextStage.content2Prefix') }}
+        <a
+          href="https://nimbleninja.pl/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >Nimble Ninja</a>{{ t('blog.changesOnProfile.nextStage.content2Suffix') }}
       </p>
 
       <h2 class="mt-5 text-xl font-bold text-left">
