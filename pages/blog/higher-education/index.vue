@@ -50,7 +50,13 @@
       </p>
 
       <p class="mt-4">
-        {{ t('blog.higherEducation.content11') }}
+        {{ t('blog.higherEducation.content11Prefix') }}
+        <a
+          href="https://www.merito.pl/poznan/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >{{ t('blog.higherEducation.content11Link') }}</a>.
       </p>
 
       <NuxtPicture
@@ -115,7 +121,13 @@
       </p>
 
       <p class="mt-4">
-        {{ t('blog.higherEducation.content23') }}
+        {{ t('blog.higherEducation.content23Prefix') }}
+        <a
+          href="https://tetos.pl/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >{{ t('blog.higherEducation.content23Link') }}</a>{{ t('blog.higherEducation.content23Suffix') }}
       </p>
 
       <NuxtPicture
