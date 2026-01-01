@@ -4,10 +4,11 @@
  * Usage: GOOGLE_SERVICE_ACCOUNT_JSON='...' node scripts/submit-sitemap.mjs
  */
 
-const SITE_URL = 'https://slawomir-wozniak.pl';
+// Domain property format for Search Console
+const SITE_URL = 'sc-domain:slawomir-wozniak.pl';
 const SITEMAPS = [
-    `${SITE_URL}/__sitemap__/en.xml`,
-    `${SITE_URL}/__sitemap__/pl.xml`,
+    'https://slawomir-wozniak.pl/__sitemap__/en.xml',
+    'https://slawomir-wozniak.pl/__sitemap__/pl.xml',
 ];
 
 async function getAccessToken(credentials) {
@@ -79,10 +80,20 @@ async function submitSitemap(accessToken, siteUrl, sitemapUrl) {
         },
     });
 
+    let errorBody = null;
+    if (!response.ok) {
+        try {
+            errorBody = await response.text();
+        } catch (e) {
+            // ignore
+        }
+    }
+
     return {
         sitemap: sitemapUrl,
         status: response.status,
         ok: response.ok,
+        errorBody,
     };
 }
 
@@ -102,6 +113,7 @@ async function main() {
         process.exit(1);
     }
 
+    console.log(`🔑 Service account: ${credentials.client_email}`);
     console.log('🔑 Obtaining access token...');
     const accessToken = await getAccessToken(credentials);
     console.log('✅ Access token obtained');
@@ -117,6 +129,9 @@ async function main() {
             console.log(`✅ ${result.sitemap} - Status: ${result.status}`);
         } else {
             console.error(`❌ ${result.sitemap} - Status: ${result.status}`);
+            if (result.errorBody) {
+                console.error(`   Error: ${result.errorBody}`);
+            }
             hasError = true;
         }
     }
