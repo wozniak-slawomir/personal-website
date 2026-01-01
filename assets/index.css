@@ -4,6 +4,19 @@
 
 @tailwind utilities;
 
+/* Default link styling - can be overridden by more specific styles */
+a {
+  color: #60a5fa;
+  /* blue-400 */
+}
+
+/* Keep navbar, footer, and article card links white */
+nav a,
+footer a,
+article a {
+  color: var(--primary-text-color);
+}
+
 :root {
   font-family: "Outfit", sans-serif;
   font-optical-sizing: auto;
@@ -68,30 +81,28 @@ body {
 }
 
 .testimonials-mask {
-  mask-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 2%,
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 1) 80%,
-    rgba(255, 255, 255, 0) 98%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  -webkit-mask-image: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(255, 255, 255, 0) 2%,
-    rgba(0, 0, 0, 1) 20%,
-    rgba(0, 0, 0, 1) 50%,
-    rgba(0, 0, 0, 1) 80%,
-    rgba(255, 255, 255, 0) 98%,
-    rgba(255, 255, 255, 0) 100%
-  );
+  mask-image: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 2%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(255, 255, 255, 0) 98%,
+      rgba(255, 255, 255, 0) 100%);
+  -webkit-mask-image: linear-gradient(90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0) 2%,
+      rgba(0, 0, 0, 1) 20%,
+      rgba(0, 0, 0, 1) 50%,
+      rgba(0, 0, 0, 1) 80%,
+      rgba(255, 255, 255, 0) 98%,
+      rgba(255, 255, 255, 0) 100%);
 }
 
 .glassmorphism {
-  @apply border-2 border-[var(--border-color)] bg-gradient-to-bl from-[rgba(255,255,255,0.1)] to-transparent;
+  border-width: 2px;
+  border-color: var(--border-color);
+  background-image: linear-gradient(to bottom left, rgba(255, 255, 255, 0.1), transparent);
 }
 
 #cc-main {

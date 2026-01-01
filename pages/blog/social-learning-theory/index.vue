@@ -127,18 +127,29 @@
       <p
         id="reference[1]"
         class="mt-2"
-      > 
-        {{ t('blog.socialLearningTheory.reference1') }}
+      >
+        <a
+          href="https://en.wikipedia.org/wiki/Social_learning_theory"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >{{ t('blog.socialLearningTheory.reference1') }}</a>
       </p>
-      <p
-        id="reference[2]"
-      > 
-        {{ t('blog.socialLearningTheory.reference2') }}
+      <p id="reference[2]">
+        <a
+          href="https://www.researchgate.net/publication/273354153_The_Spread_of_Obesity_in_a_Large_Social_Network_Over_32_Years"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >{{ t('blog.socialLearningTheory.reference2') }}</a>
       </p>
-      <p
-        id="reference[3]"
-      > 
-        {{ t('blog.socialLearningTheory.reference3') }}
+      <p id="reference[3]">
+        <a
+          href="https://www.researchgate.net/publication/374669307_Benefits_of_Recruiting_Participants_With_Friends_and_Increasing_Social_Support_for_Weight_Loss_and_Maintenance"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >{{ t('blog.socialLearningTheory.reference3') }}</a>
       </p>
     </template>
   </BlogPost>
