@@ -20,7 +20,15 @@
       </p>
       <ul class="list-disc list-inside mt-4 space-y-2">
         <li>{{ t('blog.professionalWebsite.step1.list1') }}</li>
-        <li>{{ t('blog.professionalWebsite.step1.list2') }}</li>
+        <li>
+          {{ t('blog.professionalWebsite.step1.list2Prefix') }}
+          <a
+            href="https://pl.wikipedia.org/wiki/Handel_elektroniczny"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-primary-400 transition-colors"
+          >E-commerce</a>{{ t('blog.professionalWebsite.step1.list2Suffix') }}
+        </li>
         <li>{{ t('blog.professionalWebsite.step1.list3') }}</li>
       </ul>
       <p class="mt-4 font-semibold">
@@ -35,7 +43,18 @@
       </p>
 
       <h3 class="text-xl font-semibold mt-6">
-        {{ t('blog.professionalWebsite.optionA.title') }}
+        {{ t('blog.professionalWebsite.optionA.titlePrefix') }}
+        <a
+          href="https://pl.wix.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >Wix</a>, <a
+          href="https://www.squarespace.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >Squarespace</a>{{ t('blog.professionalWebsite.optionA.titleSuffix') }}
       </h3>
       <p class="mt-4">
         {{ t('blog.professionalWebsite.optionA.content') }}
@@ -49,7 +68,13 @@
       </p>
 
       <h3 class="text-xl font-semibold mt-6">
-        {{ t('blog.professionalWebsite.optionB.title') }}
+        {{ t('blog.professionalWebsite.optionB.titlePrefix') }}
+        <a
+          href="https://wordpress.com/pl/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >WordPress</a>{{ t('blog.professionalWebsite.optionB.titleSuffix') }}
       </h3>
       <p class="mt-4">
         {{ t('blog.professionalWebsite.optionB.content') }}
@@ -69,7 +94,15 @@
         {{ t('blog.professionalWebsite.optionC.content') }}
       </p>
       <ul class="list-disc list-inside mt-4 space-y-2">
-        <li>{{ t('blog.professionalWebsite.optionC.pro') }}</li>
+        <li>
+          {{ t('blog.professionalWebsite.optionC.proPrefix') }}
+          <a
+            href="https://pl.wikipedia.org/wiki/Core_Web_Vitals"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-primary-400 transition-colors"
+          >Core Web Vitals</a>{{ t('blog.professionalWebsite.optionC.proSuffix') }}
+        </li>
         <li>{{ t('blog.professionalWebsite.optionC.con') }}</li>
       </ul>
       <p class="mt-4 font-semibold">

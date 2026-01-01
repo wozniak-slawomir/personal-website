@@ -16,7 +16,13 @@
       </p>
 
       <h2 class="text-2xl font-bold mt-8">
-        {{ t('blog.vendorLockIn.whatIs.title') }}
+        {{ t('blog.vendorLockIn.whatIs.titlePrefix') }}
+        <a
+          href="https://pl.wikipedia.org/wiki/Uzale%C5%BCnienie_od_dostawcy"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >Vendor Lock-in</a>{{ t('blog.vendorLockIn.whatIs.titleSuffix') }}
       </h2>
 
       <p class="mt-4">
@@ -32,7 +38,20 @@
       </p>
 
       <ul class="list-disc list-inside mt-4 space-y-2">
-        <li>{{ t('blog.vendorLockIn.whatIs.trap1') }}</li>
+        <li>
+          {{ t('blog.vendorLockIn.whatIs.trap1Prefix') }}
+          <a
+            href="https://aws.amazon.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-primary-400 transition-colors"
+          >AWS</a> {{ t('blog.vendorLockIn.whatIs.trap1Middle') }} <a
+            href="https://azure.microsoft.com/pl-pl"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-primary-400 transition-colors"
+          >Azure</a>{{ t('blog.vendorLockIn.whatIs.trap1Suffix') }}
+        </li>
         <li>{{ t('blog.vendorLockIn.whatIs.trap2') }}</li>
         <li>{{ t('blog.vendorLockIn.whatIs.trap3') }}</li>
       </ul>
@@ -60,7 +79,16 @@
       <ul class="list-disc list-inside mt-4 space-y-2">
         <li><strong>{{ t('blog.vendorLockIn.cost.risk1Title') }}</strong> {{ t('blog.vendorLockIn.cost.risk1') }}</li>
         <li><strong>{{ t('blog.vendorLockIn.cost.risk2Title') }}</strong> {{ t('blog.vendorLockIn.cost.risk2') }}</li>
-        <li><strong>{{ t('blog.vendorLockIn.cost.risk3Title') }}</strong> {{ t('blog.vendorLockIn.cost.risk3') }}</li>
+        <li>
+          <strong>{{ t('blog.vendorLockIn.cost.risk3Title') }}</strong>
+          {{ t('blog.vendorLockIn.cost.risk3Prefix') }}
+          <a
+            href="https://pl.wikipedia.org/wiki/Oprogramowanie_jako_us%C5%82uga"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="underline hover:text-primary-400 transition-colors"
+          >SaaS</a>{{ t('blog.vendorLockIn.cost.risk3Suffix') }}
+        </li>
       </ul>
 
       <h2 class="text-2xl font-bold mt-8">
@@ -76,7 +104,13 @@
       </p>
 
       <h3 class="text-xl font-semibold mt-6">
-        {{ t('blog.vendorLockIn.sovereignty.rule1.title') }}
+        {{ t('blog.vendorLockIn.sovereignty.rule1.titlePrefix') }}
+        <a
+          href="https://pl.wikipedia.org/wiki/Otwarte_oprogramowanie"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >Open Source</a>
       </h3>
 
       <p class="mt-4">

@@ -6,7 +6,12 @@
   >
     <template #content>
       <h2 class="text-2xl font-bold mt-8">
-        {{ t('blog.meetingThatCouldBeVideo.problem.title') }}
+        <a
+          href="https://www.linkedin.com/posts/evanfish_the-shocking-amount-of-meetings-we-face-today-activity-7396562926754770944-1rwH/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="hover:text-primary-400 transition-colors"
+        >{{ t('blog.meetingThatCouldBeVideo.problem.title') }}</a>
       </h2>
       <p class="mt-4">
         {{ t('blog.meetingThatCouldBeVideo.intro') }}
@@ -102,11 +107,27 @@
       </p>
       <ul class="list-disc list-inside mt-4 space-y-2">
         <li>
-          <strong>{{ t('blog.meetingThatCouldBeVideo.advantages.list1.title') }}</strong>
+          <strong>
+            {{ t('blog.meetingThatCouldBeVideo.advantages.list1.titlePrefix') }}
+            <a
+              href="https://pl.wikipedia.org/wiki/Asynchroniczno%C5%9B%C4%87"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline hover:text-primary-400 transition-colors"
+            >{{ t('blog.meetingThatCouldBeVideo.advantages.list1.titleLink') }}</a>{{ t('blog.meetingThatCouldBeVideo.advantages.list1.titleSuffix') }}
+          </strong>
           {{ t('blog.meetingThatCouldBeVideo.advantages.list1.content') }}
         </li>
         <li>
-          <strong>{{ t('blog.meetingThatCouldBeVideo.advantages.list2.title') }}</strong>
+          <strong>
+            {{ t('blog.meetingThatCouldBeVideo.advantages.list2.titlePrefix') }}
+            <a
+              href="https://pl.wikipedia.org/wiki/Skalowalno%C5%9B%C4%87"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="underline hover:text-primary-400 transition-colors"
+            >{{ t('blog.meetingThatCouldBeVideo.advantages.list2.titleLink') }}</a>{{ t('blog.meetingThatCouldBeVideo.advantages.list2.titleSuffix') }}
+          </strong>
           {{ t('blog.meetingThatCouldBeVideo.advantages.list2.content') }}
         </li>
       </ul>

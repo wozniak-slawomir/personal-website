@@ -9,7 +9,19 @@
         {{ t('blog.aiStrateg.intro') }}
       </p>
       <p class="mt-4">
-        {{ t('blog.aiStrateg.solution') }}
+        {{ t('blog.aiStrateg.solutionPrefix') }}
+        <a
+          href="https://gemini.google.com/app"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >Gemini</a>{{ t('blog.aiStrateg.solutionMiddle') }}
+        <a
+          href="https://chatgpt.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >ChatGPT</a>{{ t('blog.aiStrateg.solutionSuffix') }}
       </p>
       <p class="mt-4">
         {{ t('blog.aiStrateg.checkModel') }}

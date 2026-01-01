@@ -12,7 +12,13 @@
       </p>
 
       <p class="mt-4">
-        {{ t('blog.technologyPartner.content2') }}
+        {{ t('blog.technologyPartner.content2Prefix') }}
+        <a
+          href="https://creators.facebook.com/tools/meta-business-suite/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >Meta Business Suite</a>{{ t('blog.technologyPartner.content2Suffix') }}
       </p>
 
       <figure>
@@ -38,7 +44,13 @@
       </h2>
 
       <p class="mt-4">
-        {{ t('blog.technologyPartner.deadEnd1.content') }}
+        {{ t('blog.technologyPartner.deadEnd1.contentPrefix') }}
+        <a
+          href="https://www.youtube.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >YouTube</a>{{ t('blog.technologyPartner.deadEnd1.contentSuffix') }}
       </p>
 
       <p class="mt-4">

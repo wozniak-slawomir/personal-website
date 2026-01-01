@@ -30,7 +30,13 @@
         {{ t('blog.gift.step1.title') }}
       </h2>
       <p class="mt-4">
-        {{ t('blog.gift.step1.content') }}
+        {{ t('blog.gift.step1.contentPrefix') }}
+        <a
+          href="https://chatgpt.com/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >ChatGPT</a>{{ t('blog.gift.step1.contentSuffix') }}
       </p>
       <p class="mt-4 p-4 bg-gray-800 rounded-lg italic">
         {{ t('blog.gift.step1.example') }}
@@ -61,7 +67,13 @@
         {{ t('blog.gift.step4.title') }}
       </h2>
       <p class="mt-4">
-        {{ t('blog.gift.step4.content') }}
+        {{ t('blog.gift.step4.contentPrefix') }}
+        <a
+          href="https://www.musicful.ai/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="underline hover:text-primary-400 transition-colors"
+        >Musicful.ai</a>{{ t('blog.gift.step4.contentSuffix') }}
       </p>
       <div class="mt-6">
         <NuxtImg
