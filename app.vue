@@ -1,11 +1,10 @@
 <template>
   <div class="dark">
-    <div class="z-1 relative">
-      <Navbar />
-      <NuxtPage />
-      <Footer />
-
-    </div>
+      <div class="z-1 relative">
+        <Navbar />
+        <NuxtPage />
+        <Footer />
+      </div>
   </div>
 </template>
 
@@ -23,12 +22,13 @@ onBeforeMount(() => {
   }
 })
 
-watch(locale, () => {
-  useHead({
-    htmlAttrs: {
-      lang: locale.value,
-    },
-  })
-}, { immediate: true })
-
+// Generate hreflang tags for SEO (including x-default)
+const i18nHead = useLocaleHead()
+useHead(() => ({
+  htmlAttrs: {
+    lang: i18nHead.value.htmlAttrs!.lang
+  },
+  link: [...(i18nHead.value.link || [])],
+  meta: [...(i18nHead.value.meta || [])]
+}))
 </script>
