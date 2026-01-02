@@ -21,3 +21,8 @@ services:
       - VITE_SENDER_MAIL=${VITE_SENDER_MAIL}
     ports:
       - 3000:3000
+    volumes:
+      - calculator_data:/app/.output/.data
+
+volumes:
+  calculator_data:
