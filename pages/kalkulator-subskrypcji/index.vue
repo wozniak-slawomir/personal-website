@@ -13,7 +13,7 @@ useHead({
 </script>
 
 <template>
-    <div class="min-h-screen bg-[#1a1a1a] pt-32 pb-12">
+    <div class="min-h-screen pt-32 pb-12">
         <CalculatorContainer />
     </div>
 </template>

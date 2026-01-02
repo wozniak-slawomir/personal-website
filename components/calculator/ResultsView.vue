@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { useCalculator } from '~/composables/useCalculator';
 import { formatCurrency } from '~/lib/currency';
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { VisGroupedBar, VisXYContainer, VisAxis, VisSingleContainer, VisDonut } from '@unovis/vue';
+import { ChartContainer, ChartLegend, type ChartConfig } from '~/components/ui/chart';
 
 const { t } = useI18n();
 const localePath = useLocalePath();
-const { totalYearlyCost, total5YearCost, zombieYearlyCost, wellSpentYearlyCost, conflicts, resetCalculator } = useCalculator();
+const { state, totalYearlyCost, total5YearCost, zombieYearlyCost, wellSpentYearlyCost, conflicts, resetCalculator } = useCalculator();
 
 const isPerfectScore = computed(() => zombieYearlyCost.value === 0);
 
@@ -22,6 +24,93 @@ const contextItem = computed(() => {
 
 const emit = defineEmits(['restart']);
 
+// Fetch stats for comparison
+interface Stats {
+    totalResponses: number;
+    averageTotalCost: number;
+    averageZombieCost: number;
+    averageWellSpentCost: number;
+    segmentCounts: Record<string, number>;
+    costsBySegment: Array<{ segment: string; wellSpent: number; zombie: number; responses: number }>;
+}
+
+const { data: stats } = await useFetch<Stats>('/api/calculator/stats');
+
+// Save the response when the results are shown
+onMounted(async () => {
+    try {
+        await $fetch('/api/calculator/responses', {
+            method: 'POST',
+            body: {
+                segment: state.value.selectedSegment,
+                peopleCounts: state.value.peopleCounts,
+                selections: state.value.selections,
+                totalYearlyCost: totalYearlyCost.value,
+                zombieYearlyCost: zombieYearlyCost.value,
+                wellSpentYearlyCost: wellSpentYearlyCost.value,
+            },
+        });
+    } catch (error) {
+        console.error('Failed to save response:', error);
+    }
+});
+
+// Segment labels
+const segmentLabels: Record<string, string> = {
+    marketing: 'Marketing',
+    dev: 'Programiści',
+    sales: 'Sprzedaż',
+    ecommerce: 'E-commerce',
+    office: 'Biuro',
+    personal: 'Prywatne',
+};
+
+// Comparison bar chart data - You vs Average
+const comparisonData = computed(() => {
+    if (!stats.value) return [];
+    return [
+        { category: 'Ty', index: 0 },
+        { category: 'Średnia', index: 1 },
+    ];
+});
+
+const comparisonChartConfig: ChartConfig = {
+    wellSpent: { label: 'Dobrze wydane', color: '#10b981' },
+    zombie: { label: 'Zmarnowane', color: '#ef4444' },
+};
+
+// Donut chart for your cost breakdown
+const yourCostBreakdown = computed(() => {
+    return [
+        { label: 'Dobrze wydane', value: wellSpentYearlyCost.value, color: '#10b981' },
+        { label: 'Zmarnowane', value: zombieYearlyCost.value, color: '#ef4444' },
+    ].filter(d => d.value > 0);
+});
+
+// Calculate percentile (how you compare to others)
+const zombiePercentile = computed(() => {
+    if (!stats.value || stats.value.totalResponses < 2) return null;
+    const avgZombie = stats.value.averageZombieCost;
+    const yourZombie = zombieYearlyCost.value;
+    
+    if (yourZombie < avgZombie) {
+        const percentBetter = Math.round((1 - yourZombie / avgZombie) * 100);
+        return { type: 'better', percent: percentBetter };
+    } else if (yourZombie > avgZombie) {
+        const percentWorse = Math.round((yourZombie / avgZombie - 1) * 100);
+        return { type: 'worse', percent: percentWorse };
+    }
+    return { type: 'average', percent: 0 };
+});
+
+// User's segment label
+const userSegmentLabel = computed(() => {
+    if (!state.value.selectedSegment) return 'Użytkownicy';
+    return segmentLabels[state.value.selectedSegment] || state.value.selectedSegment;
+});
+
+type ComparisonData = { category: string; index: number };
+type CostBreakdownData = { label: string; value: number; color: string };
 </script>
 
 <template>
@@ -82,6 +171,92 @@ const emit = defineEmits(['restart']);
                         {{ $t('calculator.results.digital_hygiene') }} <span class="font-bold text-green-500">{{ $t('calculator.results.exemplary') }}</span>.
                     </p>
                     <p class="text-sm text-gray-400">{{ $t('calculator.results.keep_it_up') }}</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Comparison Section -->
+        <div v-if="stats && stats.totalResponses > 0" class="bg-[#252525] border border-gray-700 rounded-xl p-6">
+            <h3 class="text-xl font-bold text-white mb-2 flex items-center">
+                <span class="mr-2">📊</span> Jak wypadasz na tle innych?
+            </h3>
+            <p class="text-gray-400 text-sm mb-6">Porównanie z {{ stats.totalResponses }} innymi użytkownikami kalkulatora</p>
+
+            <!-- Percentile comparison badge -->
+            <div v-if="zombiePercentile" class="mb-6 flex justify-center">
+                <div v-if="zombiePercentile.type === 'better'" 
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-green-900/30 border border-green-500/50 rounded-full">
+                    <span class="text-2xl">🎉</span>
+                    <span class="text-green-400 font-medium">
+                        Marnujesz <span class="font-bold">{{ zombiePercentile.percent }}% mniej</span> niż przeciętny użytkownik!
+                    </span>
+                </div>
+                <div v-else-if="zombiePercentile.type === 'worse'"
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-red-900/30 border border-red-500/50 rounded-full">
+                    <span class="text-2xl">⚠️</span>
+                    <span class="text-red-400 font-medium">
+                        Marnujesz <span class="font-bold">{{ zombiePercentile.percent }}% więcej</span> niż przeciętny użytkownik
+                    </span>
+                </div>
+                <div v-else
+                    class="inline-flex items-center gap-2 px-4 py-2 bg-gray-700/50 border border-gray-600 rounded-full">
+                    <span class="text-2xl">📈</span>
+                    <span class="text-gray-300 font-medium">Jesteś w okolicach średniej</span>
+                </div>
+            </div>
+
+            <!-- Comparison Chart: You vs Average -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <!-- Bar comparison -->
+                <div class="space-y-4">
+                    <h4 class="text-sm font-medium text-gray-400 uppercase tracking-wider">Ty vs Średnia</h4>
+                    <ChartContainer :config="comparisonChartConfig">
+                        <VisXYContainer :data="comparisonData" :margin="{ left: 80, right: 20, top: 10, bottom: 40 }">
+                            <VisGroupedBar
+                                :x="(d: ComparisonData) => d.index"
+                                :y="[(d: ComparisonData) => d.index === 0 ? wellSpentYearlyCost : stats?.averageWellSpentCost || 0, 
+                                     (d: ComparisonData) => d.index === 0 ? zombieYearlyCost : stats?.averageZombieCost || 0]"
+                                :color="[comparisonChartConfig.wellSpent.color, comparisonChartConfig.zombie.color]"
+                                :rounded-corners="4"
+                                :bar-padding="0.3"
+                                :group-padding="0.1"
+                            />
+                            <VisAxis
+                                type="x"
+                                :tick-format="(i: number) => comparisonData[i]?.category || ''"
+                                :grid-line="false"
+                                :tick-line="false"
+                            />
+                            <VisAxis
+                                type="y"
+                                :tick-format="(v: number) => `${Math.round(v / 1000)}k`"
+                                :grid-line="true"
+                                :tick-line="false"
+                            />
+                        </VisXYContainer>
+                    </ChartContainer>
+                    <ChartLegend :config="comparisonChartConfig" />
+                </div>
+
+                <!-- Your cost breakdown donut -->
+                <div class="space-y-4">
+                    <h4 class="text-sm font-medium text-gray-400 uppercase tracking-wider">Twój rozkład kosztów</h4>
+                    <ChartContainer :config="comparisonChartConfig">
+                        <VisSingleContainer :data="yourCostBreakdown">
+                            <VisDonut
+                                :value="(d: CostBreakdownData) => d.value"
+                                :color="(d: CostBreakdownData) => d.color"
+                                :arc-width="50"
+                                :pad-angle="0.02"
+                                :corner-radius="4"
+                            />
+                        </VisSingleContainer>
+                    </ChartContainer>
+                    <div class="text-center">
+                        <p class="text-gray-400 text-sm">
+                            {{ Math.round((zombieYearlyCost / (totalYearlyCost || 1)) * 100) }}% Twoich wydatków to zombie
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
