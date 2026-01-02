@@ -10,17 +10,24 @@ type Phase = 'hook' | 'segment' | 'input' | 'processing' | 'result';
 const currentPhase = ref<Phase>('hook');
 const { resetCalculator } = useCalculator();
 
+const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
 const startCalculator = () => {
     resetCalculator();
     currentPhase.value = 'segment';
+    scrollToTop();
 };
 
 const onSegmentSelected = () => {
     currentPhase.value = 'input';
+    scrollToTop();
 };
 
 const calculateResults = () => {
     currentPhase.value = 'processing';
+    scrollToTop();
     setTimeout(() => {
         currentPhase.value = 'result';
     }, 2000);
