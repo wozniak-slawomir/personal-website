@@ -58,7 +58,7 @@ export default defineEventHandler(async (event) => {
         console.error('Error saving calculator response:', error);
         throw createError({
             statusCode: 500,
-            statusMessage: 'Failed to save response',
+            statusMessage: `Failed to save response: ${error instanceof Error ? error.message : error}`,
         });
     }
 });

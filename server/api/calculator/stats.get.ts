@@ -103,7 +103,7 @@ export default defineEventHandler(() => {
         console.error('Error fetching calculator stats:', error);
         throw createError({
             statusCode: 500,
-            statusMessage: 'Failed to fetch statistics',
+            statusMessage: `Failed to fetch statistics: ${error instanceof Error ? error.message : error}`,
         });
     }
 });
