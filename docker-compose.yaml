@@ -22,7 +22,5 @@ services:
     ports:
       - 3000:3000
     volumes:
-      - calculator_data:/app/.output/.data
+      - ./data:/.data
 
-volumes:
-  calculator_data:
