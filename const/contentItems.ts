@@ -128,5 +128,13 @@ export const contentItems: ContentItem[] = [
     link: '/blog/pulapka-vendor-lock-in',
     lastmod: '2025-12-28T18:34:00+01:00'
   },
+  {
+    name: (t) => t('blog.needWebsite.title'),
+    image: 'blog/czy-potrzebujesz-strony/og-image.jpg',
+    description: (t) => t('blog.needWebsite.meta.description'),
+    tags: ['blog'],
+    link: '/blog/czy-potrzebujesz-strony',
+    lastmod: '2026-01-03T13:08:00+01:00'
+  },
 ]
 
