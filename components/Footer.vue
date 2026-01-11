@@ -38,6 +38,9 @@
       <NuxtLink :to="localePath('/blog')" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('navbar.blog') }}
       </NuxtLink>
+      <NuxtLink :to="localePath('/narzedzia')" class="hover:text-[var(--primary-color)] transition-colors">
+        {{ $t('navbar.tools') }}
+      </NuxtLink>
       <NuxtLink :to="localePath('/contact')" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('common.contact') }}
       </NuxtLink>
