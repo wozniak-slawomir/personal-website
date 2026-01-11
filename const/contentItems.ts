@@ -136,5 +136,13 @@ export const contentItems: ContentItem[] = [
     link: '/blog/czy-potrzebujesz-strony',
     lastmod: '2026-01-03T13:08:00+01:00'
   },
+  {
+    name: (t) => t('blog.googleSearchConsole.title'),
+    image: 'blog/google-search-console/og-image.jpg',
+    description: (t) => t('blog.googleSearchConsole.meta.description'),
+    tags: ['blog'],
+    link: '/blog/google-search-console',
+    lastmod: '2026-01-11T12:00:00+01:00'
+  }
 ]
 
