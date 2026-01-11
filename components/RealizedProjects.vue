@@ -7,22 +7,10 @@
       <h2 class="text-5xl font-bold my-10 text-center uppercase md:text-left">
         {{ $t('projects.title') }}
       </h2>
-      <div class="mb-5 mt-10 flex flex-wrap lg:my-10 gap-5">
-        <button
-          :class="{ 'bg-[#474b59]': activeFilter === 'portfolio' }"
-          class="text-l p-3 flex-1 rounded-3xl glassmorphism hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter = activeFilter === 'portfolio' ? 'all' : 'portfolio'"
-        >
-          {{ $t('projects.filter.portfolio') }}
-        </button>
-        <button
-          :class="{ 'bg-[#474b59]': activeFilter === 'blog' }"
-          class="text-l p-3 flex-1 rounded-3xl glassmorphism hover:bg-[#464646] h-15 w-full duration-300 shadow uppercase lg:max-w-fit lg:px-20 lg:mb-0"
-          @click="activeFilter = activeFilter === 'blog' ? 'all' : 'blog'"
-        >
-          {{ $t('projects.filter.blog') }}
-        </button>
-      </div>
+      <p class="text-xl text-center md:text-left mb-10 -mt-8 text-[var(--muted-foreground)]">
+        {{ $t('projects.subtitle') }}
+      </p>
+
       <masonry-wall
         :items="filteredItems"
         :gap="24"
@@ -71,14 +59,14 @@ import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const localePath = useLocalePath()
 
-type Card = 'portfolio' | 'blog' | 'all'
+
 
 const props = defineProps<{
   tags?: string[]
 }>()
 
 const columnsNum = ref(4)
-const activeFilter = ref<Card>('all')
+
 
 const handleResize = () => {
   const screenWidth = window.innerWidth
@@ -124,13 +112,9 @@ const filteredItems = computed(() => {
     baseItems = baseItems.filter((item) => props.tags?.some((tag) => item.tags.includes(tag)))
   }
 
-  if (activeFilter.value === 'all') {
-    return baseItems.slice(0).reverse()
-  } else {
     return baseItems
-      .filter((item) => item.tags.includes(activeFilter.value))
+      .filter((item) => item.tags.includes('portfolio'))
       .reverse()
-  }
 })
 
 </script>
