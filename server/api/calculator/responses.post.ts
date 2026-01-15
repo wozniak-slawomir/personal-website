@@ -1,4 +1,4 @@
-import { getDatabase } from '~/server/utils/database';
+import { getCalculatorDatabase } from '~/server/utils/calculatorDatabase';
 
 interface CalculatorResponse {
     segment?: string;
@@ -28,7 +28,7 @@ export default defineEventHandler(async (event) => {
     }
 
     try {
-        const db = getDatabase();
+        const db = getCalculatorDatabase();
 
         const stmt = db.prepare(`
             INSERT INTO calculator_responses (

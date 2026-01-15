@@ -1,5 +1,5 @@
-import { getDatabase } from '~/server/utils/database';
-import { getClientIP } from '~/server/utils/survey';
+import { getSurveyDatabase } from '~/server/utils/surveyDatabase';
+import { getClientIP } from '~/server/utils/surveyUtils';
 
 export default defineEventHandler((event) => {
     const ipAddress = getClientIP(event);
@@ -9,19 +9,14 @@ export default defineEventHandler((event) => {
     }
 
     try {
-        const db = getDatabase();
+        const db = getSurveyDatabase();
 
-        // Check in both tables
-        const mainResponse = db.prepare(
+        const response = db.prepare(
             'SELECT id FROM survey_responses WHERE ip_address = ?'
         ).get(ipAddress);
 
-        const outlierResponse = db.prepare(
-            'SELECT id FROM survey_outliers WHERE ip_address = ?'
-        ).get(ipAddress);
-
         return {
-            hasSubmitted: !!(mainResponse || outlierResponse),
+            hasSubmitted: !!response,
         };
     } catch (error) {
         console.error('Error checking IP:', error);
