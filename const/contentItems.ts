@@ -16,12 +16,11 @@ export const contentItems: ContentItem[] = [
     link: 'https://www.hiszpanbet.pl',
   },
   {
-    name: (t) => t('blog.edducamp2024.title'),
-    image: 'blog/edducamp/interview.png',
-    description: (t) => t('blog.edducamp2024.intro1') + ' ' + t('blog.edducamp2024.intro2'),
-    tags: ['blog'],
-    link: '/blog/edducamp2024',
-    lastmod: '2025-11-09T12:45:47+01:00'
+    name: 'nimbleninja.pl',
+    image: 'projects/nimbleninja.png',
+    tags: ['portfolio'],
+    description: (t) => t('projects.nimbleninja'),
+    link: 'https://nimbleninja.pl',
   },
   {
     name: 'PiotrChojankowski.pl',
@@ -29,6 +28,14 @@ export const contentItems: ContentItem[] = [
     description: (t) => t('projects.piotrchojankowski'),
     tags: ['portfolio'],
     link: 'https://www.piotrchojankowski.pl',
+  },
+  {
+    name: (t) => t('blog.edducamp2024.title'),
+    image: 'blog/edducamp/interview.png',
+    description: (t) => t('blog.edducamp2024.intro1') + ' ' + t('blog.edducamp2024.intro2'),
+    tags: ['blog'],
+    link: '/blog/edducamp2024',
+    lastmod: '2025-11-09T12:45:47+01:00'
   },
   {
     name: (t) => t('projects.blog.higherEducation'),
@@ -59,11 +66,18 @@ export const contentItems: ContentItem[] = [
     lastmod: '2025-08-22T11:39:22+02:00'
   },
   {
-    name: 'nimbleninja.pl',
-    image: 'projects/nimbleninja.png',
+    name: 'eduspotpro.pl',
+    image: 'projects/eduspotpro.png',
     tags: ['portfolio'],
-    description: (t) => t('projects.nimbleninja'),
-    link: 'https://nimbleninja.pl',
+    description: (t) => t('projects.eduspotpro'),
+    link: 'https://eduspotpro.pl',
+  },
+  {
+    name: 'nkowalczyk-coaching.com',
+    image: 'projects/nkowalczyk.png',
+    tags: ['portfolio'],
+    description: (t) => t('projects.nkowalczyk'),
+    link: 'https://nkowalczyk-coaching.com',
   },
   {
     name: (t) => t('blog.value.title'),
