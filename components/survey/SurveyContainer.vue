@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { TIPI_QUESTIONS, EMPLOYMENT_TYPES } from '~/const/survey';
+import { calculateBigFive, getPersonalityProfile, type PersonalityProfile } from '~/utils/personality';
 
 type Phase = 'intro' | 'screening' | 'personality' | 'employment' | 'processing' | 'thank-you' | 'already-submitted';
 
@@ -11,6 +12,7 @@ const error = ref<string | null>(null);
 
 // Survey data
 const answers = ref<Record<string, number>>({});
+const results = ref<PersonalityProfile | null>(null);
 const employment = ref({
     type: '',
     experience: 0,
@@ -80,6 +82,10 @@ async function submitSurvey() {
     currentPhase.value = 'processing';
 
     try {
+        // Calculate results client-side for immediate feedback
+        const scores = calculateBigFive(answers.value);
+        results.value = getPersonalityProfile(scores);
+
         await $fetch('/api/survey/responses', {
             method: 'POST',
             body: {
@@ -87,6 +93,8 @@ async function submitSurvey() {
                 experience_years: employment.value.experience,
                 employment_type: employment.value.type,
                 salary_net: employment.value.salary,
+                // We could also send calculated scores if backend schema supports it, 
+                // but for now we send raw answers as per request "open to extension"
             },
         });
 
@@ -305,22 +313,63 @@ onMounted(() => {
             <p class="text-gray-400 animate-pulse">Proszę czekać</p>
         </div>
 
-        <!-- Phase: Thank You -->
-        <div v-if="currentPhase === 'thank-you'" class="text-center space-y-8 py-12 animate-fade-in">
-            <div class="inline-block p-4 rounded-full bg-[#252525] border border-green-500 mb-4">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+        <!-- Phase: Thank You / Results -->
+        <div v-if="currentPhase === 'thank-you'" class="space-y-12 py-12 animate-fade-in">
+            <div class="text-center space-y-6">
+                <div class="inline-block p-4 rounded-full bg-[#252525] border border-green-500 mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-16 w-16 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
+                            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                </div>
+                <h2 class="text-3xl font-bold text-white">Dziękujemy za udział w badaniu!</h2>
+                <p class="text-gray-400 max-w-md mx-auto">
+                    Twoje odpowiedzi zostały zapisane. Poniżej znajdziesz swój profil osobowości.
+                </p>
             </div>
-            <h2 class="text-3xl font-bold text-white">Dziękujemy za udział w badaniu!</h2>
-            <p class="text-gray-400 max-w-md mx-auto">
-                Twoje odpowiedzi zostały zapisane. Wyniki badania zostaną opublikowane po zebraniu wystarczającej liczby odpowiedzi.
-            </p>
-            <a href="/"
-                class="inline-block mt-8 px-8 py-4 bg-[#9c7942] hover:bg-[#8a6b3a] text-white text-lg font-bold rounded-lg transition-all">
-                Wróć na stronę główną
-            </a>
+
+            <div v-if="results" class="space-y-8 animate-slide-up">
+                <h3 class="text-2xl font-bold text-white text-center">Twój Profil Osobowości</h3>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div v-for="(trait, key) in results" :key="key" 
+                        class="bg-[#1a1a1a] rounded-xl p-6 border border-gray-800 hover:border-[#9c7942] transition-colors">
+                        <div class="flex justify-between items-start mb-4">
+                            <div>
+                                <h4 class="text-xl font-bold text-white">{{ trait.label }}</h4>
+                                <span :class="[
+                                    'text-sm font-medium px-2 py-1 rounded inline-block mt-1',
+                                    trait.level === 'wysoki' ? 'bg-green-900/50 text-green-400' :
+                                    trait.level === 'niski' ? 'bg-blue-900/50 text-blue-400' :
+                                    'bg-gray-700/50 text-gray-400'
+                                ]">
+                                    Poziom: {{ trait.level }}
+                                </span>
+                            </div>
+                            <div class="text-right">
+                                <span class="text-2xl font-bold text-[#9c7942]">{{ trait.score }}</span>
+                                <span class="text-sm text-gray-600">/20</span>
+                            </div>
+                        </div>
+
+                        <div class="w-full bg-gray-800 rounded-full h-2 mb-4">
+                            <div class="bg-[#9c7942] h-2 rounded-full transition-all duration-1000"
+                                :style="{ width: (trait.score / 20 * 100) + '%' }"></div>
+                        </div>
+
+                        <p class="text-gray-400 text-sm leading-relaxed">
+                            {{ trait.description }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center pt-8">
+                <a href="/"
+                    class="inline-block px-8 py-4 bg-[#9c7942] hover:bg-[#8a6b3a] text-white text-lg font-bold rounded-lg transition-all">
+                    Wróć na stronę główną
+                </a>
+            </div>
         </div>
 
         <!-- Phase: Already Submitted -->
@@ -352,6 +401,21 @@ onMounted(() => {
     from {
         opacity: 0;
         transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-slide-up {
+    animation: slideUp 0.7s ease-out;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
     }
     to {
         opacity: 1;
