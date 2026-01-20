@@ -28,7 +28,7 @@
       </div>
     </div>
     <hr class="border-[#464646] lg:my-10 my-7">
-    <div class="flex justify-center gap-6 mb-8 text-sm font-semibold uppercase tracking-wider">
+    <div class="flex justify-center gap-6 mb-8 text-sm font-semibold uppercase tracking-wider flex-wrap">
       <NuxtLink :to="localePath('/wizja')" class="hover:text-[var(--primary-color)] transition-colors">
         {{ $t('navbar.vision') }}
       </NuxtLink>
@@ -46,7 +46,7 @@
       </NuxtLink>
     </div>
     <div class="flex justify-between items-center text-center flex-col gap-1 sm:flex-row sm:gap-0">
-      <span>Swarzędz 62-020 {{ $t('footer.poland') }}</span>
+      <span>Poznań, {{ $t('footer.poland') }}</span>
       <div class="mt-2 md:mt-0">
         <span class="text-lg font-semibold">
           {{ $t('footer.partners') }}</span>

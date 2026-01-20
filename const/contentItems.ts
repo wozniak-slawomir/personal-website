@@ -157,6 +157,14 @@ export const contentItems: ContentItem[] = [
     tags: ['blog'],
     link: '/blog/google-search-console',
     lastmod: '2026-01-11T12:00:00+01:00'
+  },
+  {
+    name: (t) => t('blog.unstableUSA.title'),
+    image: 'blog/niestabilne-usa-niestabilna-technologia/libre_office.png',
+    description: (t) => t('blog.unstableUSA.meta.description'),
+    tags: ['blog'],
+    link: '/blog/niestabilne-usa-niestabilna-technologia',
+    lastmod: '2026-01-19T23:54:00+01:00'
   }
 ]
 
