@@ -251,7 +251,7 @@ function getDisplayTotalPages() {
                                 </div>
                             </div>
                             <div v-if="question.hasComment" class="mt-3">
-                                <input v-model="comments[question.id]" type="text"
+                                <input v-model="comments[question.id]" type="text" maxlength="2000"
                                     class="w-full bg-[#252525] border border-gray-700 rounded-lg px-4 py-2 text-white text-sm focus:border-[#9c7942] focus:outline-none"
                                     :placeholder="t('feedback.comment.placeholder')" />
                             </div>
@@ -278,13 +278,13 @@ function getDisplayTotalPages() {
                             </button>
                         </div>
                         <div v-if="question.type === 'boolean' && question.conditionalText && answers[question.id] === true" class="mt-3">
-                            <textarea v-model="comments[question.id]"
+                            <textarea v-model="comments[question.id]" maxlength="2000"
                                 class="w-full bg-[#252525] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#9c7942] focus:outline-none min-h-[80px]"
                                 :placeholder="t('feedback.conditionalText.placeholder')" />
                         </div>
 
                         <div v-if="question.type === 'text'">
-                            <textarea v-model="answers[question.id] as string"
+                            <textarea v-model="answers[question.id] as string" maxlength="2000"
                                 class="w-full bg-[#252525] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#9c7942] focus:outline-none min-h-[100px]"
                                 :placeholder="question.required ? t('feedback.answer.placeholder') : t('feedback.answer.optional.placeholder')" />
                         </div>
