@@ -32,7 +32,7 @@ const canProceedEmployment = computed(() => {
 });
 
 const progressPercent = computed(() => {
-    const totalQuestions = 20;
+    const totalQuestions = TIPI_QUESTIONS.reduce((sum, page) => sum + page.length, 0);
     const answered = Object.keys(answers.value).length;
     return Math.round((answered / totalQuestions) * 100);
 });
