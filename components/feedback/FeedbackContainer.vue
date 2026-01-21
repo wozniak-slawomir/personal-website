@@ -104,29 +104,36 @@ async function submitSurvey() {
     currentPhase.value = 'processing';
 
     try {
-        const payload = {
-            email: email.value || undefined,
-            discovery_source: answers.value['discovery_source'],
-            website_ease: answers.value['website_ease'],
-            website_ease_comment: comments.value['website_ease'] || undefined,
-            technical_issues: answers.value['technical_issues'],
-            technical_issues_details: comments.value['technical_issues'] || undefined,
-            offer_clarity: answers.value['offer_clarity'],
-            missing_offer_info: answers.value['missing_offer_info'] || undefined,
-            is_client: answers.value['is_client'],
-            contact_form_satisfaction: isClient.value ? answers.value['contact_form_satisfaction'] : undefined,
-            communication_style: isClient.value ? answers.value['communication_style'] : undefined,
-            response_speed: isClient.value ? answers.value['response_speed'] : undefined,
-            response_speed_comment: isClient.value ? comments.value['response_speed'] : undefined,
-            work_delivery_time: isClient.value ? answers.value['work_delivery_time'] : undefined,
-            work_delivery_time_comment: isClient.value ? comments.value['work_delivery_time'] : undefined,
-            unpopular_tasks: answers.value['unpopular_tasks'] || undefined,
-            time_consuming_processes: answers.value['time_consuming_processes'] || undefined,
-            one_tech_change: answers.value['one_tech_change'],
-            tech_readiness: answers.value['tech_readiness'],
-            would_recommend: isClient.value ? answers.value['would_recommend'] : undefined,
-            missing_product: answers.value['missing_product'] || undefined,
+        const payload: Record<string, any> = {
+            email: email.value || undefined
         };
+
+        // Dynamically build payload from questions
+        for (const page of FEEDBACK_QUESTIONS) {
+            for (const q of page) {
+                // Skip client-only questions if user is not a client
+                if (q.clientOnly && !isClient.value) continue;
+
+                const value = answers.value[q.id];
+                
+                // Add answer if present
+                if (value !== undefined && value !== null && value !== '') {
+                    payload[q.id] = value;
+                }
+
+                // Handle comments/details
+                const comment = comments.value[q.id];
+                if (comment && comment.trim() !== '') {
+                    if (q.conditionalText) {
+                        // For conditional text (like boolean "yes"), logic maps to _details
+                        payload[`${q.id}_details`] = comment;
+                    } else if (q.hasComment) {
+                        // For standard comments, maps to _comment
+                        payload[`${q.id}_comment`] = comment;
+                    }
+                }
+            }
+        }
 
         await $fetch('/api/feedback/responses', {
             method: 'POST',

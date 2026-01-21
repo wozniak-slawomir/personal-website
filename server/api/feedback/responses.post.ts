@@ -1,4 +1,5 @@
 import { getFeedbackDatabase } from '~/server/utils/feedbackDatabase';
+import { DISCOVERY_SOURCES } from '~/const/feedback';
 
 interface FeedbackSubmission {
     email?: string;
@@ -31,7 +32,7 @@ interface FeedbackSubmission {
     missing_product?: string;
 }
 
-const VALID_SOURCES = ['facebook', 'instagram', 'tiktok', 'youtube', 'linkedin', 'na_zywo', 'polecenie', 'reklama'];
+const VALID_SOURCES = DISCOVERY_SOURCES.map(s => s.value);
 
 function validateScale(value: unknown): value is number {
     return typeof value === 'number' && value >= 1 && value <= 10 && Number.isInteger(value);
