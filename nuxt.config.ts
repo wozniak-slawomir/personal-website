@@ -315,7 +315,8 @@ export default defineNuxtConfig({
           'en/bio.json',
           'en/services.json',
           'en/vision.json',
-          'en/contact.json'
+          'en/contact.json',
+          'en/feedback.json'
         ],
       },
       {
@@ -331,7 +332,8 @@ export default defineNuxtConfig({
           'pl/bio.json',
           'pl/services.json',
           'pl/vision.json',
-          'pl/contact.json'
+          'pl/contact.json',
+          'pl/feedback.json'
         ],
       },
     ],
