@@ -1,8 +1,8 @@
-import { getDatabase } from '~/server/utils/database';
+import { getCalculatorDatabase } from '~/server/utils/calculatorDatabase';
 
 export default defineEventHandler(() => {
     try {
-        const db = getDatabase();
+        const db = getCalculatorDatabase();
 
         // Get total count
         const countResult = db.prepare('SELECT COUNT(*) as total FROM calculator_responses').get() as { total: number };

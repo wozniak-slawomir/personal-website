@@ -1,4 +1,4 @@
-import { getDatabase } from '~/server/utils/database';
+import { getCalculatorDatabase } from '~/server/utils/calculatorDatabase';
 
 interface StoredResponse {
     id: number;
@@ -22,7 +22,7 @@ export default defineEventHandler((event) => {
     }
 
     try {
-        const db = getDatabase();
+        const db = getCalculatorDatabase();
 
         const response = db.prepare(`
             SELECT * FROM calculator_responses WHERE id = ?

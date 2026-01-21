@@ -28,6 +28,23 @@
             </svg>
           </div>
         </NuxtLink>
+
+        <NuxtLink :to="localePath('/narzedzia/ankieta')" 
+          class="glassmorphism p-8 rounded-2xl hover:bg-[#2a2a2a] transition-all duration-300 flex items-center justify-between group">
+          <div>
+            <h2 class="text-2xl font-bold mb-2 group-hover:text-[var(--primary-color)] transition-colors">
+              Ankieta - Osobowość a Zarobki
+            </h2>
+            <p class="text-gray-400">
+              Sprawdź jak Twoja osobowość wpływa na zarobki w IT. Krótki test Big Five z predykcją stawki.
+            </p>
+          </div>
+          <div class="text-[var(--primary-color)]">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 transform group-hover:translate-x-2 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+            </svg>
+          </div>
+        </NuxtLink>
       </div>
     </div>
   </div>

@@ -1,66 +1,55 @@
+/**
+ * Generic SQLite database factory
+ * Creates and manages separate database instances
+ */
 import Database from 'better-sqlite3';
 import { join, dirname } from 'path';
 import { mkdirSync } from 'fs';
 
-let db: Database.Database | null = null;
+const databases = new Map<string, Database.Database>();
 
 /**
- * Get or create the SQLite database instance.
- * Database is stored in .data/calculator.db
+ * Get or create a SQLite database instance by name.
+ * Each database is stored in .data/{name}.db
  */
-export function getDatabase(): Database.Database {
-    if (db) {
-        return db;
+export function createDatabase(name: string, initFn?: (db: Database.Database) => void): Database.Database {
+    if (databases.has(name)) {
+        return databases.get(name)!;
     }
 
-    const dbPath = join(process.cwd(), '.data', 'calculator.db');
+    const dbPath = join(process.cwd(), '.data', `${name}.db`);
 
     // Ensure the directory exists
     mkdirSync(dirname(dbPath), { recursive: true });
 
-    db = new Database(dbPath);
+    const db = new Database(dbPath);
     db.pragma('journal_mode = WAL');
 
-    initializeDatabase(db);
+    if (initFn) {
+        initFn(db);
+    }
 
+    databases.set(name, db);
     return db;
 }
 
-
-function initializeDatabase(database: Database.Database): void {
-    database.exec(`
-        -- Main responses table
-        CREATE TABLE IF NOT EXISTS calculator_responses (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-            
-            -- User segment selection
-            segment TEXT,
-            
-            -- People counts per category (JSON)
-            people_counts TEXT,
-            
-            -- Calculated results
-            total_yearly_cost REAL,
-            zombie_yearly_cost REAL,
-            well_spent_yearly_cost REAL,
-            
-            -- Raw selections data (JSON array)
-            selections TEXT
-        );
-
-        -- Index for analytics queries
-        CREATE INDEX IF NOT EXISTS idx_responses_created_at ON calculator_responses(created_at);
-        CREATE INDEX IF NOT EXISTS idx_responses_segment ON calculator_responses(segment);
-    `);
+/**
+ * Close a specific database connection
+ */
+export function closeDatabase(name: string): void {
+    const db = databases.get(name);
+    if (db) {
+        db.close();
+        databases.delete(name);
+    }
 }
 
 /**
- * Close the database connection (useful for graceful shutdown)
+ * Close all database connections (useful for graceful shutdown)
  */
-export function closeDatabase(): void {
-    if (db) {
+export function closeAllDatabases(): void {
+    for (const [name, db] of databases) {
         db.close();
-        db = null;
+        databases.delete(name);
     }
 }
