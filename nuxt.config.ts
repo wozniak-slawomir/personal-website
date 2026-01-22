@@ -12,6 +12,9 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       API_URL: process.env.VITE_API_URL,
+      siteUrl: process.env.NODE_ENV === 'production' 
+        ? 'https://slawomir-wozniak.pl' 
+        : 'http://localhost:3000',
     },
     VITE_SMTP_HOST: process.env.VITE_SMTP_HOST,
     VITE_SMTP_PORT: process.env.VITE_SMTP_PORT,
@@ -79,6 +82,17 @@ export default defineNuxtConfig({
       security: {
         rateLimiter: {
           tokensPerInterval: 3,
+          interval: 3600000, // 1 hour in milliseconds
+          headers: true,
+          throwError: true,
+        },
+      },
+    },
+    // Rate limiting for feedback form - 5 submissions per hour
+    '/api/feedback/responses': {
+      security: {
+        rateLimiter: {
+          tokensPerInterval: 5,
           interval: 3600000, // 1 hour in milliseconds
           headers: true,
           throwError: true,
@@ -191,6 +205,10 @@ export default defineNuxtConfig({
 
   security: {
     rateLimiter: false, // Disable global rate limiting
+    csrf: {
+      enabled: true,
+      methodsToProtect: ['POST', 'PUT', 'PATCH', 'DELETE'],
+    },
     headers: {
       contentSecurityPolicy: {
         'object-src': ["'self'", 'https://meet.reclaimai.com'],

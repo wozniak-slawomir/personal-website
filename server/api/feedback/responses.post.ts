@@ -30,17 +30,119 @@ interface FeedbackSubmission {
     
     would_recommend?: string;
     missing_product?: string;
+    
+    // Honeypot field for bot detection
+    website?: string;
 }
 
 const VALID_SOURCES = DISCOVERY_SOURCES.map(s => s.value);
+const MAX_TEXT_LENGTH = 2000;
+const MAX_EMAIL_LENGTH = 254;
 
+/**
+ * Validates and sanitizes text input
+ */
+function validateTextInput(value: unknown, maxLength: number, fieldName: string): string | null {
+    if (value === undefined || value === null) {
+        return null;
+    }
+    
+    if (typeof value !== 'string') {
+        throw createError({
+            statusCode: 400,
+            statusMessage: `${fieldName} must be a string`,
+        });
+    }
+    
+    const trimmed = value.trim();
+    
+    if (trimmed.length === 0) {
+        return null;
+    }
+    
+    if (trimmed.length > maxLength) {
+        throw createError({
+            statusCode: 400,
+            statusMessage: `${fieldName} exceeds maximum length of ${maxLength} characters`,
+        });
+    }
+    
+    return trimmed;
+}
+
+/**
+ * Validates email format and length
+ */
+function validateEmail(email: unknown): string | null {
+    if (email === undefined || email === null) {
+        return null;
+    }
+    
+    if (typeof email !== 'string') {
+        throw createError({
+            statusCode: 400,
+            statusMessage: 'Email must be a string',
+        });
+    }
+    
+    const trimmed = email.trim().toLowerCase();
+    
+    if (trimmed.length === 0) {
+        return null;
+    }
+    
+    if (trimmed.length > MAX_EMAIL_LENGTH) {
+        throw createError({
+            statusCode: 400,
+            statusMessage: 'Email address is too long',
+        });
+    }
+    
+    // RFC 5322 simplified email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(trimmed)) {
+        throw createError({
+            statusCode: 400,
+            statusMessage: 'Invalid email format',
+        });
+    }
+    
+    return trimmed;
+}
+
+/**
+ * Validates scale rating (1-10)
+ */
 function validateScale(value: unknown): value is number {
     return typeof value === 'number' && value >= 1 && value <= 10 && Number.isInteger(value);
 }
 
 export default defineEventHandler(async (event) => {
-    const body = await readBody<FeedbackSubmission>(event);
+    // Request logging for security monitoring
+    const ip = getHeader(event, 'x-forwarded-for') || getHeader(event, 'x-real-ip') || 'unknown';
+    const userAgent = getHeader(event, 'user-agent') || 'unknown';
+    
+    console.log(`[FEEDBACK] Submission attempt from ${ip} - ${userAgent.substring(0, 50)}`);
+    
+    let body: FeedbackSubmission;
+    
+    try {
+        body = await readBody<FeedbackSubmission>(event);
+    } catch {
+        throw createError({
+            statusCode: 400,
+            statusMessage: 'Invalid request body',
+        });
+    }
 
+    // Honeypot check - reject if filled
+    if (body.website && body.website.trim() !== '') {
+        console.warn(`[FEEDBACK] Bot detected (honeypot filled) from ${ip}`);
+        // Return success to avoid revealing honeypot to bots
+        return { status: 'success' };
+    }
+
+    // Validate required fields
     if (!body.discovery_source || !VALID_SOURCES.includes(body.discovery_source)) {
         throw createError({
             statusCode: 400,
@@ -76,6 +178,7 @@ export default defineEventHandler(async (event) => {
         });
     }
 
+    // Validate client-only fields if user is a client
     if (body.is_client) {
         if (!validateScale(body.contact_form_satisfaction)) {
             throw createError({
@@ -103,7 +206,9 @@ export default defineEventHandler(async (event) => {
         }
     }
 
-    if (!body.one_tech_change || typeof body.one_tech_change !== 'string' || body.one_tech_change.trim() === '') {
+    // Validate and sanitize one_tech_change (required)
+    const oneTechChange = validateTextInput(body.one_tech_change, MAX_TEXT_LENGTH, 'One tech change');
+    if (!oneTechChange) {
         throw createError({
             statusCode: 400,
             statusMessage: 'One tech change is required',
@@ -119,6 +224,31 @@ export default defineEventHandler(async (event) => {
 
     try {
         const db = getFeedbackDatabase();
+
+        // Validate and sanitize all inputs
+        const sanitizedData = {
+            email: validateEmail(body.email),
+            discovery_source: body.discovery_source,
+            website_ease: body.website_ease,
+            website_ease_comment: validateTextInput(body.website_ease_comment, MAX_TEXT_LENGTH, 'Website ease comment'),
+            technical_issues: body.technical_issues ? 1 : 0,
+            technical_issues_details: validateTextInput(body.technical_issues_details, MAX_TEXT_LENGTH, 'Technical issues details'),
+            offer_clarity: body.offer_clarity,
+            missing_offer_info: validateTextInput(body.missing_offer_info, MAX_TEXT_LENGTH, 'Missing offer info'),
+            is_client: body.is_client ? 1 : 0,
+            contact_form_satisfaction: body.contact_form_satisfaction || null,
+            communication_style: body.communication_style || null,
+            response_speed: body.response_speed || null,
+            response_speed_comment: validateTextInput(body.response_speed_comment, MAX_TEXT_LENGTH, 'Response speed comment'),
+            work_delivery_time: body.work_delivery_time || null,
+            work_delivery_time_comment: validateTextInput(body.work_delivery_time_comment, MAX_TEXT_LENGTH, 'Work delivery time comment'),
+            unpopular_tasks: validateTextInput(body.unpopular_tasks, MAX_TEXT_LENGTH, 'Unpopular tasks'),
+            time_consuming_processes: validateTextInput(body.time_consuming_processes, MAX_TEXT_LENGTH, 'Time consuming processes'),
+            one_tech_change: oneTechChange,
+            tech_readiness: body.tech_readiness,
+            would_recommend: validateTextInput(body.would_recommend, MAX_TEXT_LENGTH, 'Would recommend'),
+            missing_product: validateTextInput(body.missing_product, MAX_TEXT_LENGTH, 'Missing product'),
+        };
 
         const stmt = db.prepare(`
             INSERT INTO feedback_responses (
@@ -148,38 +278,18 @@ export default defineEventHandler(async (event) => {
             )
         `);
 
-        stmt.run({
-            email: body.email || null,
-            discovery_source: body.discovery_source,
-            website_ease: body.website_ease,
-            website_ease_comment: body.website_ease_comment || null,
-            technical_issues: body.technical_issues ? 1 : 0,
-            technical_issues_details: body.technical_issues_details || null,
-            offer_clarity: body.offer_clarity,
-            missing_offer_info: body.missing_offer_info || null,
-            is_client: body.is_client ? 1 : 0,
-            contact_form_satisfaction: body.contact_form_satisfaction || null,
-            communication_style: body.communication_style || null,
-            response_speed: body.response_speed || null,
-            response_speed_comment: body.response_speed_comment || null,
-            work_delivery_time: body.work_delivery_time || null,
-            work_delivery_time_comment: body.work_delivery_time_comment || null,
-            unpopular_tasks: body.unpopular_tasks || null,
-            time_consuming_processes: body.time_consuming_processes || null,
-            one_tech_change: body.one_tech_change,
-            tech_readiness: body.tech_readiness,
-            would_recommend: body.would_recommend || null,
-            missing_product: body.missing_product || null,
-        });
+        stmt.run(sanitizedData);
+
+        console.log(`[FEEDBACK] Submission successful from ${ip}`);
 
         return {
             status: 'success',
         };
     } catch (error) {
-        console.error('Error saving feedback response:', error);
+        console.error('[FEEDBACK] Error saving feedback response:', error);
         throw createError({
             statusCode: 500,
-            statusMessage: `Failed to save response: ${error instanceof Error ? error.message : error}`,
+            statusMessage: 'Unable to save feedback. Please try again later.',
         });
     }
 });
