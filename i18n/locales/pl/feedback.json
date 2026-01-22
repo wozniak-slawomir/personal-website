@@ -16,6 +16,8 @@
     "feedback.thankYou.title": "Dziękuję za Twój czas!",
     "feedback.thankYou.message": "Twoja opinia została zapisana i pomoże mi ulepszyć moje usługi.",
     "feedback.backHome": "Wróć na stronę główną",
+    "feedback.rateLimitError": "Zbyt wiele prób. Spróbuj ponownie za godzinę.",
+    "feedback.submitError": "Wystąpił błąd podczas wysyłania ankiety. Spróbuj ponownie.",
     "feedback.comment.placeholder": "Komentarz (opcjonalnie)",
     "feedback.yes": "Tak",
     "feedback.no": "Nie",

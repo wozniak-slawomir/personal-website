@@ -16,6 +16,8 @@
     "feedback.thankYou.title": "Thank you for your time!",
     "feedback.thankYou.message": "Your feedback has been saved and will help me improve my services.",
     "feedback.backHome": "Back to homepage",
+    "feedback.rateLimitError": "Too many attempts. Please try again in an hour.",
+    "feedback.submitError": "An error occurred while submitting the survey. Please try again.",
     "feedback.comment.placeholder": "Comment (optional)",
     "feedback.yes": "Yes",
     "feedback.no": "No",

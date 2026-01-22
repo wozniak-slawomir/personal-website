@@ -12,6 +12,7 @@ const isSubmitting = ref(false);
 const error = ref<string | null>(null);
 
 const email = ref('');
+const honeypot = ref(''); // Honeypot for bot detection
 const answers = ref<Record<string, string | number | boolean | null>>({});
 const comments = ref<Record<string, string>>({});
 
@@ -52,6 +53,15 @@ const progressPercent = computed(() => {
     }
     
     return totalRequired > 0 ? Math.round((answeredCount / totalRequired) * 100) : 0;
+});
+
+const isEmailValid = computed(() => {
+    if (!email.value || email.value.trim() === '') {
+        return true; // Empty email is valid (optional field)
+    }
+    // Email format validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email.value.trim()) && email.value.length <= 254;
 });
 
 const canProceed = computed(() => {
@@ -105,7 +115,8 @@ async function submitSurvey() {
 
     try {
         const payload: Record<string, any> = {
-            email: email.value || undefined
+            email: email.value || undefined,
+            website: honeypot.value // Include honeypot field
         };
 
         // Dynamically build payload from questions
@@ -144,8 +155,15 @@ async function submitSurvey() {
             currentPhase.value = 'thank-you';
         }, 1500);
     } catch (e: unknown) {
-        const err = e as { statusMessage?: string };
-        error.value = err.statusMessage || 'Wystąpił błąd podczas wysyłania ankiety';
+        const err = e as { statusCode?: number; statusMessage?: string };
+        
+        // Handle rate limiting
+        if (err.statusCode === 429) {
+            error.value = t('feedback.rateLimitError') || 'Too many submissions. Please try again later.';
+        } else {
+            error.value = err.statusMessage || t('feedback.submitError') || 'An error occurred while submitting the survey';
+        }
+        
         currentPhase.value = 'questions';
     } finally {
         isSubmitting.value = false;
@@ -188,14 +206,37 @@ function getDisplayTotalPages() {
                 <label class="text-sm text-gray-400 block mb-2 text-left">
                     {{ t('feedback.email.label') }}
                 </label>
-                <input v-model="email" type="email" 
-                    class="w-full bg-[#252525] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#9c7942] focus:outline-none"
-                    :placeholder="t('feedback.email.placeholder')" />
+                <input 
+                    v-model="email" 
+                    type="email" 
+                    maxlength="254"
+                    pattern="[^\s@]+@[^\s@]+\.[^\s@]+"
+                    class="w-full bg-[#252525] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#9c7942] focus:outline-none invalid:border-red-500"
+                    :placeholder="t('feedback.email.placeholder')" 
+                />
+                
+                <input 
+                    v-model="honeypot" 
+                    type="text" 
+                    name="website" 
+                    autocomplete="off"
+                    tabindex="-1"
+                    aria-hidden="true"
+                    style="position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0;"
+                />
             </div>
             
             <div class="flex justify-center mt-8">
-                <button @click="startSurvey"
-                    class="px-8 py-4 bg-[#9c7942] hover:bg-[#8a6b3a] text-white text-lg font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-[#9c7942]/20">
+                <button 
+                    @click="startSurvey"
+                    :disabled="!isEmailValid"
+                    :class="[
+                        'px-8 py-4 text-lg font-bold rounded-lg transition-all transform shadow-lg',
+                        isEmailValid
+                            ? 'bg-[#9c7942] hover:bg-[#8a6b3a] text-white hover:scale-105 shadow-[#9c7942]/20'
+                            : 'bg-gray-700 text-gray-500 cursor-not-allowed'
+                    ]"
+                >
                     {{ t('feedback.start') }}
                 </button>
             </div>
