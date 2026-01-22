@@ -187,8 +187,17 @@ export default defineNuxtConfig({
     'nuxt-security',
   ],
 
+  css: ['~/assets/css/devices.min.css'],
+
   security: {
     rateLimiter: false, // Disable global rate limiting
+    headers: {
+      contentSecurityPolicy: {
+        'object-src': ["'self'", 'https://meet.reclaimai.com'],
+        'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https:", "https://meet.reclaimai.com"],
+        'frame-src': ["'self'", "https:", "https://meet.reclaimai.com"],
+      },
+    },
   },
 
   llms: {
