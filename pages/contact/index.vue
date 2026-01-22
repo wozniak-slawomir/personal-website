@@ -1,60 +1,82 @@
 <template>
   <div class="flex flex-col min-h-screen">
     <div class="container flex-grow flex flex-col items-center justify-center py-20 px-4 mt-24">
-      <div class="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start">
-        <!-- Left Column: Content -->
-        <div class="flex flex-col h-full">
-          <div class="mb-8">
-            <BackButton />
+
+      <!-- Back Button -->
+      <div class="w-full max-w-[1200px] mb-8">
+        <BackButton />
+      </div>
+
+      <!-- Section 1: Header, Subheader, and Benefits -->
+      <div class="w-full max-w-[800px] mb-16 text-center">
+        
+        <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
+          {{ $t('contact.hero.title') }}
+        </h1>
+        <p class="text-xl text-gray-300 mb-12 leading-relaxed">
+          {{ $t('contact.hero.subtitle') }}
+        </p>
+
+        <div class="space-y-8">
+          <h2 class="text-2xl font-semibold text-[color:var(--primary-color)] mb-6">
+            {{ $t('contact.benefits.title') }}
+          </h2>
+
+          <div class="flex items-start gap-4 text-left">
+            <div class="mt-1 p-2 rounded-lg bg-[rgba(255,255,255,0.05)] text-white">
+              <PhChatCircleText :size="32" weight="duotone" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-1 text-white">{{ $t('contact.benefits.item1.title') }}</h3>
+              <p class="text-gray-400">{{ $t('contact.benefits.item1.desc') }}</p>
+            </div>
           </div>
-          
-          <div class="flex-1 flex flex-col justify-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-6 text-white leading-tight">
-              {{ $t('contact.hero.title') }}
-            </h1>
-            <p class="text-xl text-gray-300 mb-12 leading-relaxed">
-              {{ $t('contact.hero.subtitle') }}
-            </p>
 
-            <div class="space-y-8">
-              <h2 class="text-2xl font-semibold text-[color:var(--primary-color)] mb-6">
-                {{ $t('contact.benefits.title') }}
-              </h2>
+          <div class="flex items-start gap-4 text-left">
+            <div class="mt-1 p-2 rounded-lg bg-[rgba(255,255,255,0.05)] text-white">
+              <PhStethoscope :size="32" weight="duotone" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-1 text-white">{{ $t('contact.benefits.item2.title') }}</h3>
+              <p class="text-gray-400">{{ $t('contact.benefits.item2.desc') }}</p>
+            </div>
+          </div>
 
-              <div class="flex items-start gap-4">
-                <div class="mt-1 p-2 rounded-lg bg-[rgba(255,255,255,0.05)] text-white">
-                  <PhChatCircleText :size="32" weight="duotone" />
-                </div>
-                <div>
-                  <h3 class="text-xl font-bold mb-1 text-white">{{ $t('contact.benefits.item1.title') }}</h3>
-                  <p class="text-gray-400">{{ $t('contact.benefits.item1.desc') }}</p>
-                </div>
+          <div class="flex items-start gap-4 text-left">
+            <div class="mt-1 p-2 rounded-lg bg-[rgba(255,255,255,0.05)] text-white">
+              <PhHandshake :size="32" weight="duotone" />
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-1 text-white">{{ $t('contact.benefits.item3.title') }}</h3>
+              <p class="text-gray-400">{{ $t('contact.benefits.item3.desc') }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Section 2 & 3: iPhone and Contact Form (side by side) -->
+      <div class="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <!-- Left: iPhone with Embedded Meeting -->
+        <div class="flex justify-center">
+          <div class="transform scale-90 md:scale-100 origin-center">
+            <div class="device device-iphone-14-pro">
+              <div class="device-frame">
+                <div
+                  ref="bookingCalendarRef"
+                  class="device-screen overflow-y-auto bg-white flex items-center justify-center"
+                />
               </div>
-
-              <div class="flex items-start gap-4">
-                <div class="mt-1 p-2 rounded-lg bg-[rgba(255,255,255,0.05)] text-white">
-                  <PhStethoscope :size="32" weight="duotone" />
-                </div>
-                <div>
-                  <h3 class="text-xl font-bold mb-1 text-white">{{ $t('contact.benefits.item2.title') }}</h3>
-                  <p class="text-gray-400">{{ $t('contact.benefits.item2.desc') }}</p>
-                </div>
-              </div>
-
-              <div class="flex items-start gap-4">
-                <div class="mt-1 p-2 rounded-lg bg-[rgba(255,255,255,0.05)] text-white">
-                  <PhHandshake :size="32" weight="duotone" />
-                </div>
-                <div>
-                  <h3 class="text-xl font-bold mb-1 text-white">{{ $t('contact.benefits.item3.title') }}</h3>
-                  <p class="text-gray-400">{{ $t('contact.benefits.item3.desc') }}</p>
-                </div>
-              </div>
+              <div class="device-stripe" />
+              <div class="device-header" />
+              <div class="device-sensors" />
+              <div class="device-btns" />
+              <div class="device-power" />
+              <div class="device-home" />
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Form -->
+        <!-- Right: Contact Form -->
         <div class="w-full">
           <PhCircleNotch
             v-if="isLoading"
@@ -63,8 +85,8 @@
           <div
             class="bg-[#1A1A1A] w-full rounded-2xl p-6 md:p-8 lg:p-10 border border-[color:var(--primary-color)] shadow-xl"
           >
-            <div class="mb-8 text-center lg:text-left">
-               <h2 class="text-2xl font-bold text-white mb-2">{{ $t('common.contact') }}</h2>
+            <div class="mb-8 text-center text-white">
+               <h2 class="text-2xl font-bold mb-2">{{ $t('common.contact') }}</h2>
                <p class="text-sm text-gray-400">{{ $t('seo.contact.description') }}</p>
             </div>
             
@@ -152,6 +174,7 @@
           </div>
         </div>
       </div>
+
     </div>
 
   </div>
@@ -199,11 +222,21 @@ const email = ref('')
 const phoneNumber = ref('')
 const isLoading = ref(false)
 
+const bookingCalendarRef = ref<HTMLElement | null>(null)
+
 onMounted(() => {
   const packageKey = route.query.package as string
   if (packageKey) {
     const packageTitle = t(`pricing.packages.${packageKey}.title`)
     message.value = t('pricing.interested_message', { package: packageTitle })
+  }
+
+  if (bookingCalendarRef.value) {
+    const script = document.createElement('script')
+    script.src = 'https://meet.reclaimai.com/scripts/embed-scheduling-link.0.x.x.js'
+    script.setAttribute('data-id', 'af0b28d9-17b9-445d-8dc4-acacbde81c32')
+    script.setAttribute('data-redirect', 'NONE')
+    bookingCalendarRef.value.appendChild(script)
   }
 })
 
