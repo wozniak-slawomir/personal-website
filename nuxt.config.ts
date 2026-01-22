@@ -194,7 +194,7 @@ export default defineNuxtConfig({
     headers: {
       contentSecurityPolicy: {
         'object-src': ["'self'", 'https://meet.reclaimai.com'],
-        'script-src': ["'self'", "'unsafe-inline'", "'unsafe-eval'", "https:", "https://meet.reclaimai.com"],
+        'script-src': ["'self'", "'unsafe-inline'", "https:", "https://meet.reclaimai.com"],
         'frame-src': ["'self'", "https:", "https://meet.reclaimai.com"],
       },
     },
