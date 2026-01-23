@@ -55,9 +55,9 @@
       </div>
 
       <!-- Section 2 & 3: iPhone and Contact Form (side by side) -->
-      <div class="w-full max-w-[1200px] grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+      <div class="w-full max-w-[1200px] flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-0">
         <!-- Left: iPhone with Embedded Meeting -->
-        <div class="flex justify-center">
+        <div class="w-full lg:w-5/12 flex justify-center">
           <div class="transform scale-90 md:scale-100 origin-center">
             <div class="device device-iphone-14-pro">
               <div class="device-frame">
@@ -76,8 +76,13 @@
           </div>
         </div>
 
+        <!-- Middle: Separator -->
+        <div class="flex items-center justify-center py-4 lg:py-0">
+           <span class="text-4xl md:text-5xl font-black text-gray-500 select-none tracking-widest opacity-50">LUB</span>
+        </div>
+
         <!-- Right: Contact Form -->
-        <div class="w-full">
+        <div class="w-full lg:w-5/12">
 
           <div
             class="bg-[#1A1A1A] w-full rounded-2xl p-6 md:p-8 lg:p-10 border border-[color:var(--primary-color)] shadow-xl"
