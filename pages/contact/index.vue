@@ -78,10 +78,7 @@
 
         <!-- Right: Contact Form -->
         <div class="w-full">
-          <PhCircleNotch
-            v-if="isLoading"
-            class="text-[color:var(--primary-color)] animate-spin text-6xl mx-auto my-8"
-          />
+
           <div
             class="bg-[#1A1A1A] w-full rounded-2xl p-6 md:p-8 lg:p-10 border border-[color:var(--primary-color)] shadow-xl"
           >
@@ -166,8 +163,9 @@
 
               <button
                 :disabled="isLoading"
-                class="w-full uppercase py-4 px-6 rounded-lg bg-[color:var(--secondary-color)] font-bold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-[image:var(--secondary-gradient)] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                class="w-full flex items-center justify-center gap-2 uppercase py-4 px-6 rounded-lg bg-[color:var(--secondary-color)] font-bold bg-[image:var(--primary-gradient)] text-black transition-all transform-gpu hover:-translate-y-1 shadow-lg hover:shadow-xl hover:bg-[image:var(--secondary-gradient)] disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
               >
+                <PhCircleNotch v-if="isLoading" class="animate-spin" size="24" weight="bold" />
                 {{ $t('modal.submit') }}
               </button>
             </form>
