@@ -88,8 +88,12 @@ async function submitSurvey() {
         const scores = calculateBigFive(answers.value);
         results.value = getPersonalityProfile(scores);
 
+        const { csrf } = useCsrf()
         await $fetch('/api/survey/responses', {
             method: 'POST',
+            headers: {
+                'csrf-token': csrf
+            },
             body: {
                 ...answers.value,
                 experience_years: employment.value.experience,

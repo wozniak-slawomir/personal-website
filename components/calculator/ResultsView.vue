@@ -39,8 +39,12 @@ const { data: stats } = await useFetch<Stats>('/api/calculator/stats');
 // Save the response when the results are shown
 onMounted(async () => {
     try {
+        const { csrf } = useCsrf()
         await $fetch('/api/calculator/responses', {
             method: 'POST',
+            headers: {
+                'csrf-token': csrf
+            },
             body: {
                 segment: state.value.selectedSegment,
                 peopleCounts: state.value.peopleCounts,

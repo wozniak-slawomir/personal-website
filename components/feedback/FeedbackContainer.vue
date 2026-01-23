@@ -146,8 +146,12 @@ async function submitSurvey() {
             }
         }
 
+        const { csrf } = useCsrf()
         await $fetch('/api/feedback/responses', {
             method: 'POST',
+            headers: {
+                'csrf-token': csrf
+            },
             body: payload,
         });
 

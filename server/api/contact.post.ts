@@ -1,11 +1,11 @@
 export default defineEventHandler(async (event) => {
-    const body = JSON.parse(await readBody(event))
-    const { name, surname, email, message, phone_number } = body
+    const body = await readBody(event)
+    const { name, surname, email, message } = body
 
-    if (!name || !surname || !email || !phone_number || !message) {
+    if (!name || !surname || !email || !message) {
         return createError({
             statusCode: 400,
-            statusMessage: 'Name, surname, email, phone number, and message are required',
+            statusMessage: 'Name, surname, email, and message are required',
         })
     }
 

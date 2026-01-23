@@ -4,7 +4,7 @@ interface ContactInfo {
   name: string;
   surname: string;
   email: string;
-  phone_number: string;
+  phone_number?: string;
   message: string;
 }
 
@@ -85,7 +85,7 @@ export const sendMail = async (contactInfo: ContactInfo) => {
                     <div class="contact-info">
                         <p><strong>Name:</strong> ${name} ${surname}</p>
                         <p><strong>Email:</strong> ${email}</p>
-                        <p><strong>Phone:</strong> ${phone_number}</p>
+                        <p><strong>Phone:</strong> ${phone_number || '-'}</p>
                     </div>
                     <div class="message-content">
                         ${message}

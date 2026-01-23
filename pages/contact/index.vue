@@ -240,37 +240,42 @@ onMounted(() => {
   }
 })
 
-const onSubmit = (e: Event) => {
+const { csrf } = useCsrf()
+
+const onSubmit = async (e: Event) => {
     e.preventDefault()
     if (!e.target) return
     isLoading.value = true
-    fetch(`${config.public.API_URL}/contact`, {
-        method: 'POST',
-        body: JSON.stringify({
-            name: name.value,
-            surname: surname.value,
-            email: email.value,
-            phone_number: phoneNumber.value,
-            message: message.value,
-        }),
-    }).then(res => {
-        if (res.ok) {
-            toast.success(t('contact.form.success'))
-            // Reset form
-            name.value = ''
-            surname.value = ''
-            email.value = ''
-            phoneNumber.value = ''
-            message.value = ''
-        } else if (res.status === 429) {
+    try {
+        await $fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'csrf-token': csrf
+            },
+            body: {
+                name: name.value,
+                surname: surname.value,
+                email: email.value,
+                phone_number: phoneNumber.value,
+                message: message.value,
+            },
+        })
+        
+        toast.success(t('contact.form.success'))
+        // Reset form
+        name.value = ''
+        surname.value = ''
+        email.value = ''
+        phoneNumber.value = ''
+        message.value = ''
+    } catch (error: any) {
+        if (error.statusCode === 429) {
             toast.error(t('contact.form.rateLimitError'))
         } else {
             toast.error(t('contact.form.error'))
         }
-    }).catch(() => {
-        toast.error(t('contact.form.error'))
-    }).finally(() => {
+    } finally {
         isLoading.value = false
-    })
+    }
 }
 </script>
