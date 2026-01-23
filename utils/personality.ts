@@ -10,43 +10,10 @@ export interface TraitResult {
     score: number;
     maxScore: number;
     percentage: number;
-    level: 'niski' | 'średni' | 'wysoki';
-    label: string;
-    description: string;
+    level: 'low' | 'medium' | 'high';
 }
 
 export type PersonalityProfile = Record<keyof BigFiveScores, TraitResult>;
-
-const TRAIT_LABELS: Record<keyof BigFiveScores, string> = {
-    extraversion: 'Ekstrawersja',
-    agreeableness: 'Ugodowość',
-    conscientiousness: 'Sumienność',
-    emotionalStability: 'Stabilność emocjonalna',
-    intellect: 'Intelekt (Otwartość)',
-};
-
-const TRAIT_DESCRIPTIONS: Record<keyof BigFiveScores, { low: string; high: string }> = {
-    extraversion: {
-        high: 'Osoby o wysokiej ekstrawersji są energiczne, towarzyskie, rozmowne i śmiałe. Lubią być w centrum uwagi i czerpią energię z kontaktów z ludźmi.',
-        low: 'Osoby o niskiej ekstrawersji są bardziej powściągliwe, cenią sobie spokój i prywatność. Mogą wydawać się małomówne lub wycofane w dużej grupie, preferując kontakty w węższym gronie.'
-    },
-    agreeableness: {
-        high: 'Osoby wysoko ugodowe są ufne, altruistyczne, serdeczne i skłonne do współpracy. Dążą do zgody i harmonii w relacjach.',
-        low: 'Osoby o niższej ugodowości mogą być bardziej sceptyczne, krytyczne i nastawione na rywalizację. Częściej stawiają własne interesy ponad interesy innych.'
-    },
-    conscientiousness: {
-        high: 'Wysoka sumienność oznacza dobre zorganizowanie, obowiązkowość, dokładność i determinację w dążeniu do celu. Takie osoby lubią porządek i planowanie.',
-        low: 'Niska sumienność może wiązać się z większą spontanicznością, elastycznością, ale też mniejszą dbałością o szczegóły i systematyczność.'
-    },
-    emotionalStability: {
-        high: 'Osoby stabilne emocjonalnie są spokojne, zrównoważone i odporne na stres. Rzadziej doświadczają silnych negatywnych emocji jak lęk czy złość.',
-        low: 'Niższa stabilność (wyższa neurotyczność) wiąże się z częstszym doświadczaniem wahań nastroju, lęku, drażliwości i silniejszym reagowaniem na stres.'
-    },
-    intellect: {
-        high: 'Wysoki intelekt (otwartość) cechuje osoby kreatywne, ciekawe świata, o bogatej wyobraźni i szerokich zainteresowaniach. Lubią nowości i abstrakcyjne myślenie.',
-        low: 'Niższy wynik może wskazywać na pragmatyzm, twarde stąpanie po ziemi i preferowanie sprawdzonych rozwiązań oraz konkretów zamiast abstrakcyjnych idei.'
-    }
-};
 
 /**
  * Calculates Big Five personality traits based on TIPI answers.
@@ -106,36 +73,22 @@ export function getPersonalityProfile(scores: BigFiveScores): PersonalityProfile
         const trait = key as keyof BigFiveScores;
         // In IPIP-BFM-20, each scale has 4 items. Min score 4, max 20.
         const maxScore = 20;
-        const minScore = 4;
-        const range = maxScore - minScore; // 16
         
-        // Simple levels based on thirds of the range
-        // 4-9: Low
-        // 10-14: Medium
-        // 15-20: High
-        let level: 'niski' | 'średni' | 'wysoki' = 'średni';
-        let description = '';
+        let level: 'low' | 'medium' | 'high' = 'medium';
 
         if (score <= 9) {
-            level = 'niski';
-            description = TRAIT_DESCRIPTIONS[trait].low;
+            level = 'low';
         } else if (score >= 15) {
-            level = 'wysoki';
-            description = TRAIT_DESCRIPTIONS[trait].high;
+            level = 'high';
         } else {
-            level = 'średni';
-            // For medium, we can combine or give a neutral description.
-            // For now, let's say they have balanced traits or average.
-            description = 'Twój wynik jest przeciętny, co oznacza, że przejawiasz cechy z obu biegunów w zależności od sytuacji, lub nie są one u Ciebie silnie zaznaczone.';
+            level = 'medium';
         }
 
         profile[trait] = {
             score,
             maxScore,
             percentage: Math.round((score / maxScore) * 100),
-            level,
-            label: TRAIT_LABELS[trait],
-            description
+            level
         };
     }
 

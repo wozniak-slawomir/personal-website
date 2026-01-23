@@ -1,0 +1,127 @@
+{
+    "survey": {
+        "meta": {
+            "title": "Survey - Personality vs Programmer Earnings - Sławomir Woźniak",
+            "description": "Check how your personality affects your earnings in IT. Fill out a short survey and compare your results with other programmers."
+        },
+        "intro": {
+            "title": "Programmer Survey",
+            "subtitle": "personality vs earnings",
+            "description": "Help us research how personality traits affect earnings in IT. Filling out the survey will take about 5 minutes.",
+            "anonymous_note": "The survey is completely anonymous.",
+            "start_button": "Start Survey"
+        },
+        "screening": {
+            "title": "Before we start...",
+            "subtitle": "Let's make sure this survey is for you",
+            "target_audience": "This survey is intended for",
+            "target_highlight": "programmers living in Poland",
+            "instruction": "If you meet these conditions, click below to continue.",
+            "back_button": "Back",
+            "confirm_button": "Yes, I am a programmer in Poland"
+        },
+        "personality": {
+            "title": "Personality Test",
+            "page_info": "Page {current} of {total}",
+            "instruction": "Rate how well the following statements describe you (1 = not at all, 5 = very accurately)",
+            "scale_not_accurate": "Inaccurate",
+            "scale_accurate": "Accurate",
+            "back_button": "Back",
+            "next_button": "Next",
+            "finish_button": "Go to data"
+        },
+        "employment": {
+            "title": "Employment Information",
+            "subtitle": "Last step before sending",
+            "error_generic": "An error occurred while sending the survey",
+            "form": {
+                "type_label": "Employment Type",
+                "experience_label": "Work experience as a programmer (in years)",
+                "experience_placeholder": "e.g. 3",
+                "salary_label": "Average monthly net earnings (PLN)",
+                "salary_hint": "For B2B: after paying ZUS, PIT and accounting",
+                "salary_placeholder": "e.g. 15000"
+            },
+            "back_button": "Back",
+            "submit_button": "Send Survey",
+            "submitting_button": "Sending..."
+        },
+        "processing": {
+            "title": "Saving answers...",
+            "subtitle": "Please wait"
+        },
+        "thank_you": {
+            "title": "Thank you for participating in the study!",
+            "description": "Your answers have been saved. Below you will find your personality profile.",
+            "profile_header": "Your Personality Profile",
+            "level_label": "Level: {level}",
+            "home_button": "Return to home page"
+        },
+        "already_submitted": {
+            "title": "You have already completed the survey",
+            "description": "Thank you for participating in the study! You can only fill out the survey once from one IP address.",
+            "home_button": "Return to home page"
+        },
+        "traits": {
+            "extraversion": {
+                "label": "Extraversion",
+                "high": "People with high extraversion are energetic, sociable, talkative and bold. They like to be the center of attention and draw energy from contact with people.",
+                "low": "People with low extraversion are more reserved, value peace and privacy. They may seem taciturn or withdrawn in a large group, preferring contacts in a smaller group."
+            },
+            "agreeableness": {
+                "label": "Agreeableness",
+                "high": "Highly agreeable people are trusting, altruistic, warm and cooperative. They strive for agreement and harmony in relationships.",
+                "low": "People with lower agreeableness may be more skeptical, critical and competitive. They more often put their own interests above the interests of others."
+            },
+            "conscientiousness": {
+                "label": "Conscientiousness",
+                "high": "High conscientiousness means good organization, dutifulness, accuracy and determination in pursuing a goal. Such people like order and planning.",
+                "low": "Low conscientiousness can be associated with greater spontaneity, flexibility, but also less attention to detail and regularity."
+            },
+            "emotionalStability": {
+                "label": "Emotional Stability",
+                "high": "Emotionally stable people are calm, balanced and resistant to stress. They experience strong negative emotions like fear or anger less often.",
+                "low": "Lower stability (higher neuroticism) is associated with more frequent mood swings, anxiety, irritability and a stronger reaction to stress."
+            },
+            "intellect": {
+                "label": "Intellect (Openness)",
+                "high": "High intellect (openness) characterizes creative people who are curious about the world, have a rich imagination and broad interests. They like novelty and abstract thinking.",
+                "low": "A lower score may indicate pragmatism, keeping one's feet on the ground and preferring proven solutions and concretes instead of abstract ideas."
+            },
+            "average_description": "Your score is average, which means you show traits from both poles depending on the situation, or they are not strongly marked in you."
+        },
+        "levels": {
+            "low": "low",
+            "medium": "medium",
+            "high": "high"
+        },
+        "questions": {
+            "e_plus_1": "I am the life of the party.",
+            "u_minus_1": "I don't care much about others.",
+            "s_minus_1": "I leave my things around.",
+            "se_plus_1": "I am usually relaxed.",
+            "i_plus_1": "I have a rich vocabulary.",
+            "e_minus_2": "I keep in the background.",
+            "u_plus_2": "I sympathize with others' feelings.",
+            "s_plus_2": "I get chores done right away.",
+            "se_minus_2": "I often worry about things.",
+            "i_minus_2": "I have difficulty understanding abstract ideas.",
+            "e_plus_3": "I talk to a lot of different people at parties.",
+            "u_minus_3": "I am not interested in other people's problems.",
+            "s_minus_3": "I often forget to put things back in their proper place.",
+            "se_plus_3": "I seldom feel blue.",
+            "i_plus_3": "I have a vivid imagination.",
+            "e_minus_4": "I am quiet around strangers.",
+            "u_plus_4": "I make time for others.",
+            "s_plus_4": "I follow a schedule.",
+            "se_minus_4": "I get mood swings often.",
+            "i_minus_4": "I do not have a good imagination."
+        },
+        "employment_options": {
+            "B2B": "B2B (self-employment)",
+            "UoP": "Employment contract",
+            "Cywilnoprawna": "Civil law contract",
+            "Inne": "Other"
+        }
+    }
+}

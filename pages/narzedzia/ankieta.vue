@@ -8,11 +8,11 @@
 const { t } = useI18n()
 
 useHead({
-  title: 'Ankieta - Osobowość a zarobki programistów - Sławomir Woźniak',
+  title: t('survey.meta.title'),
   meta: [
     {
       name: 'description',
-      content: 'Sprawdź jak Twoja osobowość wpływa na zarobki w IT. Wypełnij krótką ankietę i porównaj swoje wyniki z innymi programistami.'
+      content: t('survey.meta.description')
     }
   ]
 })

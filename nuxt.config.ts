@@ -343,7 +343,8 @@ export default defineNuxtConfig({
           'en/services.json',
           'en/vision.json',
           'en/contact.json',
-          'en/feedback.json'
+          'en/feedback.json',
+          'en/survey.json'
         ],
       },
       {
@@ -360,7 +361,8 @@ export default defineNuxtConfig({
           'pl/services.json',
           'pl/vision.json',
           'pl/contact.json',
-          'pl/feedback.json'
+          'pl/feedback.json',
+          'pl/survey.json'
         ],
       },
     ],

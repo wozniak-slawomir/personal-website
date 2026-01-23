@@ -1,10 +1,12 @@
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { TIPI_QUESTIONS, EMPLOYMENT_TYPES } from '~/const/survey';
 import { calculateBigFive, getPersonalityProfile, type PersonalityProfile } from '~/utils/personality';
 
 type Phase = 'intro' | 'screening' | 'personality' | 'employment' | 'processing' | 'thank-you' | 'already-submitted';
 
+const { t } = useI18n();
 const currentPhase = ref<Phase>('intro');
 const personalityPage = ref(0);
 const isSubmitting = ref(false);
@@ -106,7 +108,7 @@ async function submitSurvey() {
         if (err.statusCode === 409) {
             currentPhase.value = 'already-submitted';
         } else {
-            error.value = err.statusMessage || 'Wystąpił błąd podczas wysyłania ankiety';
+            error.value = err.statusMessage || t('survey.employment.error_generic');
             currentPhase.value = 'employment';
         }
     } finally {
@@ -130,20 +132,19 @@ onMounted(() => {
                 </svg>
             </div>
             <h1 class="text-4xl md:text-6xl font-bold text-white tracking-tight">
-                Badanie programistów <br />
-                <span class="text-[#9c7942]">osobowość a zarobki</span>
+                {{ t('survey.intro.title') }} <br />
+                <span class="text-[#9c7942]">{{ t('survey.intro.subtitle') }}</span>
             </h1>
             <p class="text-xl text-gray-400 max-w-2xl mx-auto">
-                Pomóż zbadać jak cechy osobowości wpływają na zarobki w IT.
-                Wypełnienie ankiety zajmie około 5 minut.
+                {{ t('survey.intro.description') }}
             </p>
             <p class="text-sm text-gray-500">
-                Ankieta jest w pełni anonimowa.
+                {{ t('survey.intro.anonymous_note') }}
             </p>
             <div class="flex justify-center mt-8">
                 <button @click="startSurvey"
                     class="px-8 py-4 bg-[#9c7942] hover:bg-[#8a6b3a] text-white text-lg font-bold rounded-lg transition-all transform hover:scale-105 shadow-lg shadow-[#9c7942]/20">
-                    Rozpocznij ankietę
+                    {{ t('survey.intro.start_button') }}
                 </button>
             </div>
         </div>
@@ -151,17 +152,17 @@ onMounted(() => {
         <!-- Phase: Screening -->
         <div v-if="currentPhase === 'screening'" class="space-y-8 py-12 animate-fade-in">
             <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold text-white mb-4">Zanim zaczniemy...</h2>
-                <p class="text-gray-400">Upewnijmy się, że ankieta jest dla Ciebie</p>
+                <h2 class="text-3xl font-bold text-white mb-4">{{ t('survey.screening.title') }}</h2>
+                <p class="text-gray-400">{{ t('survey.screening.subtitle') }}</p>
             </div>
             
             <div class="bg-[#1a1a1a] rounded-xl p-8 border border-gray-800">
                 <div class="space-y-6 text-center">
                     <p class="text-lg text-white">
-                        Ta ankieta jest przeznaczona dla <span class="text-[#9c7942] font-semibold">programistów mieszkających w Polsce</span>.
+                        {{ t('survey.screening.target_audience') }} <span class="text-[#9c7942] font-semibold">{{ t('survey.screening.target_highlight') }}</span>.
                     </p>
                     <p class="text-gray-400">
-                        Jeśli spełniasz te warunki, kliknij poniżej aby kontynuować.
+                        {{ t('survey.screening.instruction') }}
                     </p>
                 </div>
             </div>
@@ -169,11 +170,11 @@ onMounted(() => {
             <div class="flex justify-center gap-4 mt-8">
                 <button @click="currentPhase = 'intro'"
                     class="px-6 py-3 bg-transparent border border-gray-600 text-gray-300 rounded-lg hover:border-gray-400 transition-all">
-                    Wróć
+                    {{ t('survey.screening.back_button') }}
                 </button>
                 <button @click="startPersonality"
                     class="px-8 py-3 bg-[#9c7942] hover:bg-[#8a6b3a] text-white font-bold rounded-lg transition-all">
-                    Tak, jestem programist(k)ą w Polsce
+                    {{ t('survey.screening.confirm_button') }}
                 </button>
             </div>
         </div>
@@ -181,8 +182,8 @@ onMounted(() => {
         <!-- Phase: Personality -->
         <div v-if="currentPhase === 'personality'" class="space-y-8 py-8 animate-fade-in">
             <div class="text-center mb-8">
-                <h2 class="text-2xl font-bold text-white mb-2">Test osobowości</h2>
-                <p class="text-gray-400">Strona {{ personalityPage + 1 }} z {{ TIPI_QUESTIONS.length }}</p>
+                <h2 class="text-2xl font-bold text-white mb-2">{{ t('survey.personality.title') }}</h2>
+                <p class="text-gray-400">{{ t('survey.personality.page_info', { current: personalityPage + 1, total: TIPI_QUESTIONS.length }) }}</p>
                 <div class="w-full bg-gray-800 rounded-full h-2 mt-4">
                     <div class="bg-[#9c7942] h-2 rounded-full transition-all duration-300"
                         :style="{ width: progressPercent + '%' }"></div>
@@ -191,14 +192,14 @@ onMounted(() => {
 
             <div class="bg-[#1a1a1a] rounded-xl p-6 md:p-8 border border-gray-800">
                 <p class="text-sm text-gray-500 mb-6 text-center">
-                    Oceń, na ile poniższe stwierdzenia Cię opisują (1 = wcale, 5 = bardzo trafnie)
+                    {{ t('survey.personality.instruction') }}
                 </p>
 
                 <div class="space-y-8">
                     <div v-for="question in currentQuestions" :key="question.id" class="space-y-3">
-                        <p class="text-white font-medium">{{ question.text }}</p>
+                        <p class="text-white font-medium">{{ t('survey.questions.' + question.id) }}</p>
                         <div class="flex justify-between items-center gap-2">
-                            <span class="text-xs text-gray-500 w-20 text-left">Nietrafnie</span>
+                            <span class="text-xs text-gray-500 w-20 text-left">{{ t('survey.personality.scale_not_accurate') }}</span>
                             <div class="flex gap-2 flex-1 justify-center">
                                 <button v-for="n in 5" :key="n" @click="answers[question.id] = n"
                                     :class="[
@@ -210,7 +211,7 @@ onMounted(() => {
                                     {{ n }}
                                 </button>
                             </div>
-                            <span class="text-xs text-gray-500 w-20 text-right">Trafnie</span>
+                            <span class="text-xs text-gray-500 w-20 text-right">{{ t('survey.personality.scale_accurate') }}</span>
                         </div>
                     </div>
                 </div>
@@ -219,7 +220,7 @@ onMounted(() => {
             <div class="flex justify-between gap-4 mt-8">
                 <button @click="prevPersonalityPage"
                     class="px-6 py-3 bg-transparent border border-gray-600 text-gray-300 rounded-lg hover:border-gray-400 transition-all">
-                    Wstecz
+                    {{ t('survey.personality.back_button') }}
                 </button>
                 <button @click="nextPersonalityPage" :disabled="!canProceedPersonality"
                     :class="[
@@ -228,7 +229,7 @@ onMounted(() => {
                             ? 'bg-[#9c7942] hover:bg-[#8a6b3a] text-white'
                             : 'bg-gray-700 text-gray-500 cursor-not-allowed'
                     ]">
-                    {{ personalityPage < TIPI_QUESTIONS.length - 1 ? 'Dalej' : 'Przejdź do danych' }}
+                    {{ personalityPage < TIPI_QUESTIONS.length - 1 ? t('survey.personality.next_button') : t('survey.personality.finish_button') }}
                 </button>
             </div>
         </div>
@@ -236,8 +237,8 @@ onMounted(() => {
         <!-- Phase: Employment -->
         <div v-if="currentPhase === 'employment'" class="space-y-8 py-8 animate-fade-in">
             <div class="text-center mb-8">
-                <h2 class="text-2xl font-bold text-white mb-2">Informacje o zatrudnieniu</h2>
-                <p class="text-gray-400">Ostatni krok przed wysłaniem</p>
+                <h2 class="text-2xl font-bold text-white mb-2">{{ t('survey.employment.title') }}</h2>
+                <p class="text-gray-400">{{ t('survey.employment.subtitle') }}</p>
             </div>
 
             <div v-if="error" class="bg-red-900/30 border border-red-700 text-red-300 px-4 py-3 rounded-lg mb-6">
@@ -247,7 +248,7 @@ onMounted(() => {
             <div class="bg-[#1a1a1a] rounded-xl p-6 md:p-8 border border-gray-800 space-y-8">
                 <!-- Employment Type -->
                 <div class="space-y-3">
-                    <label class="text-white font-medium block">Forma zatrudnienia</label>
+                    <label class="text-white font-medium block">{{ t('survey.employment.form.type_label') }}</label>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
                         <button v-for="type in EMPLOYMENT_TYPES" :key="type.value"
                             @click="employment.type = type.value"
@@ -257,7 +258,7 @@ onMounted(() => {
                                     ? 'bg-[#9c7942]/20 border-[#9c7942] text-white'
                                     : 'border-gray-700 text-gray-400 hover:border-gray-500'
                             ]">
-                            {{ type.label }}
+                            {{ t('survey.employment_options.' + type.value) }}
                         </button>
                     </div>
                 </div>
@@ -265,31 +266,31 @@ onMounted(() => {
                 <!-- Experience -->
                 <div class="space-y-3">
                     <label class="text-white font-medium block">
-                        Staż pracy jako programista (w latach)
+                        {{ t('survey.employment.form.experience_label') }}
                     </label>
                     <input v-model.number="employment.experience" type="number" min="0" max="50" step="0.5"
                         class="w-full bg-[#252525] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#9c7942] focus:outline-none"
-                        placeholder="np. 3" />
+                        :placeholder="t('survey.employment.form.experience_placeholder')" />
                 </div>
 
                 <!-- Salary -->
                 <div class="space-y-3">
                     <label class="text-white font-medium block">
-                        Średnie miesięczne zarobki netto (PLN)
+                        {{ t('survey.employment.form.salary_label') }}
                     </label>
                     <p class="text-sm text-gray-500">
-                        W przypadku B2B: po opłaceniu ZUS, PIT i księgowości
+                        {{ t('survey.employment.form.salary_hint') }}
                     </p>
                     <input v-model.number="employment.salary" type="number" min="0" step="100"
                         class="w-full bg-[#252525] border border-gray-700 rounded-lg px-4 py-3 text-white focus:border-[#9c7942] focus:outline-none"
-                        placeholder="np. 15000" />
+                        :placeholder="t('survey.employment.form.salary_placeholder')" />
                 </div>
             </div>
 
             <div class="flex justify-between gap-4 mt-8">
                 <button @click="currentPhase = 'personality'; personalityPage = TIPI_QUESTIONS.length - 1"
                     class="px-6 py-3 bg-transparent border border-gray-600 text-gray-300 rounded-lg hover:border-gray-400 transition-all">
-                    Wstecz
+                    {{ t('survey.employment.back_button') }}
                 </button>
                 <button @click="submitSurvey" :disabled="!canProceedEmployment || isSubmitting"
                     :class="[
@@ -298,7 +299,7 @@ onMounted(() => {
                             ? 'bg-[#9c7942] hover:bg-[#8a6b3a] text-white'
                             : 'bg-gray-700 text-gray-500 cursor-not-allowed'
                     ]">
-                    {{ isSubmitting ? 'Wysyłam...' : 'Wyślij ankietę' }}
+                    {{ isSubmitting ? t('survey.employment.submitting_button') : t('survey.employment.submit_button') }}
                 </button>
             </div>
         </div>
@@ -309,8 +310,8 @@ onMounted(() => {
                 <div class="absolute top-0 left-0 w-full h-full border-4 border-gray-700 rounded-full"></div>
                 <div class="absolute top-0 left-0 w-full h-full border-4 border-[#9c7942] rounded-full border-t-transparent animate-spin"></div>
             </div>
-            <h3 class="text-2xl font-bold text-white mb-2">Zapisuję odpowiedzi...</h3>
-            <p class="text-gray-400 animate-pulse">Proszę czekać</p>
+            <h3 class="text-2xl font-bold text-white mb-2">{{ t('survey.processing.title') }}</h3>
+            <p class="text-gray-400 animate-pulse">{{ t('survey.processing.subtitle') }}</p>
         </div>
 
         <!-- Phase: Thank You / Results -->
@@ -322,28 +323,28 @@ onMounted(() => {
                             d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                 </div>
-                <h2 class="text-3xl font-bold text-white">Dziękujemy za udział w badaniu!</h2>
+                <h2 class="text-3xl font-bold text-white">{{ t('survey.thank_you.title') }}</h2>
                 <p class="text-gray-400 max-w-md mx-auto">
-                    Twoje odpowiedzi zostały zapisane. Poniżej znajdziesz swój profil osobowości.
+                    {{ t('survey.thank_you.description') }}
                 </p>
             </div>
 
             <div v-if="results" class="space-y-8 animate-slide-up">
-                <h3 class="text-2xl font-bold text-white text-center">Twój Profil Osobowości</h3>
+                <h3 class="text-2xl font-bold text-white text-center">{{ t('survey.thank_you.profile_header') }}</h3>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div v-for="(trait, key) in results" :key="key" 
                         class="bg-[#1a1a1a] rounded-xl p-6 border border-gray-800 hover:border-[#9c7942] transition-colors">
                         <div class="flex justify-between items-start mb-4">
                             <div>
-                                <h4 class="text-xl font-bold text-white">{{ trait.label }}</h4>
+                                <h4 class="text-xl font-bold text-white">{{ t('survey.traits.' + key + '.label') }}</h4>
                                 <span :class="[
                                     'text-sm font-medium px-2 py-1 rounded inline-block mt-1',
-                                    trait.level === 'wysoki' ? 'bg-green-900/50 text-green-400' :
-                                    trait.level === 'niski' ? 'bg-blue-900/50 text-blue-400' :
+                                    trait.level === 'high' ? 'bg-green-900/50 text-green-400' :
+                                    trait.level === 'low' ? 'bg-blue-900/50 text-blue-400' :
                                     'bg-gray-700/50 text-gray-400'
                                 ]">
-                                    Poziom: {{ trait.level }}
+                                    {{ t('survey.thank_you.level_label', { level: t('survey.levels.' + trait.level) }) }}
                                 </span>
                             </div>
                             <div class="text-right">
@@ -358,7 +359,10 @@ onMounted(() => {
                         </div>
 
                         <p class="text-gray-400 text-sm leading-relaxed">
-                            {{ trait.description }}
+                            {{ trait.level === 'medium' 
+                               ? t('survey.traits.average_description') 
+                               : t(`survey.traits.${key}.${trait.level}`) 
+                            }}
                         </p>
                     </div>
                 </div>
@@ -367,7 +371,7 @@ onMounted(() => {
             <div class="text-center pt-8">
                 <a href="/"
                     class="inline-block px-8 py-4 bg-[#9c7942] hover:bg-[#8a6b3a] text-white text-lg font-bold rounded-lg transition-all">
-                    Wróć na stronę główną
+                    {{ t('survey.thank_you.home_button') }}
                 </a>
             </div>
         </div>
@@ -380,13 +384,13 @@ onMounted(() => {
                         d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                 </svg>
             </div>
-            <h2 class="text-3xl font-bold text-white">Już wypełniłeś/aś ankietę</h2>
+            <h2 class="text-3xl font-bold text-white">{{ t('survey.already_submitted.title') }}</h2>
             <p class="text-gray-400 max-w-md mx-auto">
-                Dziękujemy za udział w badaniu! Z jednego adresu IP można wypełnić ankietę tylko raz.
+                {{ t('survey.already_submitted.description') }}
             </p>
             <a href="/"
                 class="inline-block mt-8 px-8 py-4 bg-[#9c7942] hover:bg-[#8a6b3a] text-white text-lg font-bold rounded-lg transition-all">
-                Wróć na stronę główną
+                {{ t('survey.already_submitted.home_button') }}
             </a>
         </div>
     </div>

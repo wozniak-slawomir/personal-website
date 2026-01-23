@@ -1,0 +1,127 @@
+{
+    "survey": {
+        "meta": {
+            "title": "Ankieta - Osobowość a zarobki programistów - Sławomir Woźniak",
+            "description": "Sprawdź jak Twoja osobowość wpływa na zarobki w IT. Wypełnij krótką ankietę i porównaj swoje wyniki z innymi programistami."
+        },
+        "intro": {
+            "title": "Badanie programistów",
+            "subtitle": "osobowość a zarobki",
+            "description": "Pomóż zbadać jak cechy osobowości wpływają na zarobki w IT. Wypełnienie ankiety zajmie około 5 minut.",
+            "anonymous_note": "Ankieta jest w pełni anonimowa.",
+            "start_button": "Rozpocznij ankietę"
+        },
+        "screening": {
+            "title": "Zanim zaczniemy...",
+            "subtitle": "Upewnijmy się, że ankieta jest dla Ciebie",
+            "target_audience": "Ta ankieta jest przeznaczona dla",
+            "target_highlight": "programistów mieszkających w Polsce",
+            "instruction": "Jeśli spełniasz te warunki, kliknij poniżej aby kontynuować.",
+            "back_button": "Wróć",
+            "confirm_button": "Tak, jestem programist(k)ą w Polsce"
+        },
+        "personality": {
+            "title": "Test osobowości",
+            "page_info": "Strona {current} z {total}",
+            "instruction": "Oceń, na ile poniższe stwierdzenia Cię opisują (1 = wcale, 5 = bardzo trafnie)",
+            "scale_not_accurate": "Nietrafnie",
+            "scale_accurate": "Trafnie",
+            "back_button": "Wstecz",
+            "next_button": "Dalej",
+            "finish_button": "Przejdź do danych"
+        },
+        "employment": {
+            "title": "Informacje o zatrudnieniu",
+            "subtitle": "Ostatni krok przed wysłaniem",
+            "error_generic": "Wystąpił błąd podczas wysyłania ankiety",
+            "form": {
+                "type_label": "Forma zatrudnienia",
+                "experience_label": "Staż pracy jako programista (w latach)",
+                "experience_placeholder": "np. 3",
+                "salary_label": "Średnie miesięczne zarobki netto (PLN)",
+                "salary_hint": "W przypadku B2B: po opłaceniu ZUS, PIT i księgowości",
+                "salary_placeholder": "np. 15000"
+            },
+            "back_button": "Wstecz",
+            "submit_button": "Wyślij ankietę",
+            "submitting_button": "Wysyłam..."
+        },
+        "processing": {
+            "title": "Zapisuję odpowiedzi...",
+            "subtitle": "Proszę czekać"
+        },
+        "thank_you": {
+            "title": "Dziękujemy za udział w badaniu!",
+            "description": "Twoje odpowiedzi zostały zapisane. Poniżej znajdziesz swój profil osobowości.",
+            "profile_header": "Twój Profil Osobowości",
+            "level_label": "Poziom: {level}",
+            "home_button": "Wróć na stronę główną"
+        },
+        "already_submitted": {
+            "title": "Już wypełniłeś/aś ankietę",
+            "description": "Dziękujemy za udział w badaniu! Z jednego adresu IP można wypełnić ankietę tylko raz.",
+            "home_button": "Wróć na stronę główną"
+        },
+        "traits": {
+            "extraversion": {
+                "label": "Ekstrawersja",
+                "high": "Osoby o wysokiej ekstrawersji są energiczne, towarzyskie, rozmowne i śmiałe. Lubią być w centrum uwagi i czerpią energię z kontaktów z ludźmi.",
+                "low": "Osoby o niskiej ekstrawersji są bardziej powściągliwe, cenią sobie spokój i prywatność. Mogą wydawać się małomówne lub wycofane w dużej grupie, preferując kontakty w węższym gronie."
+            },
+            "agreeableness": {
+                "label": "Ugodowość",
+                "high": "Osoby wysoko ugodowe są ufne, altruistyczne, serdeczne i skłonne do współpracy. Dążą do zgody i harmonii w relacjach.",
+                "low": "Osoby o niższej ugodowości mogą być bardziej sceptyczne, krytyczne i nastawione na rywalizację. Częściej stawiają własne interesy ponad interesy innych."
+            },
+            "conscientiousness": {
+                "label": "Sumienność",
+                "high": "Wysoka sumienność oznacza dobre zorganizowanie, obowiązkowość, dokładność i determinację w dążeniu do celu. Takie osoby lubią porządek i planowanie.",
+                "low": "Niska sumienność może wiązać się z większą spontanicznością, elastycznością, ale też mniejszą dbałością o szczegóły i systematyczność."
+            },
+            "emotionalStability": {
+                "label": "Stabilność emocjonalna",
+                "high": "Osoby stabilne emocjonalnie są spokojne, zrównoważone i odporne na stres. Rzadziej doświadczają silnych negatywnych emocji jak lęk czy złość.",
+                "low": "Niższa stabilność (wyższa neurotyczność) wiąże się z częstszym doświadczaniem wahań nastroju, lęku, drażliwości i silniejszym reagowaniem na stres."
+            },
+            "intellect": {
+                "label": "Intelekt (Otwartość)",
+                "high": "Wysoki intelekt (otwartość) cechuje osoby kreatywne, ciekawe świata, o bogatej wyobraźni i szerokich zainteresowaniach. Lubią nowości i abstrakcyjne myślenie.",
+                "low": "Niższy wynik może wskazywać na pragmatyzm, twarde stąpanie po ziemi i preferowanie sprawdzonych rozwiązań oraz konkretów zamiast abstrakcyjnych idei."
+            },
+            "average_description": "Twój wynik jest przeciętny, co oznacza, że przejawiasz cechy z obu biegunów w zależności od sytuacji, lub nie są one u Ciebie silnie zaznaczone."
+        },
+        "levels": {
+            "low": "niski",
+            "medium": "średni",
+            "high": "wysoki"
+        },
+        "questions": {
+            "e_plus_1": "Jestem duszą towarzystwa.",
+            "u_minus_1": "Niezbyt obchodzą mnie inni ludzie.",
+            "s_minus_1": "Zostawiam moje rzeczy gdzie popadnie.",
+            "se_plus_1": "Zwykle jestem zrelaksowany/a.",
+            "i_plus_1": "Mam bogate słownictwo.",
+            "e_minus_2": "Trzymam się z boku.",
+            "u_plus_2": "Jestem wyrozumiały/a dla uczuć innych ludzi.",
+            "s_plus_2": "Bez zwłoki wypełniam codzienne obowiązki.",
+            "se_minus_2": "Często martwię się czymś.",
+            "i_minus_2": "Mam trudności ze zrozumieniem abstrakcyjnych pojęć.",
+            "e_plus_3": "Rozmawiam z wieloma różnymi ludźmi na przyjęciach.",
+            "u_minus_3": "Nie interesują mnie problemy innych ludzi.",
+            "s_minus_3": "Często zapominam odkładać rzeczy na miejsce.",
+            "se_plus_3": "Rzadko czuję się przygnębiony/a.",
+            "i_plus_3": "Mam głowę pełną pomysłów.",
+            "e_minus_4": "Wśród nieznajomych jestem małomówny/a.",
+            "u_plus_4": "Znajduję czas dla innych.",
+            "s_plus_4": "Postępuję zgodnie z harmonogramem.",
+            "se_minus_4": "Często miewam huśtawki nastrojów.",
+            "i_minus_4": "Nie mam zbyt bogatej wyobraźni."
+        },
+        "employment_options": {
+            "B2B": "B2B (własna działalność)",
+            "UoP": "Umowa o pracę",
+            "Cywilnoprawna": "Umowa cywilnoprawna",
+            "Inne": "Inne"
+        }
+    }
+}
