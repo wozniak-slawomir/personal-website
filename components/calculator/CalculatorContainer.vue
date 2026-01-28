@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, nextTick } from 'vue';
 import ToolSelector from './ToolSelector.vue';
 import ResultsView from './ResultsView.vue';
 import SegmentSelector from './SegmentSelector.vue';
@@ -11,7 +11,10 @@ const currentPhase = ref<Phase>('hook');
 const { resetCalculator } = useCalculator();
 
 const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Try multiple ways to scroll to top, ensuring it happens
+    window.scrollTo({ top: 0, behavior: 'auto' });
+    document.body.scrollTop = 0; // For Safari
+    document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 };
 
 const startCalculator = () => {
@@ -25,11 +28,15 @@ const onSegmentSelected = () => {
     scrollToTop();
 };
 
-const calculateResults = () => {
+const calculateResults = async () => {
     currentPhase.value = 'processing';
+    await nextTick();
     scrollToTop();
-    setTimeout(() => {
+    
+    setTimeout(async () => {
         currentPhase.value = 'result';
+        await nextTick();
+        scrollToTop();
     }, 2000);
 };
 
