@@ -165,6 +165,13 @@ export const contentItems: ContentItem[] = [
     tags: ['blog'],
     link: '/blog/niestabilne-usa-niestabilna-technologia',
     lastmod: '2026-01-19T23:54:00+01:00'
+  },
+  {
+    name: 'MyDr',
+    image: 'projects/mydr.png',
+    description: (t) => t('projects.mydr'),
+    tags: ['portfolio'],
+    link: 'https://mydr.pl',
   }
 ]
 
