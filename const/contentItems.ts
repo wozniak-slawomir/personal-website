@@ -172,6 +172,12 @@ export const contentItems: ContentItem[] = [
     description: (t) => t('projects.mydr'),
     tags: ['portfolio'],
     link: 'https://mydr.pl',
+  },
+  {
+    name: 'Tebra Care Connect',
+    image: 'projects/tebra care connect freemium.png',
+    description: (t) => t('projects.tebra'),
+    tags: ['portfolio'],
+    link: 'https://www.tebra.com/care/join',
   }
 ]
-
