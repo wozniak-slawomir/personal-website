@@ -72,5 +72,8 @@
   "tools.subtitle": "Practical solutions to automate and optimize your work.",
   "tools.description": "Useful tools for your business.",
   "tools.calculator.title": "Loss Calculator",
-  "tools.calculator.description": "Check how much money you might be losing on unused subscriptions."
+  "tools.calculator.description": "Check how much money you might be losing on unused subscriptions.",
+  "latestPosts.title": "Latest Posts",
+  "latestPosts.viewAll": "View all",
+  "latestPosts.readMore": "Read more"
 }

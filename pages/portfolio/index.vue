@@ -1,7 +1,6 @@
 <template>
   <div>
     <RealizedProjects />
-
   </div>
 </template>
 

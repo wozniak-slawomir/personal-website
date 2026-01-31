@@ -21,6 +21,7 @@
       </div>
       <CTASection />
     </main>
+    <LatestBlogPosts />
   </div>
 </template>
 

@@ -72,5 +72,8 @@
   "tools.subtitle": "Praktyczne rozwiązania, które zautomatyzują i zoptymalizują Twoją pracę.",
   "tools.description": "Przydatne narzędzia dla Twojego biznesu.",
   "tools.calculator.title": "Kalkulator Strat",
-  "tools.calculator.description": "Sprawdź, ile pieniędzy możesz tracić na nieużywanych subskrypcjach."
+  "tools.calculator.description": "Sprawdź, ile pieniędzy możesz tracić na nieużywanych subskrypcjach.",
+  "latestPosts.title": "Najnowsze wpisy",
+  "latestPosts.viewAll": "Zobacz wszystkie",
+  "latestPosts.readMore": "Czytaj więcej"
 }

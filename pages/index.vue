@@ -8,6 +8,7 @@
     <FAQ />
     <Pricing />
     <CTASection />
+    <LatestBlogPosts />
 
   </div>
 </template>
