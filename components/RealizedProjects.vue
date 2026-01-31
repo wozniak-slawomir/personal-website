@@ -3,7 +3,7 @@
     ref="realizedProjectsSection"
     class="overflow-hidden"
   >
-    <div class="container mt-32">
+    <div class="container mt-24">
       <h2 class="text-5xl font-bold my-10 text-center uppercase md:text-left">
         {{ $t('projects.title') }}
       </h2>

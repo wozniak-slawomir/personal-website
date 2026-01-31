@@ -1,5 +1,8 @@
 <template>
   <div class="pt-[var(--navbar-height)] pb-20">
+    <div class="container">
+      <BackButton class="mt-6" />
+    </div>
     <Bio />
   </div>
 </template>

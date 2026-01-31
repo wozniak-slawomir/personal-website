@@ -1,7 +1,8 @@
 <template>
     <div class="pt-[var(--navbar-height)] pb-20">
         <div class="container mt-10 lg:mt-20">
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16">
+            <BackButton class="mb-6" />
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-16 mt-8">
                 {{ $t('navbar.vision') }}
             </h1>
 

@@ -1,5 +1,6 @@
 <template>
   <div class="container mt-32 mb-20">
+    <BackButton class="mb-6" />
     <h1 class="text-5xl font-bold my-10 text-center uppercase">
       {{ $t('projects.filter.blog') }}
     </h1>
