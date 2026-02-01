@@ -179,5 +179,13 @@ export const contentItems: ContentItem[] = [
     description: (t) => t('projects.tebra'),
     tags: ['portfolio'],
     link: 'https://www.tebra.com/care/join',
+  },
+  {
+    name: (t) => t('blog.persuasionPsychology.title'),
+    image: 'blog/psychologia-perswazji/og-image.png',
+    description: (t) => t('blog.persuasionPsychology.meta.description'),
+    tags: ['blog'],
+    link: '/blog/psychologia-perswazji',
+    lastmod: '2026-02-01T17:10:00+01:00'
   }
 ]
