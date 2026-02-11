@@ -29,6 +29,10 @@ function getSourceLabel(value: string): string {
 function getQuestionText(questionId: string): string {
     return t(`feedback.questions.${questionId}`);
 }
+function shouldShowQuestion(question: FeedbackQuestion): boolean {
+    if (!question.condition) return true;
+    return answers.value[question.condition.questionId] === question.condition.value;
+}
 </script>
 
 <template>
@@ -48,44 +52,34 @@ function getQuestionText(questionId: string): string {
 
         <div class="bg-[#1a1a1a] rounded-xl p-6 md:p-8 border border-gray-800">
             <div class="space-y-8">
-                <div v-for="question in questions" :key="question.id" class="space-y-3">
+                <template v-for="question in questions" :key="question.id">
+                <div v-if="shouldShowQuestion(question)" class="space-y-3">
                     <p class="text-white font-medium">
                         {{ getQuestionText(question.id) }}
                         <span v-if="!question.required" class="text-gray-500 text-sm">({{ t('feedback.optional') }})</span>
                     </p>
 
-                    <div v-if="question.type === 'select'" class="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                        <button v-for="source in DISCOVERY_SOURCES" :key="source.value"
-                            @click="answers[question.id] = source.value"
+                    <div v-if="question.type === 'select' && question.options" class="grid gap-3"
+                        :class="[
+                            question.options.length <= 2 ? 'grid-cols-2' : 'grid-cols-2 sm:grid-cols-4'
+                        ]">
+                        <button v-for="option in question.options" :key="option"
+                            @click="answers[question.id] = option"
                             :class="[
                                 'p-3 rounded-lg border-2 text-center transition-all text-sm',
-                                answers[question.id] === source.value
+                                answers[question.id] === option
                                     ? 'bg-[#9c7942]/20 border-[#9c7942] text-white'
                                     : 'border-gray-700 text-gray-400 hover:border-gray-500'
                             ]">
-                            {{ getSourceLabel(source.value) }}
+                            <!-- Check if it's a discovery source (legacy check or specific logic) or just use generic option label -->
+                            {{ question.id === 'discovery_source' ? getSourceLabel(option) : t(`feedback.options.${option}`) }}
                         </button>
                     </div>
 
-                    <div v-if="question.type === 'scale'">
-                        <div class="flex justify-between items-center gap-1 mb-2">
-                            <div class="flex gap-1 flex-1 justify-center">
-                                <button v-for="n in 10" :key="n" @click="answers[question.id] = n"
-                                    :class="[
-                                        'w-10 h-10 rounded-full border-2 transition-all text-sm font-bold',
-                                        answers[question.id] === n
-                                            ? 'bg-[#9c7942] border-[#9c7942] text-white'
-                                            : 'border-gray-600 text-gray-400 hover:border-[#9c7942] hover:text-white'
-                                    ]">
-                                    {{ n }}
-                                </button>
-                            </div>
-                        </div>
-                        <div v-if="question.hasComment" class="mt-3">
-                            <input v-model="comments[question.id]" type="text" maxlength="2000"
+                    <div v-if="question.hasComment && question.type === 'select'" class="mt-3">
+                         <input v-model="comments[question.id]" type="text" maxlength="2000"
                                 class="w-full bg-[#252525] border border-gray-700 rounded-lg px-4 py-2 text-white text-sm focus:border-[#9c7942] focus:outline-none"
                                 :placeholder="t('feedback.comment.placeholder')" />
-                        </div>
                     </div>
 
                     <div v-if="question.type === 'boolean'" class="flex gap-4">
@@ -120,6 +114,7 @@ function getQuestionText(questionId: string): string {
                             :placeholder="question.required ? t('feedback.answer.placeholder') : t('feedback.answer.optional.placeholder')" />
                     </div>
                 </div>
+                </template>
             </div>
         </div>
 

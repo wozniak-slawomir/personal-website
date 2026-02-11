@@ -11,6 +11,10 @@ export interface FeedbackQuestion {
   options?: string[];
   hasComment?: boolean;
   conditionalText?: boolean;
+  condition?: {
+    questionId: string;
+    value: string | boolean;
+  };
 }
 
 export const DISCOVERY_SOURCES = [
@@ -22,6 +26,7 @@ export const DISCOVERY_SOURCES = [
   { value: 'na_zywo' },
   { value: 'polecenie' },
   { value: 'reklama' },
+  { value: 'z_innych' },
 ];
 
 export const FEEDBACK_QUESTIONS: FeedbackQuestion[][] = [
@@ -34,8 +39,9 @@ export const FEEDBACK_QUESTIONS: FeedbackQuestion[][] = [
     },
     {
       id: 'website_ease',
-      type: 'scale',
+      type: 'select',
       required: true,
+      options: ['easy', 'hard'],
       hasComment: true,
     },
     {
@@ -48,8 +54,9 @@ export const FEEDBACK_QUESTIONS: FeedbackQuestion[][] = [
   [
     {
       id: 'offer_clarity',
-      type: 'scale',
+      type: 'select',
       required: true,
+      options: ['clear', 'unclear'],
     },
     {
       id: 'missing_offer_info',
@@ -67,29 +74,44 @@ export const FEEDBACK_QUESTIONS: FeedbackQuestion[][] = [
   [
     {
       id: 'contact_form_satisfaction',
-      type: 'scale',
+      type: 'select',
       required: true,
       clientOnly: true,
+      options: ['appropriate', 'inappropriate'],
     },
     {
       id: 'communication_style',
-      type: 'scale',
+      type: 'select',
       required: true,
       clientOnly: true,
+      options: ['appropriate_masc', 'inappropriate_masc'],
     },
     {
       id: 'response_speed',
-      type: 'scale',
+      type: 'select',
       required: true,
       clientOnly: true,
       hasComment: true,
+      options: ['fast', 'slow'],
     },
     {
       id: 'work_delivery_time',
-      type: 'scale',
+      type: 'select',
       required: true,
       clientOnly: true,
       hasComment: true,
+      options: ['ontime', 'delayed'],
+    },
+    {
+      id: 'work_delivery_delayed_cause',
+      type: 'select',
+      required: true,
+      clientOnly: true,
+      options: ['provider_fault', 'client_fault', 'both_fault'],
+      condition: {
+        questionId: 'work_delivery_time',
+        value: 'delayed',
+      },
     },
   ],
   [
@@ -112,8 +134,9 @@ export const FEEDBACK_QUESTIONS: FeedbackQuestion[][] = [
     },
     {
       id: 'tech_readiness',
-      type: 'scale',
+      type: 'select',
       required: true,
+      options: ['ready', 'notready'],
     },
   ],
   [

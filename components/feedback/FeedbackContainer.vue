@@ -23,6 +23,11 @@ const comments = ref<Record<string, string>>({});
 
 const isClient = computed(() => answers.value['is_client'] === true);
 
+function shouldShowQuestion(q: any): boolean {
+    if (!q.condition) return true;
+    return answers.value[q.condition.questionId] === q.condition.value;
+}
+
 const currentQuestions = computed(() => {
     let pageIndex = currentPage.value;
     
@@ -47,6 +52,7 @@ const progressPercent = computed(() => {
         const questions = FEEDBACK_QUESTIONS[i];
         for (const q of questions) {
             if (q.clientOnly && !isClient.value) continue;
+            if (!shouldShowQuestion(q)) continue;
             
             if (q.required) {
                 totalRequired++;
@@ -71,6 +77,7 @@ const isEmailValid = computed(() => {
 const canProceed = computed(() => {
     const questions = currentQuestions.value;
     return questions.every(q => {
+        if (!shouldShowQuestion(q)) return true;
         if (!q.required) return true;
         const answer = answers.value[q.id];
         return answer !== undefined && answer !== null && answer !== '';
@@ -138,6 +145,8 @@ async function submitSurvey() {
             for (const q of page) {
                 // Skip client-only questions if user is not a client
                 if (q.clientOnly && !isClient.value) continue;
+                // Skip questions that don't meet their conditions
+                if (!shouldShowQuestion(q)) continue;
 
                 const value = answers.value[q.id];
                 

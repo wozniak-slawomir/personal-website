@@ -5,28 +5,29 @@ interface FeedbackSubmission {
     email?: string;
     
     discovery_source: string;
-    website_ease: number;
+    website_ease: string;
     website_ease_comment?: string;
     technical_issues: boolean;
     technical_issues_details?: string;
     
-    offer_clarity: number;
+    offer_clarity: string;
     missing_offer_info?: string;
     
     is_client: boolean;
     
-    contact_form_satisfaction?: number;
-    communication_style?: number;
-    response_speed?: number;
+    contact_form_satisfaction?: string;
+    communication_style?: string;
+    response_speed?: string;
     response_speed_comment?: string;
-    work_delivery_time?: number;
+    work_delivery_time?: string;
     work_delivery_time_comment?: string;
+    work_delivery_delayed_cause?: string;
     
     unpopular_tasks?: string;
     time_consuming_processes?: string;
     
     one_tech_change: string;
-    tech_readiness: number;
+    tech_readiness: string;
     
     would_recommend?: string;
     missing_product?: string;
@@ -110,13 +111,6 @@ function validateEmail(email: unknown): string | null {
     return trimmed;
 }
 
-/**
- * Validates scale rating (1-10)
- */
-function validateScale(value: unknown): value is number {
-    return typeof value === 'number' && value >= 1 && value <= 10 && Number.isInteger(value);
-}
-
 export default defineEventHandler(async (event) => {
     // Request logging for security monitoring
     const ip = getHeader(event, 'x-forwarded-for') || getHeader(event, 'x-real-ip') || 'unknown';
@@ -150,10 +144,10 @@ export default defineEventHandler(async (event) => {
         });
     }
 
-    if (!validateScale(body.website_ease)) {
+    if (!validateTextInput(body.website_ease, 50, 'Website ease')) {
         throw createError({
             statusCode: 400,
-            statusMessage: 'Invalid website ease rating: must be 1-10',
+            statusMessage: 'Invalid website ease rating',
         });
     }
 
@@ -164,10 +158,10 @@ export default defineEventHandler(async (event) => {
         });
     }
 
-    if (!validateScale(body.offer_clarity)) {
+    if (!validateTextInput(body.offer_clarity, 50, 'Offer clarity')) {
         throw createError({
             statusCode: 400,
-            statusMessage: 'Invalid offer clarity rating: must be 1-10',
+            statusMessage: 'Invalid offer clarity rating',
         });
     }
 
@@ -180,29 +174,39 @@ export default defineEventHandler(async (event) => {
 
     // Validate client-only fields if user is a client
     if (body.is_client) {
-        if (!validateScale(body.contact_form_satisfaction)) {
+        if (!validateTextInput(body.contact_form_satisfaction, 50, 'Contact form satisfaction')) {
             throw createError({
                 statusCode: 400,
                 statusMessage: 'Invalid contact form satisfaction rating',
             });
         }
-        if (!validateScale(body.communication_style)) {
+        if (!validateTextInput(body.communication_style, 50, 'Communication style')) {
             throw createError({
                 statusCode: 400,
                 statusMessage: 'Invalid communication style rating',
             });
         }
-        if (!validateScale(body.response_speed)) {
+        if (!validateTextInput(body.response_speed, 50, 'Response speed')) {
             throw createError({
                 statusCode: 400,
                 statusMessage: 'Invalid response speed rating',
             });
         }
-        if (!validateScale(body.work_delivery_time)) {
+        if (!validateTextInput(body.work_delivery_time, 50, 'Work delivery time')) {
             throw createError({
                 statusCode: 400,
                 statusMessage: 'Invalid work delivery time rating',
             });
+        }
+        // Validate delayed cause if delivery was delayed
+        if (body.work_delivery_time === 'delayed') {
+            const validCauses = ['provider_fault', 'client_fault', 'both_fault'];
+            if (!body.work_delivery_delayed_cause || !validCauses.includes(body.work_delivery_delayed_cause)) {
+                throw createError({
+                    statusCode: 400,
+                    statusMessage: 'Invalid or missing delayed cause when delivery is marked as delayed',
+                });
+            }
         }
     }
 
@@ -215,10 +219,10 @@ export default defineEventHandler(async (event) => {
         });
     }
 
-    if (!validateScale(body.tech_readiness)) {
+    if (!validateTextInput(body.tech_readiness, 50, 'Tech readiness')) {
         throw createError({
             statusCode: 400,
-            statusMessage: 'Invalid tech readiness rating: must be 1-10',
+            statusMessage: 'Invalid tech readiness rating',
         });
     }
 
@@ -242,6 +246,7 @@ export default defineEventHandler(async (event) => {
             response_speed_comment: validateTextInput(body.response_speed_comment, MAX_TEXT_LENGTH, 'Response speed comment'),
             work_delivery_time: body.work_delivery_time || null,
             work_delivery_time_comment: validateTextInput(body.work_delivery_time_comment, MAX_TEXT_LENGTH, 'Work delivery time comment'),
+            work_delivery_delayed_cause: body.work_delivery_delayed_cause || null,
             unpopular_tasks: validateTextInput(body.unpopular_tasks, MAX_TEXT_LENGTH, 'Unpopular tasks'),
             time_consuming_processes: validateTextInput(body.time_consuming_processes, MAX_TEXT_LENGTH, 'Time consuming processes'),
             one_tech_change: oneTechChange,
@@ -259,7 +264,7 @@ export default defineEventHandler(async (event) => {
                 is_client,
                 contact_form_satisfaction, communication_style,
                 response_speed, response_speed_comment,
-                work_delivery_time, work_delivery_time_comment,
+                work_delivery_time, work_delivery_time_comment, work_delivery_delayed_cause,
                 unpopular_tasks, time_consuming_processes,
                 one_tech_change, tech_readiness,
                 would_recommend, missing_product
@@ -271,7 +276,7 @@ export default defineEventHandler(async (event) => {
                 :is_client,
                 :contact_form_satisfaction, :communication_style,
                 :response_speed, :response_speed_comment,
-                :work_delivery_time, :work_delivery_time_comment,
+                :work_delivery_time, :work_delivery_time_comment, :work_delivery_delayed_cause,
                 :unpopular_tasks, :time_consuming_processes,
                 :one_tech_change, :tech_readiness,
                 :would_recommend, :missing_product
