@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { FEEDBACK_QUESTIONS, DISCOVERY_SOURCES, CLIENT_CHECK_PAGE_INDEX, CLIENT_QUESTIONS_PAGE_INDEX } from '~/const/feedback';
+import { isValidEmail } from '~/lib/utils';
 
 const { t } = useI18n();
 
@@ -60,8 +61,7 @@ const isEmailValid = computed(() => {
         return true; // Empty email is valid (optional field)
     }
     // Email format validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    return emailRegex.test(email.value.trim()) && email.value.length <= 254;
+    return isValidEmail(email.value);
 });
 
 const canProceed = computed(() => {
