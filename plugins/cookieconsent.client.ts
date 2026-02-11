@@ -1,4 +1,5 @@
 import 'vanilla-cookieconsent/dist/cookieconsent.css'
+import '~/assets/cookieconsent.css'
 import * as CookieConsent from 'vanilla-cookieconsent'
 import type { CookieConsentConfig } from 'vanilla-cookieconsent'
 
@@ -46,12 +47,7 @@ const config: CookieConsentConfig = {
     default: (() => {
       const storedLanguage = localStorage.getItem('language')
       if (storedLanguage) return storedLanguage
-      
-      const browserLanguage = navigator.language || navigator.languages?.[0] || 'en'
-      const languageCode = browserLanguage.split('-')[0].toLowerCase()
-      
-      const supportedLanguages = ['en', 'pl']
-      return supportedLanguages.includes(languageCode) ? languageCode : 'en'
+      return 'pl'
     })(),
     translations: {
       en: {
@@ -189,21 +185,6 @@ const config: CookieConsentConfig = {
 }
 
 export default defineNuxtPlugin(async () => {
-  // Don't run cookie consent during testing
-  if (process.env.NODE_ENV === 'test' || typeof window === 'undefined') {
-    return {
-      provide: {
-        CC: {
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
-          showPreferences: () => {},
-          validConsent: () => false,
-          // eslint-disable-next-line @typescript-eslint/no-empty-function
-          reset: () => {},
-        },
-      },
-    }
-  }
-
   await CookieConsent.run(config)
 
   return {
