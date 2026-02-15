@@ -2,11 +2,11 @@
 import CalculatorContainer from '~/components/calculator/CalculatorContainer.vue';
 
 useHead({
-    title: 'Kalkulator Subskrypcji & Zombie-Check | Sławomir Woźniak',
+    title: 'Kalkulator Strat Subskrypcyjnych | Sławomir Woźniak',
     meta: [
         {
             name: 'description',
-            content: 'Sprawdź, ile pieniędzy tracisz na nieużywanych subskrypcjach. Wykonaj darmowy audyt "Zombie-Check" i odzyskaj kontrolę nad finansami firmy.',
+            content: 'Sprawdź, ile Twoja firma traci na nieużywanych subskrypcjach. Wykonaj darmowy audyt kosztów i odzyskaj kontrolę nad finansami.',
         },
     ],
 });

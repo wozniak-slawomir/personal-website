@@ -1,9 +1,9 @@
 {
   "calculator": {
     "hook": {
-      "title_part1": "Czy Twoja firma płaci",
-      "title_part2": "\"Podatek od Zapominalstwa\"?",
-      "description": "Sprawdź, ile \"Zombies\" zjada Twój budżet. To zajmie 3 minuty.",
+      "title_part1": "Sprawdź, ile Twoja firma",
+      "title_part2": "traci na subskrypcjach",
+      "description": "Zobacz, ile pieniędzy ucieka przez nieużywane narzędzia. To zajmie 3 minuty.",
       "start_audit": "Rozpocznij Audyt"
     },
     "input": {
@@ -13,7 +13,7 @@
     },
     "processing": {
       "analyzing": "Analiza wydatków...",
-      "searching": "Szukanie wampirów subskrypcyjnych..."
+      "searching": "Szukanie zbędnych kosztów..."
     },
     "segment": {
       "title": "Zanim zaczniemy: W jakiej branży generujesz koszty?",
@@ -56,19 +56,19 @@
     },
     "tool": {
       "used_last_30_days": "Używane w ostatnich 30 dniach?",
-      "zombie": "Zombie",
+      "zombie": "Nieużywane",
       "people_count": "Liczba osób w dziale/firmie",
       "people_count_desc": "Dla tej kategorii narzędzi (domyślnie 1)"
     },
     "results": {
       "perfect_score_title": "Gratulacje! Perfekcyjny Wynik",
       "your_score_title": "Twój Wynik",
-      "perfect_score_desc": "Twoja firma jest wolna od wampirów subskrypcyjnych.",
+      "perfect_score_desc": "Twoja firma nie traci pieniędzy na zbędne subskrypcje.",
       "your_score_desc": "Zobacz, ile kapitału ucieka z Twojej firmy.",
       "money_well_spent": "Pieniądze Dobrze Wydane",
       "money_well_spent_desc": "Roczny koszt narzędzi, których aktywnie używasz i z których korzystasz.",
       "money_wasted": "Pieniądze Zmarnowane",
-      "money_wasted_desc": "Roczny koszt nieużywanych subskrypcji (narzędzia zombie).",
+      "money_wasted_desc": "Roczny koszt nieużywanych subskrypcji (strata).",
       "yearly_investment": "Roczna Inwestycja",
       "yearly_loss": "Roczna Strata",
       "perfect_score_money_desc": "To kwota, która pracuje na rozwój Twojej firmy.",
@@ -81,7 +81,7 @@
       "digital_hygiene": "Twoja higiena cyfrowa jest",
       "exemplary": "Wzorowa",
       "keep_it_up": "Nie marnujesz zasobów. Tak trzymać!",
-      "zombie_indicator": "Wskaźnik Zombie",
+      "zombie_indicator": "Wskaźnik Straty",
       "no_unused_subs": "Brak nieużywanych subskrypcji.",
       "paying_for_unused": "Płacisz za nieużywane narzędzia:",
       "year": "rok",
@@ -90,9 +90,9 @@
       "conflicts_and_doubles": "Konflikty i Duble",
       "no_conflicts": "Nie wykryto oczywistych konfliktów w wybranych narzędziach.",
       "want_to_optimize": "Chcesz zoptymalizować coś jeszcze?",
-      "stop_financial_bleeding": "Zatrzymaj krwotok finansowy",
+      "stop_financial_bleeding": "Czy wiesz, że?",
       "perfect_score_cta_desc": "Finanse masz pod kontrolą. A jak wygląda Twoja strategia marki osobistej? Sprawdźmy to.",
-      "your_score_cta_desc": "To nie Twoja wina. Systemy subskrypcyjne są zaprojektowane tak, byś o nich zapomniał. Ale teraz już wiesz. Czas na działanie.",
+      "your_score_cta_desc": "Większość płatnych aplikacji ma darmowe, otwarte odpowiedniki. Są równie skuteczne, ale nie generują faktur i nie handlują Twoimi danymi. Pokażę Ci, jak bezpiecznie zamienić abonamenty na Open Source.",
       "book_consultation": "Umów darmową konsultację",
       "recalculate": "Przelicz ponownie"
     },

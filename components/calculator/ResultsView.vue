@@ -270,7 +270,7 @@ type CostBreakdownData = { label: string; value: number; color: string };
                 :class="isPerfectScore ? 'bg-green-900/20 border-green-900/50' : 'bg-red-900/20 border-red-900/50'">
                 <h3 class="text-xl font-bold mb-2 flex items-center"
                     :class="isPerfectScore ? 'text-green-500' : 'text-red-500'">
-                    <span class="mr-2">{{ isPerfectScore ? '✅' : '🧟' }}</span> {{ $t('calculator.results.zombie_indicator') }}
+                    <span class="mr-2">{{ isPerfectScore ? '✅' : '💸' }}</span> {{ $t('calculator.results.zombie_indicator') }}
                 </h3>
                 <p class="text-gray-300 mb-4">
                     {{ isPerfectScore ? $t('calculator.results.no_unused_subs') : $t('calculator.results.paying_for_unused') }}
