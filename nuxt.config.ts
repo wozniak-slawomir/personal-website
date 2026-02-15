@@ -214,6 +214,7 @@ export default defineNuxtConfig({
         'object-src': ["'self'", 'https://meet.reclaimai.com'],
         'script-src': ["'self'", "'unsafe-inline'", "https:", "https://meet.reclaimai.com"],
         'frame-src': ["'self'", "https:", "https://meet.reclaimai.com"],
+        'form-action': ["'self'", "https://listmonk.slawomir-wozniak.pl"],
       },
     },
   },
