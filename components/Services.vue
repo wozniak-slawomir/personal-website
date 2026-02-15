@@ -1,164 +1,54 @@
 <template>
-  <div class="container mt-64">
-    <h2 class="text-5xl text-center md:text-left font-semibold uppercase">
-      {{ $t('services.services') }}
-    </h2>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 mt-8">
-      <CardContainer class="w-full lg:w-auto">
-        <CardBody
-          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border glassmorphism p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-[var(--primary-color)]"
-        >
-          <CardItem
-            :translate-z="100"
-            :translate-y="10"
-            class="text-xl font-bold"
-          >
-            {{ $t('services.development.title') }}
-          </CardItem>
-          <CardItem
-            as="p"
-            translate-z="60"
-            class="mt-2 max-w-sm text-sm text-[#bbbbbb]"
-          >
-            {{ $t('services.development.description') }}
-          </CardItem>
-          <CardItem
-            :translate-z="60"
-            class="mt-4 w-full text-2xl"
-          >
-            {{ $t('services.development.price') }}
-          </CardItem>
-          <CardItem
-            :translate-z="100"
-            class="mt-4 w-full"
-          >
-            <img
-              src="/services/website.jpg"
-              height="1000"
-              width="1000"
-              class="h-60 w-full rounded-3xl object-cover group-hover/card:shadow-xl"
-              alt="thumbnail"
-            >
-          </CardItem>
-          <CardItem
-            :translate-z="20"
-            as="div"
-            class="mt-4 text-sm text-[#bbbbbb]"
-          >
-            <ul class="pl-7 my-4 list-disc">
-              <li>{{ $t('services.development.points1') }}</li>
-              <li>{{ $t('services.development.points2') }}</li>
-              <li>{{ $t('services.development.points3') }}</li>
-            </ul>
-          </CardItem>
-        </CardBody>
-      </CardContainer>
-      <CardContainer class="w-full lg:w-auto">
-        <CardBody
-          class="group/card relative size-auto w-full lg:w-auto rounded-3xl border border-[var(--primary-color)] glassmorphism p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-[var(--primary-color)]"
-        >
-          <CardItem
-            :translate-z="100"
-            :translate-y="10"
-            class="text-xl font-bold"
-          >
-            {{ $t('services.coaching.title') }}
-          </CardItem>
-          <CardItem
-            as="p"
-            translate-z="60"
-            class="mt-2 max-w-sm text-sm text-[#bbbbbb]"
-          >
-            {{ $t('services.coaching.description') }}
-          </CardItem>
-          <CardItem
-            :translate-z="60"
-            class="mt-4 w-full text-2xl"
-          >
-            {{ $t('services.coaching.price') }}
-          </CardItem>
-          <CardItem
-            :translate-z="100"
-            class="mt-4 w-full"
-          >
-            <img
-              src="/services/coaching.jpg"
-              height="1000"
-              width="1000"
-              class="h-60 w-full rounded-3xl object-cover group-hover/card:shadow-xl"
-              alt="thumbnail"
-            >
-          </CardItem>
-          <CardItem
-            :translate-z="20"
-            as="div"
-            class="mt-4 text-sm text-[#bbbbbb]"
-          >
-            <ul class="pl-7 my-4 list-disc">
-              <li>{{ $t('services.coaching.points1') }}</li>
-              <li>{{ $t('services.coaching.points2') }}</li>
-              <li>{{ $t('services.coaching.points3') }}</li>
-            </ul>
-          </CardItem>
-        </CardBody>
-      </CardContainer>
-      <div class="flex flex-col items-center justify-center">
-        <CardContainer class="w-full lg:w-auto">
-          <CardBody
-            class="group/card relative size-auto w-full lg:w-auto rounded-3xl border glassmorphism p-6 sm:w-[30rem] dark:hover:shadow-2xl dark:hover:shadow-[var(--primary-color)]"
-          >
-            <CardItem
-              :translate-z="100"
-              :translate-y="10"
-              class="text-xl font-bold"
-            >
-              {{ $t('services.audits.title') }}
-            </CardItem>
-            <CardItem
-              as="p"
-              translate-z="60"
-              class="mt-2 max-w-sm text-sm text-[#bbbbbb]"
-            >
-              {{ $t('services.audits.description') }}
-            </CardItem>
-            <CardItem
-              :translate-z="60"
-              class="mt-4 w-full text-2xl"
-            >
-              {{ $t('services.audits.price') }}
-            </CardItem>
-            <CardItem
-              :translate-z="100"
-              class="mt-4 w-full"
-            >
-              <img
-                src="/services/consulting.jpg"
-                height="1000"
-                width="1000"
-                class="h-60 w-full rounded-3xl object-cover group-hover/card:shadow-xl"
-                alt="thumbnail"
-              >
-            </CardItem>
-            <CardItem
-              :translate-z="20"
-              as="div"
-              class="mt-4 text-sm text-[#bbbbbb]"
-            >
-              <ul class="pl-7 my-4 list-disc">
-                <li>{{ $t('services.audits.points1') }}</li>
-                <li>{{ $t('services.audits.points2') }}</li>
-                <li>{{ $t('services.audits.points3') }}</li>
-              </ul>
-            </CardItem>
-          </CardBody>
-        </CardContainer>
+  <section class="py-20" id="services">
+    <div class="container">
+      <div class="max-w-4xl mx-auto text-center mb-12">
+        <h2 class="text-4xl md:text-5xl font-bold mb-4">{{ $t('offer.title') }}</h2>
+        <p class="text-lg text-[var(--secondary-text-color)]">{{ $t('offer.subtitle') }}</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <ServiceCard
+          image="/services/website.jpg"
+          :image-alt="$t('offer.website.title')"
+          :title="$t('offer.website.title')"
+          :description="$t('pricing.packages.authority.subtitle')"
+          link="/oferta/strona-internetowa"
+          :button-text="$t('offer.viewDetails')"
+        />
+
+        <ServiceCard
+          image="/services/nextcloud.webp"
+          :image-alt="$t('offer.privateCloud.title')"
+          :title="$t('offer.privateCloud.title')"
+          :description="$t('offer.privateCloud.subtitle')"
+          link="/oferta/prywatna-chmura-nextcloud"
+          :button-text="$t('offer.viewDetails')"
+        />
+
+        <ServiceCard
+          image="/services/woocommerce.png"
+          :image-alt="$t('pricing.packages.commerce.title')"
+          :title="$t('pricing.packages.commerce.title')"
+          :description="$t('pricing.packages.commerce.subtitle')"
+          link="/oferta/suwerenny-handel"
+          :button-text="$t('offer.viewDetails')"
+        />
+
+        <ServiceCard
+          image="/services/consulting.jpg"
+          :image-alt="$t('pricing.packages.partnership.title')"
+          :title="$t('pricing.packages.partnership.title')"
+          :description="$t('pricing.packages.partnership.subtitle')"
+          link="/oferta/fractional-cto"
+          :button-text="$t('offer.viewDetails')"
+        />
+      </div>
+
+      <div class="text-center mt-10">
+        <NuxtLink to="/oferta" class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-[var(--primary-color)]/10 transition-colors font-semibold">
+          {{ $t('offer.title') }}
+        </NuxtLink>
       </div>
     </div>
-  </div>
+  </section>
 </template>
-
-<script setup lang="ts">
-import CardContainer from '@/components/ui/card-3d/CardContainer.vue'
-import CardItem from '@/components/ui/card-3d/CardItem.vue'
-import CardBody from '@/components/ui/card-3d/CardBody.vue'
-</script>

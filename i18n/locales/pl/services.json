@@ -61,6 +61,28 @@
   "projects.nkowalczyk": "Strona wizytówka Natalii Kowalczyk – magistra pedagogiki oraz coachingu, zawodowo pracującej jako HR Business Partnerka.",
   "projects.mydr": "MyDr to serwis łączący w sobie wyszukiwarkę lekarzy z pełnym dostępem do Twoich danych medycznych. Umów wizytę, otrzymaj e-receptę lub e-zwolnienie bez wychodzenia z domu.",
   "projects.tebra": "Tebra Care Connect to platforma dla lekarzy, pozwalająca na budowanie wizerunku i pozyskiwanie pacjentów online.",
+  "offer": {
+    "title": "Oferta",
+    "subtitle": "Wybierz usługę i sprawdź szczegóły realizacji.",
+    "priceFrom": "Cena od",
+    "viewDetails": "Zobacz szczegóły",
+    "backToOffer": "Wróć do oferty",
+    "scheduleCall": "Umów rozmowę",
+    "privateCloud": {
+      "title": "Prywatna chmura (Nextcloud)",
+      "subtitle": "Własna chmura firmowa na Twoim serwerze — prywatność danych i brak miesięcznych opłat SaaS.",
+      "feature1": "Instalacja i konfiguracja Nextcloud na Twojej infrastrukturze",
+      "feature2": "Konfiguracja bezpieczeństwa, backupów i dostępu dla zespołu",
+      "feature3": "Niższy koszt w długim terminie dzięki eliminacji abonamentów narzędziowych"
+    },
+    "website": {
+      "title": "Strona internetowa",
+      "heroTitle": "Strona internetowa, która buduje zaufanie i sprzedaje",
+      "heroSubtitle": "Projektuję i wdrażam strony, które jasno komunikują wartość Twojej marki oraz prowadzą użytkownika do działania.",
+      "whatIncludes": "Co zawiera usługa?",
+      "exampleProjects": "Przykładowe realizacje"
+    }
+  },
   "pricing": {
     "title": "Inwestycja w Twój Spokój i Bezpieczeństwo",
     "guarantee": "Gwarancja Satysfakcji: 30 dni wsparcia technicznego i gwarancji rozruchowej do każdego wdrożenia",
@@ -75,17 +97,17 @@
         "feature3": "Optymalizacja SEO pod autorytet w Google: Techniczne przygotowanie witryny, aby Twoje nazwisko pracowało na Ciebie w wyszukiwarce."
       },
       "independence": {
-        "title": "Operacyjna Niezależność",
-        "subtitle": "Przestań wynajmować narzędzia. Zacznij je posiadać.",
-        "anchor": "Wartość rynkowa SaaS: 9000 PLN/rok",
-        "button": "Odzyskuję Niezależność",
-        "tag": "Rekomendowany Wybór",
-        "feature1": "Własny system Newslettera (Listmonk) – bez opłat za subskrybentów",
-        "feature2": "Prywatna chmura firmowa (Nextcloud) – Twoje dane na Twoim serwerze",
-        "feature3": "Brak opłat licencyjnych (Dożywotnia oszczędność)"
+        "title": "Prywatna chmura (Nextcloud)",
+        "subtitle": "Bezpieczna chmura firmowa na Twoim serwerze.",
+        "anchor": "Oszczędzasz na stałych abonamentach SaaS",
+        "button": "Wdrażam Prywatną Chmurę",
+        "tag": "Rekomendowane",
+        "feature1": "Instalacja i konfiguracja Nextcloud",
+        "feature2": "Pliki i dane pozostają na Twojej infrastrukturze",
+        "feature3": "Niższy koszt długoterminowy bez miesięcznych opłat licencyjnych"
       },
       "commerce": {
-        "title": "Suwerenny Handel",
+        "title": "Sklep internetowy",
         "subtitle": "Sprzedawaj produkty cyfrowe i fizyczne bez prowizji.",
         "button": "Otwieram Własny Sklep",
         "feature1": "Pełna własność sklepu (WooCommerce/EDD)",

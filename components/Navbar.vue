@@ -10,10 +10,41 @@
       </NuxtLink>
       <div class="flex items-center gap-4 relative">
         <div class="hidden xl:flex items-center gap-4">
-          <NuxtLink v-for="link in navLinks" :key="link.path" :to="link.to"
+          <NuxtLink :to="firstNavLink.to"
+            class="hover:text-[var(--primary-color)] transition-colors duration-300 font-semibold text-sm uppercase"
+            :class="{ 'text-[var(--primary-color)]': isActive(firstNavLink.path) }">
+            {{ firstNavLink.label }}
+          </NuxtLink>
+
+          <div class="relative group flex items-center">
+            <NuxtLink :to="offerLink.to"
+              class="hover:text-[var(--primary-color)] transition-colors duration-300 font-semibold text-sm uppercase"
+              :class="{ 'text-[var(--primary-color)]': isOfferActive }">
+              {{ offerLink.label }}
+            </NuxtLink>
+
+            <div
+              class="absolute left-0 top-full pt-3 z-30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+              <div class="min-w-[280px] rounded-2xl border border-gray-700 bg-[#1a1a1a]/95 backdrop-blur p-2 shadow-xl">
+                <NuxtLink v-for="service in offerServices" :key="service.to" :to="service.to"
+                  class="block px-3 py-2 rounded-xl text-sm font-medium hover:text-[var(--primary-color)] hover:bg-white/5 transition-colors duration-200"
+                  @click="isMenuOpen = false">
+                  {{ service.label }}
+                </NuxtLink>
+              </div>
+            </div>
+          </div>
+
+          <NuxtLink v-for="link in remainingNavLinks" :key="link.path" :to="link.to"
             class="hover:text-[var(--primary-color)] transition-colors duration-300 font-semibold text-sm uppercase"
             :class="{ 'text-[var(--primary-color)]': isActive(link.path) }">
             {{ link.label }}
+          </NuxtLink>
+
+          <NuxtLink :to="contactLink.to"
+            class="hover:text-[var(--primary-color)] transition-colors duration-300 font-semibold text-sm uppercase"
+            :class="{ 'text-[var(--primary-color)]': isActive(contactLink.path) }">
+            {{ contactLink.label }}
           </NuxtLink>
 
           <!-- Social Media Icons - subtle and secondary -->
@@ -87,6 +118,21 @@
             {{ link.label }}
           </NuxtLink>
 
+          <div class="flex flex-col gap-1 px-1">
+            <span class="text-xs uppercase text-gray-400 px-3 py-1">{{ offerLink.label }}</span>
+            <NuxtLink v-for="service in offerServices" :key="`mobile-${service.to}`" :to="service.to"
+              class="text-sm font-semibold py-2 px-3 rounded-xl hover:text-[var(--primary-color)] transition-colors duration-200"
+              @click="isNavMenuOpen = false">
+              {{ service.label }}
+            </NuxtLink>
+          </div>
+
+          <NuxtLink :to="contactLink.to"
+            class="uppercase text-sm font-semibold py-2 px-3 rounded-xl hover:text-[var(--primary-color)] transition-colors duration-200"
+            :class="{ 'text-[var(--primary-color)]': isActive(contactLink.path) }" @click="isNavMenuOpen = false">
+            {{ contactLink.label }}
+          </NuxtLink>
+
           <!-- Newsletter CTA for mobile - always visible -->
           <NuxtLink :to="localePath('/newsletter')"
             class="w-full px-4 py-3 mt-2 rounded-xl font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase text-center"
@@ -155,12 +201,39 @@ const scrollPosition = ref(0)
 const navbarDarker = ref(false)
 const mobileNavButton = ref<HTMLButtonElement | null>(null)
 
-const navLinks = computed(() => [
+const offerLink = computed(() => ({
+  path: '/oferta',
+  to: localePath('/oferta'),
+  label: t('navbar.offer'),
+}))
+
+const offerServices = computed(() => [
+  { to: localePath('/oferta/strona-internetowa'), label: t('offer.website.title') },
+  { to: localePath('/oferta/prywatna-chmura-nextcloud'), label: t('offer.privateCloud.title') },
+  { to: localePath('/oferta/suwerenny-handel'), label: t('pricing.packages.commerce.title') },
+  { to: localePath('/oferta/fractional-cto'), label: t('pricing.packages.partnership.title') },
+])
+
+const mainNavLinks = computed(() => [
   { path: '/portfolio', to: localePath('/portfolio'), label: t('navbar.portfolio') },
   { path: '/blog', to: localePath('/blog'), label: t('navbar.blog') },
-  { path: '/wizja', to: localePath('/wizja'), label: t('navbar.vision') },
   { path: '/bio', to: localePath('/bio'), label: t('navbar.bio') },
-  { path: '/contact', to: localePath('/contact'), label: t('common.contact') },
+])
+
+const firstNavLink = computed(() => mainNavLinks.value[0])
+const remainingNavLinks = computed(() => mainNavLinks.value.slice(1))
+
+const contactLink = computed(() => ({
+  path: '/contact',
+  to: localePath('/contact'),
+  label: t('common.contact'),
+}))
+
+const navLinks = computed(() => [
+  firstNavLink.value,
+  offerLink.value,
+  ...remainingNavLinks.value,
+  contactLink.value,
 ])
 
 const changeLanguage = (language: typeof locale.value) => {
@@ -172,7 +245,12 @@ const changeLanguage = (language: typeof locale.value) => {
 
 const isActive = (path: string) => route.path === path || route.path === localePath(path)
 
-
+const isOfferActive = computed(() => {
+  return route.path === '/oferta'
+    || route.path === localePath('/oferta')
+    || route.path.startsWith('/oferta/')
+    || route.path.startsWith(`${localePath('/oferta')}/`)
+})
 
 const handleClickOutside = (event: Event) => {
   if (!isNavMenuOpen.value) return

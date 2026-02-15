@@ -6,10 +6,9 @@
     <Benefits />
     <Process />
     <FAQ />
-    <Pricing />
+    <Services />
     <CTASection />
     <LatestBlogPosts />
-
   </div>
 </template>
 

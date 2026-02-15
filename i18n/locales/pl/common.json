@@ -21,6 +21,7 @@
   "navbar.newsletter": "Newsletter",
   "navbar.language": "Język",
   "navbar.blog": "Blog",
+  "navbar.offer": "Oferta",
   "navbar.tools": "Narzędzia",
   "modal.first.name": "Imię",
   "modal.last.name": "Nazwisko",
@@ -35,5 +36,9 @@
   "alt.portrait": "Portret Sławomira Woźniaka",
   "navbar.vision": "Wizja",
   "seo.vision.title": "Wizja - Sławomir Woźniak",
-  "seo.vision.description": "Wizja, misja i wartości Sławomira Woźniaka. Tworzenie świadomego biznesu, łączenie inżynierii z psychologią."
+  "seo.vision.description": "Wizja, misja i wartości Sławomira Woźniaka. Tworzenie świadomego biznesu, łączenie inżynierii z psychologią.",
+  "seo.offer.title": "Oferta - Sławomir Woźniak",
+  "seo.offer.description": "Poznaj ofertę usług i wybierz rozwiązanie dopasowane do Twojego biznesu.",
+  "seo.website.title": "Strona internetowa - Sławomir Woźniak",
+  "seo.website.description": "Usługa projektowania i wdrożenia strony internetowej od strategii po gotowe wdrożenie."
 }
