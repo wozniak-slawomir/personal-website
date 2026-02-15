@@ -10,6 +10,9 @@ services:
         VITE_SMTP_PASS: ${VITE_SMTP_PASS}
         VITE_MAIL_RECEIVER: ${VITE_MAIL_RECEIVER}
         VITE_SENDER_MAIL: ${VITE_SENDER_MAIL}
+        LISTMONK_API_USER: ${LISTMONK_API_USER}
+        LISTMONK_API_TOKEN: ${LISTMONK_API_TOKEN}
+        LISTMONK_API_URL: ${LISTMONK_API_URL}
     image: wozniakslawomir/personal-website-frontend:latest
     environment:
       - VITE_API_URL=${VITE_API_URL}
@@ -19,6 +22,9 @@ services:
       - VITE_SMTP_PASS=${VITE_SMTP_PASS}
       - VITE_MAIL_RECEIVER=${VITE_MAIL_RECEIVER}
       - VITE_SENDER_MAIL=${VITE_SENDER_MAIL}
+      - LISTMONK_API_USER=${LISTMONK_API_USER}
+      - LISTMONK_API_TOKEN=${LISTMONK_API_TOKEN}
+      - LISTMONK_API_URL=${LISTMONK_API_URL}
     ports:
       - 3000:3000
     volumes:
