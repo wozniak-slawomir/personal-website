@@ -10,7 +10,7 @@
 
 <script setup lang="ts">
 import { useMouseState } from '@/composables/useMouseState'
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils'
 import { inject, ref, watch, type Ref } from 'vue'
 
 const props = defineProps({

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useCalculator } from '~/composables/useCalculator';
-import { formatCurrency } from '~/lib/currency';
+import { formatCurrency } from '~/utils/currency';
 import { computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { VisGroupedBar, VisXYContainer, VisAxis, VisSingleContainer, VisDonut } from '@unovis/vue';

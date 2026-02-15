@@ -2,7 +2,7 @@
 import { ref, watch } from 'vue';
 import { SUBSCRIPTION_TOOLS } from '~/const/subscriptionTools';
 import { useCalculator } from '~/composables/useCalculator';
-import { convertToPLN } from '~/lib/currency';
+import { convertToPLN } from '~/utils/currency';
 import type { ToolCategory } from '~/types/calculator';
 import { ChevronDown, ChevronUp } from 'lucide-vue-next';
 

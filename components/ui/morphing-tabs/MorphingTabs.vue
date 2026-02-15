@@ -60,7 +60,7 @@
 </template>
 
 <script lang="ts" setup>
-import { cn } from '@/lib/utils'
+import { cn } from '@/utils'
 
 interface Props {
   tabs: { key: string, label: string }[];

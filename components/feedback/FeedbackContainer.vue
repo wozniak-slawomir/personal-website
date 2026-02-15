@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
 import { FEEDBACK_QUESTIONS, CLIENT_CHECK_PAGE_INDEX, CLIENT_QUESTIONS_PAGE_INDEX } from '~/const/feedback';
-import { isValidEmail } from '~/lib/utils';
+import { isValidEmail } from '~/utils';
 import FeedbackIntro from './phases/FeedbackIntro.vue';
 import FeedbackQuestions from './phases/FeedbackQuestions.vue';
 import FeedbackProcessing from './phases/FeedbackProcessing.vue';

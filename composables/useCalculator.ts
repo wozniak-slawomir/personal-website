@@ -1,7 +1,7 @@
 import { useStorage } from '@vueuse/core';
 import { SUBSCRIPTION_TOOLS } from '~/const/subscriptionTools';
 import { getSegmentById } from '~/const/userSegments';
-import { convertToPLN } from '~/lib/currency';
+import { convertToPLN } from '~/utils/currency';
 import type { CalculatorState, ToolCategory, UserSegment } from '~/types/calculator';
 
 const ALL_CATEGORIES: { id: ToolCategory; label: string }[] = [
