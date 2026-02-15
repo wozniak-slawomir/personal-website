@@ -17,7 +17,7 @@
           image="/services/website.jpg"
           :image-alt="t('offer.website.title')"
           :title="t('offer.website.title')"
-          :description="t('pricing.packages.authority.subtitle')"
+          :description="t('offer.website.offerSubtitle')"
           link="/oferta/strona-internetowa"
           :button-text="t('offer.viewDetails')"
         />
@@ -45,7 +45,7 @@
             image="/services/consulting.jpg"
             :image-alt="t('pricing.packages.partnership.title')"
             :title="t('pricing.packages.partnership.title')"
-            :description="t('pricing.packages.partnership.subtitle')"
+            :description="t('offer.fractionalCto.subtitle')"
             link="/oferta/fractional-cto"
             :button-text="t('offer.viewDetails')"
           />

@@ -9,7 +9,7 @@
             {{ t('pricing.packages.partnership.title') }}
           </h1>
           <p class="text-lg md:text-xl text-[var(--secondary-text-color)] max-w-3xl mx-auto mb-10">
-            {{ t('pricing.packages.partnership.subtitle') }}
+            {{ t('offer.fractionalCto.subtitle') }}
           </p>
 
           <div class="rounded-2xl overflow-hidden border border-gray-700/30 shadow-2xl">
@@ -38,7 +38,7 @@
               <p class="text-4xl font-bold mb-2">{{ formattedPrice }}</p>
               <p class="text-sm text-[var(--secondary-text-color)] mb-6">{{ t('pricing.packages.partnership.period') }}</p>
               <p class="text-[var(--secondary-text-color)] mb-8">
-                {{ t('pricing.packages.partnership.subtitle') }}
+                {{ t('offer.fractionalCto.subtitle') }}
               </p>
 
               <div class="flex flex-col sm:flex-row gap-3">

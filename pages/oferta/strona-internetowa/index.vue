@@ -38,7 +38,7 @@
               <p class="text-sm text-[var(--secondary-text-color)] mb-2">{{ t('offer.priceFrom') }}</p>
               <p class="text-4xl font-bold mb-6">{{ formattedPrice }}</p>
               <p class="text-[var(--secondary-text-color)] mb-8">
-                {{ t('pricing.packages.authority.subtitle') }}
+                {{ t('offer.website.offerSubtitle') }}
               </p>
 
               <div class="flex flex-col sm:flex-row gap-3">

@@ -58,10 +58,14 @@
     },
     "website": {
       "title": "Website",
+      "offerSubtitle": "For experts building a personal brand and companies that want to be visible online.",
       "heroTitle": "A website that builds trust and sells",
       "heroSubtitle": "I design and implement websites that clearly communicate your brand's value and guide users to action.",
       "whatIncludes": "What's included?",
       "exampleProjects": "Example Projects"
+    },
+    "fractionalCto": {
+      "subtitle": "For startups that want to build and validate a product without a technical co-founder."
     }
   },
   "pricing": {

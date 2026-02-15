@@ -77,10 +77,14 @@
     },
     "website": {
       "title": "Strona internetowa",
+      "offerSubtitle": "Dla ekspertów budujących markę osobistą oraz firm, które chcą być widoczne w sieci.",
       "heroTitle": "Strona internetowa, która buduje zaufanie i sprzedaje",
       "heroSubtitle": "Projektuję i wdrażam strony, które jasno komunikują wartość Twojej marki oraz prowadzą użytkownika do działania.",
       "whatIncludes": "Co zawiera usługa?",
       "exampleProjects": "Przykładowe realizacje"
+    },
+    "fractionalCto": {
+      "subtitle": "Dla startupów chcących zbudować i zwalidować produkt, nieposiadających technicznego cofoundera."
     }
   },
   "pricing": {
