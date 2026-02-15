@@ -22,6 +22,9 @@ export default defineNuxtConfig({
     VITE_SMTP_PASS: process.env.VITE_SMTP_PASS,
     VITE_MAIL_RECEIVER: process.env.VITE_MAIL_RECEIVER,
     VITE_SENDER_MAIL: process.env.VITE_SENDER_MAIL,
+    LISTMONK_API_USER: process.env.LISTMONK_API_USER,
+    LISTMONK_API_TOKEN: process.env.LISTMONK_API_TOKEN,
+    LISTMONK_API_URL: process.env.LISTMONK_API_URL || 'https://listmonk.slawomir-wozniak.pl/api',
   },
 
   build: {
