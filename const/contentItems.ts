@@ -187,5 +187,13 @@ export const contentItems: ContentItem[] = [
     tags: ['blog'],
     link: '/blog/psychologia-perswazji',
     lastmod: '2026-02-01T17:10:00+01:00'
+  },
+  {
+    name: (t) => t('blog.openclaw.title'),
+    image: 'blog/openclaw/openclaw.png',
+    description: (t) => t('blog.openclaw.meta.description'),
+    tags: ['blog'],
+    link: '/blog/openclaw',
+    lastmod: '2026-02-26T16:18:00+01:00'
   }
 ]
