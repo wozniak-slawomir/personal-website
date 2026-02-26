@@ -2,6 +2,7 @@ services:
   frontend:
     build:
       context: .
+    image: wozniakslawomir/personal-website-frontend:latest
     environment:
       - NUXT_PUBLIC_API_URL=${VITE_API_URL}
       - NUXT_VITE_SMTP_HOST=${VITE_SMTP_HOST}
