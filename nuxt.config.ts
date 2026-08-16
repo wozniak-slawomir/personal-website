@@ -22,9 +22,6 @@ export default defineNuxtConfig({
     VITE_SMTP_PASS: process.env.VITE_SMTP_PASS,
     VITE_MAIL_RECEIVER: process.env.VITE_MAIL_RECEIVER,
     VITE_SENDER_MAIL: process.env.VITE_SENDER_MAIL,
-    LISTMONK_API_USER: process.env.LISTMONK_API_USER,
-    LISTMONK_API_TOKEN: process.env.LISTMONK_API_TOKEN,
-    LISTMONK_API_URL: process.env.LISTMONK_API_URL || 'https://listmonk.slawomir-wozniak.pl/api',
   },
 
   build: {
@@ -107,7 +104,9 @@ export default defineNuxtConfig({
       headers: { 
         'Cache-Control': 'public, max-age=31536000, immutable'
       }
-    }
+    },
+    '/newsletter': { redirect: { to: '/contact', statusCode: 301 } },
+    '/en/newsletter': { redirect: { to: '/en/contact', statusCode: 301 } },
   },
 
   image: {
@@ -216,7 +215,7 @@ export default defineNuxtConfig({
         'object-src': ["'self'", 'https://meet.reclaimai.com'],
         'script-src': ["'self'", "'unsafe-inline'", "https:", "https://meet.reclaimai.com"],
         'frame-src': ["'self'", "https:", "https://meet.reclaimai.com"],
-        'form-action': ["'self'", "https://listmonk.slawomir-wozniak.pl"],
+        'form-action': ["'self'"],
       },
     },
   },
@@ -277,11 +276,6 @@ export default defineNuxtConfig({
             title: 'Formularz kontaktowy',
             description: 'Strona z formularzem kontaktowym do nawiązania współpracy.',
             href: '/contact',
-          },
-          {
-            title: 'Newsletter',
-            description: 'Zapisz się, aby otrzymywać najnowsze artykuły o technologii i biznesie.',
-            href: '/newsletter',
           },
         ],
       },

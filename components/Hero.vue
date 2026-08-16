@@ -15,7 +15,7 @@
         </p>
         <div class="flex flex-col sm:flex-row gap-4">
           <NuxtLink
-            :to="localePath('/newsletter')"
+            :to="localePath('/kalkulator-subskrypcji')"
             class="px-8 md:px-12 py-3 md:py-4 rounded-full font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_20px_40px_rgba(0,0,0,0.3)] active:opacity-50 w-full sm:w-auto text-center"
           >
             {{ $t("hero.cta.calculator") }}

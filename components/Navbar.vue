@@ -70,12 +70,6 @@
               <PhYoutubeLogo :size="20" />
             </a>
           </div>
-
-          <!-- Newsletter CTA - appears when navbar is sticky -->
-          <NuxtLink v-if="navbarDarker" :to="localePath('/newsletter')"
-            class="px-4 py-2 rounded-full font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase">
-            {{ $t('navbar.newsletter') }}
-          </NuxtLink>
         </div>
 
         <button ref="mobileNavButton" type="button"
@@ -131,13 +125,6 @@
             class="uppercase text-sm font-semibold py-2 px-3 rounded-xl hover:text-[var(--primary-color)] transition-colors duration-200"
             :class="{ 'text-[var(--primary-color)]': isActive(contactLink.path) }" @click="isNavMenuOpen = false">
             {{ contactLink.label }}
-          </NuxtLink>
-
-          <!-- Newsletter CTA for mobile - always visible -->
-          <NuxtLink :to="localePath('/newsletter')"
-            class="w-full px-4 py-3 mt-2 rounded-xl font-semibold bg-gradient-to-r from-[var(--primary-color)] to-[#f3eba3] text-black transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-[0_10px_20px_rgba(0,0,0,0.3)] active:opacity-50 text-sm uppercase text-center"
-            @click="isNavMenuOpen = false">
-            {{ $t('navbar.newsletter') }}
           </NuxtLink>
 
           <div class="border-t border-gray-700 my-2"></div>

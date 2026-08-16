@@ -81,7 +81,7 @@
       <p class="mt-4">
         {{ t('blog.changesOnProfile.whatWillChange.newsletter1') }}
         <NuxtLink
-          :to="localePath('/newsletter')"
+          :to="localePath('/contact')"
           class="font-semibold underline"
         >
           {{ t('blog.changesOnProfile.whatWillChange.newsletter2') }}
@@ -97,7 +97,7 @@
       <p class="mt-4">
         {{ t('blog.changesOnProfile.nextStep.content1') }}
         <NuxtLink
-          :to="localePath('/newsletter')"
+          :to="localePath('/contact')"
           class="font-semibold underline"
         >
           tutaj
