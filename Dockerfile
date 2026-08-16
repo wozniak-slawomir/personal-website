@@ -20,6 +20,8 @@ FROM node:24-alpine
 
 WORKDIR /app
 
+LABEL org.opencontainers.image.source="https://github.com/wozniak-slawomir/personal-website"
+
 # Set environment to production
 ENV NODE_ENV=production
 
