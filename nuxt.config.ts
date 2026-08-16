@@ -209,8 +209,7 @@ export default defineNuxtConfig({
   security: {
     rateLimiter: false, // Disable global rate limiting
     csrf: {
-      enabled: true,
-      methodsToProtect: ['POST', 'PUT', 'PATCH', 'DELETE'],
+      enabled: false,
     },
     headers: {
       contentSecurityPolicy: {
