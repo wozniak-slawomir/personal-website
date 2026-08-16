@@ -19,14 +19,20 @@
         :rtl="rtl"
       >
         <template #default="{ item }">
-          <div class="relative rounded-2xl overflow-hidden group min-h-fit">
-            <NuxtLink :to="getItemLink(item.link)">
+          <div class="relative rounded-2xl overflow-hidden group min-h-fit w-full min-w-0">
+            <NuxtLink
+              :to="getItemLink(item.link)"
+              class="block w-full min-w-0"
+            >
               <NuxtPicture
                 :src="item.image"
                 :alt="item.name"
-                class="w-full md:h-full object-cover max-h-[800px]"
+                class="block w-full max-w-full"
                 height="650"
                 width="450"
+                :img-attrs="{
+                  class: 'w-full max-w-full h-auto max-h-[800px] object-cover object-top',
+                }"
                 @load="fixLibraryBug"
               />
               <div
@@ -120,6 +126,11 @@ const filteredItems = computed(() => {
 </script>
 
 <style scoped>
+    :deep(img) {
+      max-width: 100%;
+      height: auto;
+    }
+
     @media (max-width: 1280px) {
       .glassmorphism-mobile {
         @apply border-2 border-[var(--border-color)] bg-gradient-to-bl from-[rgba(255,255,255,0.1)] to-transparent;

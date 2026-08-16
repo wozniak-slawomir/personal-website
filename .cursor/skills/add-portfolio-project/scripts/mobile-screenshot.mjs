@@ -145,6 +145,12 @@ try {
           const t = (el.getAttribute('aria-label') || '') + ' ' + (el.textContent || '');
           if (/cookie/i.test(t) && el.getBoundingClientRect().width < 80) el.remove();
         });
+        const clamp = document.createElement('style');
+        clamp.textContent = \`
+          html, body { overflow-x: hidden !important; max-width: 100% !important; }
+          img, video, svg, canvas, iframe { max-width: 100% !important; height: auto; }
+        \`;
+        document.head.appendChild(clamp);
       })()
     `,
   })
