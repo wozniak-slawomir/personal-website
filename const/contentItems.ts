@@ -195,5 +195,47 @@ export const contentItems: ContentItem[] = [
     tags: ['blog'],
     link: '/blog/openclaw',
     lastmod: '2026-02-26T16:18:00+01:00'
-  }
+  },
+  {
+    name: 'schnellrezept.net',
+    image: 'projects/schnellrezept.png',
+    description: (t) => t('projects.schnellrezept'),
+    tags: ['portfolio'],
+    link: 'https://schnellrezept.net/',
+  },
+  {
+    name: 'ProClick Medical',
+    image: 'projects/proclickmed.png',
+    description: (t) => t('projects.proclickmed'),
+    tags: ['portfolio'],
+    link: 'https://proclickmed.com/',
+  },
+  {
+    name: 'aposkarwagner.pl',
+    image: 'projects/aposkarwagner.png',
+    description: (t) => t('projects.aposkarwagner'),
+    tags: ['portfolio'],
+    link: 'https://www.aposkarwagner.pl/',
+  },
+  {
+    name: 'zanetasulawa-dudzik.pl',
+    image: 'projects/zanetasulawa-dudzik.png',
+    description: (t) => t('projects.zanetasulawa'),
+    tags: ['portfolio'],
+    link: 'https://zanetasulawa-dudzik.pl/',
+  },
+  {
+    name: 'Care companion',
+    image: 'projects/tebracare.png',
+    description: (t) => t('projects.tebracare'),
+    tags: ['portfolio'],
+    link: 'https://tebracare.com/',
+  },
+  {
+    name: 'doradztwopodatkowe-sik.pl',
+    image: 'projects/doradztwopodatkowe-sik.png',
+    description: (t) => t('projects.doradztwopodatkowe'),
+    tags: ['portfolio'],
+    link: 'https://doradztwopodatkowe-sik.pl/',
+  },
 ]
