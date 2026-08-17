@@ -14,7 +14,7 @@ export const sendMail = async (contactInfo: ContactInfo) => {
   const transporter = nodemailer.createTransport({
     host: config.VITE_SMTP_HOST,
     port: Number(config.VITE_SMTP_PORT),
-    secure: false,
+    secure: true,
     auth: {
       user: config.VITE_SMTP_USER,
       pass: config.VITE_SMTP_PASS,
