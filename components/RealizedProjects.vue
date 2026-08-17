@@ -19,10 +19,12 @@
         :rtl="rtl"
       >
         <template #default="{ item }">
-          <div class="relative rounded-2xl overflow-hidden group min-h-fit w-full min-w-0">
+          <div
+            class="relative min-h-fit w-full min-w-0 overflow-hidden rounded-2xl border border-white/15 bg-[#1a1a1a] shadow-[0_8px_24px_rgba(0,0,0,0.28)] transition-[border-color,box-shadow] duration-300 group xl:shadow-none xl:hover:border-[var(--primary-color)]/40"
+          >
             <NuxtLink
               :to="getItemLink(item.link)"
-              class="block w-full min-w-0"
+              class="flex w-full min-w-0 flex-col"
             >
               <NuxtPicture
                 :src="item.image"
@@ -36,11 +38,9 @@
                 @load="fixLibraryBug"
               />
               <div
-                class="bottom-0 left-0 right-0 p-5 opacity-100
-                glassmorphism-mobile
-                group-hover:opacity-100 transition-opacity duration-300 xl:opacity-0 xl:absolute
-                xl:bg-[linear-gradient(to_top,_rgba(0,0,0,1)_0%,_rgba(0,0,0,0.5)_80%,_transparent_100%)]
-                xl:group-hover:opacity-100 "
+                class="project-caption bottom-0 left-0 right-0 p-5 opacity-100
+                transition-opacity duration-300 group-hover:opacity-100
+                xl:absolute xl:opacity-0 xl:group-hover:opacity-100"
               >
                 <h3 class="text-2xl font-bold text-white uppercase">
                   {{ item.name }}
@@ -131,9 +131,21 @@ const filteredItems = computed(() => {
       height: auto;
     }
 
-    @media (max-width: 1280px) {
-      .glassmorphism-mobile {
-        @apply border-2 border-[var(--border-color)] bg-gradient-to-bl from-[rgba(255,255,255,0.1)] to-transparent;
+    .project-caption {
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      background-color: #1a1a1a;
+    }
+
+    @media (min-width: 1280px) {
+      .project-caption {
+        border-top: 0;
+        background-color: transparent;
+        background-image: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 1) 0%,
+          rgba(0, 0, 0, 0.5) 80%,
+          transparent 100%
+        );
       }
     }
 </style>
