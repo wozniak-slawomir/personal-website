@@ -39,17 +39,6 @@
           link="/oferta/suwerenny-handel"
           :button-text="t('offer.viewDetails')"
         />
-
-        <div class="md:col-span-2 lg:col-span-1">
-          <ServiceCard
-            image="/services/consulting.jpg"
-            :image-alt="t('pricing.packages.partnership.title')"
-            :title="t('pricing.packages.partnership.title')"
-            :description="t('offer.fractionalCto.subtitle')"
-            link="/oferta/fractional-cto"
-            :button-text="t('offer.viewDetails')"
-          />
-        </div>
       </div>
     </div>
   </div>

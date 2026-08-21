@@ -69,9 +69,6 @@
       "heroSubtitle": "I design and implement websites that clearly communicate your brand's value and guide users to action.",
       "whatIncludes": "What's included?",
       "exampleProjects": "Example Projects"
-    },
-    "fractionalCto": {
-      "subtitle": "For startups that want to build and validate a product without a technical co-founder."
     }
   },
   "pricing": {
@@ -103,15 +100,6 @@
         "button": "I Open My Own Store",
         "feature1": "Full store ownership (WooCommerce/EDD)",
         "feature2": "Payment gateways without hidden subscriptions"
-      },
-      "partnership": {
-        "title": "Fractional CTO",
-        "subtitle": "Your external technology arm.",
-        "period": "/ month",
-        "button": "Apply for Cooperation",
-        "feature1": "Strategic supervision of IT development in the company",
-        "feature2": "Priority availability (Hotline)",
-        "feature3": "Package of 10 expert hours per month"
       }
     }
   }

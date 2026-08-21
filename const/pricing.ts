@@ -8,7 +8,7 @@ export interface PricingPackage {
   period?: string
 }
 
-export const PRICING_PACKAGES: Record<'authority' | 'independence' | 'commerce' | 'partnership', PricingPackage> = {
+export const PRICING_PACKAGES: Record<'authority' | 'independence' | 'commerce', PricingPackage> = {
   authority: {
     key: 'authority',
     price: 3500,
@@ -28,12 +28,5 @@ export const PRICING_PACKAGES: Record<'authority' | 'independence' | 'commerce' 
     price: 6000,
     currency: 'PLN',
     schemaType: 'Service',
-  },
-  partnership: {
-    key: 'partnership',
-    price: 4500,
-    currency: 'PLN',
-    schemaType: 'Service',
-    period: 'month',
   },
 }

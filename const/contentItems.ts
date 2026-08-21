@@ -1,6 +1,7 @@
 export interface ContentItem {
   name: string | ((t: (key: string) => string) => string);
   image: string;
+  offerImage?: string;
   description?: string | ((t: (key: string) => string) => string);
   tags: string[];
   link: string;
@@ -11,16 +12,25 @@ export const contentItems: ContentItem[] = [
   {
     name: 'hiszpanbet',
     image: 'projects/hiszpanbet.png',
+    offerImage: 'projects/hiszpanbetlandscape.png',
     description: (t) => t('projects.hiszpanbet'),
-    tags: ['portfolio'],
+    tags: ['portfolio', 'website'],
     link: 'https://www.hiszpanbet.pl',
   },
   {
     name: 'nimbleninja.pl',
     image: 'projects/nimbleninja.png',
-    tags: ['portfolio'],
+    offerImage: 'projects/nimbleninjalandscape.png',
+    tags: ['portfolio', 'shop'],
     description: (t) => t('projects.nimbleninja'),
     link: 'https://nimbleninja.pl',
+  },
+  {
+    name: 'akademia.nimbleninja.pl',
+    image: 'projects/akademianinjas.png',
+    offerImage: 'projects/akademianinjaslandscape.png',
+    tags: ['shop'],
+    link: 'https://akademia.nimbleninja.pl/',
   },
   {
     name: 'PiotrChojankowski.pl',
@@ -47,7 +57,8 @@ export const contentItems: ContentItem[] = [
   {
     name: 'eccdna.pl',
     image: 'projects/eccdna.png',
-    tags: ['portfolio'],
+    offerImage: 'projects/eccdnalandscape.png',
+    tags: ['portfolio', 'website'],
     description: (t) => t('projects.eccdna'),
     link: 'https://eccdna.pl',
   },
@@ -68,7 +79,8 @@ export const contentItems: ContentItem[] = [
   {
     name: 'eduspotpro.pl',
     image: 'projects/eduspotpro.png',
-    tags: ['portfolio'],
+    offerImage: 'projects/eduspotprolandscape.png',
+    tags: ['portfolio', 'website'],
     description: (t) => t('projects.eduspotpro'),
     link: 'https://eduspotpro.pl',
   },
@@ -169,8 +181,9 @@ export const contentItems: ContentItem[] = [
   {
     name: 'MyDr',
     image: 'projects/mydr.png',
+    offerImage: 'projects/mydrlandscape.png',
     description: (t) => t('projects.mydr'),
-    tags: ['portfolio'],
+    tags: ['portfolio', 'website'],
     link: 'https://mydr.pl',
   },
   {
@@ -199,43 +212,49 @@ export const contentItems: ContentItem[] = [
   {
     name: 'schnellrezept.net',
     image: 'projects/schnellrezept.png',
+    offerImage: 'projects/schnellrezeptlandscape.png',
     description: (t) => t('projects.schnellrezept'),
-    tags: ['portfolio'],
+    tags: ['portfolio', 'shop'],
     link: 'https://schnellrezept.net/',
   },
   {
     name: 'ProClick Medical',
     image: 'projects/proclickmed.png',
+    offerImage: 'projects/proclickmedlandscape.png',
     description: (t) => t('projects.proclickmed'),
-    tags: ['portfolio'],
+    tags: ['portfolio', 'shop'],
     link: 'https://proclickmed.com/',
   },
   {
     name: 'aposkarwagner.pl',
     image: 'projects/aposkarwagner.png',
+    offerImage: 'projects/aposkarwagnerlandscape.png',
     description: (t) => t('projects.aposkarwagner'),
-    tags: ['portfolio'],
+    tags: ['portfolio', 'website'],
     link: 'https://www.aposkarwagner.pl/',
   },
   {
     name: 'zanetasulawa-dudzik.pl',
     image: 'projects/zanetasulawa-dudzik.png',
+    offerImage: 'projects/zanetasulawa-dudziklandscape.png',
     description: (t) => t('projects.zanetasulawa'),
-    tags: ['portfolio'],
+    tags: ['portfolio', 'website'],
     link: 'https://zanetasulawa-dudzik.pl/',
   },
   {
     name: 'Care companion',
     image: 'projects/tebracare.png',
+    offerImage: 'projects/tebracarelandscape.png',
     description: (t) => t('projects.tebracare'),
-    tags: ['portfolio'],
+    tags: ['portfolio', 'website'],
     link: 'https://tebracare.com/',
   },
   {
     name: 'doradztwopodatkowe-sik.pl',
     image: 'projects/doradztwopodatkowe-sik.png',
+    offerImage: 'projects/doradztwopodatkowe-siklandscape.png',
     description: (t) => t('projects.doradztwopodatkowe'),
-    tags: ['portfolio'],
+    tags: ['portfolio', 'website'],
     link: 'https://doradztwopodatkowe-sik.pl/',
   },
 ]

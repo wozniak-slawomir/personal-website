@@ -5,7 +5,7 @@
         {{ $t('pricing.title') }}
       </h2>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-4">
         <!-- Package 1: Authority -->
         <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-6 flex flex-col hover:border-[#9c7942]/50 transition-colors duration-300">
           <h3 class="text-xl font-bold mb-2">{{ $t('pricing.packages.authority.title') }}</h3>
@@ -64,25 +64,6 @@
           </ul>
           <button @click="handleContact('commerce')" class="w-full py-3 px-4 rounded-lg border border-[#9c7942] text-[#9c7942] hover:bg-[#9c7942] hover:text-white transition-colors font-semibold">
             {{ $t('pricing.packages.commerce.button') }}
-          </button>
-        </div>
-
-        <!-- Package 4: Partnership -->
-        <div class="bg-[#1a1a1a] border border-white/10 rounded-xl p-6 flex flex-col hover:border-[#9c7942]/50 transition-colors duration-300">
-          <h3 class="text-xl font-bold mb-2">{{ $t('pricing.packages.partnership.title') }}</h3>
-          <p class="text-gray-400 text-sm mb-6 min-h-[40px]">{{ $t('pricing.packages.partnership.subtitle') }}</p>
-          <div class="mb-6">
-            <span class="text-3xl font-bold text-white">{{ formatPrice(PRICING_PACKAGES.partnership.price) }}</span>
-            <span class="text-sm text-gray-400 block">netto {{ $t('pricing.packages.partnership.period') }}</span>
-          </div>
-          <ul class="space-y-3 mb-8 flex-grow">
-            <li v-for="i in 3" :key="i" class="flex items-start gap-2">
-              <Check class="w-5 h-5 text-[#9c7942] flex-shrink-0 mt-0.5" />
-              <span class="text-sm text-gray-300">{{ $t(`pricing.packages.partnership.feature${i}`) }}</span>
-            </li>
-          </ul>
-          <button @click="handleContact('partnership')" class="w-full py-3 px-4 rounded-lg border border-[#9c7942] text-[#9c7942] hover:bg-[#9c7942] hover:text-white transition-colors font-semibold">
-            {{ $t('pricing.packages.partnership.button') }}
           </button>
         </div>
       </div>

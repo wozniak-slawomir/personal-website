@@ -88,9 +88,6 @@
       "heroSubtitle": "Projektuję i wdrażam strony, które jasno komunikują wartość Twojej marki oraz prowadzą użytkownika do działania.",
       "whatIncludes": "Co zawiera usługa?",
       "exampleProjects": "Przykładowe realizacje"
-    },
-    "fractionalCto": {
-      "subtitle": "Dla startupów chcących zbudować i zwalidować produkt, nieposiadających technicznego cofoundera."
     }
   },
   "pricing": {
@@ -122,15 +119,6 @@
         "button": "Otwieram Własny Sklep",
         "feature1": "Pełna własność sklepu (WooCommerce/EDD)",
         "feature2": "Bramki płatności bez ukrytych abonamentów"
-      },
-      "partnership": {
-        "title": "Fractional CTO",
-        "subtitle": "Twoje zewnętrzne ramię technologiczne.",
-        "period": "/ miesięcznie",
-        "button": "Aplikuj o Współpracę",
-        "feature1": "Strategiczny nadzór nad rozwojem IT w firmie",
-        "feature2": "Priorytetowa dostępność (Hotline)",
-        "feature3": "Pakiet 10 godzin eksperckich w miesiącu"
       }
     }
   }

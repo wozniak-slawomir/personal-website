@@ -58,23 +58,7 @@
           </div>
         </section>
 
-        <section class="mb-10">
-          <h2 class="text-3xl font-bold text-center mb-8">{{ t('offer.website.exampleProjects') }}</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <a
-              href="https://akademia.nimbleninja.pl/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="rounded-xl overflow-hidden border border-gray-700/30 hover:border-[var(--primary-color)]/50 transition-colors block"
-            >
-              <img
-                src="/projects/akademianinjaslandscape.png"
-                alt="Example 1"
-                class="w-full h-auto"
-              >
-            </a>
-          </div>
-        </section>
+        <OfferExamples tag="shop" />
       </div>
     </div>
   </div>

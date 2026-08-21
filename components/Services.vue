@@ -6,7 +6,7 @@
         <p class="text-lg text-[var(--secondary-text-color)]">{{ $t('offer.subtitle') }}</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         <ServiceCard
           image="/services/website.jpg"
           :image-alt="$t('offer.website.title')"
@@ -31,15 +31,6 @@
           :title="$t('pricing.packages.commerce.title')"
           :description="$t('pricing.packages.commerce.subtitle')"
           link="/oferta/suwerenny-handel"
-          :button-text="$t('offer.viewDetails')"
-        />
-
-        <ServiceCard
-          image="/services/consulting.jpg"
-          :image-alt="$t('pricing.packages.partnership.title')"
-          :title="$t('pricing.packages.partnership.title')"
-          :description="$t('offer.fractionalCto.subtitle')"
-          link="/oferta/fractional-cto"
           :button-text="$t('offer.viewDetails')"
         />
       </div>

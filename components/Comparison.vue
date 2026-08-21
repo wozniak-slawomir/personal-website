@@ -75,21 +75,6 @@
           </p>
         </div>
 
-        <!-- Fractional CTO -->
-        <div class="bg-[var(--primary-color)]/10 border-2 border-[var(--primary-color)] rounded-xl p-6 transform transition-transform duration-300 hover:scale-105">
-          <div class="flex items-start gap-4">
-            <PhCheckCircle class="text-[var(--primary-color)] flex-shrink-0 mt-1" :size="32" weight="fill" />
-            <div>
-              <h4 class="text-xl font-bold text-[var(--primary-text-color)] mb-2">
-                {{ $t("comparison.newWay.fractionalCTO.title") }}
-              </h4>
-              <p class="text-[var(--secondary-text-color)]">
-                {{ $t("comparison.newWay.fractionalCTO.description") }}
-              </p>
-            </div>
-          </div>
-        </div>
-
         <!-- Direct Contact -->
         <div class="bg-[var(--primary-color)]/10 border-2 border-[var(--primary-color)] rounded-xl p-6 transform transition-transform duration-300 hover:scale-105">
           <div class="flex items-start gap-4">

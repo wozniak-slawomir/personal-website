@@ -198,7 +198,6 @@ const offerServices = computed(() => [
   { to: localePath('/oferta/strona-internetowa'), label: t('offer.website.title') },
   { to: localePath('/oferta/prywatna-chmura-nextcloud'), label: t('offer.privateCloud.title') },
   { to: localePath('/oferta/suwerenny-handel'), label: t('pricing.packages.commerce.title') },
-  { to: localePath('/oferta/fractional-cto'), label: t('pricing.packages.partnership.title') },
 ])
 
 const mainNavLinks = computed(() => [
