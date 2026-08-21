@@ -44,6 +44,7 @@
   "projects.tebra": "Tebra Care Connect is a platform for doctors to build their image and attract patients online.",
   "projects.schnellrezept": "SchnellRezept is an online platform for legally obtaining a medical cannabis prescription. Patients complete a questionnaire, receive a doctor's review, and get their medication delivered from a partner pharmacy.",
   "projects.proclickmed": "ProClick Medical is a telemedicine platform for e-prescriptions and sick notes. Patients consult certified doctors from home and receive documents quickly and securely.",
+  "projects.polecanymedyk": "Polecany Medyk is a telemedicine platform for online doctor consultations. Patients can get an e-prescription, sick leave, or e-ZLA without leaving home.",
   "projects.aposkarwagner": "Portfolio website for Oskar Wagner – an accounting expert offering bookkeeping, process automation, and audits for companies and accounting firms in Poznań.",
   "projects.zanetasulawa": "Portfolio website for Żaneta Suława-Dudzik – a mental trainer and Emotion Code practitioner. She offers mental training, emotion-release sessions, workshops, and talks.",
   "projects.tebracare": "Care companion is Tebra's health blog with articles from verified doctors. Patients browse conditions, wellness, and care guides written by licensed physicians.",
@@ -52,6 +53,7 @@
     "title": "Offer",
     "subtitle": "Choose a service and check the details.",
     "priceFrom": "Starting price",
+    "priceOnRequest": "Individual quote",
     "viewDetails": "View details",
     "backToOffer": "Back to offer",
     "scheduleCall": "Schedule a call",
@@ -69,6 +71,15 @@
       "heroSubtitle": "I design and implement websites that clearly communicate your brand's value and guide users to action.",
       "whatIncludes": "What's included?",
       "exampleProjects": "Example Projects"
+    },
+    "telemedicine": {
+      "title": "Telemedicine platform",
+      "subtitle": "For clinics and medical brands that want to issue prescriptions and guide patients online.",
+      "heroTitle": "A telemedicine platform from questionnaire to prescription and pharmacy",
+      "heroSubtitle": "I design and implement services where the patient follows a clear path — from intake, through a doctor's review, to receiving medication.",
+      "feature1": "Patient questionnaire and a path to an e-prescription or doctor consultation",
+      "feature2": "Medical product catalog, payments, and partner-pharmacy fulfillment",
+      "feature3": "Trust-building design: a clear process, communication, and conversion without extra friction"
     }
   },
   "pricing": {
@@ -100,6 +111,9 @@
         "button": "I Open My Own Store",
         "feature1": "Full store ownership (WooCommerce/EDD)",
         "feature2": "Payment gateways without hidden subscriptions"
+      },
+      "telemedicine": {
+        "title": "Telemedicine platform"
       }
     }
   }

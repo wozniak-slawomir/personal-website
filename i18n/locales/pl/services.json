@@ -63,6 +63,7 @@
   "projects.tebra": "Tebra Care Connect to platforma dla lekarzy, pozwalająca na budowanie wizerunku i pozyskiwanie pacjentów online.",
   "projects.schnellrezept": "SchnellRezept to platforma do legalnego uzyskania recepty na medyczną marihuanę online. Pacjent wypełnia kwestionariusz, otrzymuje ocenę lekarską, a następnie leki z apteki partnerskiej.",
   "projects.proclickmed": "ProClick Medical to platforma telemedyczna do uzyskiwania e-recept i zwolnień lekarskich online. Pacjent konsultuje się z certyfikowanym lekarzem z domu i otrzymuje dokumenty szybko i bezpiecznie.",
+  "projects.polecanymedyk": "Polecany Medyk to platforma telemedyczna do konsultacji lekarskich online. Pacjent może uzyskać e-receptę, zwolnienie L4 lub e-ZLA bez wychodzenia z domu.",
   "projects.aposkarwagner": "Strona wizytówka Oskara Wagnera – eksperta ds. księgowości, automatyzacji procesów i audytów dla firm oraz biur rachunkowych w Poznaniu.",
   "projects.zanetasulawa": "Strona wizytówka Żanety Suławy-Dudzik – trenerki mentalnej i praktyka Kodu Emocji. Oferuje trening mentalny, sesje uwalniania emocji, warsztaty i prelekcje.",
   "projects.tebracare": "Care companion to blog zdrowotny Tebra z artykułami od zweryfikowanych lekarzy. Pacjenci przeglądają przewodniki o schorzeniach, wellness i opiece medycznej napisane przez licencjonowanych specjalistów.",
@@ -71,6 +72,7 @@
     "title": "Oferta",
     "subtitle": "Wybierz usługę i sprawdź szczegóły realizacji.",
     "priceFrom": "Cena od",
+    "priceOnRequest": "Wycena indywidualna",
     "viewDetails": "Zobacz szczegóły",
     "backToOffer": "Wróć do oferty",
     "scheduleCall": "Umów rozmowę",
@@ -88,6 +90,15 @@
       "heroSubtitle": "Projektuję i wdrażam strony, które jasno komunikują wartość Twojej marki oraz prowadzą użytkownika do działania.",
       "whatIncludes": "Co zawiera usługa?",
       "exampleProjects": "Przykładowe realizacje"
+    },
+    "telemedicine": {
+      "title": "Platforma telemedyczna",
+      "subtitle": "Dla klinik i marek medycznych, które chcą wystawiać recepty i prowadzić pacjenta online.",
+      "heroTitle": "Platforma telemedyczna od kwestionariusza po receptę i aptekę",
+      "heroSubtitle": "Projektuję i wdrażam serwisy, w których pacjent przechodzi jasną ścieżkę — od zgłoszenia, przez ocenę lekarską, po odbiór leków.",
+      "feature1": "Kwestionariusz pacjenta i ścieżka do e-recepty lub konsultacji lekarskiej",
+      "feature2": "Katalog produktów medycznych, płatności i współpraca z apteką partnerską",
+      "feature3": "Projekt budujący zaufanie: jasny proces, komunikacja i konwersja bez zbędnego tarcia"
     }
   },
   "pricing": {
@@ -119,6 +130,9 @@
         "button": "Otwieram Własny Sklep",
         "feature1": "Pełna własność sklepu (WooCommerce/EDD)",
         "feature2": "Bramki płatności bez ukrytych abonamentów"
+      },
+      "telemedicine": {
+        "title": "Platforma telemedyczna"
       }
     }
   }

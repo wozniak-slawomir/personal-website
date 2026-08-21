@@ -1,7 +1,7 @@
 <template>
   <section v-if="examples.length" class="mb-10">
     <h2 class="text-3xl font-bold text-center mb-8">{{ t('offer.website.exampleProjects') }}</h2>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div :class="examples.length === 1 ? 'max-w-2xl mx-auto' : 'grid grid-cols-1 md:grid-cols-2 gap-6'">
       <a
         v-for="item in examples"
         :key="item.link"

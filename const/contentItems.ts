@@ -210,20 +210,28 @@ export const contentItems: ContentItem[] = [
     lastmod: '2026-02-26T16:18:00+01:00'
   },
   {
-    name: 'schnellrezept.net',
-    image: 'projects/schnellrezept.png',
-    offerImage: 'projects/schnellrezeptlandscape.png',
-    description: (t) => t('projects.schnellrezept'),
-    tags: ['portfolio', 'shop'],
-    link: 'https://schnellrezept.net/',
-  },
-  {
     name: 'ProClick Medical',
     image: 'projects/proclickmed.png',
     offerImage: 'projects/proclickmedlandscape.png',
     description: (t) => t('projects.proclickmed'),
-    tags: ['portfolio', 'shop'],
+    tags: ['portfolio', 'shop', 'telemedicine'],
     link: 'https://proclickmed.com/',
+  },
+  {
+    name: 'polecanymedyk.pl',
+    image: 'projects/polecanymedyk.png',
+    offerImage: 'projects/polecanymedyklandscape.png',
+    description: (t) => t('projects.polecanymedyk'),
+    tags: ['portfolio', 'shop', 'telemedicine'],
+    link: 'https://polecanymedyk.pl/',
+  },
+  {
+    name: 'schnellrezept.net',
+    image: 'projects/schnellrezept.png',
+    offerImage: 'projects/schnellrezeptlandscape.png',
+    description: (t) => t('projects.schnellrezept'),
+    tags: ['portfolio', 'shop', 'telemedicine'],
+    link: 'https://schnellrezept.net/',
   },
   {
     name: 'aposkarwagner.pl',
