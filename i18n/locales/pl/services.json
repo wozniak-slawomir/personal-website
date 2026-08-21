@@ -99,6 +99,15 @@
       "feature1": "Kwestionariusz pacjenta i ścieżka do e-recepty lub konsultacji lekarskiej",
       "feature2": "Katalog produktów medycznych, płatności i współpraca z apteką partnerską",
       "feature3": "Projekt budujący zaufanie: jasny proces, komunikacja i konwersja bez zbędnego tarcia"
+    },
+    "dataCollection": {
+      "title": "Pozyskiwanie danych (scraping)",
+      "subtitle": "Dla firm, które potrzebują uporządkowanej bazy z publicznych źródeł — do CRM, platformy albo sprzedaży.",
+      "heroTitle": "Baza z publicznych danych, gotowa do wgrania",
+      "heroSubtitle": "Zbieram, czyszczę i dostarczam dane ze źródeł publicznych w formacie, który wgrywasz do swojej platformy, CRM-u albo kampanii.",
+      "feature1": "Zbieranie rekordów ze źródeł publicznych: rejestry, katalogi, wykazy i strony",
+      "feature2": "Czyszczenie, deduplikacja i ujednolicenie pól pod Twój system",
+      "feature3": "Eksport gotowy do importu — CSV, arkusz, API albo bezpośrednie wgranie"
     }
   },
   "pricing": {
@@ -133,6 +142,9 @@
       },
       "telemedicine": {
         "title": "Platforma telemedyczna"
+      },
+      "dataCollection": {
+        "title": "Pozyskiwanie danych (scraping)"
       }
     }
   }

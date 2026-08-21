@@ -39,5 +39,7 @@
   "seo.website.title": "Strona internetowa - Sławomir Woźniak",
   "seo.website.description": "Usługa projektowania i wdrożenia strony internetowej od strategii po gotowe wdrożenie.",
   "seo.telemedicine.title": "Platforma telemedyczna - Sławomir Woźniak",
-  "seo.telemedicine.description": "Projektowanie i wdrożenie platformy telemedycznej: e-recepty, konsultacje lekarskie i ścieżka pacjenta online."
+  "seo.telemedicine.description": "Projektowanie i wdrożenie platformy telemedycznej: e-recepty, konsultacje lekarskie i ścieżka pacjenta online.",
+  "seo.dataCollection.title": "Pozyskiwanie danych (scraping) - Sławomir Woźniak",
+  "seo.dataCollection.description": "Zbieranie, czyszczenie i dostarczanie danych ze źródeł publicznych jako bazy gotowej do wgrania do CRM, platformy albo kampanii."
 }

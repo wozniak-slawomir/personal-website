@@ -199,6 +199,7 @@ const offerServices = computed(() => [
   { to: localePath('/oferta/prywatna-chmura-nextcloud'), label: t('offer.privateCloud.title') },
   { to: localePath('/oferta/suwerenny-handel'), label: t('pricing.packages.commerce.title') },
   { to: localePath('/oferta/platforma-telemedyczna'), label: t('offer.telemedicine.title') },
+  { to: localePath('/oferta/pozyskiwanie-danych'), label: t('offer.dataCollection.title') },
 ])
 
 const mainNavLinks = computed(() => [

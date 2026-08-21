@@ -12,7 +12,7 @@
         </p>
       </div>
 
-      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <ServiceCard
           image="/services/website.jpg"
           :image-alt="t('offer.website.title')"
@@ -46,6 +46,15 @@
           :title="t('offer.telemedicine.title')"
           :description="t('offer.telemedicine.subtitle')"
           link="/oferta/platforma-telemedyczna"
+          :button-text="t('offer.viewDetails')"
+        />
+
+        <ServiceCard
+          image="/services/data-collection.svg"
+          :image-alt="t('offer.dataCollection.title')"
+          :title="t('offer.dataCollection.title')"
+          :description="t('offer.dataCollection.subtitle')"
+          link="/oferta/pozyskiwanie-danych"
           :button-text="t('offer.viewDetails')"
         />
       </div>

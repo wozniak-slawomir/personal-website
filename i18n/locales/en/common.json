@@ -20,6 +20,8 @@
   "seo.website.description": "Website design and implementation service from strategy to ready deployment.",
   "seo.telemedicine.title": "Telemedicine platform - Slawomir Wozniak",
   "seo.telemedicine.description": "Telemedicine platform design and implementation: e-prescriptions, doctor consultations, and an online patient journey.",
+  "seo.dataCollection.title": "Data collection (scraping) - Slawomir Wozniak",
+  "seo.dataCollection.description": "Collecting, cleaning, and delivering public-source data as a database ready to import into a CRM, platform, or campaign.",
   "navbar.portfolio": "Portfolio",
   "navbar.bio": "Bio",
   "navbar.language": "Language",

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-hidden="true">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#141414"/>
+      <stop offset="100%" stop-color="#1c1812"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0%" stop-color="#c9a15b"/>
+      <stop offset="100%" stop-color="#9c7942"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="900" fill="url(#bg)"/>
+  <rect x="180" y="160" width="1240" height="580" rx="24" fill="#111" stroke="#3a3428" stroke-width="2"/>
+  <rect x="180" y="160" width="1240" height="78" rx="24" fill="#1a1610"/>
+  <rect x="180" y="214" width="1240" height="24" fill="#1a1610"/>
+  <text x="220" y="210" fill="#c9a15b" font-family="Outfit, sans-serif" font-size="28" font-weight="700">public-records.csv</text>
+  <g font-family="Outfit, sans-serif" font-size="22" fill="#8a8378">
+    <text x="220" y="290">name</text>
+    <text x="560" y="290">city</text>
+    <text x="860" y="290">category</text>
+    <text x="1180" y="290">source</text>
+  </g>
+  <g font-family="Outfit, sans-serif" font-size="24" fill="#e8e0d4">
+    <text x="220" y="360">Record 001</text>
+    <text x="560" y="360">Poznań</text>
+    <text x="860" y="360">directory</text>
+    <text x="1180" y="360">registry</text>
+    <text x="220" y="430">Record 002</text>
+    <text x="560" y="430">Warszawa</text>
+    <text x="860" y="430">listing</text>
+    <text x="1180" y="430">directory</text>
+    <text x="220" y="500">Record 003</text>
+    <text x="560" y="500">Kraków</text>
+    <text x="860" y="500">catalog</text>
+    <text x="1180" y="500">listing</text>
+    <text x="220" y="570">Record 004</text>
+    <text x="560" y="570">Gdańsk</text>
+    <text x="860" y="570">directory</text>
+    <text x="1180" y="570">registry</text>
+  </g>
+  <rect x="210" y="620" width="1180" height="4" rx="2" fill="url(#gold)" opacity="0.7"/>
+  <text x="220" y="690" fill="#c9a15b" font-family="Outfit, sans-serif" font-size="26" font-weight="600">ready to import</text>
+</svg>
