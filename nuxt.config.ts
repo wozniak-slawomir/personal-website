@@ -7,6 +7,31 @@ config()
 export default defineNuxtConfig({
   site: {
     url: 'https://slawomir-wozniak.pl',
+    name: 'Sławomir Woźniak',
+  },
+
+  schemaOrg: {
+    identity: {
+      type: 'Person',
+      name: 'Sławomir Woźniak',
+      url: 'https://slawomir-wozniak.pl',
+      image: '/bio/me-bio.png',
+      email: 'contact@slawomir-wozniak.pl',
+      telephone: '+48571205570',
+      jobTitle: 'Partner technologiczny i programista',
+      sameAs: [
+        'https://www.linkedin.com/in/wozniak-slawomir',
+        'https://www.facebook.com/profile.php?id=61582978407745',
+        'https://www.instagram.com/slawomirwozniakofficial/',
+        'https://tiktok.com/@slawomirwozniakofficial',
+        'https://youtube.com/@SlawomirWozniakOfficial',
+      ],
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: 'Poznań',
+        addressCountry: 'PL',
+      },
+    },
   },
   devtools: { enabled: true },
   runtimeConfig: {
@@ -325,6 +350,9 @@ export default defineNuxtConfig({
   },
 
   i18n: {
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     baseUrl: 'https://slawomir-wozniak.pl',
     locales: [
       {

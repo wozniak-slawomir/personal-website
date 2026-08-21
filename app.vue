@@ -14,6 +14,7 @@ import { DEFAULT_LOCALE } from '~/const/defaultLocale'
 import { onBeforeMount } from 'vue'
 
 const { locale, setLocale } = useI18n()
+usePageSchema()
 
 onBeforeMount(() => {
   const languageStored = localStorage.getItem('language') as typeof locale.value

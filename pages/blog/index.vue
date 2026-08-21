@@ -44,6 +44,7 @@
 
 <script setup lang="ts">
 const localePath = useLocalePath()
+const { t, locale } = useI18n()
 const { items } = useContentItems()
 
 const getItemLink = (link: string) => {
@@ -58,4 +59,16 @@ const blogItems = computed(() => {
     .filter(item => item.tags.includes('blog'))
     .reverse()
 })
+
+watch(locale, () => {
+  useSeoMeta({
+    title: `${t('projects.filter.blog')} - ${t('seo.ogSiteName')}`,
+    description: t('blog.subtitle'),
+    ogTitle: `${t('projects.filter.blog')} - ${t('seo.ogSiteName')}`,
+    ogDescription: t('blog.subtitle'),
+    ogSiteName: t('seo.ogSiteName'),
+    ogUrl: 'https://slawomir-wozniak.pl/blog',
+    twitterCard: 'summary_large_image',
+  })
+}, { immediate: true })
 </script>
