@@ -108,6 +108,15 @@
       "feature1": "Zbieranie rekordów ze źródeł publicznych: rejestry, katalogi, wykazy i strony",
       "feature2": "Czyszczenie, deduplikacja i ujednolicenie pól pod Twój system",
       "feature3": "Eksport gotowy do importu — CSV, arkusz, API albo bezpośrednie wgranie"
+    },
+    "technicalSeo": {
+      "title": "SEO techniczne",
+      "subtitle": "Dla stron, które istnieją, ale nie widać ich w Google — znajduję i naprawiam techniczne blokady.",
+      "heroTitle": "SEO techniczne, które pozwala Google znaleźć Twoją stronę",
+      "heroSubtitle": "Audytuję, naprawiam i aktualizuję warstwę techniczną witryny, żeby wyszukiwarka mogła ją zaindeksować, zrozumieć i pozycjonować.",
+      "feature1": "Audyt techniczny: indeksacja, crawlability, Core Web Vitals, dane strukturalne i błędy w Search Console",
+      "feature2": "Naprawy i aktualizacje: meta tagi, sitemap, robots, przekierowania, canonicale, szybkość i wersja mobilna",
+      "feature3": "Opieka po: konfiguracja Search Console i jasny raport zmian"
     }
   },
   "pricing": {
@@ -145,6 +154,9 @@
       },
       "dataCollection": {
         "title": "Pozyskiwanie danych (scraping)"
+      },
+      "technicalSeo": {
+        "title": "SEO techniczne"
       }
     }
   }

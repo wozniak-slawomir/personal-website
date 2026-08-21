@@ -57,6 +57,15 @@
           link="/oferta/pozyskiwanie-danych"
           :button-text="t('offer.viewDetails')"
         />
+
+        <ServiceCard
+          image="/services/technical-seo.jpg"
+          :image-alt="t('offer.technicalSeo.title')"
+          :title="t('offer.technicalSeo.title')"
+          :description="t('offer.technicalSeo.subtitle')"
+          link="/oferta/seo-techniczne"
+          :button-text="t('offer.viewDetails')"
+        />
       </div>
     </div>
   </div>

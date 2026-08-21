@@ -41,5 +41,7 @@
   "seo.telemedicine.title": "Platforma telemedyczna - Sławomir Woźniak",
   "seo.telemedicine.description": "Projektowanie i wdrożenie platformy telemedycznej: e-recepty, konsultacje lekarskie i ścieżka pacjenta online.",
   "seo.dataCollection.title": "Pozyskiwanie danych (scraping) - Sławomir Woźniak",
-  "seo.dataCollection.description": "Zbieranie, czyszczenie i dostarczanie danych ze źródeł publicznych jako bazy gotowej do wgrania do CRM, platformy albo kampanii."
+  "seo.dataCollection.description": "Zbieranie, czyszczenie i dostarczanie danych ze źródeł publicznych jako bazy gotowej do wgrania do CRM, platformy albo kampanii.",
+  "seo.technicalSeo.title": "SEO techniczne - Sławomir Woźniak",
+  "seo.technicalSeo.description": "Audyt i naprawy SEO technicznego: indeksacja, crawlability, Core Web Vitals, sitemap i Search Console — żeby Google mogło znaleźć i pozycjonować Twoją stronę."
 }

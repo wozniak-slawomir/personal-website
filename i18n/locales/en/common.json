@@ -22,6 +22,8 @@
   "seo.telemedicine.description": "Telemedicine platform design and implementation: e-prescriptions, doctor consultations, and an online patient journey.",
   "seo.dataCollection.title": "Data collection (scraping) - Slawomir Wozniak",
   "seo.dataCollection.description": "Collecting, cleaning, and delivering public-source data as a database ready to import into a CRM, platform, or campaign.",
+  "seo.technicalSeo.title": "Technical SEO - Slawomir Wozniak",
+  "seo.technicalSeo.description": "Technical SEO audit and fixes: indexing, crawlability, Core Web Vitals, sitemap, and Search Console — so Google can find and rank your site.",
   "navbar.portfolio": "Portfolio",
   "navbar.bio": "Bio",
   "navbar.language": "Language",

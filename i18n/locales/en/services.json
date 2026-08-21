@@ -89,6 +89,15 @@
       "feature1": "Collecting records from public sources: registries, directories, listings, and websites",
       "feature2": "Cleaning, deduplication, and field mapping to match your system",
       "feature3": "Export ready to import — CSV, spreadsheet, API, or a direct upload"
+    },
+    "technicalSeo": {
+      "title": "Technical SEO",
+      "subtitle": "For websites that exist but stay invisible in Google — I find and fix the technical blockers.",
+      "heroTitle": "Technical SEO that lets Google find your site",
+      "heroSubtitle": "I audit, fix, and update the technical layer of your website so search engines can crawl, index, and rank it.",
+      "feature1": "Technical audit: indexing, crawlability, Core Web Vitals, structured data, and Search Console errors",
+      "feature2": "Fixes and updates: meta tags, sitemap, robots, redirects, canonicals, page speed, and mobile",
+      "feature3": "Aftercare: Search Console setup and a clear report of what changed"
     }
   },
   "pricing": {
@@ -126,6 +135,9 @@
       },
       "dataCollection": {
         "title": "Data collection (scraping)"
+      },
+      "technicalSeo": {
+        "title": "Technical SEO"
       }
     }
   }
