@@ -18,7 +18,7 @@
           </p>
         </div>
 
-        <!-- Software House -->
+        <!-- Too much overhead -->
         <div class="bg-red-50 dark:bg-red-950/20 border-2 border-red-200 dark:border-red-900 rounded-xl p-6 transform transition-transform duration-300 hover:scale-105">
           <div class="flex items-start gap-4">
             <PhXCircle class="text-red-500 flex-shrink-0 mt-1" :size="32" weight="fill" />
@@ -33,7 +33,7 @@
           </div>
         </div>
 
-        <!-- Cheap Freelancer -->
+        <!-- Hard to stay in touch -->
         <div class="bg-red-50 dark:bg-red-950/20 border-2 border-red-200 dark:border-red-900 rounded-xl p-6 transform transition-transform duration-300 hover:scale-105">
           <div class="flex items-start gap-4">
             <PhXCircle class="text-red-500 flex-shrink-0 mt-1" :size="32" weight="fill" />
@@ -48,7 +48,7 @@
           </div>
         </div>
 
-        <!-- Marketing Agencies -->
+        <!-- Tools you don't control -->
         <div class="bg-red-50 dark:bg-red-950/20 border-2 border-red-200 dark:border-red-900 rounded-xl p-6 transform transition-transform duration-300 hover:scale-105">
           <div class="flex items-start gap-4">
             <PhXCircle class="text-red-500 flex-shrink-0 mt-1" :size="32" weight="fill" />
