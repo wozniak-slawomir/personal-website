@@ -132,6 +132,8 @@ export default defineNuxtConfig({
     },
     '/newsletter': { redirect: { to: '/contact', statusCode: 301 } },
     '/en/newsletter': { redirect: { to: '/en/contact', statusCode: 301 } },
+    '/oferta/suwerenny-handel': { redirect: { to: '/oferta/sklep-internetowy', statusCode: 301 } },
+    '/en/oferta/suwerenny-handel': { redirect: { to: '/en/oferta/sklep-internetowy', statusCode: 301 } },
   },
 
   image: {

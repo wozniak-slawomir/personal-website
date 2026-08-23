@@ -46,7 +46,7 @@ export function usePageSchema() {
     '/oferta': t('navbar.offer'),
     '/oferta/strona-internetowa': t('offer.website.title'),
     '/oferta/prywatna-chmura-nextcloud': t('offer.privateCloud.title'),
-    '/oferta/suwerenny-handel': t('pricing.packages.commerce.title'),
+    '/oferta/sklep-internetowy': t('pricing.packages.commerce.title'),
     '/oferta/platforma-telemedyczna': t('offer.telemedicine.title'),
     '/oferta/pozyskiwanie-danych': t('offer.dataCollection.title'),
     '/oferta/seo-techniczne': t('offer.technicalSeo.title'),

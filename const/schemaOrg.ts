@@ -18,20 +18,25 @@ export type FaqItem = {
   answer: string
 }
 
+function offerFaq(prefix: string, count = 6): FaqItem[] {
+  return Array.from({ length: count }, (_, index) => ({
+    question: `${prefix}.faq.q${index + 1}.question`,
+    answer: `${prefix}.faq.q${index + 1}.answer`,
+  }))
+}
+
 export const HOME_FAQ_ITEMS = [
   { question: 'faq.q1.question', answer: 'faq.q1.answer' },
   { question: 'faq.q2.question', answer: 'faq.q2.answer' },
   { question: 'faq.q3.question', answer: 'faq.q3.answer' },
 ] as const satisfies readonly FaqItem[]
 
-export const WEBSITE_FAQ_ITEMS = [
-  { question: 'offer.website.faq.q1.question', answer: 'offer.website.faq.q1.answer' },
-  { question: 'offer.website.faq.q2.question', answer: 'offer.website.faq.q2.answer' },
-  { question: 'offer.website.faq.q3.question', answer: 'offer.website.faq.q3.answer' },
-  { question: 'offer.website.faq.q4.question', answer: 'offer.website.faq.q4.answer' },
-  { question: 'offer.website.faq.q5.question', answer: 'offer.website.faq.q5.answer' },
-  { question: 'offer.website.faq.q6.question', answer: 'offer.website.faq.q6.answer' },
-] as const satisfies readonly FaqItem[]
+export const WEBSITE_FAQ_ITEMS = offerFaq('offer.website')
+export const PRIVATE_CLOUD_FAQ_ITEMS = offerFaq('offer.privateCloud')
+export const COMMERCE_FAQ_ITEMS = offerFaq('offer.commerce')
+export const TELEMEDICINE_FAQ_ITEMS = offerFaq('offer.telemedicine')
+export const DATA_COLLECTION_FAQ_ITEMS = offerFaq('offer.dataCollection')
+export const TECHNICAL_SEO_FAQ_ITEMS = offerFaq('offer.technicalSeo')
 
 export type OfferService = {
   path: string
@@ -58,33 +63,38 @@ export const OFFER_SERVICES: readonly OfferService[] = [
   {
     path: '/oferta/prywatna-chmura-nextcloud',
     titleKey: 'offer.privateCloud.title',
-    descriptionKey: 'offer.privateCloud.subtitle',
+    descriptionKey: 'seo.privateCloud.description',
     image: '/services/nextcloud.webp',
     pricePackage: 'independence' as const,
+    faq: PRIVATE_CLOUD_FAQ_ITEMS,
   },
   {
-    path: '/oferta/suwerenny-handel',
+    path: '/oferta/sklep-internetowy',
     titleKey: 'pricing.packages.commerce.title',
-    descriptionKey: 'pricing.packages.commerce.subtitle',
+    descriptionKey: 'seo.commerce.description',
     image: '/services/woocommerce.png',
     pricePackage: 'commerce' as const,
+    faq: COMMERCE_FAQ_ITEMS,
   },
   {
     path: '/oferta/platforma-telemedyczna',
     titleKey: 'offer.telemedicine.title',
     descriptionKey: 'seo.telemedicine.description',
     image: '/projects/schnellrezeptlandscape.png',
+    faq: TELEMEDICINE_FAQ_ITEMS,
   },
   {
     path: '/oferta/pozyskiwanie-danych',
     titleKey: 'offer.dataCollection.title',
     descriptionKey: 'seo.dataCollection.description',
     image: '/services/data-collection.svg',
+    faq: DATA_COLLECTION_FAQ_ITEMS,
   },
   {
     path: '/oferta/seo-techniczne',
     titleKey: 'offer.technicalSeo.title',
     descriptionKey: 'seo.technicalSeo.description',
     image: '/services/technical-seo.jpg',
+    faq: TECHNICAL_SEO_FAQ_ITEMS,
   },
 ]

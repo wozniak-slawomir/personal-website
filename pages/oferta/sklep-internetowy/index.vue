@@ -6,10 +6,10 @@
       <div class="max-w-5xl mx-auto">
         <section class="text-center mb-14">
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            {{ t('pricing.packages.commerce.title') }}
+            {{ t('offer.commerce.heroTitle') }}
           </h1>
           <p class="text-lg md:text-xl text-[var(--secondary-text-color)] max-w-3xl mx-auto mb-10">
-            {{ t('pricing.packages.commerce.subtitle') }}
+            {{ t('offer.commerce.heroSubtitle') }}
           </p>
 
           <div class="rounded-2xl overflow-hidden border border-gray-700/30 shadow-2xl">
@@ -42,13 +42,13 @@
 
               <div class="flex flex-col sm:flex-row gap-3">
                 <NuxtLink
-                  :to="{ path: '/contact', query: { package: 'commerce' } }"
+                  :to="{ path: localePath('/contact'), query: { package: 'commerce' } }"
                   class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[image:var(--primary-gradient)] text-black font-bold hover:bg-[image:var(--secondary-gradient)] transition-all"
                 >
                   {{ t('offer.scheduleCall') }}
                 </NuxtLink>
                 <NuxtLink
-                  to="/oferta"
+                  :to="localePath('/oferta')"
                   class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-[var(--primary-color)]/10 transition-colors"
                 >
                   {{ t('offer.backToOffer') }}
@@ -58,7 +58,13 @@
           </div>
         </section>
 
-        <OfferExamples tag="shop" />
+        <OfferKnowledge
+          prefix="offer.commerce"
+          :faq-items="faqItems"
+          :related-articles="relatedArticles"
+        >
+          <OfferExamples tag="shop" />
+        </OfferKnowledge>
       </div>
     </div>
   </div>
@@ -67,21 +73,31 @@
 <script setup lang="ts">
 import { PhCheckCircle } from '@phosphor-icons/vue'
 import { PRICING_PACKAGES } from '@/const/pricing'
+import { COMMERCE_FAQ_ITEMS } from '@/const/schemaOrg'
 
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 const formattedPrice = computed(() => {
   return `${new Intl.NumberFormat('pl-PL').format(PRICING_PACKAGES.commerce.price)} PLN netto`
 })
 
+const faqItems = COMMERCE_FAQ_ITEMS
+
+const relatedArticles = [
+  { path: '/blog/pulapka-vendor-lock-in', title: 'blog.vendorLockIn.title' },
+  { path: '/blog/profesjonalna-strona-www', title: 'blog.professionalWebsite.title' },
+  { path: '/blog/czy-potrzebujesz-strony', title: 'blog.needWebsite.title' },
+] as const
+
 watch(locale, () => {
   useSeoMeta({
-    title: `${t('pricing.packages.commerce.title')} - ${t('seo.ogSiteName')}`,
-    description: t('pricing.packages.commerce.subtitle'),
-    ogTitle: `${t('pricing.packages.commerce.title')} - ${t('seo.ogSiteName')}`,
-    ogDescription: t('pricing.packages.commerce.subtitle'),
+    title: t('seo.commerce.title'),
+    description: t('seo.commerce.description'),
+    ogTitle: t('seo.commerce.title'),
+    ogDescription: t('seo.commerce.description'),
     ogSiteName: t('seo.ogSiteName'),
-    ogUrl: 'https://slawomir-wozniak.pl/oferta/suwerenny-handel',
+    ogUrl: `https://slawomir-wozniak.pl${localePath('/oferta/sklep-internetowy')}`,
     twitterCard: 'summary_large_image',
   })
 }, { immediate: true })

@@ -36,7 +36,7 @@
           :image-alt="t('pricing.packages.commerce.title')"
           :title="t('pricing.packages.commerce.title')"
           :description="t('pricing.packages.commerce.subtitle')"
-          link="/oferta/suwerenny-handel"
+          link="/oferta/sklep-internetowy"
           :button-text="t('offer.viewDetails')"
         />
 

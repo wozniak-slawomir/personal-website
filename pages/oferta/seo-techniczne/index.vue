@@ -41,13 +41,13 @@
 
               <div class="flex flex-col sm:flex-row gap-3">
                 <NuxtLink
-                  :to="{ path: '/contact', query: { package: 'technicalSeo' } }"
+                  :to="{ path: localePath('/contact'), query: { package: 'technicalSeo' } }"
                   class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[image:var(--primary-gradient)] text-black font-bold hover:bg-[image:var(--secondary-gradient)] transition-all"
                 >
                   {{ t('offer.scheduleCall') }}
                 </NuxtLink>
                 <NuxtLink
-                  to="/oferta"
+                  :to="localePath('/oferta')"
                   class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-[var(--primary-color)]/10 transition-colors"
                 >
                   {{ t('offer.backToOffer') }}
@@ -56,6 +56,12 @@
             </div>
           </div>
         </section>
+
+        <OfferKnowledge
+          prefix="offer.technicalSeo"
+          :faq-items="faqItems"
+          :related-articles="relatedArticles"
+        />
       </div>
     </div>
   </div>
@@ -63,8 +69,18 @@
 
 <script setup lang="ts">
 import { PhCheckCircle } from '@phosphor-icons/vue'
+import { TECHNICAL_SEO_FAQ_ITEMS } from '@/const/schemaOrg'
 
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
+
+const faqItems = TECHNICAL_SEO_FAQ_ITEMS
+
+const relatedArticles = [
+  { path: '/blog/google-search-console', title: 'blog.googleSearchConsole.title' },
+  { path: '/blog/profesjonalna-strona-www', title: 'blog.professionalWebsite.title' },
+  { path: '/blog/czy-potrzebujesz-strony', title: 'blog.needWebsite.title' },
+] as const
 
 watch(locale, () => {
   useSeoMeta({
@@ -73,7 +89,7 @@ watch(locale, () => {
     ogTitle: t('seo.technicalSeo.title'),
     ogDescription: t('seo.technicalSeo.description'),
     ogSiteName: t('seo.ogSiteName'),
-    ogUrl: 'https://slawomir-wozniak.pl/oferta/seo-techniczne',
+    ogUrl: `https://slawomir-wozniak.pl${localePath('/oferta/seo-techniczne')}`,
     twitterCard: 'summary_large_image',
   })
 }, { immediate: true })

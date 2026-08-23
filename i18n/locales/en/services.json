@@ -60,9 +60,96 @@
     "privateCloud": {
       "title": "Private Cloud (Nextcloud)",
       "subtitle": "Your company cloud on your own server — better data privacy and no monthly SaaS fees.",
+      "heroTitle": "A private Nextcloud cloud on your server, without a SaaS subscription",
+      "heroSubtitle": "I deploy a company cloud on your infrastructure: files, team access, and backups stay with you — not with a vendor in California.",
       "feature1": "Nextcloud installation and configuration on your infrastructure",
       "feature2": "Security, backup, and team-access setup",
-      "feature3": "Lower long-term cost by removing recurring subscription fees"
+      "feature3": "Lower long-term cost by removing recurring subscription fees",
+      "whoFor": {
+        "title": "Who is a private Nextcloud cloud for?",
+        "intro": "I deploy Nextcloud for companies that want files and collaboration without a monthly tribute and without handing data to a US SaaS.",
+        "item1": {
+          "title": "A team that lives in files",
+          "text": "Law firms, agencies, workshops, project teams — anywhere Dropbox and Google Drive feel \"good enough\" until you count the subscription and the risk."
+        },
+        "item2": {
+          "title": "Data you do not want to hand over",
+          "text": "Contracts, client files, photos, backups. If GDPR is not an empty slogan, the server should be yours, not \"somewhere in the cloud\"."
+        },
+        "item3": {
+          "title": "Poznań and all of Poland",
+          "text": "I work remotely. Install on a VPS, a dedicated box, or a machine in the office. You do not need an IT department to stop renting Google Drive."
+        }
+      },
+      "problem": {
+        "title": "Why Google Drive and Dropbox stop being convenient",
+        "p1": "The bill grows with the team. Files sit on someone else's servers, under someone else's jurisdiction. Leaving hurts, because nobody planned an exit when they clicked \"14 days free\".",
+        "p2": "A private cloud is not a hobby Nextcloud on a Raspberry Pi. It is your infrastructure: accounts, rules, backups — without a fee for every extra terabyte and without asking a vendor for permission to leave."
+      },
+      "process": {
+        "title": "How a private-cloud deployment actually works",
+        "subtitle": "No \"cloud migration\" slide deck. A machine, an install, the team, documentation.",
+        "step1": {
+          "title": "Conversation",
+          "description": "What you use today, how many people, which files, where the server should live. We decide whether a VPS, a dedicated box, or office hardware makes sense — I do not force a server on you."
+        },
+        "step2": {
+          "title": "Infrastructure",
+          "description": "Address, certificate, disks, access. You see the plan before I install anything. No surprise \"and here is another licence\"."
+        },
+        "step3": {
+          "title": "Implementation",
+          "description": "Nextcloud, accounts, groups, backups, solid baseline security. Status updates along the way — not silence and not kickoff percentages."
+        },
+        "step4": {
+          "title": "Handover",
+          "description": "Documentation for you and the team. 30 days of care after go-live, so I carry the risk that \"the cloud does not boot on Monday\", not your accountant."
+        }
+      },
+      "includesMore": {
+        "title": "What else is included in the Nextcloud rollout?",
+        "item1": "Install on your machine — data does not leave for someone else's cloud \"because it is easier\".",
+        "item2": "Accounts, groups, and team access under your address, not under drive.google.com.",
+        "item3": "Backups and a hard security baseline, not a next-next-finish wizard.",
+        "item4": "A guide so the admin is not the only person who \"knows the root password\".",
+        "item5": "Code and data stay on your side. Nextcloud is open source — you are not renting your cloud."
+      },
+      "whyCustom": {
+        "title": "Why not stay on Google Workspace?",
+        "p1": "Workspace is convenient until you count five tools, five contracts, and the fact that your files live under a jurisdiction you did not choose. That is vendor lock-in for the office.",
+        "p2": "Nextcloud is not a cheaper Google Drive. It is a decision: data stays with you, the software is open, and leaving does not require the vendor's permission. Digital sovereignty starts with files, not with a manifesto."
+      },
+      "faq": {
+        "title": "Frequently asked questions about a private Nextcloud cloud",
+        "subtitle": "Straight answers before we book a call.",
+        "q1": {
+          "question": "How much does a private Nextcloud cloud cost?",
+          "answer": "The package starts at 5500 PLN net. That covers install, configuration, and handover — not a monthly fee forever. The server (a VPS or your hardware) is billed separately, because it should be yours, not mine."
+        },
+        "q2": {
+          "question": "Does a private cloud help with GDPR?",
+          "answer": "Data sits on infrastructure you name — including an EU server if that is the choice. This does not replace a GDPR policy or processor agreements with your clients. It does reduce the usual problem: company files on servers whose location you do not control."
+        },
+        "q3": {
+          "question": "Will I be able to use Nextcloud after handover?",
+          "answer": "Yes. You get a guide and a setup that feels like Drive — only under your address. Adding users, folders, and shares does not require a ticket to an agency. Updates and harder topics stay with care or with your admin."
+        },
+        "q4": {
+          "question": "What about backups?",
+          "answer": "Backup is part of the configuration. A cloud without copies is just a nicer way to lose files. We decide where the copy lands and how often — before you put client contracts in it."
+        },
+        "q5": {
+          "question": "How is this different from Synology, a NAS, or OwnCloud?",
+          "answer": "A NAS can be a good office disk and a weak remote setup. OwnCloud is a different product and path. I deploy Nextcloud as a company cloud: browser, phone, permissions, backups. If Synology already does the job, I will not sell a migration for sport."
+        },
+        "q6": {
+          "question": "Do you issue a VAT invoice?",
+          "answer": "Yes. I operate legally in Poland, I issue an invoice, and you can deduct VAT. A conversation is not a contract — first we check whether we are a good fit."
+        }
+      },
+      "related": {
+        "title": "More about cloud, data, and vendor lock-in"
+      }
     },
     "website": {
       "title": "Website",
@@ -157,6 +244,95 @@
         "title": "More about websites"
       }
     },
+    "commerce": {
+      "heroTitle": "An online store that belongs to you — without platform commission",
+      "heroSubtitle": "I build WooCommerce stores from scratch or from what you already sell: products, payments, and ownership of the code. You pay the gateway per transaction, not a marketplace for the right to sell.",
+      "whoFor": {
+        "title": "Who is this online store for?",
+        "intro": "I build stores for brands that want to sell on their own domain — from scratch or from what already works. You do not hand margin to Allegro, Shopify, or yet another all-in-one.",
+        "item1": {
+          "title": "Physical and digital products",
+          "text": "Courses, ebooks, merch, parts, paid services. If the customer should pay you, not a third-party platform — this is the service."
+        },
+        "item2": {
+          "title": "From scratch or from a marketplace",
+          "text": "No store yet? I build it from scratch. You already have a site or marketplace sales and want your own checkout? That too. We do not start with a 40-slide omnichannel strategy — we start with a cart that works."
+        },
+        "item3": {
+          "title": "Poznań and all of Poland",
+          "text": "I work remotely with clients across Poland. The store should live on your hosting and domain, not on an account you cannot export."
+        }
+      },
+      "problem": {
+        "title": "Why a marketplace or Shopify is not \"your store\"",
+        "p1": "Allegro, Amazon, Shopify take a cut or a subscription for access to customers you still have to acquire. The rules change without you. Leaving hurts because the catalogue, reviews, and checkout live with them.",
+        "p2": "Your own store does three things: it sells on your domain, keeps orders with you, and does not ask a platform for permission when you change the rules. The rest — themes, sliders, \"AI recommendations\" — is decoration."
+      },
+      "process": {
+        "title": "How an online-store project actually works",
+        "subtitle": "No agency theatre. A conversation, a catalogue, implementation, handover.",
+        "step1": {
+          "title": "Conversation",
+          "description": "What you sell, where traffic comes from, which payments, digital, physical, or both. A WooCommerce store — from scratch or from a catalogue you already have. Not \"some ecommerce\"."
+        },
+        "step2": {
+          "title": "Catalogue and payments",
+          "description": "Product structure, rates, gateway, shipping or file delivery. You see the direction before the store goes to production."
+        },
+        "step3": {
+          "title": "Implementation",
+          "description": "Code, cart, mobile version, basic SEO. Status updates along the way. No silence and no kickoff progress bars."
+        },
+        "step4": {
+          "title": "Handover",
+          "description": "Your store, your domain, a guide for adding products. 30 days of care after launch, so I carry the risk that payments die on Friday night."
+        }
+      },
+      "includesMore": {
+        "title": "What else is included in the online store?",
+        "item1": "Full ownership on WooCommerce — not an account in a website builder. I can build the store from scratch.",
+        "item2": "Payment gateways without a hidden platform subscription. You pay per transaction, not for \"being in the ecosystem\".",
+        "item3": "A cart and checkout that can be finished on a phone, not only on a laptop.",
+        "item4": "Basic SEO: titles, descriptions, indexing. Google should be able to find the store before anyone \"launches ads\".",
+        "item5": "Hosting and domain stay on your side. Leaving does not require Shopify's permission."
+      },
+      "whyCustom": {
+        "title": "Why not Shoper, Shopify, or a \"store for 300 zł\"?",
+        "p1": "A builder is fast until you want to change the rules, the rates, or export customers. Then you pay a subscription and discover the store was never yours. That is vendor lock-in for a shopping cart.",
+        "p2": "With me you get a store you actually own. WooCommerce on your infrastructure, payments without a platform middleman, and code you can take with you. You are not renting the right to sell."
+      },
+      "faq": {
+        "title": "Frequently asked questions about online stores",
+        "subtitle": "Straight answers before we book a call.",
+        "q1": {
+          "question": "How much does an online store cost?",
+          "answer": "The package starts at 6000 PLN net. A simple catalogue with payments is a different job than variants, stock, and integrations — after a conversation you get a quote, not empty from-to ranges."
+        },
+        "q2": {
+          "question": "WooCommerce or Shopify?",
+          "answer": "Shopify is convenient until you accept the subscription and the fact that the store lives with them. WooCommerce gives ownership: theme, plugins, database, domain. If you want your own store, we do not build it on someone else's platform."
+        },
+        "q3": {
+          "question": "Can I sell digital products?",
+          "answer": "Yes. WooCommerce with file delivery after payment. A course, an ebook, a licence — no courier, and no 30% to a marketplace."
+        },
+        "q4": {
+          "question": "How long does it take to launch a store?",
+          "answer": "A straightforward store from scratch is usually a few weeks from kickoff to first orders. The timeline depends on the catalogue, photos, VAT rates, and decisions — not on how many customer-journey workshops we run."
+        },
+        "q5": {
+          "question": "Will the store show up in Google?",
+          "answer": "I prepare the technical layer: indexing, meta, sitemap, mobile. Rankings for competitive terms still take content, time, and links. A store Google cannot read will not sell — even with ads."
+        },
+        "q6": {
+          "question": "Do you issue a VAT invoice?",
+          "answer": "Yes. I operate legally in Poland, I issue an invoice, and you can deduct VAT. A conversation is not a contract — first we check whether we are a good fit."
+        }
+      },
+      "related": {
+        "title": "More about ownership, websites, and selling online"
+      }
+    },
     "telemedicine": {
       "title": "Telemedicine platform",
       "subtitle": "For clinics and medical brands that want to issue prescriptions and guide patients online.",
@@ -164,7 +340,92 @@
       "heroSubtitle": "I design and implement services where the patient follows a clear path — from intake, through a doctor's review, to receiving medication.",
       "feature1": "Patient questionnaire and a path to an e-prescription or doctor consultation",
       "feature2": "Medical product catalog, payments, and partner-pharmacy fulfillment",
-      "feature3": "Trust-building design: a clear process, communication, and conversion without extra friction"
+      "feature3": "Trust-building design: a clear process, communication, and conversion without extra friction",
+      "whoFor": {
+        "title": "Who is a telemedicine platform for?",
+        "intro": "I build services for clinics, e-prescription brands, and medical products that need to take a patient from intake to a decision — not just \"have a pretty health website\".",
+        "item1": {
+          "title": "Clinic and e-prescription",
+          "text": "The path: questionnaire, clinical review, document, optionally a pharmacy. The patient should know what happens at each step — not guess from icons."
+        },
+        "item2": {
+          "title": "A medical brand online",
+          "text": "Catalogue, payment, fulfillment. When a product without a clear process burns ad budget, the problem is not \"not enough leads\". The problem is friction on the path."
+        },
+        "item3": {
+          "title": "A team that already knows the rules",
+          "text": "I design and ship the product. The medical model, contracts with doctors and the pharmacy stay on your side. I do not pretend to be a law firm and I do not sell \"compliance in the package\"."
+        }
+      },
+      "problem": {
+        "title": "Why a calling-card site is not enough in telemedicine",
+        "p1": "A patient does not buy a slider with a smiling doctor. They buy the sense that someone owns the process: question, decision, document, pickup. If they get lost between \"book a visit\" and a form, they go back to a competitor or a walk-in pharmacy.",
+        "p2": "A ready-made medical SaaS can be fast at the start and expensive at scale: fees, limits, no code, terms you do not negotiate. Your own platform is a product you run — not an account they can terminate."
+      },
+      "process": {
+        "title": "How a telemedicine platform project actually works",
+        "subtitle": "Patient path first, then code. No \"digital health transformation\" theatre.",
+        "step1": {
+          "title": "Conversation",
+          "description": "Who the patient is, what they should get (consult, e-prescription, product), who issues the document, where payment and fulfillment go. We draw the path before I open an editor."
+        },
+        "step2": {
+          "title": "Process design",
+          "description": "Questionnaire, states, messages, cart or a fee for the review. You see friction on paper, not after the ad campaign starts."
+        },
+        "step3": {
+          "title": "Implementation",
+          "description": "The service, panels, payments, the integrations you actually need. Status updates along the way. No six weeks of silence."
+        },
+        "step4": {
+          "title": "Handover",
+          "description": "Your platform, your hosting, documentation. Care after launch, because the first real patient always finds a case that was not on the slide."
+        }
+      },
+      "includesMore": {
+        "title": "What else is included in the telemedicine platform?",
+        "item1": "A questionnaire and intake states — the patient does not send \"an email to reception\" and wait in a void.",
+        "item2": "A path to an e-prescription or consult, wired to how your doctors actually work — not magic in a plugin.",
+        "item3": "Catalogue, payments, and, if needed, a handoff to a partner pharmacy or delivery.",
+        "item4": "A layout that builds trust: clear language, no extra friction, mobile first, because patients do not fill this at a desk.",
+        "item5": "Code and infrastructure on your side. We do not build a product you cannot take with you."
+      },
+      "whyCustom": {
+        "title": "Why not a \"for doctors\" template or a ready SaaS?",
+        "p1": "A clinic template looks like a clinic. It does not walk the patient through. Medical SaaS starts fast, then the fee, the intake cap, and no access to your data turn out not to be an \"implementation detail\".",
+        "p2": "A dedicated platform costs more at the start because you are buying ownership. Path psychology, integrations you choose, and code that stays with you. Telemedicine without control of the process is just ads that burn budget."
+      },
+      "faq": {
+        "title": "Frequently asked questions about telemedicine platforms",
+        "subtitle": "Straight answers before we book a call.",
+        "q1": {
+          "question": "How much does a telemedicine platform cost?",
+          "answer": "It is an individual quote. A questionnaire plus e-prescription is a different job than a catalogue, payments, and a pharmacy. After a conversation you get a scope and a number, not an empty from-to."
+        },
+        "q2": {
+          "question": "Do you handle medical regulatory compliance?",
+          "answer": "I am not a law firm and I do not sell a certificate. I design and ship the service inside the model you already have or are building with your own doctors, lawyers, and pharmacy. If nobody can issue the document, code will not replace that."
+        },
+        "q3": {
+          "question": "How long does implementation take?",
+          "answer": "It depends on the path, the integrations, and how fast decisions land on your side. A first working slice can be weeks; a full catalogue and fulfillment takes longer. I do not paint a date on a kickoff slide."
+        },
+        "q4": {
+          "question": "Can you connect a partner pharmacy and payments?",
+          "answer": "Yes — if there is someone and something to connect. I build the catalogue, checkout, and order handoff. The pharmacy contract and settlement stay with you. I do not promise a magical \"pharmacy network in the package\"."
+        },
+        "q5": {
+          "question": "How is this different from a ready-made SaaS platform?",
+          "answer": "You rent SaaS. At scale you pay a cut, wait on their roadmap, and you do not leave with your data without pain. Your own platform is more expensive at the start and cheaper when you stop being a \"small customer\" in someone else's product."
+        },
+        "q6": {
+          "question": "Do you issue a VAT invoice?",
+          "answer": "Yes. I operate legally in Poland, I issue an invoice, and you can deduct VAT. A conversation is not a contract — first we check whether we are a good fit."
+        }
+      },
+      "related": {
+        "title": "More about trust, websites, and product value"
+      }
     },
     "dataCollection": {
       "title": "Data collection (scraping)",
@@ -173,7 +434,92 @@
       "heroSubtitle": "I collect, clean, and deliver data from public sources in a format you can upload to your platform, CRM, or campaign.",
       "feature1": "Collecting records from public sources: registries, directories, listings, and websites",
       "feature2": "Cleaning, deduplication, and field mapping to match your system",
-      "feature3": "Export ready to import — CSV, spreadsheet, API, or a direct upload"
+      "feature3": "Export ready to import — CSV, spreadsheet, API, or a direct upload",
+      "whoFor": {
+        "title": "Who is data collection for?",
+        "intro": "I collect public data for companies that need a database for a CRM, a catalogue, or sales — not another spreadsheet nobody wants to open.",
+        "item1": {
+          "title": "Sales and CRM",
+          "text": "Records from registries, directories, listings. So a salesperson does not retype a tax ID from a PDF, but gets a file they can import."
+        },
+        "item2": {
+          "title": "Platform and catalogue",
+          "text": "When your service needs complete cards, prices, or locations from sources that are already public — only nobody wants to collect them by hand every week."
+        },
+        "item3": {
+          "title": "A team that does not buy \"magic leads\"",
+          "text": "I do not sell a list of 100 thousand \"hot Facebook companies\". I work on sources you name, or that we agree are public and useful."
+        }
+      },
+      "problem": {
+        "title": "Why an intern in Excel is not a data strategy",
+        "p1": "Copy-pasting from a registry looks cheap until you count errors, duplicates, and the month later when nobody remembers which column is the tax ID. A bought \"company database\" is often stale, legally messy to use, or just junk.",
+        "p2": "Proper collection does three things: it takes from a public source, cleans to your schema, and delivers a file or an import you can use. The rest — \"AI scraping over the weekend\" — ends with half the records and a letter from a lawyer."
+      },
+      "process": {
+        "title": "How data collection actually works",
+        "subtitle": "Source, collect, clean, deliver. No promise to scrape the whole internet.",
+        "step1": {
+          "title": "Sources and fields",
+          "description": "What we collect, from where, and in what shape it should land with you. We agree what is public and what the database is for — before I write a scraper."
+        },
+        "step2": {
+          "title": "Collection",
+          "description": "Records from the named registries, directories, listings, sites. I respect source limits and rules. I do not break logins and I do not promise \"everything behind a paywall\"."
+        },
+        "step3": {
+          "title": "Cleaning",
+          "description": "Duplicates, empty fields, mapping onto your columns. A database you cannot import is worse than not having one."
+        },
+        "step4": {
+          "title": "Delivery",
+          "description": "CSV, spreadsheet, API, or a direct upload. Field documentation. If it should be recurring, we say so — we do not hide a subscription under \"maintenance\"."
+        }
+      },
+      "includesMore": {
+        "title": "What else is included in data collection?",
+        "item1": "Collection only from public sources we name together — registries, directories, listings, websites.",
+        "item2": "Deduplication and normalisation so a tax ID, name, and address do not appear in three spellings.",
+        "item3": "Field mapping for a CRM, platform, or campaign — not a raw dump and best wishes.",
+        "item4": "An export you can import: CSV, spreadsheet, API, or an upload we handle together.",
+        "item5": "A clear scope: what is in the database, what is not, when it was collected. No magical completeness."
+      },
+      "whyCustom": {
+        "title": "Why not buy a ready-made list or \"just run a bot\"?",
+        "p1": "A ready-made list is cheap until you check the date, the legal basis, and whether anyone cleaned it. A tutorial bot dies on an HTML change and leaves you with half a script nobody wants to touch.",
+        "p2": "With me you pay for a collection that matches your schema and that you can actually import. Public data, scope in writing, a format your CRM will swallow. I do not sell other people's Facebook lists."
+      },
+      "faq": {
+        "title": "Frequently asked questions about data collection",
+        "subtitle": "Straight answers before we book a call.",
+        "q1": {
+          "question": "How much does collecting a public-source database cost?",
+          "answer": "It is an individual quote. It depends on the number of sources, fields, cleaning, and whether this is a one-off dump or a cycle. After a conversation you get a scope and a number, not a \"price per record\" from nowhere."
+        },
+        "q2": {
+          "question": "Is scraping legal?",
+          "answer": "I work on public sources — registries, directories, sites without breaking a login. That does not waive your GDPR duties for further use (contact, profiling, sales). If the database goes into cold email, the legal basis is on you. I do not collect data from behind a paywall or from private accounts."
+        },
+        "q3": {
+          "question": "What format do I get the data in?",
+          "answer": "CSV, spreadsheet, API, or a direct upload into your system — we decide at the start. I do not hand over raw HTML and call it a deliverable."
+        },
+        "q4": {
+          "question": "Will the database still be fresh in a month?",
+          "answer": "A one-off collection is a snapshot. Sources change. If you need refreshes, we talk about a cycle in the open — I do not pretend a one-off CSV lives forever."
+        },
+        "q5": {
+          "question": "How is this different from buying a ready-made lead list?",
+          "answer": "A ready-made list has someone else's date, quality, and often someone else's legal problem. I collect what you name as public, into your fields. Fewer records, more of them you can import and stand behind."
+        },
+        "q6": {
+          "question": "Do you issue a VAT invoice?",
+          "answer": "Yes. I operate legally in Poland, I issue an invoice, and you can deduct VAT. A conversation is not a contract — first we check whether the sources and the use make sense."
+        }
+      },
+      "related": {
+        "title": "More about data, value, and tool independence"
+      }
     },
     "technicalSeo": {
       "title": "Technical SEO",
@@ -182,7 +528,92 @@
       "heroSubtitle": "I audit, fix, and update the technical layer of your website so search engines can crawl, index, and rank it.",
       "feature1": "Technical audit: indexing, crawlability, Core Web Vitals, structured data, and Search Console errors",
       "feature2": "Fixes and updates: meta tags, sitemap, robots, redirects, canonicals, page speed, and mobile",
-      "feature3": "Aftercare: Search Console setup and a clear report of what changed"
+      "feature3": "Aftercare: Search Console setup and a clear report of what changed",
+      "whoFor": {
+        "title": "Who is technical SEO for?",
+        "intro": "I fix the technical layer of sites that \"are online\" but that Google cannot see, cannot understand, or punishes for errors nobody reads in Search Console.",
+        "item1": {
+          "title": "The site exists, Google is silent",
+          "text": "You have a website, maybe even content, and the queries do not move. Before someone sells you \"rankings and links\", it is worth checking whether the crawler even enters and indexes."
+        },
+        "item2": {
+          "title": "After a redesign or a migration",
+          "text": "New site, old URLs, vanished traffic. Canonicals, 404s, a sitemap from a previous era. That is not \"the algorithm\". That is usually an unfinished move."
+        },
+        "item3": {
+          "title": "Poznań and all of Poland",
+          "text": "I work remotely. Audit and fixes on your stack — WordPress, Nuxt, whatever, as long as there is access. You do not need an agency with a 40-person \"SEO content\" department."
+        }
+      },
+      "problem": {
+        "title": "Why \"SEO\" does nothing if Google cannot enter the site",
+        "p1": "The agency writes copy while robots.txt blocks a folder. Or the page weighs eight megabytes on a phone, canonicals point at the void, and Search Console has been shouting about indexing for six months. That is not a \"weak content\" problem. It is a technical blocker.",
+        "p2": "Technical SEO does not promise a ranking for \"website Poznań\". It gives the search engine a chance: crawl, index, understandable content, speed, structured data. Without that, content and links work in a vacuum."
+      },
+      "process": {
+        "title": "How technical SEO actually works",
+        "subtitle": "Audit, plan, fixes, Search Console. No 80-page report nobody reads.",
+        "step1": {
+          "title": "Audit",
+          "description": "Indexing, crawl, Core Web Vitals, sitemap, robots, canonicals, redirects, structured data, Search Console errors. A list of facts, not \"recommendations to consider\"."
+        },
+        "step2": {
+          "title": "Plan",
+          "description": "What blocks hardest, what we touch first, what we leave because it is content or off-site. You see the order and the scope before anyone touches code."
+        },
+        "step3": {
+          "title": "Fixes",
+          "description": "Meta, sitemap, robots, redirects, canonicals, speed, mobile, schema where it helps. Status updates along the way — not silence and not a slide that says \"on-page 40%\"."
+        },
+        "step4": {
+          "title": "After",
+          "description": "Search Console set up, a change report, what to watch. So I do not disappear on the day Google finally starts crawling."
+        }
+      },
+      "includesMore": {
+        "title": "What else is included in technical SEO?",
+        "item1": "A check that Google can enter, index, and not get lost in duplicates.",
+        "item2": "Sitemap, robots, canonicals, redirects — boring work that decides whether the new site lives.",
+        "item3": "Core Web Vitals and mobile: not \"pretty design\", but whether a phone can even load the content.",
+        "item4": "Structured data where it helps the engine understand the page — not 15 schema types \"because that is what you do\".",
+        "item5": "A report: what was broken, what I changed, what technique will not fix (content, links, time)."
+      },
+      "whyCustom": {
+        "title": "Why not a package of \"SEO + 20 articles + links\"?",
+        "p1": "Copy on a site the crawler does not index is a cost. Links into a canonical mess are a cost with interest. First you unblock crawl. Then writing and linking start to make sense.",
+        "p2": "I do not sell rankings. I sell the layer without which Google cannot find you, or finds a version you did not want. The rest — content, PR, time — you do on purpose, not instead of fixing the sitemap."
+      },
+      "faq": {
+        "title": "Frequently asked questions about technical SEO",
+        "subtitle": "Straight answers before we book a call.",
+        "q1": {
+          "question": "How much does technical SEO cost?",
+          "answer": "It is an individual quote. Auditing a small calling-card site is a different job than a store with a thousand canonical variants. After a conversation and a look at Search Console you get a scope, not a subscription \"for rankings\"."
+        },
+        "q2": {
+          "question": "Do you guarantee Google rankings?",
+          "answer": "No. Nobody honest guarantees queries. I guarantee that I fix what can be fixed technically: indexing, crawl, the errors the tools show. Rankings also take content, links, and time."
+        },
+        "q3": {
+          "question": "How is technical SEO different from content SEO?",
+          "answer": "Technical: can the crawler enter, understand, avoid duplicates, does the site even work on a phone. Content: is there something to read and will anyone link it. Without the first, the second often never starts."
+        },
+        "q4": {
+          "question": "Do I need Google Search Console?",
+          "answer": "Yes, if you want to know what Google actually sees, not guess from a rank tracker. As part of aftercare I set up GSC and show you where to look — I do not leave you with a login and a screenshot."
+        },
+        "q5": {
+          "question": "How long do the audit and the fixes take?",
+          "answer": "The audit itself can be days. Fixes depend on the stack and who implements (me or your team). A migration with hundreds of redirects is not \"we will tweak meta on Friday\"."
+        },
+        "q6": {
+          "question": "Do you issue a VAT invoice?",
+          "answer": "Yes. I operate legally in Poland, I issue an invoice, and you can deduct VAT. A conversation is not a contract — first we check whether the problem is technical, or whether someone sold you rankings blind."
+        }
+      },
+      "related": {
+        "title": "More about Google, websites, and visibility"
+      }
     }
   },
   "pricing": {
@@ -212,7 +643,7 @@
         "title": "Online Store",
         "subtitle": "Sell digital and physical products without commission.",
         "button": "I Open My Own Store",
-        "feature1": "Full store ownership (WooCommerce/EDD)",
+        "feature1": "Full store ownership (WooCommerce)",
         "feature2": "Payment gateways without hidden subscriptions"
       },
       "telemedicine": {

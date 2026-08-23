@@ -58,174 +58,29 @@
           </div>
         </section>
 
-        <section class="mb-10">
-          <h2 class="text-3xl font-bold mb-4">{{ t('offer.website.whoFor.title') }}</h2>
-          <p class="text-[var(--secondary-text-color)] mb-8 max-w-3xl">
-            {{ t('offer.website.whoFor.intro') }}
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div
-              v-for="item in whoForItems"
-              :key="item.title"
-              class="glassmorphism rounded-2xl p-6 border border-gray-700/30"
-            >
-              <h3 class="text-xl font-bold mb-3">{{ t(item.title) }}</h3>
-              <p class="text-[var(--secondary-text-color)] leading-relaxed">
-                {{ t(item.text) }}
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="glassmorphism rounded-3xl p-8 md:p-10 border border-gray-700/30 mb-10">
-          <h2 class="text-3xl font-bold mb-4">{{ t('offer.website.problem.title') }}</h2>
-          <p class="text-[var(--secondary-text-color)] leading-relaxed mb-4">
-            {{ t('offer.website.problem.p1') }}
-          </p>
-          <p class="text-[var(--secondary-text-color)] leading-relaxed">
-            {{ t('offer.website.problem.p2') }}
-          </p>
-        </section>
-
-        <section class="mb-10">
-          <h2 class="text-3xl font-bold mb-4">{{ t('offer.website.process.title') }}</h2>
-          <p class="text-[var(--secondary-text-color)] mb-8 max-w-3xl">
-            {{ t('offer.website.process.subtitle') }}
-          </p>
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <div
-              v-for="(step, index) in processSteps"
-              :key="step.title"
-              class="glassmorphism rounded-2xl p-6 border border-gray-700/30"
-            >
-              <div class="w-10 h-10 rounded-full bg-[var(--primary-color)] text-black font-bold flex items-center justify-center mb-4">
-                {{ index + 1 }}
-              </div>
-              <h3 class="text-xl font-bold mb-2">{{ t(step.title) }}</h3>
-              <p class="text-[var(--secondary-text-color)] leading-relaxed">
-                {{ t(step.description) }}
-              </p>
-            </div>
-          </div>
-        </section>
-
-        <section class="glassmorphism rounded-3xl p-8 md:p-10 border border-gray-700/30 mb-10">
-          <h2 class="text-3xl font-bold mb-6">{{ t('offer.website.includesMore.title') }}</h2>
-          <ul class="space-y-4">
-            <li
-              v-for="item in includesMoreItems"
-              :key="item"
-              class="flex items-start gap-3"
-            >
-              <PhCheckCircle :size="20" weight="fill" class="text-[var(--primary-color)] mt-0.5 flex-shrink-0" />
-              <span>{{ t(item) }}</span>
-            </li>
-          </ul>
-        </section>
-
-        <section class="mb-10">
-          <h2 class="text-3xl font-bold mb-4">{{ t('offer.website.whyCustom.title') }}</h2>
-          <p class="text-[var(--secondary-text-color)] leading-relaxed mb-4">
-            {{ t('offer.website.whyCustom.p1') }}
-          </p>
-          <p class="text-[var(--secondary-text-color)] leading-relaxed">
-            {{ t('offer.website.whyCustom.p2') }}
-          </p>
-        </section>
-
-        <OfferExamples tag="website" />
-
-        <section class="mb-10">
-          <h2 class="text-3xl font-bold mb-8">{{ t('offer.website.faq.title') }}</h2>
-          <p class="text-[var(--secondary-text-color)] mb-8 max-w-3xl">
-            {{ t('offer.website.faq.subtitle') }}
-          </p>
-          <div class="space-y-4">
-            <div
-              v-for="(item, index) in faqItems"
-              :key="item.question"
-              class="glassmorphism rounded-xl overflow-hidden border border-gray-700/30 transition-all duration-300"
-              :class="{ 'shadow-xl': openFaq === index }"
-            >
-              <button
-                class="w-full flex items-center justify-between p-6 md:p-8 text-left"
-                @click="openFaq = openFaq === index ? null : index"
-              >
-                <h3 class="text-xl md:text-2xl font-bold pr-4">
-                  {{ t(item.question) }}
-                </h3>
-                <PhCaretDown
-                  class="text-[var(--primary-color)] flex-shrink-0 transition-transform duration-300"
-                  :class="{ 'rotate-180': openFaq === index }"
-                  :size="24"
-                  weight="bold"
-                />
-              </button>
-              <div
-                class="grid transition-[grid-template-rows] duration-300"
-                :class="openFaq === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
-              >
-                <div class="overflow-hidden">
-                  <p class="px-6 md:px-8 pb-6 md:pb-8 text-lg text-[var(--secondary-text-color)] leading-relaxed">
-                    {{ t(item.answer) }}
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section>
-          <h2 class="text-3xl font-bold mb-6">{{ t('offer.website.related.title') }}</h2>
-          <ul class="space-y-3">
-            <li v-for="article in relatedArticles" :key="article.path">
-              <NuxtLink
-                :to="localePath(article.path)"
-                class="underline hover:text-[var(--primary-color)] transition-colors"
-              >
-                {{ t(article.title) }}
-              </NuxtLink>
-            </li>
-          </ul>
-        </section>
+        <OfferKnowledge
+          prefix="offer.website"
+          :faq-items="faqItems"
+          :related-articles="relatedArticles"
+        >
+          <OfferExamples tag="website" />
+        </OfferKnowledge>
       </div>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { PhCaretDown, PhCheckCircle } from '@phosphor-icons/vue'
+import { PhCheckCircle } from '@phosphor-icons/vue'
 import { PRICING_PACKAGES } from '@/const/pricing'
 import { WEBSITE_FAQ_ITEMS } from '@/const/schemaOrg'
 
 const { locale, t } = useI18n()
 const localePath = useLocalePath()
-const openFaq = ref<number | null>(null)
 
 const formattedPrice = computed(() => {
   return `${new Intl.NumberFormat('pl-PL').format(PRICING_PACKAGES.authority.price)} PLN netto`
 })
-
-const whoForItems = [
-  { title: 'offer.website.whoFor.item1.title', text: 'offer.website.whoFor.item1.text' },
-  { title: 'offer.website.whoFor.item2.title', text: 'offer.website.whoFor.item2.text' },
-  { title: 'offer.website.whoFor.item3.title', text: 'offer.website.whoFor.item3.text' },
-] as const
-
-const processSteps = [
-  { title: 'offer.website.process.step1.title', description: 'offer.website.process.step1.description' },
-  { title: 'offer.website.process.step2.title', description: 'offer.website.process.step2.description' },
-  { title: 'offer.website.process.step3.title', description: 'offer.website.process.step3.description' },
-  { title: 'offer.website.process.step4.title', description: 'offer.website.process.step4.description' },
-] as const
-
-const includesMoreItems = [
-  'offer.website.includesMore.item1',
-  'offer.website.includesMore.item2',
-  'offer.website.includesMore.item3',
-  'offer.website.includesMore.item4',
-  'offer.website.includesMore.item5',
-] as const
 
 const faqItems = WEBSITE_FAQ_ITEMS
 
@@ -242,7 +97,7 @@ watch(locale, () => {
     ogTitle: t('seo.website.title'),
     ogDescription: t('seo.website.description'),
     ogSiteName: t('seo.ogSiteName'),
-    ogUrl: 'https://slawomir-wozniak.pl/oferta/strona-internetowa',
+    ogUrl: `https://slawomir-wozniak.pl${localePath('/oferta/strona-internetowa')}`,
     twitterCard: 'summary_large_image',
   })
 }, { immediate: true })

@@ -6,10 +6,10 @@
       <div class="max-w-5xl mx-auto">
         <section class="text-center mb-14">
           <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-            {{ t('offer.privateCloud.title') }}
+            {{ t('offer.privateCloud.heroTitle') }}
           </h1>
           <p class="text-lg md:text-xl text-[var(--secondary-text-color)] max-w-3xl mx-auto mb-10">
-            {{ t('offer.privateCloud.subtitle') }}
+            {{ t('offer.privateCloud.heroSubtitle') }}
           </p>
 
           <div class="rounded-2xl overflow-hidden border border-gray-700/30 shadow-2xl">
@@ -42,13 +42,13 @@
 
               <div class="flex flex-col sm:flex-row gap-3">
                 <NuxtLink
-                  :to="{ path: '/contact', query: { package: 'independence' } }"
+                  :to="{ path: localePath('/contact'), query: { package: 'independence' } }"
                   class="inline-flex items-center justify-center px-6 py-3 rounded-lg bg-[image:var(--primary-gradient)] text-black font-bold hover:bg-[image:var(--secondary-gradient)] transition-all"
                 >
                   {{ t('offer.scheduleCall') }}
                 </NuxtLink>
                 <NuxtLink
-                  to="/oferta"
+                  :to="localePath('/oferta')"
                   class="inline-flex items-center justify-center px-6 py-3 rounded-lg border border-[var(--primary-color)] text-[var(--primary-color)] hover:bg-[var(--primary-color)]/10 transition-colors"
                 >
                   {{ t('offer.backToOffer') }}
@@ -57,6 +57,12 @@
             </div>
           </div>
         </section>
+
+        <OfferKnowledge
+          prefix="offer.privateCloud"
+          :faq-items="faqItems"
+          :related-articles="relatedArticles"
+        />
       </div>
     </div>
   </div>
@@ -65,21 +71,31 @@
 <script setup lang="ts">
 import { PhCheckCircle } from '@phosphor-icons/vue'
 import { PRICING_PACKAGES } from '@/const/pricing'
+import { PRIVATE_CLOUD_FAQ_ITEMS } from '@/const/schemaOrg'
 
 const { locale, t } = useI18n()
+const localePath = useLocalePath()
 
 const formattedPrice = computed(() => {
   return `${new Intl.NumberFormat('pl-PL').format(PRICING_PACKAGES.independence.price)} PLN netto`
 })
 
+const faqItems = PRIVATE_CLOUD_FAQ_ITEMS
+
+const relatedArticles = [
+  { path: '/blog/pulapka-vendor-lock-in', title: 'blog.vendorLockIn.title' },
+  { path: '/blog/niestabilne-usa-niestabilna-technologia', title: 'blog.unstableUSA.title' },
+  { path: '/blog/technologia-wrog-czy-partner', title: 'blog.technologyPartner.title' },
+] as const
+
 watch(locale, () => {
   useSeoMeta({
-    title: `${t('offer.privateCloud.title')} - ${t('seo.ogSiteName')}`,
-    description: t('offer.privateCloud.subtitle'),
-    ogTitle: `${t('offer.privateCloud.title')} - ${t('seo.ogSiteName')}`,
-    ogDescription: t('offer.privateCloud.subtitle'),
+    title: t('seo.privateCloud.title'),
+    description: t('seo.privateCloud.description'),
+    ogTitle: t('seo.privateCloud.title'),
+    ogDescription: t('seo.privateCloud.description'),
     ogSiteName: t('seo.ogSiteName'),
-    ogUrl: 'https://slawomir-wozniak.pl/oferta/prywatna-chmura-nextcloud',
+    ogUrl: `https://slawomir-wozniak.pl${localePath('/oferta/prywatna-chmura-nextcloud')}`,
     twitterCard: 'summary_large_image',
   })
 }, { immediate: true })

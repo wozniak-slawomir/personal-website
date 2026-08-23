@@ -41,6 +41,7 @@ const SEARCH_FILES = [
 // Keys that use dynamic patterns (don't flag these as unused)
 const DYNAMIC_KEY_PATTERNS = [
     /^pricing\.packages\.\w+\.feature\d+$/,
+    /^offer\.\w+\.(whoFor|problem|process|includesMore|whyCustom|faq|related)\./,
     /^calculator\.tools\.\w+\./,
     /^calculator\.categories\./,
     /^calculator\.context\./

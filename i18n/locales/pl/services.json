@@ -79,9 +79,96 @@
     "privateCloud": {
       "title": "Prywatna chmura (Nextcloud)",
       "subtitle": "Własna chmura firmowa na Twoim serwerze — prywatność danych i brak miesięcznych opłat SaaS.",
+      "heroTitle": "Prywatna chmura Nextcloud na Twoim serwerze, bez abonamentu SaaS",
+      "heroSubtitle": "Wdrażam firmową chmurę na Twojej infrastrukturze: pliki, dostęp dla zespołu i kopie zapasowe zostają u Ciebie — nie u dostawcy z Kalifornii.",
       "feature1": "Instalacja i konfiguracja Nextcloud na Twojej infrastrukturze",
       "feature2": "Konfiguracja bezpieczeństwa, backupów i dostępu dla zespołu",
-      "feature3": "Niższy koszt w długim terminie dzięki eliminacji abonamentów narzędziowych"
+      "feature3": "Niższy koszt w długim terminie dzięki eliminacji abonamentów narzędziowych",
+      "whoFor": {
+        "title": "Dla kogo jest prywatna chmura Nextcloud?",
+        "intro": "Wdrażam Nextcloud dla firm, które chcą mieć pliki i współpracę bez miesięcznego haraczu i bez oddawania danych amerykańskiemu SaaS-owi.",
+        "item1": {
+          "title": "Zespół, który żyje w plikach",
+          "text": "Kancelarie, agencje, warsztaty, zespoły projektowe — wszędzie tam, gdzie Dropbox i Dysk Google są „wystarczająco dobre”, dopóki nie policzysz abonamentu i ryzyka."
+        },
+        "item2": {
+          "title": "Dane, których nie chcesz oddawać",
+          "text": "Umowy, dokumentacja klientów, zdjęcia, kopie. Jeśli RODO nie jest u Ciebie pustym hasłem, serwer ma być Twój, nie „gdzieś w chmurze”."
+        },
+        "item3": {
+          "title": "Poznań i cała Polska",
+          "text": "Pracuję zdalnie. Instalacja na VPS, dedyku albo maszynie w biurze. Nie musisz mieć działu IT, żeby przestać wynajmować Dysku Google."
+        }
+      },
+      "problem": {
+        "title": "Dlaczego Google Drive i Dropbox przestają być wygodne?",
+        "p1": "Abonament rośnie razem z zespołem. Pliki siedzą na cudzych serwerach, w cudzej jurysdykcji. Wypisanie się boli, bo nikt nie planował emigracji, gdy klikali „14 dni za darmo”.",
+        "p2": "Prywatna chmura to nie hobbystyczny Nextcloud na Raspberry Pi. To Twoja infrastruktura: konta, zasady, kopie — bez opłaty za każdy dodatkowy terabajt i bez zgody dostawcy na wyprowadzkę."
+      },
+      "process": {
+        "title": "Jak wygląda wdrożenie prywatnej chmury?",
+        "subtitle": "Bez „migracji w chmurę” na slajdach. Maszyna, instalacja, zespół, dokumentacja.",
+        "step1": {
+          "title": "Rozmowa",
+          "description": "Co dziś używacie, ile osób, jakie pliki, gdzie ma stać serwer. Ustalamy, czy VPS, dedyk czy sprzęt w biurze ma sens — nie sprzedaję serwera na siłę."
+        },
+        "step2": {
+          "title": "Infrastruktura",
+          "description": "Adres, certyfikat, dyski, dostęp. Widzisz plan, zanim cokolwiek instaluję. Żadnej niespodzianki w stylu „a tu jeszcze licencja”."
+        },
+        "step3": {
+          "title": "Wdrożenie",
+          "description": "Nextcloud, konta, grupy, kopie zapasowe, podstawowe twarde zabezpieczenia. Statusy po drodze, nie cisza i nie procenty na kick-offie."
+        },
+        "step4": {
+          "title": "Przekazanie",
+          "description": "Dokumentacja dla Ciebie i zespołu. 30 dni opieki po starcie — żebym ja, nie Twój księgowy, zdejmował ryzyko, że „chmura nie wstaje w poniedziałek”."
+        }
+      },
+      "includesMore": {
+        "title": "Co jeszcze wchodzi we wdrożenie Nextcloud?",
+        "item1": "Instalacja na Twojej maszynie — dane nie wyjeżdżają do cudzej chmury „bo tak łatwiej”.",
+        "item2": "Konta, grupy i dostęp dla zespołu pod Twoim adresem, nie pod drive.google.com.",
+        "item3": "Kopie zapasowe i podstawowa twarda konfiguracja bezpieczeństwa, nie sam „next-next-finish”.",
+        "item4": "Instrukcja, żeby admin nie był jedyną osobą, która „wie hasło do root”.",
+        "item5": "Kod i dane zostają po Twojej stronie. Nextcloud jest open source — nie wynajmujesz swojej chmury."
+      },
+      "whyCustom": {
+        "title": "Dlaczego nie zostać przy Google Workspace?",
+        "p1": "Workspace jest wygodny, dopóki nie liczysz pięciu narzędzi, pięciu umów i faktu, że Twoje pliki są towarem jurysdykcji, której nie wybierasz. To vendor lock-in w wersji dla biura.",
+        "p2": "Nextcloud nie jest „tańszym Dyskiem Google”. Jest decyzją: dane zostają u Ciebie, oprogramowanie jest otwarte, a wyprowadzka nie wymaga pozwolenia dostawcy. Suwerenność cyfrowa zaczyna się od plików, nie od manifestu."
+      },
+      "faq": {
+        "title": "Najczęściej zadawane pytania o prywatną chmurę Nextcloud",
+        "subtitle": "Konkretne odpowiedzi, zanim umówimy rozmowę.",
+        "q1": {
+          "question": "Ile kosztuje wdrożenie prywatnej chmury Nextcloud?",
+          "answer": "Pakiet zaczyna się od 5500 zł netto. Cena obejmuje instalację, konfigurację i przekazanie — nie abonament za każdy kolejny miesiąc. Serwer (VPS albo Wasz sprzęt) rozliczacie osobno, bo ma być Wasz, nie mój."
+        },
+        "q2": {
+          "question": "Czy prywatna chmura pomaga w RODO?",
+          "answer": "Dane leżą na infrastrukturze, którą wskazujesz — w tym na serwerze w UE, jeśli tak zdecydujesz. To nie zastępuje polityki RODO ani umowy powierzenia z Twoimi klientami. Zmniejsza natomiast klasyczny problem: pliki firmy na serwerach, których lokalizacji nie kontrolujesz."
+        },
+        "q3": {
+          "question": "Czy poradzę sobie z obsługą Nextcloud po wdrożeniu?",
+          "answer": "Tak. Dostajesz instrukcję i układ, z którego korzysta się jak z Dysku — tylko pod Twoim adresem. Dodawanie użytkowników, foldery, udostępnianie nie wymagają ticketu do agencji. Aktualizacje i twardsze tematy zostawiamy na opiekę albo na Twojego admina."
+        },
+        "q4": {
+          "question": "Co z kopiami zapasowymi?",
+          "answer": "Backup wchodzi w konfigurację. Chmura bez kopii to tylko ładniejszy sposób na utratę plików. Ustalamy, gdzie ląduje kopia i jak często — zanim wrzucisz tam umowy klientów."
+        },
+        "q5": {
+          "question": "Czym to się różni od Synology, NAS-a albo OwnCloud?",
+          "answer": "NAS bywa dobrym dyskiem w biurze i słabym dostępem z zewnątrz. OwnCloud to inny produkt i inna ścieżka. Ja wdrażam Nextcloud jako chmurę firmową: przeglądarka, telefon, uprawnienia, kopie. Jeśli macie już Synology i to wystarcza — nie sprzedaję migracji dla zasady."
+        },
+        "q6": {
+          "question": "Czy wystawiasz fakturę VAT?",
+          "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy jest nam po drodze."
+        }
+      },
+      "related": {
+        "title": "Więcej o chmurze, danych i vendor lock-in"
+      }
     },
     "website": {
       "title": "Strona internetowa",
@@ -176,6 +263,95 @@
         "title": "Więcej o stronach internetowych"
       }
     },
+    "commerce": {
+      "heroTitle": "Sklep internetowy, który należy do Ciebie — bez prowizji platformy",
+      "heroSubtitle": "Wdrażam sklep na WooCommerce od zera albo na bazie tego, co już sprzedajesz: produkty, płatności i własność kodu. Płacisz bramce za transakcję, nie marketplace’owi za prawo do sprzedaży.",
+      "whoFor": {
+        "title": "Dla kogo jest sklep internetowy?",
+        "intro": "Buduję sklepy dla marek, które chcą sprzedawać na własnej domenie — od zera albo z tego, co już działa. Nie oddajesz marży Allegro, Shopify albo kolejnemu „all-in-one”.",
+        "item1": {
+          "title": "Produkty fizyczne i cyfrowe",
+          "text": "Kursy, e-booki, merch, części, usługi z dopłatą online. Jeśli klient ma zapłacić u Ciebie, a nie na cudzej platformie — to ta usługa."
+        },
+        "item2": {
+          "title": "Od zera albo z marketplace",
+          "text": "Nie masz jeszcze sklepu? Zbuduję go od zera. Masz stronę albo sprzedaż na marketplace i chcesz własny checkout? Też. Nie zaczynamy od „strategii omnichannel na 40 slajdach” — od koszyka, który działa."
+        },
+        "item3": {
+          "title": "Poznań i cała Polska",
+          "text": "Pracuję zdalnie z klientami w całej Polsce. Sklep ma stać na Twoim hostingu i domenie, nie na koncie, którego nie da się wyeksportować."
+        }
+      },
+      "problem": {
+        "title": "Dlaczego marketplace i Shopify nie są „Twoim sklepem”?",
+        "p1": "Allegro, Amazon, Shopify biorą prowizję albo abonament za dostęp do klientów, których i tak musisz zdobyć. Regulamin zmienia się bez Twojej zgody. Wyprowadzka boli, bo katalog, opinie i checkout siedzą u nich.",
+        "p2": "Własny sklep internetowy robi trzy rzeczy: sprzedaje na Twojej domenie, trzyma zamówienia u Ciebie i nie pyta platformy o pozwolenie, gdy zmieniasz zasady. Reszta — motywy, slajdery, „AI rekomendacje” — to ozdoba."
+      },
+      "process": {
+        "title": "Jak wygląda realizacja sklepu internetowego?",
+        "subtitle": "Bez agencyjnego teatru. Rozmowa, katalog, wdrożenie, przekazanie.",
+        "step1": {
+          "title": "Rozmowa",
+          "description": "Co sprzedajesz, skąd ruch, jakie płatności, czy to produkt cyfrowy, fizyczny czy mix. Sklep na WooCommerce — od zera albo na bazie katalogu, który już masz. Nie „jakiś e-commerce”."
+        },
+        "step2": {
+          "title": "Katalog i płatności",
+          "description": "Struktura produktów, stawki, bramka, dostawa albo wydanie pliku. Widzisz kierunek, zanim sklep stanie na produkcji."
+        },
+        "step3": {
+          "title": "Wdrożenie",
+          "description": "Kod, koszyk, wersja mobilna, podstawowe SEO. Statusy po drodze. Żadnej ciszy i żadnego kick-offu z procentami postępu."
+        },
+        "step4": {
+          "title": "Przekazanie",
+          "description": "Twój sklep, Twoja domena, instrukcja dodawania produktów. 30 dni opieki po starcie — żebym ja zdejmował ryzyko, że płatność padnie w piątek wieczorem."
+        }
+      },
+      "includesMore": {
+        "title": "Co jeszcze wchodzi w sklep internetowy?",
+        "item1": "Pełna własność sklepu na WooCommerce — nie konto w kreatorze. Mogę postawić sklep od zera.",
+        "item2": "Bramki płatności bez ukrytego abonamentu platformy. Płacisz za transakcję, nie za „bycie w ekosystemie”.",
+        "item3": "Koszyk i ścieżka zakupu, które da się dokończyć na telefonie, nie tylko na laptopie.",
+        "item4": "Podstawowe SEO: tytuły, opisy, indeksacja. Google ma móc znaleźć sklep, zanim „odpalimy kampanię”.",
+        "item5": "Hosting i domena zostają po Twojej stronie. Wyprowadzka nie wymaga zgody Shopify."
+      },
+      "whyCustom": {
+        "title": "Dlaczego nie Shoper, Shopify ani „sklep za 300 zł”?",
+        "p1": "Kreator jest szybki, dopóki nie chcesz zmienić reguł, stawek albo wyeksportować klientów. Potem płacisz abonament i odkrywasz, że sklep nigdy nie był Twój. To vendor lock-in w wersji dla koszyka.",
+        "p2": "U mnie dostajesz sklep, który naprawdę posiadasz. WooCommerce na Twojej infrastrukturze, płatności bez pośrednika-platformy i kod, który możesz zabrać. Nie wynajmujesz prawa do sprzedaży."
+      },
+      "faq": {
+        "title": "Najczęściej zadawane pytania o sklep internetowy",
+        "subtitle": "Konkretne odpowiedzi, zanim umówimy rozmowę.",
+        "q1": {
+          "question": "Ile kosztuje sklep internetowy?",
+          "answer": "Pakiet zaczyna się od 6000 zł netto. Prosty katalog z płatnościami to inna robota niż sklep z wariantami, magazynem i integracjami — po rozmowie dostajesz wycenę, nie widełki bez pokrycia."
+        },
+        "q2": {
+          "question": "WooCommerce czy Shopify?",
+          "answer": "Shopify jest wygodny, dopóki akceptujesz abonament i to, że sklep mieszka u nich. WooCommerce daje własność: motyw, wtyczki, baza, domena. Jeśli chcesz własny sklep, nie budujemy go na cudzej platformie."
+        },
+        "q3": {
+          "question": "Czy mogę sprzedawać produkty cyfrowe?",
+          "answer": "Tak. WooCommerce z wydaniem pliku po płatności. Kurs, e-book, licencja — bez wysyłki kurierem i bez oddawania 30% marketplace’owi."
+        },
+        "q4": {
+          "question": "Ile trwa uruchomienie sklepu?",
+          "answer": "Prosty sklep od zera to zwykle kilka tygodni od ustaleń do pierwszych zamówień. Termin zależy od katalogu, zdjęć, stawek VAT i decyzji — nie od tego, ile warsztatów „customer journey” zrobimy."
+        },
+        "q5": {
+          "question": "Czy sklep będzie widoczny w Google?",
+          "answer": "Przygotowuję warstwę techniczną: indeksację, meta, mapę, wersję mobilną. Same pozycje na konkurencyjne frazy buduje się treścią, czasem i linkami. Sklep, którego Google nie może przeczytać, nie sprzeda — nawet z reklamą."
+        },
+        "q6": {
+          "question": "Czy wystawiasz fakturę VAT?",
+          "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy jest nam po drodze."
+        }
+      },
+      "related": {
+        "title": "Więcej o własności, stronach i sprzedaży online"
+      }
+    },
     "telemedicine": {
       "title": "Platforma telemedyczna",
       "subtitle": "Dla klinik i marek medycznych, które chcą wystawiać recepty i prowadzić pacjenta online.",
@@ -183,7 +359,92 @@
       "heroSubtitle": "Projektuję i wdrażam serwisy, w których pacjent przechodzi jasną ścieżkę — od zgłoszenia, przez ocenę lekarską, po odbiór leków.",
       "feature1": "Kwestionariusz pacjenta i ścieżka do e-recepty lub konsultacji lekarskiej",
       "feature2": "Katalog produktów medycznych, płatności i współpraca z apteką partnerską",
-      "feature3": "Projekt budujący zaufanie: jasny proces, komunikacja i konwersja bez zbędnego tarcia"
+      "feature3": "Projekt budujący zaufanie: jasny proces, komunikacja i konwersja bez zbędnego tarcia",
+      "whoFor": {
+        "title": "Dla kogo jest platforma telemedyczna?",
+        "intro": "Buduję serwisy dla klinik, marek e-recept i produktów medycznych, które chcą przeprowadzić pacjenta od zgłoszenia do decyzji — nie tylko „mieć ładną stronę o zdrowiu”.",
+        "item1": {
+          "title": "Klinika i e-recepta",
+          "text": "Ścieżka: kwestionariusz, ocena lekarska, dokument, ewentualnie apteka. Pacjent ma wiedzieć, co się dzieje w każdym kroku — nie zgadywać po ikonkach."
+        },
+        "item2": {
+          "title": "Marka medyczna online",
+          "text": "Katalog, płatność, fulfillment. Gdy produkt bez jasnego procesu spala budżet na reklamy, problemem nie jest „brak leadów”. Problem jest tarciem na ścieżce."
+        },
+        "item3": {
+          "title": "Zespół, który już zna przepisy",
+          "text": "Ja projektuję i wdrażam produkt. Model medyczny, kontrakty z lekarzami i apteką zostają po Waszej stronie. Nie udaję kancelarii i nie sprzedaję „zgodności w pakiecie”."
+        }
+      },
+      "problem": {
+        "title": "Dlaczego strona-wizytówka nie wystarczy w telemedycynie?",
+        "p1": "Pacjent nie kupuje slajdera z uśmiechniętym lekarzem. Kupuje poczucie, że ktoś ogarnia proces: pytanie, decyzja, dokument, odbiór. Jeśli gubi się między „umów wizytę” a formularzem, wraca do konkurencji albo do apteki stacjonarnej.",
+        "p2": "Gotowy SaaS medyczny bywa szybki na starcie i drogi przy skali: prowizje, limity, brak kodu, regulamin, którego nie negocjujesz. Własna platforma to produkt, który prowadzisz — nie konto, które Ci wypowiadają."
+      },
+      "process": {
+        "title": "Jak wygląda realizacja platformy telemedycznej?",
+        "subtitle": "Najpierw ścieżka pacjenta, potem kod. Bez teatru „digital health transformation”.",
+        "step1": {
+          "title": "Rozmowa",
+          "description": "Kto jest pacjentem, co ma dostać (konsultacja, e-recepta, produkt), kto wystawia dokument, gdzie leci płatność i fulfillment. Rysujemy ścieżkę, zanim otworzę edytor."
+        },
+        "step2": {
+          "title": "Projekt procesu",
+          "description": "Kwestionariusz, stany, komunikaty, koszyk albo opłata za ocenę. Widzicie tarcia na papierze, nie po starcie kampanii."
+        },
+        "step3": {
+          "title": "Wdrożenie",
+          "description": "Serwis, panele, płatności, integracje, których naprawdę potrzebujecie. Statusy po drodze. Żadnej ciszy przez sześć tygodni."
+        },
+        "step4": {
+          "title": "Przekazanie",
+          "description": "Wasza platforma, Wasz hosting, dokumentacja. Opieka po starcie, bo pierwszy prawdziwy pacjent zawsze znajdzie przypadek, którego nie było na slajdzie."
+        }
+      },
+      "includesMore": {
+        "title": "Co jeszcze wchodzi w platformę telemedyczną?",
+        "item1": "Kwestionariusz i stany zgłoszenia — pacjent nie wysyła „maila do recepcji” i nie czeka w próżni.",
+        "item2": "Ścieżka do e-recepty albo konsultacji, spięta z Waszym modelem pracy lekarzy — nie z magią w wtyczce.",
+        "item3": "Katalog, płatności i, jeśli trzeba, przekaz do apteki partnerskiej albo dostawy.",
+        "item4": "Układ, który buduje zaufanie: jasny język, zero zbędnego tarcia, wersja mobilna, bo pacjent nie wypełnia tego przy biurku.",
+        "item5": "Kod i infrastruktura po Waszej stronie. Nie budujemy produktu, którego nie da się wyprowadzić."
+      },
+      "whyCustom": {
+        "title": "Dlaczego nie szablon „dla lekarza” ani gotowy SaaS?",
+        "p1": "Szablon kliniki wygląda jak klinika. Nie przeprowadza pacjenta. SaaS medyczny startuje szybko, potem okazuje się, że prowizja, limit zgłoszeń i brak dostępu do danych to nie „szczegół wdrożeniowy”.",
+        "p2": "Dedykowana platforma kosztuje więcej na starcie, bo budujesz własność. Psychologia ścieżki, integracje, które wybierasz, i kod, który zostaje u Ciebie. Telemedycyna bez kontroli procesu to reklama, która spala budżet."
+      },
+      "faq": {
+        "title": "Najczęściej zadawane pytania o platformę telemedyczną",
+        "subtitle": "Konkretne odpowiedzi, zanim umówimy rozmowę.",
+        "q1": {
+          "question": "Ile kosztuje platforma telemedyczna?",
+          "answer": "To wycena indywidualna. Kwestionariusz plus e-recepta to inna robota niż katalog, płatności i apteka. Po rozmowie dostajesz zakres i kwotę, nie „od-do” bez pokrycia w procesie."
+        },
+        "q2": {
+          "question": "Czy zajmujesz się zgodnością z przepisami medycznymi?",
+          "answer": "Nie jestem kancelarią i nie sprzedaję certyfikatu. Projektuję i wdrażam serwis w ramach modelu, który już macie albo budujecie z własnymi lekarzami, prawnikami i apteką. Jeśli nie ma komu wystawić dokumentu, kod tego nie zastąpi."
+        },
+        "q3": {
+          "question": "Jak długo trwa wdrożenie?",
+          "answer": "Zależy od ścieżki, integracji i tego, jak szybko padają decyzje po Waszej stronie. Pierwszy działający odcinek bywa kwestią tygodni; pełny katalog i fulfillment — dłużej. Terminu nie maluję na kick-offie."
+        },
+        "q4": {
+          "question": "Czy da się spiąć aptekę partnerską i płatności?",
+          "answer": "Tak — jeśli jest z kim i czym spinać. Katalog, checkout i przekaz zamówienia robię. Umowę z apteką i rozliczenia zostawiam Wam. Nie obiecuję magicznej „sieci aptek w pakiecie”."
+        },
+        "q5": {
+          "question": "Czym to się różni od gotowej platformy SaaS?",
+          "answer": "SaaS wynajmujesz. Przy skali płacisz prowizję, czekasz na ich roadmapę i nie wychodzisz z danymi bez bólu. Własna platforma jest droższa na starcie i tańsza, gdy przestajesz być „małym klientem” w cudzym produkcie."
+        },
+        "q6": {
+          "question": "Czy wystawiasz fakturę VAT?",
+          "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy jest nam po drodze."
+        }
+      },
+      "related": {
+        "title": "Więcej o zaufaniu, stronach i wartości produktu"
+      }
     },
     "dataCollection": {
       "title": "Pozyskiwanie danych (scraping)",
@@ -192,7 +453,92 @@
       "heroSubtitle": "Zbieram, czyszczę i dostarczam dane ze źródeł publicznych w formacie, który wgrywasz do swojej platformy, CRM-u albo kampanii.",
       "feature1": "Zbieranie rekordów ze źródeł publicznych: rejestry, katalogi, wykazy i strony",
       "feature2": "Czyszczenie, deduplikacja i ujednolicenie pól pod Twój system",
-      "feature3": "Eksport gotowy do importu — CSV, arkusz, API albo bezpośrednie wgranie"
+      "feature3": "Eksport gotowy do importu — CSV, arkusz, API albo bezpośrednie wgranie",
+      "whoFor": {
+        "title": "Dla kogo jest pozyskiwanie danych?",
+        "intro": "Zbieram publiczne dane dla firm, które potrzebują bazy do CRM, katalogu albo sprzedaży — nie kolejnego arkusza, którego nikt nie chce otworzyć.",
+        "item1": {
+          "title": "Sprzedaż i CRM",
+          "text": "Rekordy z rejestrów, katalogów, wykazów. Żeby handlowiec nie przepisywał NIP-u z PDF-a, tylko dostał plik, który wgrywa."
+        },
+        "item2": {
+          "title": "Platforma i katalog",
+          "text": "Gdy Wasz serwis potrzebuje kompletnych kart, cenników albo lokalizacji ze źródeł, które i tak są publiczne — tylko nikt nie chce tego zbierać ręcznie co tydzień."
+        },
+        "item3": {
+          "title": "Zespół, który nie kupuje „magicznych leadów”",
+          "text": "Nie sprzedaję bazy 100 tysięcy „gorących firm z Facebooka”. Pracuję na źródłach, które wskażesz albo które razem uznamy za publiczne i użyteczne."
+        }
+      },
+      "problem": {
+        "title": "Dlaczego stażysta w Excelu to nie strategia danych?",
+        "p1": "Ręczne kopiowanie z rejestru wygląda tanio, dopóki nie policzysz błędów, duplikatów i tego, że po miesiącu nikt nie pamięta, która kolumna jest NIP-em. Kupiona „baza firm” bywa nieaktualna, nielegalna w użyciu albo po prostu śmieciem.",
+        "p2": "Porządne pozyskanie danych robi trzy rzeczy: bierze ze źródła publicznego, czyści do Waszego schematu i oddaje plik albo wgranie, które da się użyć. Reszta — „AI scraping w weekend” — kończy się połową rekordów i zgłoszeniem od prawnika."
+      },
+      "process": {
+        "title": "Jak wygląda pozyskiwanie danych?",
+        "subtitle": "Źródło, zbiór, porządki, dostawa. Bez obiecywania całego internetu.",
+        "step1": {
+          "title": "Źródła i pola",
+          "description": "Co zbieramy, skąd, w jakim formacie ma wylądować u Was. Ustalamy, co jest publiczne i do czego baza ma służyć — zanim napiszę scraper."
+        },
+        "step2": {
+          "title": "Zbieranie",
+          "description": "Rekordy ze wskazanych rejestrów, katalogów, wykazów, stron. Szanuję limity i zasady źródeł. Nie łamię logowań i nie obiecuję „wszystkiego zza paywalla”."
+        },
+        "step3": {
+          "title": "Czyszczenie",
+          "description": "Duplikaty, puste pola, mapowanie na Wasze kolumny. Baza, której nie da się wgrać, jest gorsza niż jej brak."
+        },
+        "step4": {
+          "title": "Dostawa",
+          "description": "CSV, arkusz, API albo bezpośrednie wgranie. Dokumentacja pól. Jeśli ma być cyklicznie — mówimy o tym wprost, nie chowamy abonamentu w „utrzymaniu”."
+        }
+      },
+      "includesMore": {
+        "title": "Co jeszcze wchodzi w pozyskiwanie danych?",
+        "item1": "Zbieranie wyłącznie ze źródeł publicznych, które wspólnie wskażemy — rejestry, katalogi, wykazy, strony.",
+        "item2": "Deduplikacja i ujednolicenie, żeby NIP, nazwa i adres nie występowały w trzech wariantach.",
+        "item3": "Mapowanie pól pod CRM, platformę albo kampanię — nie „surowy dump i życzenia”.",
+        "item4": "Eksport, który da się wgrać: CSV, arkusz, API albo import, który ogarniamy razem.",
+        "item5": "Jasny zakres: co jest w bazie, czego nie ma, kiedy dane były zbierane. Żadnej magicznej kompletności."
+      },
+      "whyCustom": {
+        "title": "Dlaczego nie kupić gotowej bazy albo nie „puścić bota”?",
+        "p1": "Gotowa baza jest tania, dopóki nie sprawdzisz daty, zgód i tego, czy ktokolwiek ją czyścił. Bot z tutoriala pada na zmianie HTML-a i zostawia Cię z połową kodu, którego nikt nie chce ruszyć.",
+        "p2": "U mnie płacisz za zbiór pod Wasz schemat i za to, że da się go wgrać. Dane publiczne, zakres na piśmie, format, który CRM przełknie. Nie sprzedaję cudzych list z Facebooka."
+      },
+      "faq": {
+        "title": "Najczęściej zadawane pytania o pozyskiwanie danych",
+        "subtitle": "Konkretne odpowiedzi, zanim umówimy rozmowę.",
+        "q1": {
+          "question": "Ile kosztuje zebranie bazy z publicznych źródeł?",
+          "answer": "Wycena indywidualna. Zależy od liczby źródeł, pól, czyszczenia i tego, czy to jednorazowy zrzut, czy cykl. Po rozmowie dostajesz zakres i kwotę, nie „cenę za rekord” z nikąd."
+        },
+        "q2": {
+          "question": "Czy scraping jest legalny?",
+          "answer": "Pracuję na źródłach publicznych — rejestry, katalogi, strony bez łamania logowania. To nie zwalnia Cię z RODO przy dalszym użyciu (kontakt, profilowanie, sprzedaż). Jeśli baza ma iść do cold maila, odpowiedzialność za podstawę prawną jest po Twojej stronie. Nie zbieram danych zza paywalla ani z prywatnych kont."
+        },
+        "q3": {
+          "question": "W jakim formacie dostaję dane?",
+          "answer": "CSV, arkusz, API albo bezpośrednie wgranie do Waszego systemu — to ustalamy na starcie. Surowy HTML nikomu nie oddaję i nie nazywam tego „deliverable”."
+        },
+        "q4": {
+          "question": "Czy baza będzie aktualna za miesiąc?",
+          "answer": "Jednorazowy zbiór jest zdjęciem stanu. Źródła się zmieniają. Jeśli potrzebujecie odświeżania, mówimy o cyklu wprost — nie udaję, że jednorazowy CSV żyje wiecznie."
+        },
+        "q5": {
+          "question": "Czym to się różni od kupna gotowej listy leadów?",
+          "answer": "Gotowa lista ma cudzą datę, cudzą jakość i często cudzy problem prawny. Ja zbieram to, co wskażesz jako publiczne, pod Wasze pola. Mniej rekordów, więcej takich, które da się wgrać i obronić."
+        },
+        "q6": {
+          "question": "Czy wystawiasz fakturę VAT?",
+          "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy źródła i użycie mają sens."
+        }
+      },
+      "related": {
+        "title": "Więcej o danych, wartości i niezależności narzędzi"
+      }
     },
     "technicalSeo": {
       "title": "SEO techniczne",
@@ -201,7 +547,92 @@
       "heroSubtitle": "Audytuję, naprawiam i aktualizuję warstwę techniczną witryny, żeby wyszukiwarka mogła ją zaindeksować, zrozumieć i pozycjonować.",
       "feature1": "Audyt techniczny: indeksacja, crawlability, Core Web Vitals, dane strukturalne i błędy w Search Console",
       "feature2": "Naprawy i aktualizacje: meta tagi, sitemap, robots, przekierowania, canonicale, szybkość i wersja mobilna",
-      "feature3": "Opieka po: konfiguracja Search Console i jasny raport zmian"
+      "feature3": "Opieka po: konfiguracja Search Console i jasny raport zmian",
+      "whoFor": {
+        "title": "Dla kogo jest SEO techniczne?",
+        "intro": "Naprawiam warstwę techniczną stron, które „są w internecie”, ale Google ich nie widzi, nie rozumie albo karze za błędy, których nikt nie czyta w Search Console.",
+        "item1": {
+          "title": "Strona stoi, a w Google cisza",
+          "text": "Masz witrynę, może nawet treść, a frazy nie ruszają. Zanim ktoś sprzeda Ci „pozycjonowanie i linki”, warto sprawdzić, czy robot w ogóle wchodzi i indeksuje."
+        },
+        "item2": {
+          "title": "Po redesignie albo migracji",
+          "text": "Nowa strona, stare adresy, zniknięty ruch. Canonicale, 404, sitemap z poprzedniej epoki. To nie „algorytm”. To zwykle niedokończona przeprowadzka."
+        },
+        "item3": {
+          "title": "Poznań i cała Polska",
+          "text": "Pracuję zdalnie. Audyt i naprawy na Waszym stacku — WordPress, Nuxt, cokolwiek, byle był dostęp. Nie potrzebujecie agencji z 40-osobowym działem „SEO content”."
+        }
+      },
+      "problem": {
+        "title": "Dlaczego „pozycjonowanie” nic nie da, gdy Google nie wejdzie na stronę?",
+        "p1": "Agencja pisze teksty, a robots.txt blokuje katalog. Albo strona waży osiem megabajtów na telefonie, canonicale wskazują w kosmos, a Search Console od pół roku krzyczy o indeksacji. To nie jest problem „za słabych treści”. To blokada techniczna.",
+        "p2": "SEO techniczne nie obiecuje pozycji na „strona internetowa Poznań”. Daje wyszukiwarce szansę: crawl, indeks, zrozumiała treść, szybkość, dane strukturalne. Bez tego content i linki pracują w próżni."
+      },
+      "process": {
+        "title": "Jak wygląda SEO techniczne w praktyce?",
+        "subtitle": "Audyt, plan, naprawy, Search Console. Bez raportu na 80 stron, którego nikt nie czyta.",
+        "step1": {
+          "title": "Audyt",
+          "description": "Indeksacja, crawl, Core Web Vitals, mapa, robots, canonicale, przekierowania, dane strukturalne, błędy w Search Console. Lista faktów, nie „rekomendacji do rozważenia”."
+        },
+        "step2": {
+          "title": "Plan",
+          "description": "Co blokuje najmocniej, co ruszamy najpierw, czego nie ruszamy, bo to content albo off-site. Widzisz kolejność i zakres, zanim ktokolwiek ruszy kod."
+        },
+        "step3": {
+          "title": "Naprawy",
+          "description": "Meta, sitemap, robots, przekierowania, canonicale, szybkość, mobile, schema tam, gdzie ma sens. Statusy po drodze, nie cisza i nie slajd „on-page 40%”."
+        },
+        "step4": {
+          "title": "Po",
+          "description": "Search Console skonfigurowane, raport zmian, co monitorować. Żebym nie zniknął w dniu, w którym Google wreszcie zaczyna crawlować."
+        }
+      },
+      "includesMore": {
+        "title": "Co jeszcze wchodzi w SEO techniczne?",
+        "item1": "Sprawdzenie, czy Google w ogóle może wejść, zaindeksować i nie zgubić się w duplikatach.",
+        "item2": "Mapa strony, robots, canonicale, przekierowania — nuda, która decyduje, czy nowa strona żyje.",
+        "item3": "Core Web Vitals i wersja mobilna: nie „ładny design”, tylko czy telefon w ogóle dociąga treść.",
+        "item4": "Dane strukturalne tam, gdzie pomagają zrozumieć stronę — nie 15 typów schema „bo tak się robi”.",
+        "item5": "Raport: co było zepsute, co zmieniłem, czego technika nie naprawi (treść, linki, czas)."
+      },
+      "whyCustom": {
+        "title": "Dlaczego nie pakiet „SEO + 20 artykułów + linki”?",
+        "p1": "Treść na stronie, której robot nie indeksuje, to koszt. Linki do kanonicznego bałaganu to koszt z odsetkami. Najpierw odblokowujesz crawl. Potem ma sens pisać i linkować.",
+        "p2": "Nie sprzedaję pozycji. Sprzedaję warstwę, bez której Google Cię nie znajdzie albo znajdzie wersję, której nie chciałeś. Resztę — content, PR, czas — robisz świadomie, nie zamiast naprawy sitemapu."
+      },
+      "faq": {
+        "title": "Najczęściej zadawane pytania o SEO techniczne",
+        "subtitle": "Konkretne odpowiedzi, zanim umówimy rozmowę.",
+        "q1": {
+          "question": "Ile kosztuje SEO techniczne?",
+          "answer": "Wycena indywidualna. Audyt małej wizytówki to inna robota niż sklep z tysiącem kanonicznych wariantów. Po rozmowie i wglądzie w Search Console dostajesz zakres, nie abonament „za pozycje”."
+        },
+        "q2": {
+          "question": "Czy gwarantujesz pozycje w Google?",
+          "answer": "Nie. Nikt uczciwy nie gwarantuje fraz. Ja gwarantuję, że naprawiam to, co da się naprawić technicznie: indeksację, crawl, błędy, które widać w narzędziach. Pozycje buduje się też treścią, linkami i czasem."
+        },
+        "q3": {
+          "question": "Czym SEO techniczne różni się od content SEO?",
+          "answer": "Techniczne: czy robot wejdzie, zrozumie, nie zgubi duplikatów, czy strona w ogóle działa na telefonie. Content: czy jest o czym czytać i czy ktoś to podlinkuje. Bez pierwszego drugie często nie startuje."
+        },
+        "q4": {
+          "question": "Czy potrzebuję Google Search Console?",
+          "answer": "Tak, jeśli chcesz wiedzieć, co Google naprawdę widzi, a nie zgadywać po rank trackerze. W ramach opieki konfiguruję GSC i uczę, gdzie patrzeć — nie zostawiam Cię z loginem i screenshotem."
+        },
+        "q5": {
+          "question": "Ile trwa audyt i naprawy?",
+          "answer": "Sam audyt bywa kwestią dni. Naprawy zależą od stacku i tego, kto wdraża (ja albo Wasz zespół). Migracja z setkami przekierowań to nie „poprawimy meta w piątek”."
+        },
+        "q6": {
+          "question": "Czy wystawiasz fakturę VAT?",
+          "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy problem jest techniczny, czy ktoś sprzedał Wam pozycjonowanie na ślepo."
+        }
+      },
+      "related": {
+        "title": "Więcej o Google, stronach i widoczności"
+      }
     }
   },
   "pricing": {
@@ -231,7 +662,7 @@
         "title": "Sklep internetowy",
         "subtitle": "Sprzedawaj produkty cyfrowe i fizyczne bez prowizji.",
         "button": "Otwieram Własny Sklep",
-        "feature1": "Pełna własność sklepu (WooCommerce/EDD)",
+        "feature1": "Pełna własność sklepu (WooCommerce)",
         "feature2": "Bramki płatności bez ukrytych abonamentów"
       },
       "telemedicine": {
