@@ -612,5 +612,14 @@
   "blog.openclaw.howToSafely.content2": "To use such tools safely, you need to isolate them. This requires setting up a secured VPS server, creating a rigid, limited command whitelist, and running the bot in a sandboxed environment.",
   "blog.openclaw.howToSafely.content3": "But this requires knowledge, processes, and time. The internet is full of AI enthusiasts who shout about reach and automation but stay silent about security.",
   "blog.openclaw.meta.title": "OpenClaw: What Is It and Is It Worth It?",
-  "blog.openclaw.meta.description": "What is OpenClaw and what risks does it carry? Prompt injection, access to sensitive data, and vibecoding. Learn how to safely implement AI."
+  "blog.openclaw.meta.description": "What is OpenClaw and what risks does it carry? Prompt injection, access to sensitive data, and vibecoding. Learn how to safely implement AI.",
+  "blog.serviceLink.website.before": "If you need a website that builds trust and leads to a conversation, see the ",
+  "blog.serviceLink.website.label": "website offer",
+  "blog.serviceLink.website.after": ".",
+  "blog.serviceLink.seo.before": "If your site exists but Google cannot see it, see the ",
+  "blog.serviceLink.seo.label": "technical SEO offer",
+  "blog.serviceLink.seo.after": ".",
+  "blog.serviceLink.cloud.before": "If you want files and tools on your own server, see the ",
+  "blog.serviceLink.cloud.label": "private Nextcloud offer",
+  "blog.serviceLink.cloud.after": "."
 }

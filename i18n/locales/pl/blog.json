@@ -613,5 +613,14 @@
   "blog.openclaw.howToSafely.content2": "Aby korzystać z takich narzędzi bezpiecznie, musisz je odizolować. Wymaga to postawienia zabezpieczonego serwera VPS, stworzenia sztywnej, ograniczonej whitelisty komend i uruchomienia bota w odciętym środowisku.",
   "blog.openclaw.howToSafely.content3": "Tylko to wymaga wiedzy, procesów i czasu. W sieci pełno jest entuzjastów AI, którzy krzyczą o zasięgach i automatyzacji, ale milczą o bezpieczeństwie.",
   "blog.openclaw.meta.title": "OpenClaw: co to jest i czy warto?",
-  "blog.openclaw.meta.description": "Czym jest OpenClaw i jakie ryzyka niesie? Prompt injection, dostęp do danych wrażliwych i vibecoding. Dowiedz się, jak bezpiecznie wdrażać AI."
+  "blog.openclaw.meta.description": "Czym jest OpenClaw i jakie ryzyka niesie? Prompt injection, dostęp do danych wrażliwych i vibecoding. Dowiedz się, jak bezpiecznie wdrażać AI.",
+  "blog.serviceLink.website.before": "Jeśli potrzebujesz strony, która buduje zaufanie i prowadzi do kontaktu, zobacz ",
+  "blog.serviceLink.website.label": "ofertę strony internetowej",
+  "blog.serviceLink.website.after": ".",
+  "blog.serviceLink.seo.before": "Jeśli Twoja strona istnieje, ale Google jej nie widzi, zobacz ",
+  "blog.serviceLink.seo.label": "ofertę SEO technicznego",
+  "blog.serviceLink.seo.after": ".",
+  "blog.serviceLink.cloud.before": "Jeśli chcesz trzymać pliki i narzędzia na własnym serwerze, zobacz ",
+  "blog.serviceLink.cloud.label": "ofertę prywatnej chmury Nextcloud",
+  "blog.serviceLink.cloud.after": "."
 }

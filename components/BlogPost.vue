@@ -18,6 +18,16 @@
 
       <div class="glassmorphism mt-16 py-4 rounded-xl px-8">
         <slot name="content" />
+        <p class="mt-8 mb-4">
+          {{ t(serviceLinkCopy.before) }}
+          <NuxtLink
+            :to="localePath(serviceLink.path)"
+            class="underline hover:text-primary-400 transition-colors font-semibold"
+          >
+            {{ t(serviceLinkCopy.label) }}
+          </NuxtLink>
+          {{ t(serviceLinkCopy.after) }}
+        </p>
       </div>
       <CTASection />
     </main>
@@ -26,9 +36,18 @@
 </template>
 
 <script lang="ts" setup>
+import { getBlogServiceLink, SERVICE_LINK_I18N } from '~/const/blogServiceLinks'
+
 const props = defineProps<{
     title: string
     dates: string
     tags: string[]
 }>()
+
+const { t } = useI18n()
+const route = useRoute()
+const localePath = useLocalePath()
+
+const serviceLink = computed(() => getBlogServiceLink(route.path))
+const serviceLinkCopy = computed(() => SERVICE_LINK_I18N[serviceLink.value.variant])
 </script>

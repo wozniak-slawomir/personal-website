@@ -13,13 +13,47 @@ export const SCHEMA_SAME_AS = [
   'https://youtube.com/@SlawomirWozniakOfficial',
 ] as const
 
-export const OFFER_SERVICES = [
+export type FaqItem = {
+  question: string
+  answer: string
+}
+
+export const HOME_FAQ_ITEMS = [
+  { question: 'faq.q1.question', answer: 'faq.q1.answer' },
+  { question: 'faq.q2.question', answer: 'faq.q2.answer' },
+  { question: 'faq.q3.question', answer: 'faq.q3.answer' },
+] as const satisfies readonly FaqItem[]
+
+export const WEBSITE_FAQ_ITEMS = [
+  { question: 'offer.website.faq.q1.question', answer: 'offer.website.faq.q1.answer' },
+  { question: 'offer.website.faq.q2.question', answer: 'offer.website.faq.q2.answer' },
+  { question: 'offer.website.faq.q3.question', answer: 'offer.website.faq.q3.answer' },
+  { question: 'offer.website.faq.q4.question', answer: 'offer.website.faq.q4.answer' },
+  { question: 'offer.website.faq.q5.question', answer: 'offer.website.faq.q5.answer' },
+  { question: 'offer.website.faq.q6.question', answer: 'offer.website.faq.q6.answer' },
+] as const satisfies readonly FaqItem[]
+
+export type OfferService = {
+  path: string
+  titleKey: string
+  descriptionKey: string
+  image: string
+  pricePackage?: 'authority' | 'independence' | 'commerce'
+  faq?: readonly FaqItem[]
+}
+
+export const PAGE_FAQS: Record<string, readonly FaqItem[]> = {
+  '/': HOME_FAQ_ITEMS,
+}
+
+export const OFFER_SERVICES: readonly OfferService[] = [
   {
     path: '/oferta/strona-internetowa',
     titleKey: 'offer.website.title',
     descriptionKey: 'seo.website.description',
     image: '/services/website.jpg',
     pricePackage: 'authority' as const,
+    faq: WEBSITE_FAQ_ITEMS,
   },
   {
     path: '/oferta/prywatna-chmura-nextcloud',
@@ -53,4 +87,4 @@ export const OFFER_SERVICES = [
     descriptionKey: 'seo.technicalSeo.description',
     image: '/services/technical-seo.jpg',
   },
-] as const
+]

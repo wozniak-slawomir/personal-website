@@ -89,7 +89,92 @@
       "heroTitle": "Strona internetowa, która buduje zaufanie i sprzedaje",
       "heroSubtitle": "Projektuję i wdrażam strony, które jasno komunikują wartość Twojej marki oraz prowadzą użytkownika do działania.",
       "whatIncludes": "Co zawiera usługa?",
-      "exampleProjects": "Przykładowe realizacje"
+      "exampleProjects": "Przykładowe realizacje",
+      "whoFor": {
+        "title": "Dla kogo jest ta strona internetowa?",
+        "intro": "Tworzę strony internetowe dla ekspertów, specjalistów i firm, które chcą być widoczne w Google i budzić zaufanie od pierwszego kliknięcia — nie tylko „mieć stronę”.",
+        "item1": {
+          "title": "Marka osobista",
+          "text": "Coachowie, doradcy, lekarze, prawnicy, trenerzy — osoby, których nazwisko ma sprzedawać i które potrzebują profesjonalnej strony internetowej zamiast wizytówki."
+        },
+        "item2": {
+          "title": "Firma usługowa",
+          "text": "Gdy sama wizytówka nie wystarcza i potrzebujesz strony, która tłumaczy ofertę, odpowiada na wątpliwości i zbiera zapytania."
+        },
+        "item3": {
+          "title": "Poznań i cała Polska",
+          "text": "Pracuję zdalnie z klientami w całej Polsce. Jeśli szukasz programisty stron internetowych w Poznaniu — też tu jestem."
+        }
+      },
+      "problem": {
+        "title": "Dlaczego zwykła wizytówka nie wystarcza?",
+        "p1": "Większość stron internetowych wygląda ładnie i nic nie sprzedaje. Klient wchodzi, w pięć sekund nie rozumie oferty i wraca do Google. To nie jest problem „braku ruchu”. To problem braku decyzji.",
+        "p2": "Dobra strona internetowa robi trzy rzeczy: jasno mówi, kim jesteś, odpowiada na wątpliwości i prowadzi do rozmowy. Reszta — animacje, slajdery, stockowe uśmiechy — to ozdoba."
+      },
+      "process": {
+        "title": "Jak wygląda realizacja strony internetowej?",
+        "subtitle": "Bez agencyjnego teatru. Rozmowa, plan, wdrożenie, przekazanie.",
+        "step1": {
+          "title": "Rozmowa",
+          "description": "15–30 minut. Ustalamy cel strony, grupę odbiorców i to, co ma się wydarzyć po kliknięciu — kontakt, zapis, umówienie rozmowy."
+        },
+        "step2": {
+          "title": "Projekt i treść",
+          "description": "Układ, copy i struktura pod wyszukiwarkę. Widzisz kierunek, zanim napiszę linię kodu. Nie dostajesz „niespodzianki” na końcu."
+        },
+        "step3": {
+          "title": "Wdrożenie",
+          "description": "Kod, wersja mobilna, formularz, podstawowe SEO. Dostajesz regularne statusy, nie ciszę i nie slajdy z procentami postępu."
+        },
+        "step4": {
+          "title": "Przekazanie",
+          "description": "Twoja strona, Twoja domena, instrukcja obsługi. 30 dni opieki technicznej po starcie — żebym ja, nie Ty, zdejmował ryzyko awarii."
+        }
+      },
+      "includesMore": {
+        "title": "Co jeszcze wchodzi w stronę internetową?",
+        "item1": "Responsywny układ — strona działa na telefonie, nie tylko na laptopie.",
+        "item2": "Formularz kontaktowy i jasna ścieżka do rozmowy, nie tylko „ładny header”.",
+        "item3": "Meta tytuły, opisy i mapa strony, żeby Google w ogóle mogło Cię znaleźć.",
+        "item4": "Instrukcja, żebyś sam dodawał treści — blog, realizacje, aktualności.",
+        "item5": "Domena i hosting zostają po Twojej stronie. Nie jesteś uwięziony w kreatorze."
+      },
+      "whyCustom": {
+        "title": "Dlaczego nie Wix, kreator ani „strona za 300 zł”?",
+        "p1": "Kreator jest szybki, dopóki nie chcesz zmienić reguł. Potem płacisz abonament, nie masz kodu i nie wyprowadzisz się bez bólu. To vendor lock-in w wersji dla wizytówki.",
+        "p2": "U mnie dostajesz stronę internetową, którą naprawdę posiadasz. Psychologia perswazji w układzie, techniczne SEO w tle i kod, który możesz zabrać ze sobą. Nie wynajmujesz swojej obecności w sieci."
+      },
+      "faq": {
+        "title": "Najczęściej zadawane pytania o stronę internetową",
+        "subtitle": "Konkretne odpowiedzi, zanim umówimy rozmowę.",
+        "q1": {
+          "question": "Ile kosztuje profesjonalna strona internetowa?",
+          "answer": "Pakiet strony internetowej zaczyna się od 3500 zł netto. Wizytówka eksperta to inna robota niż serwis z blogiem i wieloma podstronami — po rozmowie dostajesz wycenę, nie widełki bez pokrycia."
+        },
+        "q2": {
+          "question": "Dla kogo jest strona internetowa marki osobistej?",
+          "answer": "Dla osób, które sprzedają kompetencję: ekspertów, specjalistów, firm usługowych. Jeśli klient ma Cię najpierw sprawdzić w Google, strona internetowa jest Twoim ZMOT — momentem, w którym albo budzisz zaufanie, albo odpadasz."
+        },
+        "q3": {
+          "question": "Czy poradzę sobie z obsługą strony po wdrożeniu?",
+          "answer": "Tak. Dostajesz instrukcję i system, który da się ogarnąć bez bycia programistą. Dodanie wpisu, zmiana treści czy aktualizacja oferty nie wymaga ticketu do agencji."
+        },
+        "q4": {
+          "question": "Ile trwa stworzenie strony internetowej?",
+          "answer": "Prosta strona ekspercka to zwykle kilka tygodni od ustaleń do startu. Termin zależy od tego, jak szybko mamy treści, zdjęcia i decyzje — nie od tego, ile slajdów pokażę na kick-offie."
+        },
+        "q5": {
+          "question": "Czy strona będzie widoczna w Google?",
+          "answer": "Przygotowuję warstwę techniczną: indeksację, meta tagi, mapę strony, wersję mobilną. Google musi móc stronę znaleźć i zrozumieć. Same pozycje na frazy w stylu „strona internetowa” buduje się treścią, linkami i czasem — dlatego po starcie warto dodać SEO techniczne albo regularne treści."
+        },
+        "q6": {
+          "question": "Czy wystawiasz fakturę VAT?",
+          "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy jest nam po drodze."
+        }
+      },
+      "related": {
+        "title": "Więcej o stronach internetowych"
+      }
     },
     "telemedicine": {
       "title": "Platforma telemedyczna",

@@ -70,7 +70,92 @@
       "heroTitle": "A website that builds trust and sells",
       "heroSubtitle": "I design and implement websites that clearly communicate your brand's value and guide users to action.",
       "whatIncludes": "What's included?",
-      "exampleProjects": "Example Projects"
+      "exampleProjects": "Example Projects",
+      "whoFor": {
+        "title": "Who is this website for?",
+        "intro": "I build websites for experts, specialists, and companies that want to show up in Google and earn trust from the first click — not just \"have a site\".",
+        "item1": {
+          "title": "Personal brand",
+          "text": "Coaches, advisors, doctors, lawyers, trainers — people whose name should sell, and who need a professional website instead of a digital business card."
+        },
+        "item2": {
+          "title": "Service business",
+          "text": "When a calling-card page is not enough and you need a website that explains the offer, answers doubts, and collects enquiries."
+        },
+        "item3": {
+          "title": "Poznań and all of Poland",
+          "text": "I work remotely with clients across Poland. If you are looking for a website developer in Poznań — I am based here too."
+        }
+      },
+      "problem": {
+        "title": "Why a simple calling-card site is not enough",
+        "p1": "Most websites look fine and sell nothing. A visitor arrives, does not understand the offer in five seconds, and goes back to Google. That is not a traffic problem. It is a decision problem.",
+        "p2": "A good website does three things: it says who you are, answers doubts, and leads to a conversation. The rest — animations, sliders, stock smiles — is decoration."
+      },
+      "process": {
+        "title": "How a website project actually works",
+        "subtitle": "No agency theatre. A conversation, a plan, implementation, handover.",
+        "step1": {
+          "title": "Conversation",
+          "description": "15–30 minutes. We define the goal of the site, the audience, and what should happen after the click — contact, signup, or a booked call."
+        },
+        "step2": {
+          "title": "Design and copy",
+          "description": "Layout, wording, and search-friendly structure. You see the direction before I write a line of code. No surprise at the end."
+        },
+        "step3": {
+          "title": "Implementation",
+          "description": "Code, mobile version, form, basic SEO. You get regular status updates — not silence and not progress-bar slides."
+        },
+        "step4": {
+          "title": "Handover",
+          "description": "Your website, your domain, a how-to guide. 30 days of technical care after launch, so I carry the failure risk, not you."
+        }
+      },
+      "includesMore": {
+        "title": "What else is included in the website?",
+        "item1": "A responsive layout — the site works on a phone, not only on a laptop.",
+        "item2": "A contact form and a clear path to a conversation, not just a pretty header.",
+        "item3": "Meta titles, descriptions, and a sitemap so Google can actually find you.",
+        "item4": "A guide so you can add content yourself — blog posts, case studies, news.",
+        "item5": "Domain and hosting stay on your side. You are not locked into a website builder."
+      },
+      "whyCustom": {
+        "title": "Why not Wix, a builder, or a \"website for 300 zł\"?",
+        "p1": "A builder is fast until you want to change the rules. Then you pay a subscription, you do not own the code, and leaving hurts. That is vendor lock-in for a calling card.",
+        "p2": "With me you get a website you actually own. Persuasion psychology in the layout, technical SEO in the background, and code you can take with you. You are not renting your presence online."
+      },
+      "faq": {
+        "title": "Frequently asked questions about websites",
+        "subtitle": "Straight answers before we book a call.",
+        "q1": {
+          "question": "How much does a professional website cost?",
+          "answer": "The website package starts at 3500 PLN net. An expert calling-card site is a different job than a multi-page site with a blog — after a conversation you get a quote, not empty from-to ranges."
+        },
+        "q2": {
+          "question": "Who is a personal-brand website for?",
+          "answer": "For people who sell competence: experts, specialists, service firms. If a client will Google you first, the website is your ZMOT — the moment you either earn trust or drop out."
+        },
+        "q3": {
+          "question": "Will I be able to manage the website after launch?",
+          "answer": "Yes. You get a guide and a setup you can handle without being a developer. Adding a post, changing copy, or updating the offer does not require a ticket to an agency."
+        },
+        "q4": {
+          "question": "How long does it take to build a website?",
+          "answer": "A straightforward expert site is usually a few weeks from kickoff to launch. The timeline depends on how fast we have copy, photos, and decisions — not on how many slides I show at a kickoff."
+        },
+        "q5": {
+          "question": "Will the website show up in Google?",
+          "answer": "I prepare the technical layer: indexing, meta tags, sitemap, mobile version. Google has to be able to find and understand the site. Rankings for competitive terms are built with content, links, and time — which is why technical SEO or regular publishing after launch still matters."
+        },
+        "q6": {
+          "question": "Do you issue a VAT invoice?",
+          "answer": "Yes. I operate legally in Poland, I issue an invoice, and you can deduct VAT. A conversation is not a contract — first we check whether we are a good fit."
+        }
+      },
+      "related": {
+        "title": "More about websites"
+      }
     },
     "telemedicine": {
       "title": "Telemedicine platform",

@@ -1,6 +1,6 @@
 import { DEFAULT_LOCALE } from '~/const/defaultLocale'
 import { contentItems } from '~/const/contentItems'
-import { OFFER_SERVICES, SCHEMA_IMAGE } from '~/const/schemaOrg'
+import { OFFER_SERVICES, PAGE_FAQS, SCHEMA_IMAGE } from '~/const/schemaOrg'
 import { PRICING_PACKAGES } from '~/const/pricing'
 
 function unprefixedPath(path: string, localeCodes: string[]) {
@@ -16,6 +16,13 @@ function unprefixedPath(path: string, localeCodes: string[]) {
   return normalized
 }
 
+type SchemaWebPageType = 'AboutPage' | 'CollectionPage' | 'ProfilePage' | 'ItemPage' | 'FAQPage'
+
+function webPageType(types: SchemaWebPageType[]) {
+  if (types.length === 0) return undefined
+  return types.length === 1 ? types[0] : types
+}
+
 export function usePageSchema() {
   const route = useRoute()
   const localePath = useLocalePath()
@@ -23,16 +30,12 @@ export function usePageSchema() {
   const localeCodes = (locales.value as Array<{ code: string }>).map(item => item.code)
   const path = unprefixedPath(route.path, localeCodes)
 
+  const siteUrl = String(useSiteConfig().url || 'https://slawomir-wozniak.pl').replace(/\/$/, '')
+  const identityId = `${siteUrl}/#identity`
   const personName = t('seo.ogSiteName')
   const personDescription = t('seo.homepage.description')
   const jobTitle = t('schema.jobTitle')
   const homeLabel = t('schema.home')
-  const faqQ1 = t('faq.q1.question')
-  const faqA1 = t('faq.q1.answer')
-  const faqQ2 = t('faq.q2.question')
-  const faqA2 = t('faq.q2.answer')
-  const faqQ3 = t('faq.q3.question')
-  const faqA3 = t('faq.q3.answer')
   const offerCopy = OFFER_SERVICES.map(service => ({
     ...service,
     name: t(service.titleKey),
@@ -73,6 +76,9 @@ export function usePageSchema() {
     '/narzedzia': 'CollectionPage',
   }
 
+  const offer = offerCopy.find(service => service.path === path)
+  const faqItems = offer?.faq ?? PAGE_FAQS[path]
+
   const nodes: any[] = [
     definePerson({
       name: personName,
@@ -81,8 +87,14 @@ export function usePageSchema() {
     }),
   ]
 
-  if (pageTypes[path]) {
-    nodes.push(defineWebPage({ '@type': pageTypes[path] }))
+  const types: SchemaWebPageType[] = []
+  if (pageTypes[path]) types.push(pageTypes[path])
+  if (offer) types.push('ItemPage')
+  if (faqItems?.length) types.push('FAQPage')
+
+  const schemaPageType = webPageType(types)
+  if (schemaPageType) {
+    nodes.push(defineWebPage({ '@type': schemaPageType }))
   }
 
   if (path !== '/') {
@@ -106,14 +118,12 @@ export function usePageSchema() {
     nodes.push(defineBreadcrumb({ itemListElement: crumbs }))
   }
 
-  if (path === '/') {
-    nodes.push(
-      defineWebPage({ '@type': 'FAQPage' }),
-      defineQuestion({ name: faqQ1, acceptedAnswer: faqA1 }),
-      defineQuestion({ name: faqQ2, acceptedAnswer: faqA2 }),
-      defineQuestion({ name: faqQ3, acceptedAnswer: faqA3 }),
-    )
-  }
+  faqItems?.forEach((item) => {
+    nodes.push(defineQuestion({
+      name: t(item.question),
+      acceptedAnswer: t(item.answer),
+    }))
+  })
 
   if (path.startsWith('/blog/') && path !== '/blog') {
     const post = contentItems.find(item => item.link === path)
@@ -139,38 +149,34 @@ export function usePageSchema() {
     }))
   }
 
-  const offer = offerCopy.find(service => service.path === path)
   if (offer) {
     const price = 'pricePackage' in offer && offer.pricePackage
       ? PRICING_PACKAGES[offer.pricePackage]
       : undefined
 
-    nodes.push(
-      defineWebPage({ '@type': 'ItemPage' }),
-      {
-        '@type': 'Service',
-        name: offer.name,
-        description: offer.details,
-        image: offer.image,
-        provider: { '@id': '#identity' },
-        areaServed: 'PL',
-        ...(price
-          ? {
-              offers: defineOffer({
+    nodes.push({
+      '@type': 'Service',
+      name: offer.name,
+      description: offer.details,
+      image: offer.image,
+      provider: { '@id': identityId },
+      areaServed: 'PL',
+      ...(price
+        ? {
+            offers: defineOffer({
+              price: price.price,
+              priceCurrency: price.currency,
+              availability: 'https://schema.org/InStock',
+              priceSpecification: {
+                '@type': 'UnitPriceSpecification',
                 price: price.price,
                 priceCurrency: price.currency,
-                availability: 'https://schema.org/InStock',
-                priceSpecification: {
-                  '@type': 'UnitPriceSpecification',
-                  price: price.price,
-                  priceCurrency: price.currency,
-                  valueAddedTaxIncluded: false,
-                },
-              }),
-            }
-          : {}),
-      },
-    )
+                valueAddedTaxIncluded: false,
+              },
+            }),
+          }
+        : {}),
+    })
   }
 
   if (path === '/oferta') {
@@ -179,7 +185,7 @@ export function usePageSchema() {
         '@type': 'ListItem',
         position: index + 1,
         name: service.name,
-        url: localePath(service.path),
+        url: `${siteUrl}${localePath(service.path)}`,
       })),
     }))
   }
