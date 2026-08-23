@@ -6,6 +6,17 @@
   >
     <template #content>
       <p class="mt-4">
+        {{ t('blog.googleSearchConsole.whatIs') }}
+      </p>
+
+      <h2 class="text-2xl font-bold mt-8">
+        {{ t('blog.googleSearchConsole.purposeTitle') }}
+      </h2>
+      <p class="mt-4">
+        {{ t('blog.googleSearchConsole.purpose') }}
+      </p>
+
+      <p class="mt-4">
         {{ t('blog.googleSearchConsole.intro1') }}
       </p>
       <p class="mt-4">
@@ -111,7 +122,7 @@
 
       <p class="mt-8 mb-8 font-semibold">
         <NuxtLink
-          to="/contact"
+          :to="localePath('/contact')"
           class="underline hover:text-primary-400 transition-colors"
         >
           {{ t('blog.googleSearchConsole.offerLink') }}
@@ -128,6 +139,7 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 
 const tags = ref<string[]>([])
 
@@ -145,7 +157,7 @@ watch(locale, () => {
     ogDescription: t('blog.googleSearchConsole.meta.description'),
     ogSiteName: t('seo.ogSiteName'),
     ogImage: 'blog/google-search-console/og-image.jpg',
-    ogUrl: 'https://slawomir-wozniak.pl/blog/google-search-console',
+    ogUrl: `https://slawomir-wozniak.pl${localePath('/blog/google-search-console')}`,
     twitterCard: 'summary_large_image',
   })
 }, { immediate: true })

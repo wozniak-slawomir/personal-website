@@ -13,6 +13,23 @@
       </p>
 
       <h2 class="text-2xl font-bold mt-8">
+        {{ t('blog.persuasionPsychology.definition.title') }}
+      </h2>
+      <p class="mt-4">
+        {{ t('blog.persuasionPsychology.definition.content') }}
+      </p>
+
+      <h2 class="text-2xl font-bold mt-8">
+        {{ t('blog.persuasionPsychology.businessPsych.title') }}
+      </h2>
+      <p class="mt-4">
+        {{ t('blog.persuasionPsychology.businessPsych.content') }}
+      </p>
+      <p class="mt-4">
+        {{ t('blog.persuasionPsychology.businessPsych.content2') }}
+      </p>
+
+      <h2 class="text-2xl font-bold mt-8">
         {{ t('blog.persuasionPsychology.howBetter.title') }}
       </h2>
       <p class="mt-4">
@@ -167,6 +184,7 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 
 const tags = ref<string[]>([])
 
@@ -184,7 +202,7 @@ watch(locale, () => {
     ogDescription: t('blog.persuasionPsychology.meta.description'),
     ogSiteName: t('seo.ogSiteName'),
     ogImage: 'blog/psychologia-perswazji/heatmap.png',
-    ogUrl: 'https://slawomir-wozniak.pl/blog/psychologia-perswazji',
+    ogUrl: `https://slawomir-wozniak.pl${localePath('/blog/psychologia-perswazji')}`,
     twitterCard: 'summary_large_image',
   })
 }, { immediate: true })

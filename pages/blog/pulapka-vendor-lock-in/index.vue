@@ -5,7 +5,22 @@
     :tags="tags"
   >
     <template #content>
-      <p>{{ t('blog.vendorLockIn.intro') }}</p>
+      <p class="mt-4">
+        {{ t('blog.vendorLockIn.lead') }}
+      </p>
+
+      <p class="mt-4">
+        {{ t('blog.vendorLockIn.offerBefore') }}
+        <NuxtLink
+          :to="localePath('/oferta/prywatna-chmura-nextcloud')"
+          class="underline hover:text-primary-400 transition-colors font-semibold"
+        >
+          {{ t('blog.vendorLockIn.offerLabel') }}
+        </NuxtLink>
+        {{ t('blog.vendorLockIn.offerAfter') }}
+      </p>
+
+      <p class="mt-4">{{ t('blog.vendorLockIn.intro') }}</p>
       
       <p class="mt-4">
         {{ t('blog.vendorLockIn.absurd') }}
@@ -150,6 +165,7 @@
 
 <script setup lang="ts">
 const { t, locale } = useI18n()
+const localePath = useLocalePath()
 
 const tags = ref<string[]>([])
 
@@ -167,7 +183,7 @@ watch(locale, () => {
     ogDescription: t('blog.vendorLockIn.meta.description'),
     ogSiteName: t('seo.ogSiteName'),
     ogImage: 'blog/pulapka-vendor-lock-in/og-image.jpg',
-    ogUrl: 'https://slawomir-wozniak.pl/blog/pulapka-vendor-lock-in',
+    ogUrl: `https://slawomir-wozniak.pl${localePath('/blog/pulapka-vendor-lock-in')}`,
     twitterCard: 'summary_large_image',
   })
 }, { immediate: true })

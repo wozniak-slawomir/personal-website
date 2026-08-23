@@ -152,7 +152,7 @@ export const contentItems: ContentItem[] = [
     description: (t) => t('blog.vendorLockIn.meta.description'),
     tags: ['blog'],
     link: '/blog/pulapka-vendor-lock-in',
-    lastmod: '2025-12-28T18:34:00+01:00'
+    lastmod: '2026-08-23T21:10:00+02:00'
   },
   {
     name: (t) => t('blog.needWebsite.title'),
@@ -168,7 +168,7 @@ export const contentItems: ContentItem[] = [
     description: (t) => t('blog.googleSearchConsole.meta.description'),
     tags: ['blog'],
     link: '/blog/google-search-console',
-    lastmod: '2026-01-11T12:00:00+01:00'
+    lastmod: '2026-08-23T21:10:00+02:00'
   },
   {
     name: (t) => t('blog.unstableUSA.title'),
@@ -199,7 +199,7 @@ export const contentItems: ContentItem[] = [
     description: (t) => t('blog.persuasionPsychology.meta.description'),
     tags: ['blog'],
     link: '/blog/psychologia-perswazji',
-    lastmod: '2026-02-01T17:10:00+01:00'
+    lastmod: '2026-08-23T21:10:00+02:00'
   },
   {
     name: (t) => t('blog.openclaw.title'),
