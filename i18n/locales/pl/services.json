@@ -70,7 +70,7 @@
   "projects.doradztwopodatkowe": "Strona kancelarii Sobieraj & Kuźmin – doradztwo podatkowe i księgowość w Poznaniu dla firm, które chcą odzyskać czas na rozwój biznesu.",
   "offer": {
     "title": "Oferta",
-    "subtitle": "Wybierz usługę i sprawdź szczegóły realizacji.",
+    "subtitle": "Strony, sklepy, chmura i SEO techniczne dla firm w Poznaniu i Warszawie.",
     "priceFrom": "Cena od",
     "priceOnRequest": "Wycena indywidualna",
     "viewDetails": "Zobacz szczegóły",
@@ -96,8 +96,8 @@
           "text": "Umowy, dokumentacja klientów, zdjęcia, kopie. Jeśli RODO nie jest u Ciebie pustym hasłem, serwer ma być Twój, nie „gdzieś w chmurze”."
         },
         "item3": {
-          "title": "Poznań i cała Polska",
-          "text": "Pracuję zdalnie. Instalacja na VPS, dedyku albo maszynie w biurze. Nie musisz mieć działu IT, żeby przestać wynajmować Dysku Google."
+          "title": "Poznań i Warszawa",
+          "text": "Instalacja na VPS, dedyku albo maszynie w biurze — w Poznaniu, w Warszawie albo tam, gdzie stoi serwer. Nie potrzebujesz działu IT, żeby przestać wynajmować Dysk Google."
         }
       },
       "problem": {
@@ -189,8 +189,8 @@
           "text": "Gdy sama wizytówka nie wystarcza i potrzebujesz strony, która tłumaczy ofertę, odpowiada na wątpliwości i zbiera zapytania."
         },
         "item3": {
-          "title": "Poznań i cała Polska",
-          "text": "Pracuję zdalnie z klientami w całej Polsce. Jeśli szukasz programisty stron internetowych w Poznaniu — też tu jestem."
+          "title": "Poznań i Warszawa",
+          "text": "Siedziba w Poznaniu — tu jestem na co dzień. Z klientami z Warszawy pracuję zdalnie i spotykam się, gdy jestem w mieście. Nie musisz szukać osobnej agencji „na miejscu”."
         }
       },
       "problem": {
@@ -257,6 +257,10 @@
         "q6": {
           "question": "Czy wystawiasz fakturę VAT?",
           "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy jest nam po drodze."
+        },
+        "q7": {
+          "question": "Czy pracujesz z klientami z Warszawy?",
+          "answer": "Tak. Pracuję z Poznania, a z klientami z Warszawy zdalnie i na spotkaniach, gdy jestem w mieście. Nie musisz przyjeżdżać — rozmowa na start jest online."
         }
       },
       "related": {
@@ -278,8 +282,8 @@
           "text": "Nie masz jeszcze sklepu? Zbuduję go od zera. Masz stronę albo sprzedaż na marketplace i chcesz własny checkout? Też. Nie zaczynamy od „strategii omnichannel na 40 slajdach” — od koszyka, który działa."
         },
         "item3": {
-          "title": "Poznań i cała Polska",
-          "text": "Pracuję zdalnie z klientami w całej Polsce. Sklep ma stać na Twoim hostingu i domenie, nie na koncie, którego nie da się wyeksportować."
+          "title": "Poznań i Warszawa",
+          "text": "Sklep stawiam zdalnie na Twoim hostingu — z Poznania i dla firm z Warszawy tak samo. Spotkanie na miejscu, gdy jestem w Warszawie; reszta dzieje się w kodzie, nie w biurze agencji."
         }
       },
       "problem": {
@@ -560,8 +564,8 @@
           "text": "Nowa strona, stare adresy, zniknięty ruch. Canonicale, 404, sitemap z poprzedniej epoki. To nie „algorytm”. To zwykle niedokończona przeprowadzka."
         },
         "item3": {
-          "title": "Poznań i cała Polska",
-          "text": "Pracuję zdalnie. Audyt i naprawy na Waszym stacku — WordPress, Nuxt, cokolwiek, byle był dostęp. Nie potrzebujecie agencji z 40-osobowym działem „SEO content”."
+          "title": "Poznań i Warszawa",
+          "text": "Audyt i naprawy na Waszym stacku, zdalnie. Strony z Poznania i Warszawy przechodzą ten sam proces — WordPress, Nuxt, byle był dostęp. Nie potrzebujecie agencji z 40-osobowym działem „SEO content”."
         }
       },
       "problem": {
@@ -628,6 +632,10 @@
         "q6": {
           "question": "Czy wystawiasz fakturę VAT?",
           "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy problem jest techniczny, czy ktoś sprzedał Wam pozycjonowanie na ślepo."
+        },
+        "q7": {
+          "question": "Czy robisz SEO techniczne dla stron z Warszawy?",
+          "answer": "Tak. Audyt i naprawy robię zdalnie, na Waszym stacku. Siedziba jest w Poznaniu; strony z Warszawy przechodzą ten sam proces. Spotkanie na miejscu, gdy jestem w mieście — nie jest wymagane, żeby zacząć."
         }
       },
       "related": {

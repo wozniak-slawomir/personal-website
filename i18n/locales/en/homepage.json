@@ -1,6 +1,6 @@
 {
   "hero.title": "I'm Sławomir, a programmer.",
-  "hero.subtitle": "I build websites and web apps for small businesses.",
+  "hero.subtitle": "I build websites and web apps for small businesses in Poznań and Warsaw.",
   "hero.software.feature1": "Landing pages",
   "hero.software.feature2": "Web application development and planning",
   "hero.software.feature3": "Technology implementation support",
@@ -46,6 +46,8 @@
   "faq.q2.answer": "Because on Wix you're not the owner of your site. With me, you have sovereignty – your code, your data, your server. You don't pay monthly subscriptions that grow with every new feature.",
   "faq.q3.question": "Do you issue invoices?",
   "faq.q3.answer": "Of course, I operate legally and pay taxes in Poland. You receive full accounting documentation and can deduct VAT.",
+  "faq.q4.question": "Do you work with clients in Warsaw?",
+  "faq.q4.answer": "Yes. I am based in Poznań. With Warsaw clients I work remotely and meet in person when I am in the city. The first conversation is online — you do not need to travel.",
   "audyt.title": "Check the result",
   "audyt.description": "Free software cost audit.",
   "audyt.benefit1.title": "Fast Result",

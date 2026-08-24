@@ -46,7 +46,7 @@
       </NuxtLink>
     </div>
     <div class="flex justify-between items-center text-center flex-col gap-1 sm:flex-row sm:gap-0">
-      <span>Poznań, {{ $t('footer.poland') }}</span>
+      <span>{{ $t('footer.location') }} · {{ $t('footer.poland') }}</span>
       <div class="mt-2 md:mt-0">
         <span class="text-lg font-semibold">
           {{ $t('footer.partners') }}</span>

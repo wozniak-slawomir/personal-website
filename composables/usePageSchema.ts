@@ -1,6 +1,14 @@
 import { DEFAULT_LOCALE } from '~/const/defaultLocale'
 import { contentItems } from '~/const/contentItems'
-import { OFFER_SERVICES, PAGE_FAQS, SCHEMA_IMAGE } from '~/const/schemaOrg'
+import {
+  OFFER_SERVICES,
+  PAGE_FAQS,
+  SCHEMA_ADDRESS,
+  SCHEMA_AREA_SERVED,
+  SCHEMA_EMAIL,
+  SCHEMA_IMAGE,
+  SCHEMA_TELEPHONE,
+} from '~/const/schemaOrg'
 import { PRICING_PACKAGES } from '~/const/pricing'
 
 function unprefixedPath(path: string, localeCodes: string[]) {
@@ -84,6 +92,10 @@ export function usePageSchema() {
       name: personName,
       description: personDescription,
       jobTitle,
+      email: SCHEMA_EMAIL,
+      telephone: SCHEMA_TELEPHONE,
+      address: SCHEMA_ADDRESS,
+      areaServed: [...SCHEMA_AREA_SERVED],
     }),
   ]
 
@@ -160,7 +172,7 @@ export function usePageSchema() {
       description: offer.details,
       image: offer.image,
       provider: { '@id': identityId },
-      areaServed: 'PL',
+      areaServed: [...SCHEMA_AREA_SERVED],
       ...(price
         ? {
             offers: defineOffer({

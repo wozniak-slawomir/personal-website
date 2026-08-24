@@ -51,7 +51,7 @@
   "projects.doradztwopodatkowe": "Website for Sobieraj & Kuźmin – tax advisory and accounting in Poznań for companies that want to reclaim time to grow their business.",
   "offer": {
     "title": "Offer",
-    "subtitle": "Choose a service and check the details.",
+    "subtitle": "Websites, stores, cloud, and technical SEO for companies in Poznań and Warsaw.",
     "priceFrom": "Starting price",
     "priceOnRequest": "Individual quote",
     "viewDetails": "View details",
@@ -77,8 +77,8 @@
           "text": "Contracts, client files, photos, backups. If GDPR is not an empty slogan, the server should be yours, not \"somewhere in the cloud\"."
         },
         "item3": {
-          "title": "Poznań and all of Poland",
-          "text": "I work remotely. Install on a VPS, a dedicated box, or a machine in the office. You do not need an IT department to stop renting Google Drive."
+          "title": "Poznań and Warsaw",
+          "text": "Install on a VPS, a dedicated box, or a machine in the office — in Poznań, in Warsaw, or wherever the server already stands. You do not need an IT department to stop renting Google Drive."
         }
       },
       "problem": {
@@ -170,8 +170,8 @@
           "text": "When a calling-card page is not enough and you need a website that explains the offer, answers doubts, and collects enquiries."
         },
         "item3": {
-          "title": "Poznań and all of Poland",
-          "text": "I work remotely with clients across Poland. If you are looking for a website developer in Poznań — I am based here too."
+          "title": "Poznań and Warsaw",
+          "text": "I am based in Poznań. With Warsaw clients I work remotely and meet in person when I am in the city. You do not need a separate local agency."
         }
       },
       "problem": {
@@ -238,6 +238,10 @@
         "q6": {
           "question": "Do you issue a VAT invoice?",
           "answer": "Yes. I operate legally in Poland, I issue an invoice, and you can deduct VAT. A conversation is not a contract — first we check whether we are a good fit."
+        },
+        "q7": {
+          "question": "Do you work with clients in Warsaw?",
+          "answer": "Yes. I work from Poznań, and with Warsaw clients remotely and in person when I am in the city. You do not need to travel — the first conversation is online."
         }
       },
       "related": {
@@ -259,8 +263,8 @@
           "text": "No store yet? I build it from scratch. You already have a site or marketplace sales and want your own checkout? That too. We do not start with a 40-slide omnichannel strategy — we start with a cart that works."
         },
         "item3": {
-          "title": "Poznań and all of Poland",
-          "text": "I work remotely with clients across Poland. The store should live on your hosting and domain, not on an account you cannot export."
+          "title": "Poznań and Warsaw",
+          "text": "I build the store remotely on your hosting — from Poznań and for Warsaw firms alike. We can meet in person when I am in Warsaw; the rest happens in code, not in an agency office."
         }
       },
       "problem": {
@@ -541,8 +545,8 @@
           "text": "New site, old URLs, vanished traffic. Canonicals, 404s, a sitemap from a previous era. That is not \"the algorithm\". That is usually an unfinished move."
         },
         "item3": {
-          "title": "Poznań and all of Poland",
-          "text": "I work remotely. Audit and fixes on your stack — WordPress, Nuxt, whatever, as long as there is access. You do not need an agency with a 40-person \"SEO content\" department."
+          "title": "Poznań and Warsaw",
+          "text": "Audit and fixes on your stack, remotely. Sites in Poznań and Warsaw go through the same process — WordPress, Nuxt, whatever, as long as there is access. You do not need an agency with a 40-person \"SEO content\" department."
         }
       },
       "problem": {
@@ -609,6 +613,10 @@
         "q6": {
           "question": "Do you issue a VAT invoice?",
           "answer": "Yes. I operate legally in Poland, I issue an invoice, and you can deduct VAT. A conversation is not a contract — first we check whether the problem is technical, or whether someone sold you rankings blind."
+        },
+        "q7": {
+          "question": "Do you do technical SEO for sites in Warsaw?",
+          "answer": "Yes. Audit and fixes are remote, on your stack. I am based in Poznań; Warsaw sites go through the same process. We can meet in person when I am in the city — it is not required to start."
         }
       },
       "related": {

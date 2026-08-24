@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 
 import { DEFAULT_LOCALE } from './const/defaultLocale'
+import { SCHEMA_AREA_SERVED, SCHEMA_ADDRESS, SCHEMA_NIP } from './const/schemaOrg'
 import { config } from 'dotenv'
 config()
 
@@ -26,11 +27,9 @@ export default defineNuxtConfig({
         'https://tiktok.com/@slawomirwozniakofficial',
         'https://youtube.com/@SlawomirWozniakOfficial',
       ],
-      address: {
-        '@type': 'PostalAddress',
-        addressLocality: 'Poznań',
-        addressCountry: 'PL',
-      },
+      address: SCHEMA_ADDRESS,
+      areaServed: SCHEMA_AREA_SERVED,
+      taxID: SCHEMA_NIP,
     },
   },
   devtools: { enabled: true },

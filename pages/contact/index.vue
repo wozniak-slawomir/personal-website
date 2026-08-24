@@ -52,6 +52,78 @@
             </div>
           </div>
         </div>
+
+        <div class="mt-16 text-left">
+          <h2 class="text-2xl font-semibold text-[color:var(--primary-color)] mb-6">
+            {{ $t('contact.location.title') }}
+          </h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div class="flex items-start gap-4">
+              <div class="mt-1 p-2 rounded-lg bg-[rgba(255,255,255,0.05)] text-white">
+                <PhMapPin :size="32" weight="duotone" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 text-white">{{ $t('contact.location.poznan.title') }}</h3>
+                <p class="text-gray-400">{{ $t('contact.location.poznan.text') }}</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="mt-1 p-2 rounded-lg bg-[rgba(255,255,255,0.05)] text-white">
+                <PhBuildings :size="32" weight="duotone" />
+              </div>
+              <div>
+                <h3 class="text-xl font-bold mb-1 text-white">{{ $t('contact.location.warsaw.title') }}</h3>
+                <p class="text-gray-400">{{ $t('contact.location.warsaw.text') }}</p>
+              </div>
+            </div>
+          </div>
+          <p class="text-sm text-gray-400">
+            <a href="tel:+48571205570" class="hover:text-white transition-colors">+48 571 205 570</a>
+            <span class="mx-2">·</span>
+            <a href="mailto:contact@slawomir-wozniak.pl" class="hover:text-white transition-colors">contact@slawomir-wozniak.pl</a>
+            <span class="mx-2">·</span>
+            <span>NIP 7011029927</span>
+          </p>
+        </div>
+
+        <div class="mt-12 text-left">
+          <h2 class="text-2xl font-semibold text-[color:var(--primary-color)] mb-6">
+            {{ $t('contact.faq.title') }}
+          </h2>
+          <div class="space-y-4">
+            <div
+              v-for="(item, index) in faqItems"
+              :key="item.question"
+              class="rounded-xl overflow-hidden border border-white/10 bg-[rgba(255,255,255,0.03)]"
+            >
+              <button
+                type="button"
+                class="w-full flex items-center justify-between p-5 text-left"
+                @click="openFaq = openFaq === index ? null : index"
+              >
+                <h3 class="text-lg font-bold text-white pr-4">
+                  {{ $t(item.question) }}
+                </h3>
+                <PhCaretDown
+                  class="text-[color:var(--primary-color)] flex-shrink-0 transition-transform duration-300"
+                  :class="{ 'rotate-180': openFaq === index }"
+                  :size="20"
+                  weight="bold"
+                />
+              </button>
+              <div
+                class="grid transition-[grid-template-rows] duration-300"
+                :class="openFaq === index ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'"
+              >
+                <div class="overflow-hidden">
+                  <p class="px-5 pb-5 text-gray-400 leading-relaxed">
+                    {{ $t(item.answer) }}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <!-- Section 2 & 3: iPhone and Contact Form (side by side) -->
@@ -185,7 +257,8 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
-import { PhCircleNotch, PhChatCircleText, PhStethoscope, PhHandshake } from '@phosphor-icons/vue'
+import { PhCircleNotch, PhChatCircleText, PhStethoscope, PhHandshake, PhMapPin, PhBuildings, PhCaretDown } from '@phosphor-icons/vue'
+import { CONTACT_FAQ_ITEMS } from '@/const/schemaOrg'
 import { useToast } from 'vue-toastification'
 const config = useRuntimeConfig()
 const { t } = useI18n()
@@ -218,6 +291,8 @@ useHead({
 
 const toast = useToast()
 const route = useRoute()
+const faqItems = CONTACT_FAQ_ITEMS
+const openFaq = ref<number | null>(null)
 const name = ref('')
 const surname = ref('')
 const message = ref('')

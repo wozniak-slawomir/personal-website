@@ -1,6 +1,6 @@
 {
   "hero.title": "Jestem Sławomir, programista.",
-  "hero.subtitle": "Tworzę strony i aplikacje webowe dla małych firm.",
+  "hero.subtitle": "Tworzę strony i aplikacje webowe dla małych firm w Poznaniu i Warszawie.",
   "hero.software.feature1": "Strony internetowe - wizytówki",
   "hero.software.feature2": "Rozwój i planowanie aplikacji webowych",
   "hero.software.feature3": "Wsparcie we wdrożeniach technologii",
@@ -46,6 +46,8 @@
   "faq.q2.answer": "Bo na Wixie nie jesteś właścicielem swojej strony. U mnie masz suwerenność – Twój kod, Twoje dane, Twój serwer. Nie płacisz miesięcznych abonamentów, które rosną z każdą nową funkcją.",
   "faq.q3.question": "Czy wystawiasz fakturę?",
   "faq.q3.answer": "Oczywiście, działam legalnie, płacę podatki w Polsce. Otrzymujesz pełną dokumentację księgową i możesz odliczyć VAT.",
+  "faq.q4.question": "Czy pracujesz z klientami z Warszawy?",
+  "faq.q4.answer": "Tak. Siedziba jest w Poznaniu, a z klientami z Warszawy pracuję zdalnie i spotykam się, gdy jestem w mieście. Rozmowa na start jest online — nie musisz przyjeżdżać.",
   "audyt.title": "Sprawdź wynik",
   "audyt.description": "Darmowy audyt kosztów oprogramowania.",
   "audyt.benefit1.title": "Szybki wynik",

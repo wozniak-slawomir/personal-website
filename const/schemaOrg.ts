@@ -3,7 +3,34 @@ export const SCHEMA_TELEPHONE = '+48571205570'
 export const SCHEMA_IMAGE = '/bio/me-bio.png'
 export const SCHEMA_NIP = '7011029927'
 export const SCHEMA_LOCALITY = 'Poznań'
+export const SCHEMA_LOCALITY_WARSAW = 'Warszawa'
 export const SCHEMA_COUNTRY = 'PL'
+
+export const SCHEMA_ADDRESS = {
+  '@type': 'PostalAddress',
+  addressLocality: SCHEMA_LOCALITY,
+  addressCountry: SCHEMA_COUNTRY,
+} as const
+
+export const SCHEMA_AREA_SERVED = [
+  {
+    '@type': 'City',
+    name: SCHEMA_LOCALITY,
+    containedInPlace: {
+      '@type': 'Country',
+      name: 'Poland',
+    },
+  },
+  {
+    '@type': 'City',
+    name: SCHEMA_LOCALITY_WARSAW,
+    alternateName: 'Warsaw',
+    containedInPlace: {
+      '@type': 'Country',
+      name: 'Poland',
+    },
+  },
+] as const
 
 export const SCHEMA_SAME_AS = [
   'https://www.linkedin.com/in/wozniak-slawomir',
@@ -29,14 +56,20 @@ export const HOME_FAQ_ITEMS = [
   { question: 'faq.q1.question', answer: 'faq.q1.answer' },
   { question: 'faq.q2.question', answer: 'faq.q2.answer' },
   { question: 'faq.q3.question', answer: 'faq.q3.answer' },
+  { question: 'faq.q4.question', answer: 'faq.q4.answer' },
 ] as const satisfies readonly FaqItem[]
 
-export const WEBSITE_FAQ_ITEMS = offerFaq('offer.website')
+export const CONTACT_FAQ_ITEMS = [
+  { question: 'contact.faq.q1.question', answer: 'contact.faq.q1.answer' },
+  { question: 'contact.faq.q2.question', answer: 'contact.faq.q2.answer' },
+] as const satisfies readonly FaqItem[]
+
+export const WEBSITE_FAQ_ITEMS = offerFaq('offer.website', 7)
 export const PRIVATE_CLOUD_FAQ_ITEMS = offerFaq('offer.privateCloud')
 export const COMMERCE_FAQ_ITEMS = offerFaq('offer.commerce')
 export const TELEMEDICINE_FAQ_ITEMS = offerFaq('offer.telemedicine')
 export const DATA_COLLECTION_FAQ_ITEMS = offerFaq('offer.dataCollection')
-export const TECHNICAL_SEO_FAQ_ITEMS = offerFaq('offer.technicalSeo')
+export const TECHNICAL_SEO_FAQ_ITEMS = offerFaq('offer.technicalSeo', 7)
 
 export type OfferService = {
   path: string
@@ -49,6 +82,7 @@ export type OfferService = {
 
 export const PAGE_FAQS: Record<string, readonly FaqItem[]> = {
   '/': HOME_FAQ_ITEMS,
+  '/contact': CONTACT_FAQ_ITEMS,
 }
 
 export const OFFER_SERVICES: readonly OfferService[] = [
