@@ -1,4 +1,4 @@
-export type ServiceLinkVariant = 'website' | 'seo' | 'cloud'
+export type ServiceLinkVariant = 'website' | 'seo' | 'cloud' | 'capi'
 
 export interface BlogServiceLink {
   path: string
@@ -23,6 +23,10 @@ export const BLOG_SERVICE_LINK_EXCEPTIONS: Record<string, BlogServiceLink> = {
     path: '/oferta/prywatna-chmura-nextcloud',
     variant: 'cloud',
   },
+  '/blog/pixel-bez-capi': {
+    path: '/oferta/meta-capi-pixel',
+    variant: 'capi',
+  },
 }
 
 export const SERVICE_LINK_I18N: Record<ServiceLinkVariant, { before: string, label: string, after: string }> = {
@@ -40,6 +44,11 @@ export const SERVICE_LINK_I18N: Record<ServiceLinkVariant, { before: string, lab
     before: 'blog.serviceLink.cloud.before',
     label: 'blog.serviceLink.cloud.label',
     after: 'blog.serviceLink.cloud.after',
+  },
+  capi: {
+    before: 'blog.serviceLink.capi.before',
+    label: 'blog.serviceLink.capi.label',
+    after: 'blog.serviceLink.capi.after',
   },
 }
 

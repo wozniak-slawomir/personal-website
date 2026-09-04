@@ -58,6 +58,7 @@ export function usePageSchema() {
     '/oferta/platforma-telemedyczna': t('offer.telemedicine.title'),
     '/oferta/pozyskiwanie-danych': t('offer.dataCollection.title'),
     '/oferta/seo-techniczne': t('offer.technicalSeo.title'),
+    '/oferta/meta-capi-pixel': t('offer.metaCapi.title'),
     '/blog': t('navbar.blog'),
     '/bio': t('navbar.bio'),
     '/portfolio': t('navbar.portfolio'),

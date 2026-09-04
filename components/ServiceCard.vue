@@ -15,7 +15,7 @@
         {{ description }}
       </p>
       <NuxtLink
-        :to="link"
+        :to="localePath(link)"
         class="inline-flex items-center justify-center px-4 py-2 rounded-lg bg-[image:var(--primary-gradient)] text-black font-semibold hover:bg-[image:var(--secondary-gradient)] transition-all mt-auto"
       >
         {{ buttonText }}
@@ -35,4 +35,6 @@ interface Props {
 }
 
 defineProps<Props>()
+
+const localePath = useLocalePath()
 </script>

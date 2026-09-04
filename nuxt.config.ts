@@ -277,6 +277,11 @@ export default defineNuxtConfig({
             href: '/portfolio',
           },
           {
+            title: 'Meta CAPI i Pixel',
+            description: 'Konfiguracja Meta Pixel i Conversions API: zdarzenia, deduplikacja, Event Match Quality.',
+            href: '/oferta/meta-capi-pixel',
+          },
+          {
             title: 'Kalkulator subskrypcji',
             description: 'Narzędzie do obliczania kosztów subskrypcji narzędzi i usług.',
             href: '/kalkulator-subskrypcji',
@@ -310,7 +315,7 @@ export default defineNuxtConfig({
       'Strona w języku polskim.',
       'Dla przedsiębiorców szukających kreatywnych rozwiązań technologicznych.',
       'Skupienie na wartości biznesowej, nie tylko technologicznej.',
-      'Zaktualizowano 25 grudnia 2025.',
+      'Zaktualizowano 4 września 2026.',
     ],
   },
 

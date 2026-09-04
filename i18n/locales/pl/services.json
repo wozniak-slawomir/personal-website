@@ -70,7 +70,7 @@
   "projects.doradztwopodatkowe": "Strona kancelarii Sobieraj & Kuźmin – doradztwo podatkowe i księgowość w Poznaniu dla firm, które chcą odzyskać czas na rozwój biznesu.",
   "offer": {
     "title": "Oferta",
-    "subtitle": "Strony, sklepy, chmura i SEO techniczne dla firm w Poznaniu i Warszawie.",
+    "subtitle": "Strony, sklepy, chmura, SEO techniczne i Meta Pixel/CAPI dla firm w Poznaniu i Warszawie.",
     "priceFrom": "Cena od",
     "priceOnRequest": "Wycena indywidualna",
     "viewDetails": "Zobacz szczegóły",
@@ -641,6 +641,104 @@
       "related": {
         "title": "Więcej o Google, stronach i widoczności"
       }
+    },
+    "metaCapi": {
+      "title": "Meta Pixel i CAPI",
+      "subtitle": "Dla firm, które kręcą reklamy na Facebooku i Instagramie, a Pixel zgłasza połowę konwersji — konfiguruję Pixel i Conversions API tak, żeby Meta uczyła się z prawdziwych zdarzeń.",
+      "heroTitle": "Konfiguracja Meta Pixel i CAPI, żeby reklamy przestały zgadywać",
+      "heroSubtitle": "Instaluję, mapuję i testuję Pixel plus serwerowe Conversions API: ten sam event_id, zahashowane dane do dopasowania, wysyłka pod zgodę — nie skrypt wrzucony w stopkę.",
+      "feature1": "Pixel i zdarzenia: PageView, Lead, Purchase i custom eventy, których kampania naprawdę potrzebuje",
+      "feature2": "Conversions API na serwerze z deduplikacją po event_id, żeby jeden zakup nie liczył się dwa razy",
+      "feature3": "Event Match Quality, testy w Events Managerze i przekazanie, na co potem patrzeć",
+      "whoFor": {
+        "title": "Dla kogo jest Meta Pixel i CAPI?",
+        "intro": "Konfiguruję tracking dla firm, które już wydają na Meta i widzą, że dashboard kłamie: mniej zakupów niż w sklepie, leady, których nie było, algorytm, który „przestał działać”.",
+        "item1": {
+          "title": "Budżet leci, raporty chudną",
+          "text": "Pieniądze na reklamy są. ROAS z miesiąca na miesiąc wygląda gorzej. Zanim ktoś sprzeda Ci „nowe kreacje i lejek”, warto sprawdzić, czy zdarzenia w ogóle dochodzą do Mety — zwłaszcza z iPhone'a i od ludzi z blokerem reklam."
+        },
+        "item2": {
+          "title": "Sklep albo formularz",
+          "text": "WooCommerce, własny checkout, formularz kontaktowy. Pixel w przeglądarce gubi część ścieżki. CAPI wysyła to samo zdarzenie z serwera. Bez tej pary trenujesz algorytm na resztkach."
+        },
+        "item3": {
+          "title": "Poznań i Warszawa",
+          "text": "Konfiguracja na Waszym stacku, zdalnie. Strony z Poznania i Warszawy przechodzą ten sam proces — WordPress, Nuxt, sklep, byle był dostęp. Nie potrzebujecie agencji z 20-osobowym działem „performance”."
+        }
+      },
+      "problem": {
+        "title": "Dlaczego Pixel w stopce to nie konfiguracja",
+        "p1": "Safari tnie ciasteczka. iOS pyta o śledzenie, a większość mówi nie. Bloker reklam połyka skrypt. Agencja odhacza „Pixel zainstalowany”, a Events Manager pokazuje czerwone Event Match Quality, duplikaty albo ciszę po zakupie z telefonu. To nie „algorytm”. To dziura w danych.",
+        "p2": "CAPI nie zastępuje Pixela. To drugi kanał: to samo zdarzenie, z serwera, ze wspólnym event_id, żeby Meta złączyła je zamiast liczyć podwójnie. Bez tego albo gubisz konwersje, albo je wymyślasz."
+      },
+      "process": {
+        "title": "Jak wygląda konfiguracja Pixela i CAPI w praktyce?",
+        "subtitle": "Audyt, mapa zdarzeń, wdrożenie, test w Events Managerze. Bez „dodamy Pixela w piątek”.",
+        "step1": {
+          "title": "Audyt",
+          "description": "Jaki Pixel już jest, które eventy odpalają, czy CAPI w ogóle istnieje, czy event_id się zgadza, jak wygląda EMQ, czy zgoda jest respektowana. Lista faktów, nie screenshot z GTM."
+        },
+        "step2": {
+          "title": "Mapa",
+          "description": "Jakich zdarzeń kampania potrzebuje (Lead to nie Purchase), jakie parametry, jakie dane użytkownika haszujemy i kiedy ich nie wysyłamy. Widzisz zakres, zanim ktokolwiek ruszy kod."
+        },
+        "step3": {
+          "title": "Wdrożenie",
+          "description": "Pixel, CAPI, deduplikacja, testy w Events Managerze. Statusy po drodze — nie cisza i nie slajd „tracking 80%”."
+        },
+        "step4": {
+          "title": "Przekazanie",
+          "description": "Co odpala, gdzie patrzeć, co monitorować po zmianie kampanii. Żebym nie zniknął w dniu, w którym Meta wreszcie zaczyna widzieć zakupy."
+        }
+      },
+      "includesMore": {
+        "title": "Co jeszcze wchodzi w Pixel i CAPI?",
+        "item1": "Sprawdzenie istniejącego Pixela / GTM / wtyczki — nie dokładam drugiego Pixela „na wszelki wypadek”.",
+        "item2": "event_id po stronie przeglądarki i serwera, żeby Meta scalała, a nie dublowała.",
+        "item3": "Zahashowane parametry dopasowania (email, telefon) tam, gdzie zgoda pozwala — EMQ to nie ozdoba.",
+        "item4": "Ustawienie pod zgodę: nie wysyłamy wszystkiego „bo reklamy potrzebują”. RODO to nie slogan w stopce.",
+        "item5": "Raport: co odpalało, co zmieniłem, czego tracking nie naprawi (oferta, kreacja, budżet)."
+      },
+      "whyCustom": {
+        "title": "Dlaczego nie wtyczka WordPress i „CAPI za jednym kliknięciem”?",
+        "p1": "Wtyczka często coś wysyła. Rzadko to, co trzeba: wspólny event_id, właściwe parametry, bez duplikatów, ze zgodą. „Jedno kliknięcie” to slogan. Efekt: Pixel odpala Purchase na koszyku, a CAPI jeszcze raz na dziękuję.",
+        "p2": "Nie sprzedaję „wyższego ROAS”. Sprzedaję warstwę, bez której Meta nie potrafi się uczyć albo uczy się z szumu. Kreacja, budżet i oferta zostają po Twojej stronie — świadomie, nie zamiast naprawy eventów."
+      },
+      "faq": {
+        "title": "Najczęściej zadawane pytania o Meta Pixel i CAPI",
+        "subtitle": "Konkretne odpowiedzi, zanim umówimy rozmowę.",
+        "q1": {
+          "question": "Ile kosztuje konfiguracja Pixela i CAPI?",
+          "answer": "Pakiet zaczyna się od 1000 zł netto. Pixel na wizytówce z formularzem to inna robota niż sklep z checkoutem, upsellami i trzema stronami podziękowania — po rozmowie dostajesz wycenę, nie abonament „za lepsze reklamy”."
+        },
+        "q2": {
+          "question": "Czym różni się Pixel od CAPI?",
+          "answer": "Pixel działa w przeglądarce i łatwo go zablokować. CAPI wysyła te same zdarzenia z serwera. Razem, ze wspólnym event_id, dają Mecie pełniejszy obraz bez podwójnego liczenia. Sam Pixel to zgadywanie. Same CAPI bez Pixela też jest niepełne — Meta oczekuje obu."
+        },
+        "q3": {
+          "question": "Czy wtyczka WooCommerce albo WordPress wystarczy?",
+          "answer": "Czasem jako punkt startu. Rzadko jako skończona konfiguracja. Wtyczki dublują eventy, pomijają event_id, wysyłają Purchase za wcześnie albo olewają zgodę. Sprawdzam, co już jest, i to naprawiam — nie dokładam drugiej wtyczki na pierwszą."
+        },
+        "q4": {
+          "question": "A RODO i zgoda na cookies?",
+          "answer": "Zdarzenia z danymi osobowymi wychodzą, gdy jest podstawa, żeby je wysłać. Nie „wyłączam zgody, żeby reklamy działały lepiej”. Pixel i CAPI da się ustawić tak, by respektowały baner. Jeśli obecna konfiguracja wysyła wszystko do wszystkich, to problem, nie feature."
+        },
+        "q5": {
+          "question": "Ile trwa konfiguracja?",
+          "answer": "Prosty formularz plus Pixel bywa kwestią dni. Sklep z własnym checkoutem, kilkoma eventami i istniejącym bałaganem w GTM trwa dłużej. Termin zależy od dostępu (strona, Events Manager, hosting) — nie od liczby slajdów na kickoffie."
+        },
+        "q6": {
+          "question": "Czy wystawiasz fakturę VAT?",
+          "answer": "Tak. Działam legalnie w Polsce, wystawiam fakturę i możesz odliczyć VAT. Rozmowa nie jest kontraktem — najpierw sprawdzamy, czy problem jest w trackingu, czy ktoś sprzedał Wam reklamy na Pixelu, który nigdy nie odpalił."
+        },
+        "q7": {
+          "question": "Czy konfigurujesz Pixel i CAPI dla stron z Warszawy?",
+          "answer": "Tak. Pracę robię zdalnie, na Waszym stacku. Siedziba jest w Poznaniu; strony z Warszawy przechodzą ten sam proces. Spotkanie na miejscu, gdy jestem w mieście — nie jest wymagane, żeby zacząć."
+        }
+      },
+      "related": {
+        "title": "Więcej o stronach, trackingu i decyzjach"
+      }
     }
   },
   "pricing": {
@@ -681,6 +779,9 @@
       },
       "technicalSeo": {
         "title": "SEO techniczne"
+      },
+      "metaCapi": {
+        "title": "Meta Pixel i CAPI"
       }
     }
   }

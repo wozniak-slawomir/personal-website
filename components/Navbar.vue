@@ -201,6 +201,7 @@ const offerServices = computed(() => [
   { to: localePath('/oferta/platforma-telemedyczna'), label: t('offer.telemedicine.title') },
   { to: localePath('/oferta/pozyskiwanie-danych'), label: t('offer.dataCollection.title') },
   { to: localePath('/oferta/seo-techniczne'), label: t('offer.technicalSeo.title') },
+  { to: localePath('/oferta/meta-capi-pixel'), label: t('offer.metaCapi.title') },
 ])
 
 const mainNavLinks = computed(() => [

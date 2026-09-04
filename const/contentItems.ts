@@ -265,4 +265,12 @@ export const contentItems: ContentItem[] = [
     tags: ['portfolio', 'website'],
     link: 'https://doradztwopodatkowe-sik.pl/',
   },
+  {
+    name: (t) => t('blog.pixelWithoutCapi.title'),
+    image: 'blog/pixel-bez-capi/og-image.jpg',
+    description: (t) => t('blog.pixelWithoutCapi.meta.description'),
+    tags: ['blog'],
+    link: '/blog/pixel-bez-capi',
+    lastmod: '2026-09-04T15:45:00+02:00'
+  },
 ]

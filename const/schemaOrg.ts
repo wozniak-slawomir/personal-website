@@ -70,13 +70,14 @@ export const COMMERCE_FAQ_ITEMS = offerFaq('offer.commerce')
 export const TELEMEDICINE_FAQ_ITEMS = offerFaq('offer.telemedicine')
 export const DATA_COLLECTION_FAQ_ITEMS = offerFaq('offer.dataCollection')
 export const TECHNICAL_SEO_FAQ_ITEMS = offerFaq('offer.technicalSeo', 7)
+export const META_CAPI_FAQ_ITEMS = offerFaq('offer.metaCapi', 7)
 
 export type OfferService = {
   path: string
   titleKey: string
   descriptionKey: string
   image: string
-  pricePackage?: 'authority' | 'independence' | 'commerce'
+  pricePackage?: 'authority' | 'independence' | 'commerce' | 'metaCapi'
   faq?: readonly FaqItem[]
 }
 
@@ -130,5 +131,13 @@ export const OFFER_SERVICES: readonly OfferService[] = [
     descriptionKey: 'seo.technicalSeo.description',
     image: '/services/technical-seo.jpg',
     faq: TECHNICAL_SEO_FAQ_ITEMS,
+  },
+  {
+    path: '/oferta/meta-capi-pixel',
+    titleKey: 'offer.metaCapi.title',
+    descriptionKey: 'seo.metaCapi.description',
+    image: '/services/meta-capi.jpg',
+    pricePackage: 'metaCapi' as const,
+    faq: META_CAPI_FAQ_ITEMS,
   },
 ]

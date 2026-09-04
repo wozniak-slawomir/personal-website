@@ -66,6 +66,15 @@
           link="/oferta/seo-techniczne"
           :button-text="t('offer.viewDetails')"
         />
+
+        <ServiceCard
+          image="/services/meta-capi.jpg"
+          :image-alt="t('offer.metaCapi.title')"
+          :title="t('offer.metaCapi.title')"
+          :description="t('offer.metaCapi.subtitle')"
+          link="/oferta/meta-capi-pixel"
+          :button-text="t('offer.viewDetails')"
+        />
       </div>
     </div>
   </div>
