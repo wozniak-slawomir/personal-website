@@ -27,6 +27,10 @@ export const BLOG_SERVICE_LINK_EXCEPTIONS: Record<string, BlogServiceLink> = {
     path: '/oferta/meta-capi-pixel',
     variant: 'capi',
   },
+  '/blog/niecenzurowany-model-w-edytorze': {
+    path: '/oferta/prywatna-chmura-nextcloud',
+    variant: 'cloud',
+  },
 }
 
 export const SERVICE_LINK_I18N: Record<ServiceLinkVariant, { before: string, label: string, after: string }> = {

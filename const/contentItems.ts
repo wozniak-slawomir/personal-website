@@ -273,4 +273,12 @@ export const contentItems: ContentItem[] = [
     link: '/blog/pixel-bez-capi',
     lastmod: '2026-09-04T15:45:00+02:00'
   },
+  {
+    name: (t) => t('blog.uncensoredLlmIde.title'),
+    image: 'blog/niecenzurowany-model-w-edytorze/og-image.jpg',
+    description: (t) => t('blog.uncensoredLlmIde.meta.description'),
+    tags: ['blog'],
+    link: '/blog/niecenzurowany-model-w-edytorze',
+    lastmod: '2026-10-09T14:40:00+02:00'
+  },
 ]
