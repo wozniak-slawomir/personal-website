@@ -51,7 +51,7 @@
           v-for="(post, index) in latestBlogPosts"
           :key="index"
           :to="getPostLink(post.link)"
-          class="group flex flex-col min-w-[320px] max-w-[320px] h-[400px] rounded-2xl glassmorphism overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl select-none"
+          class="group flex flex-col min-w-[320px] max-w-[320px] h-[400px] rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.03)] overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:shadow-xl select-none"
           @click="handleCardClick"
         >
           <!-- Image Section -->

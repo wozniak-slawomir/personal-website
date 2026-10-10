@@ -21,17 +21,17 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 mb-12">
-        <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
+        <div class="border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
           <h3 class="font-semibold mb-2 text-lg">{{ $t('audyt.benefit1.title') }}</h3>
           <p class="text-sm text-gray-400">{{ $t('audyt.benefit1.description') }}</p>
         </div>
         
-        <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
+        <div class="border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
           <h3 class="font-semibold mb-2 text-lg">{{ $t('audyt.benefit2.title') }}</h3>
           <p class="text-sm text-gray-400">{{ $t('audyt.benefit2.description') }}</p>
         </div>
         
-        <div class="glassmorphism p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
+        <div class="border border-white/10 bg-[rgba(255,255,255,0.03)] p-6 rounded-2xl text-center hover:bg-[#2a2a2a] transition-all duration-300">
           <h3 class="font-semibold mb-2 text-lg">{{ $t('audyt.benefit3.title') }}</h3>
           <p class="text-sm text-gray-400">{{ $t('audyt.benefit3.description') }}</p>
         </div>

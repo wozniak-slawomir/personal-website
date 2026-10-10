@@ -16,7 +16,7 @@
         {{ props.tags.map(el => `#${el}`).join(' ') }}
       </div>
 
-      <div class="glassmorphism mt-16 py-4 rounded-xl px-8">
+      <div class="border border-white/10 bg-[rgba(255,255,255,0.03)] mt-16 py-4 rounded-xl px-8">
         <slot name="content" />
         <p class="mt-8 mb-4">
           {{ t(serviceLinkCopy.before) }}

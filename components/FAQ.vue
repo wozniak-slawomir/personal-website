@@ -11,7 +11,7 @@
       <div
         v-for="(item, index) in HOME_FAQ_ITEMS"
         :key="item.question"
-        class="glassmorphism rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg"
+        class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-xl overflow-hidden transition-all duration-300 hover:shadow-lg"
         :class="{ 'shadow-xl': openIndex === index }"
       >
         <button

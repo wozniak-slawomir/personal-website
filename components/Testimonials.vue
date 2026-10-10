@@ -10,7 +10,7 @@
         <div
           v-for="(testimonial, index) in topTestimonials"
           :key="index"
-          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl glassmorphism mb-6"
+          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.03)] mb-6"
         >
           <q class="text-2xl italic">
             {{ testimonial.text }}
@@ -28,7 +28,7 @@
         <div
           v-for="(testimonial, index) in bottomTestimonials"
           :key="index"
-          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl glassmorphism mb-6"
+          class="flex flex-col w-[350px] h-full p-7 justify-between rounded-2xl border border-white/10 bg-[rgba(255,255,255,0.03)] mb-6"
         >
           <q class="text-2xl italic">
             {{ testimonial.text }}

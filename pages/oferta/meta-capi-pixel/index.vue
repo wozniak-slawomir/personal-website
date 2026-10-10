@@ -21,7 +21,7 @@
           </div>
         </section>
 
-        <section class="glassmorphism rounded-3xl p-8 md:p-10 border border-gray-700/30 mb-10">
+        <section class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-3xl p-8 md:p-10 mb-10">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
             <div>
               <h2 class="text-2xl font-bold mb-6">{{ t('offer.website.whatIncludes') }}</h2>

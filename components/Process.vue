@@ -11,7 +11,7 @@
     <!-- Process Steps -->
     <div class="scroll-stagger grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-10 lg:gap-12 max-w-7xl mx-auto">
       <!-- Step 1: Diagnosis -->
-      <div class="relative flex flex-col items-center text-center space-y-4 p-6 glassmorphism rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+      <div class="relative flex flex-col items-center text-center space-y-4 p-6 border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
           <div class="w-16 h-16 rounded-full bg-[var(--primary-color)] flex items-center justify-center text-black font-bold text-2xl mb-2">
             1
           </div>
@@ -31,7 +31,7 @@
         </div>
 
         <!-- Step 2: Plan -->
-        <div class="relative flex flex-col items-center text-center space-y-4 p-6 glassmorphism rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <div class="relative flex flex-col items-center text-center space-y-4 p-6 border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
           <div class="w-16 h-16 rounded-full bg-[var(--primary-color)] flex items-center justify-center text-black font-bold text-2xl mb-2">
             2
           </div>
@@ -51,7 +51,7 @@
         </div>
 
         <!-- Step 3: Implementation -->
-        <div class="relative flex flex-col items-center text-center space-y-4 p-6 glassmorphism rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <div class="relative flex flex-col items-center text-center space-y-4 p-6 border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
           <div class="w-16 h-16 rounded-full bg-[var(--primary-color)] flex items-center justify-center text-black font-bold text-2xl mb-2">
             3
           </div>
@@ -71,7 +71,7 @@
         </div>
 
         <!-- Step 4: Handover -->
-        <div class="relative flex flex-col items-center text-center space-y-4 p-6 glassmorphism rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
+        <div class="relative flex flex-col items-center text-center space-y-4 p-6 border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300">
           <div class="w-16 h-16 rounded-full bg-[var(--primary-color)] flex items-center justify-center text-black font-bold text-2xl mb-2">
             4
           </div>

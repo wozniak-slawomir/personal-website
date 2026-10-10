@@ -10,7 +10,7 @@
                 <!-- Vision & Mission Grid -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12">
                      <!-- Vision Section -->
-                    <section class="glassmorphism rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden group">
+                    <section class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden group">
                          <div class="absolute top-0 right-0 p-32 bg-[var(--primary-color)]/5 rounded-full blur-3xl -mr-16 -mt-16 transition-all duration-500 group-hover:bg-[var(--primary-color)]/10"></div>
                         <div class="flex flex-col items-start gap-6 relative z-10">
                             <div class="p-4 rounded-xl bg-gradient-to-br from-[var(--primary-color)]/20 to-transparent text-[var(--primary-color)]">
@@ -26,7 +26,7 @@
                     </section>
 
                     <!-- Mission Section -->
-                    <section class="glassmorphism rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden group">
+                    <section class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-3xl p-8 md:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 relative overflow-hidden group">
                          <div class="absolute top-0 right-0 p-32 bg-[var(--primary-color)]/5 rounded-full blur-3xl -mr-16 -mt-16 transition-all duration-500 group-hover:bg-[var(--primary-color)]/10"></div>
                         <div class="flex flex-col items-start gap-6 relative z-10">
                             <div class="p-4 rounded-xl bg-gradient-to-br from-[var(--primary-color)]/20 to-transparent text-[var(--primary-color)]">
@@ -48,7 +48,7 @@
                     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
                         <!-- Agency -->
                         <div
-                            class="glassmorphism rounded-2xl p-6 md:p-8 border border-gray-700/30 hover:border-[var(--primary-color)]/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+                            class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-2xl p-6 md:p-8 hover:border-[var(--primary-color)]/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
                             <div class="flex flex-col items-center text-center gap-5 h-full">
                                 <div class="p-3 rounded-full bg-[var(--primary-color)]/10 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300">
                                      <PhLightning :size="32" weight="fill" />
@@ -62,7 +62,7 @@
 
                         <!-- Partnership -->
                         <div
-                            class="glassmorphism rounded-2xl p-6 md:p-8 border border-gray-700/30 hover:border-[var(--primary-color)]/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+                            class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-2xl p-6 md:p-8 hover:border-[var(--primary-color)]/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
                             <div class="flex flex-col items-center text-center gap-5 h-full">
                                 <div class="p-3 rounded-full bg-[var(--primary-color)]/10 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300">
                                     <PhHandshake :size="32" weight="fill" />
@@ -76,7 +76,7 @@
 
                         <!-- Growth -->
                         <div
-                            class="glassmorphism rounded-2xl p-6 md:p-8 border border-gray-700/30 hover:border-[var(--primary-color)]/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
+                            class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-2xl p-6 md:p-8 hover:border-[var(--primary-color)]/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1 group">
                             <div class="flex flex-col items-center text-center gap-5 h-full">
                                 <div class="p-3 rounded-full bg-[var(--primary-color)]/10 text-[var(--primary-color)] group-hover:scale-110 transition-transform duration-300">
                                     <PhTrendUp :size="32" weight="fill" />

@@ -1,5 +1,5 @@
 <template>
-  <article class="h-full glassmorphism rounded-2xl overflow-hidden border border-gray-700/30 hover:border-[var(--primary-color)]/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col">
+  <article class="h-full border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-2xl overflow-hidden hover:border-[var(--primary-color)]/50 transition-all duration-300 hover:-translate-y-1 group flex flex-col">
     <div class="aspect-video overflow-hidden bg-black/20">
       <img 
         :src="image" 

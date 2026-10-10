@@ -13,7 +13,7 @@
         
         <div class="grid gap-6">
         <NuxtLink :to="localePath('/narzedzia/kalkulator')" 
-          class="glassmorphism p-8 rounded-2xl hover:bg-[#2a2a2a] transition-all duration-300 flex items-center justify-between group">
+          class="border border-white/10 bg-[rgba(255,255,255,0.03)] p-8 rounded-2xl hover:bg-[#2a2a2a] transition-all duration-300 flex items-center justify-between group">
           <div>
             <h2 class="text-2xl font-bold mb-2 group-hover:text-[var(--primary-color)] transition-colors">
               {{ $t('tools.calculator.title') }}
@@ -30,7 +30,7 @@
         </NuxtLink>
 
         <NuxtLink :to="localePath('/narzedzia/ankieta')" 
-          class="glassmorphism p-8 rounded-2xl hover:bg-[#2a2a2a] transition-all duration-300 flex items-center justify-between group">
+          class="border border-white/10 bg-[rgba(255,255,255,0.03)] p-8 rounded-2xl hover:bg-[#2a2a2a] transition-all duration-300 flex items-center justify-between group">
           <div>
             <h2 class="text-2xl font-bold mb-2 group-hover:text-[var(--primary-color)] transition-colors">
               Ankieta - Osobowość a Zarobki

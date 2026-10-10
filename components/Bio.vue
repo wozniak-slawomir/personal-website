@@ -26,7 +26,7 @@
     </div>
     
     <!-- Story Section -->
-    <div class="glassmorphism rounded-2xl p-8 md:p-12 shadow-xl">
+    <div class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-2xl p-8 md:p-12 shadow-xl">
       <div class="max-w-4xl mx-auto space-y-8">
         <!-- Authority Section -->
         <div class="mt-12 pt-8">

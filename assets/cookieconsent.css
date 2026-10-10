@@ -1,6 +1,6 @@
 #cc-main {
     --cc-font-family: "Outfit", sans-serif;
-    --cc-bg: rgba(37, 37, 37, 0.85);
+    --cc-bg: #1a1a1a;
     --cc-text: var(--primary-text-color);
     --cc-btn-primary-bg: var(--primary-color);
     --cc-btn-primary-border-color: var(--primary-color);
@@ -27,8 +27,7 @@
 
 #cc-main .cm,
 #cc-main .pm {
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 

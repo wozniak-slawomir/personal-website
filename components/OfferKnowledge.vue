@@ -9,7 +9,7 @@
         <div
           v-for="item in whoForItems"
           :key="item.title"
-          class="glassmorphism rounded-2xl p-6 border border-gray-700/30"
+          class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-2xl p-6"
         >
           <h3 class="text-xl font-bold mb-3">{{ t(item.title) }}</h3>
           <p class="text-[var(--secondary-text-color)] leading-relaxed">
@@ -19,7 +19,7 @@
       </div>
     </section>
 
-    <section class="glassmorphism rounded-3xl p-8 md:p-10 border border-gray-700/30 mb-10">
+    <section class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-3xl p-8 md:p-10 mb-10">
       <h2 class="text-3xl font-bold mb-4">{{ t(`${prefix}.problem.title`) }}</h2>
       <p class="text-[var(--secondary-text-color)] leading-relaxed mb-4">
         {{ t(`${prefix}.problem.p1`) }}
@@ -38,7 +38,7 @@
         <div
           v-for="(step, index) in processSteps"
           :key="step.title"
-          class="glassmorphism rounded-2xl p-6 border border-gray-700/30"
+          class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-2xl p-6"
         >
           <div class="w-10 h-10 rounded-full bg-[var(--primary-color)] text-black font-bold flex items-center justify-center mb-4">
             {{ index + 1 }}
@@ -51,7 +51,7 @@
       </div>
     </section>
 
-    <section class="glassmorphism rounded-3xl p-8 md:p-10 border border-gray-700/30 mb-10">
+    <section class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-3xl p-8 md:p-10 mb-10">
       <h2 class="text-3xl font-bold mb-6">{{ t(`${prefix}.includesMore.title`) }}</h2>
       <ul class="space-y-4">
         <li
@@ -86,7 +86,7 @@
         <div
           v-for="(item, index) in faqItems"
           :key="item.question"
-          class="glassmorphism rounded-xl overflow-hidden border border-gray-700/30 transition-all duration-300"
+          class="border border-white/10 bg-[rgba(255,255,255,0.03)] rounded-xl overflow-hidden transition-all duration-300"
           :class="{ 'shadow-xl': openFaq === index }"
         >
           <button

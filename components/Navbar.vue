@@ -25,7 +25,7 @@
 
             <div
               class="absolute left-0 top-full pt-3 z-30 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-              <div class="min-w-[280px] rounded-2xl border border-gray-700 bg-[#1a1a1a]/95 backdrop-blur p-2 shadow-xl">
+              <div class="min-w-[280px] rounded-2xl border border-white/10 bg-[#1A1A1A] p-2 shadow-xl">
                 <NuxtLink v-for="service in offerServices" :key="service.to" :to="service.to"
                   class="block px-3 py-2 rounded-xl text-sm font-medium hover:text-[var(--primary-color)] hover:bg-white/5 transition-colors duration-200"
                   @click="isMenuOpen = false">
@@ -105,7 +105,7 @@
       </div>
 
       <div v-if="isNavMenuOpen" id="mobile-nav" class="xl:hidden absolute left-0 right-0 top-[calc(100%+1rem)] z-10">
-        <div class="rounded-2xl border border-gray-700 bg-[#1a1a1a]/95 backdrop-blur p-4 flex flex-col gap-2 shadow-xl">
+        <div class="rounded-2xl border border-white/10 bg-[#1A1A1A] p-4 flex flex-col gap-2 shadow-xl">
           <NuxtLink v-for="link in navLinks" :key="`mobile-${link.path}`" :to="link.to"
             class="uppercase text-sm font-semibold py-2 px-3 rounded-xl hover:text-[var(--primary-color)] transition-colors duration-200"
             :class="{ 'text-[var(--primary-color)]': isActive(link.path) }" @click="isNavMenuOpen = false">
