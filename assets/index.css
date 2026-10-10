@@ -123,6 +123,139 @@ body {
   animation: fadeIn 0.5s ease-out;
 }
 
+/* Scroll-driven motion. View timelines run only while a section crosses the viewport. */
+@supports (animation-timeline: view()) {
+  @keyframes scroll-rise {
+    from {
+      opacity: 0;
+      translate: 0 6.5rem;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes scroll-from-left {
+    from {
+      opacity: 0;
+      translate: -5rem 2rem;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes scroll-from-right {
+    from {
+      opacity: 0;
+      translate: 5rem 2rem;
+    }
+
+    to {
+      opacity: 1;
+      translate: 0 0;
+    }
+  }
+
+  @keyframes hero-copy-drift {
+    to {
+      opacity: 0;
+      translate: 0 -5rem;
+    }
+  }
+
+  @keyframes hero-portrait-drift {
+    to {
+      translate: 0 8rem;
+      scale: 0.9;
+    }
+  }
+
+  @keyframes hero-logos-drift {
+    to {
+      opacity: 0;
+      translate: 0 3rem;
+    }
+  }
+
+  .scroll-reveal {
+    animation: scroll-rise linear both;
+    animation-timeline: view();
+    animation-range: entry 0% cover 36%;
+  }
+
+  /* Tall blocks settle once their top portion is in view. */
+  .scroll-reveal-soon {
+    animation-range: entry 0% cover 20%;
+  }
+
+  .scroll-stagger > * {
+    --stagger: 0;
+    animation: scroll-rise linear both;
+    animation-timeline: view();
+    animation-range:
+      entry calc(var(--stagger) * 2%)
+      cover calc(28% + var(--stagger) * 1.5%);
+  }
+
+  .scroll-stagger > :nth-child(2) { --stagger: 1; }
+  .scroll-stagger > :nth-child(3) { --stagger: 2; }
+  .scroll-stagger > :nth-child(4) { --stagger: 3; }
+  .scroll-stagger > :nth-child(5) { --stagger: 4; }
+  .scroll-stagger > :nth-child(6) { --stagger: 5; }
+  .scroll-stagger > :nth-child(7) { --stagger: 6; }
+
+  .scroll-stagger-left > * {
+    animation-name: scroll-from-left;
+  }
+
+  .scroll-stagger-right > * {
+    animation-name: scroll-from-right;
+  }
+
+  .hero-scroll-root {
+    view-timeline-name: --hero;
+  }
+
+  .hero-scroll-copy,
+  .hero-scroll-portrait,
+  .hero-scroll-logos {
+    animation-duration: auto;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-timeline: --hero;
+  }
+
+  .hero-scroll-copy {
+    animation-name: hero-copy-drift;
+    animation-range: exit 0% exit 55%;
+  }
+
+  .hero-scroll-portrait {
+    animation-name: hero-portrait-drift;
+    animation-range: exit 0% exit 80%;
+  }
+
+  .hero-scroll-logos {
+    animation-name: hero-logos-drift;
+    animation-range: exit 0% exit 35%;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .scroll-reveal,
+    .scroll-stagger > *,
+    .hero-scroll-copy,
+    .hero-scroll-portrait,
+    .hero-scroll-logos {
+      animation: none;
+    }
+  }
+}
+
 @keyframes fadeIn {
   from {
     opacity: 0;

@@ -1,14 +1,14 @@
 <template>
   <div class="container py-16 md:py-24 lg:py-32 px-6 md:px-12">
     <!-- Header -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 md:mb-16 text-[var(--primary-text-color)]">
+    <h2 class="scroll-reveal text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 md:mb-16 text-[var(--primary-text-color)]">
       {{ $t("comparison.title") }}
     </h2>
 
     <!-- Two Column Comparison -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 max-w-7xl mx-auto">
       <!-- Left Column: Old Way (Pain) -->
-      <div class="space-y-6">
+      <div class="scroll-stagger scroll-stagger-left space-y-6">
         <div class="text-center lg:text-left mb-8">
           <h3 class="text-2xl md:text-3xl font-bold text-red-500 mb-2">
             {{ $t("comparison.oldWay.title") }}
@@ -65,7 +65,7 @@
       </div>
 
       <!-- Right Column: New Way (Solution) -->
-      <div class="space-y-6">
+      <div class="scroll-stagger scroll-stagger-right space-y-6">
         <div class="text-center lg:text-left mb-8">
           <h3 class="text-2xl md:text-3xl font-bold text-[var(--primary-color)] mb-2">
             {{ $t("comparison.newWay.title") }}

@@ -1,6 +1,6 @@
 <template>
   <div class="container mt-32 mb-20">
-    <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
+    <div class="scroll-reveal flex flex-col md:flex-row md:items-center md:justify-between mb-10">
       <h2 class="text-5xl font-bold text-center md:text-left">
         {{ $t('latestPosts.title') }}
       </h2>
@@ -16,7 +16,7 @@
       </NuxtLink>
     </div>
     
-    <div class="relative group/carousel">
+    <div class="scroll-reveal scroll-reveal-soon relative group/carousel">
       <!-- Left Arrow -->
       <button 
         @click="scrollLeft"

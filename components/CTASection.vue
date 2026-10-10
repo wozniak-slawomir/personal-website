@@ -1,6 +1,6 @@
 <template>
   <div class="container my-32">
-    <div class="max-w-4xl mx-auto">
+    <div class="scroll-reveal max-w-4xl mx-auto">
       <div class="text-center mb-12">
         <h2 class="text-4xl md:text-5xl font-bold mb-4">
           {{ $t('cta.title') }}

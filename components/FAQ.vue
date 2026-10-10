@@ -1,13 +1,13 @@
 <template>
   <div class="container py-16 md:py-24 lg:py-32 px-6 md:px-12">
-    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 md:mb-6 text-[var(--primary-text-color)]">
+    <h2 class="scroll-reveal text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-4 md:mb-6 text-[var(--primary-text-color)]">
       {{ $t("faq.title") }}
     </h2>
-    <p class="text-lg md:text-xl text-center text-[var(--secondary-text-color)] mb-12 md:mb-16 max-w-3xl mx-auto">
+    <p class="scroll-reveal text-lg md:text-xl text-center text-[var(--secondary-text-color)] mb-12 md:mb-16 max-w-3xl mx-auto">
       {{ $t("faq.subtitle") }}
     </p>
 
-    <div class="max-w-4xl mx-auto space-y-4">
+    <div class="scroll-stagger max-w-4xl mx-auto space-y-4">
       <div
         v-for="(item, index) in HOME_FAQ_ITEMS"
         :key="item.question"

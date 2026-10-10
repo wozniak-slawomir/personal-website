@@ -1,9 +1,9 @@
 <template>
-  <div class="relative flex min-h-svh flex-col overflow-hidden pt-[var(--navbar-height)] md:h-svh">
+  <div class="hero-scroll-root relative flex min-h-svh flex-col overflow-clip pt-[var(--navbar-height)] md:h-svh">
     <div class="container flex min-h-0 flex-1 items-center">
       <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 lg:gap-16 items-center w-full p-6 md:px-12 md:pt-8 md:pb-4 lg:px-16">
       <!-- Left side: Text and CTA -->
-      <div class="max-w-2xl order-2 md:order-1">
+      <div class="hero-scroll-copy max-w-2xl order-2 md:order-1">
         <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6 leading-tight">
           <span class="text-[var(--primary-text-color)] drop-shadow-lg">{{ $t("hero.title") }}</span>
         </h1>
@@ -22,7 +22,7 @@
       </div>
 
       <!-- Right side: Photo -->
-      <div class="flex items-center justify-center order-1 md:order-2 md:min-h-0 md:h-full">
+      <div class="hero-scroll-portrait flex items-center justify-center order-1 md:order-2 md:min-h-0 md:h-full">
         <NuxtPicture
           src="/code-portrait.png"
           class="object-contain object-center rounded-2xl max-w-[280px] sm:max-w-[350px] md:max-w-[450px] w-full md:max-h-[calc(100svh-var(--navbar-height)-11rem)]"
@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="mt-2 shrink-0 pb-5 md:pb-8">
+    <div class="hero-scroll-logos mt-2 shrink-0 pb-5 md:pb-8">
       <p class="mb-4 text-center text-sm text-[var(--tertiary-text-color)]">
         {{ $t('hero.companies') }}
       </p>

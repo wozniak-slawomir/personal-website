@@ -1,9 +1,9 @@
 <template>
-  <div class="container mt-32 overflow-hidden relative">
-    <h2 class="text-5xl font-bold my-10 text-center md:text-left z-50">
+  <div class="container mt-32 overflow-clip relative">
+    <h2 class="scroll-reveal text-5xl font-bold my-10 text-center md:text-left z-50">
       {{ $t('testimonials.title') }}
     </h2>
-    <div class="testimonials-mask">
+    <div class="testimonials-mask scroll-reveal scroll-reveal-soon">
       <Marquee
         pause-on-hover
       >

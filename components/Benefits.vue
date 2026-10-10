@@ -1,12 +1,12 @@
 <template>
   <div class="container py-16 md:py-24 lg:py-32 px-6 md:px-12">
     <!-- Header -->
-    <h2 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 md:mb-20 text-[var(--primary-text-color)]">
+    <h2 class="scroll-reveal text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-center mb-12 md:mb-20 text-[var(--primary-text-color)]">
       {{ $t("benefits.title") }}
     </h2>
 
     <!-- Benefits Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
+    <div class="scroll-stagger grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12 max-w-7xl mx-auto">
       <!-- Benefit 1: Peace of Mind -->
       <div class="flex flex-col items-center text-center space-y-4 p-6 rounded-xl hover:bg-[var(--primary-color)]/5 transition-colors duration-300">
         <div class="w-20 h-20 rounded-full bg-[var(--primary-color)]/20 flex items-center justify-center mb-2">

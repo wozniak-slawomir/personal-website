@@ -257,6 +257,8 @@ const handleClickOutside = (event: Event) => {
 const updateScroll = () => {
   scrollPosition.value = window.scrollY
   navbarDarker.value = scrollPosition.value > 100
+  if (window.CSS?.supports('animation-timeline', 'scroll()')) return
+
   const scrollHeight = document.body.scrollHeight - window.innerHeight
   const progress = scrollHeight > 0 ? (window.scrollY / scrollHeight) : 0
   document.documentElement.style.setProperty('--scroll-progress', `${progress * 100}%`)
@@ -291,5 +293,26 @@ onUnmounted(() => {
   border-radius: 2px;
   transition: width 0.2s ease;
   z-index: 30;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress-bar {
+    width: 100%;
+    transform-origin: left center;
+    transition: none;
+    animation: scroll-progress linear both;
+    animation-duration: auto;
+    animation-timeline: scroll(root);
+  }
+}
+
+@keyframes scroll-progress {
+  from {
+    scale: 0 1;
+  }
+
+  to {
+    scale: 1 1;
+  }
 }
 </style>
