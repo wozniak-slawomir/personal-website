@@ -241,15 +241,7 @@ export default defineNuxtConfig({
       enabled: false,
     },
     headers: {
-      contentSecurityPolicy: {
-        'object-src': ["'self'", 'https://meet.reclaimai.com'],
-        'script-src': ["'self'", "'unsafe-inline'", "https:", "https://meet.reclaimai.com", "https://bzrcdn.openai.com"],
-        'script-src-elem': ["'self'", "'unsafe-inline'", "https:", "https://bzrcdn.openai.com"],
-        'connect-src': ["'self'", "https:", "https://bzr.openai.com", "https://bzrcdn.openai.com"],
-        'img-src': ["'self'", "data:", "https://bzr.openai.com"],
-        'frame-src': ["'self'", "https:", "https://meet.reclaimai.com"],
-        'form-action': ["'self'"],
-      },
+      contentSecurityPolicy: false,
     },
   },
 
