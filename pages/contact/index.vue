@@ -256,7 +256,8 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
+import { TRACKING_CONSENT_EVENT } from '@/utils/tracking'
 import { PhCircleNotch, PhChatCircleText, PhStethoscope, PhHandshake, PhMapPin, PhBuildings, PhCaretDown } from '@phosphor-icons/vue'
 import { CONTACT_FAQ_ITEMS } from '@/const/schemaOrg'
 import { useToast } from 'vue-toastification'
@@ -301,6 +302,13 @@ const phoneNumber = ref('')
 const isLoading = ref(false)
 
 const bookingCalendarRef = ref<HTMLElement | null>(null)
+const { trackPageView, trackLead } = useTracking()
+const contactPageViewSent = ref(false)
+
+function onTrackingConsent() {
+  if (contactPageViewSent.value) return
+  if (trackPageView({ id: 'contact', name: 'Contact' })) contactPageViewSent.value = true
+}
 
 onMounted(() => {
   const packageKey = route.query.package as string
@@ -316,6 +324,13 @@ onMounted(() => {
     script.setAttribute('data-redirect', 'NONE')
     bookingCalendarRef.value.appendChild(script)
   }
+
+  onTrackingConsent()
+  window.addEventListener(TRACKING_CONSENT_EVENT, onTrackingConsent)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener(TRACKING_CONSENT_EVENT, onTrackingConsent)
 })
 
 const { csrf } = useCsrf()
@@ -324,6 +339,12 @@ const onSubmit = async (e: Event) => {
     e.preventDefault()
     if (!e.target) return
     isLoading.value = true
+    const lead = {
+        name: name.value,
+        surname: surname.value,
+        email: email.value,
+        phone: phoneNumber.value,
+    }
     try {
         await $fetch('/api/contact', {
             method: 'POST',
@@ -331,12 +352,19 @@ const onSubmit = async (e: Event) => {
                 'csrf-token': csrf
             },
             body: {
-                name: name.value,
-                surname: surname.value,
-                email: email.value,
-                phone_number: phoneNumber.value,
+                name: lead.name,
+                surname: lead.surname,
+                email: lead.email,
+                phone_number: lead.phone,
                 message: message.value,
             },
+        })
+
+        await trackLead({
+            email: lead.email,
+            phone: lead.phone,
+            firstName: lead.name,
+            lastName: lead.surname,
         })
         
         toast.success(t('contact.form.success'))

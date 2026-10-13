@@ -39,6 +39,7 @@ export default defineNuxtConfig({
       siteUrl: process.env.NODE_ENV === 'production' 
         ? 'https://slawomir-wozniak.pl' 
         : 'http://localhost:3000',
+      chatgptAdsPixelId: process.env.CHATGPT_ADS_PIXEL_ID || '54Jp4GfrguN56fY3rbjE76',
     },
     VITE_SMTP_HOST: process.env.VITE_SMTP_HOST,
     VITE_SMTP_PORT: process.env.VITE_SMTP_PORT,
@@ -181,6 +182,9 @@ export default defineNuxtConfig({
       ],
       script: [
         {
+          innerHTML: '!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"54Jp4GfrguN56fY3rbjE76",debug:true});',
+        },
+        {
           src: 'https://t.contentsquare.net/uxa/23ef54d6e14ea.js',
           async: true,
         },
@@ -239,7 +243,10 @@ export default defineNuxtConfig({
     headers: {
       contentSecurityPolicy: {
         'object-src': ["'self'", 'https://meet.reclaimai.com'],
-        'script-src': ["'self'", "'unsafe-inline'", "https:", "https://meet.reclaimai.com"],
+        'script-src': ["'self'", "'unsafe-inline'", "https:", "https://meet.reclaimai.com", "https://bzrcdn.openai.com"],
+        'script-src-elem': ["'self'", "'unsafe-inline'", "https:", "https://bzrcdn.openai.com"],
+        'connect-src': ["'self'", "https:", "https://bzr.openai.com", "https://bzrcdn.openai.com"],
+        'img-src': ["'self'", "data:", "https://bzr.openai.com"],
         'frame-src': ["'self'", "https:", "https://meet.reclaimai.com"],
         'form-action': ["'self'"],
       },

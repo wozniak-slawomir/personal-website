@@ -2,6 +2,11 @@ import 'vanilla-cookieconsent/dist/cookieconsent.css'
 import '~/assets/cookieconsent.css'
 import * as CookieConsent from 'vanilla-cookieconsent'
 import type { CookieConsentConfig } from 'vanilla-cookieconsent'
+import { TRACKING_CONSENT_EVENT } from '@/utils/tracking'
+
+function publishConsent() {
+  window.dispatchEvent(new Event(TRACKING_CONSENT_EVENT))
+}
 
 const config: CookieConsentConfig = {
   guiOptions: {
@@ -20,10 +25,12 @@ const config: CookieConsentConfig = {
 
   onConsent: () => {
     console.log('Cookie consent: Consent updated')
+    publishConsent()
   },
 
   onChange: () => {
     console.log('Cookie consent: Preferences changed')
+    publishConsent()
   },
 
   categories: {
@@ -40,7 +47,14 @@ const config: CookieConsentConfig = {
         ],
       },
     },
-    ads: {},
+    ads: {
+      autoClear: {
+        cookies: [
+          { name: /^__oppref$/ },
+          { name: /^__obref$/ },
+        ],
+      },
+    },
   },
 
   language: {
@@ -104,8 +118,27 @@ const config: CookieConsentConfig = {
             {
               title: 'Advertisement and targeting cookies',
               description:
-                'These cookies may be set through my site by my advertising partners to build a profile of your interests.',
+                'These cookies may be set through my site by advertising partners, including ChatGPT Ads, to measure ad conversions.',
               linkedCategory: 'ads',
+              cookieTable: {
+                headers: {
+                  name: 'Cookie',
+                  domain: 'Domain',
+                  desc: 'Description',
+                },
+                body: [
+                  {
+                    name: '__oppref',
+                    domain: location.hostname,
+                    desc: 'Stores the ChatGPT Ads click reference for 30 days',
+                  },
+                  {
+                    name: '__obref',
+                    domain: location.hostname,
+                    desc: 'Stores a ChatGPT Ads browser reference for 365 days',
+                  },
+                ],
+              },
             },
             {
               title: 'More information',
@@ -169,8 +202,27 @@ const config: CookieConsentConfig = {
             {
               title: 'Pliki cookie reklamowe i targetujące',
               description:
-                'Te pliki cookie mogą być ustawiane dla moich partnerów reklamowych w celu stworzenia profilu Twoich zainteresowań.',
+                'Te pliki cookie mogą być ustawiane przez partnerów reklamowych, w tym ChatGPT Ads, aby mierzyć konwersje z reklam.',
               linkedCategory: 'ads',
+              cookieTable: {
+                headers: {
+                  name: 'Plik cookie',
+                  domain: 'Domena',
+                  desc: 'Opis',
+                },
+                body: [
+                  {
+                    name: '__oppref',
+                    domain: location.hostname,
+                    desc: 'Przechowuje identyfikator kliknięcia ChatGPT Ads przez 30 dni',
+                  },
+                  {
+                    name: '__obref',
+                    domain: location.hostname,
+                    desc: 'Przechowuje identyfikator przeglądarki ChatGPT Ads przez 365 dni',
+                  },
+                ],
+              },
             },
             {
               title: 'Więcej informacji',
@@ -184,12 +236,15 @@ const config: CookieConsentConfig = {
   },
 }
 
-export default defineNuxtPlugin(async () => {
-  await CookieConsent.run(config)
+export default defineNuxtPlugin({
+  name: 'cookie-consent',
+  async setup() {
+    await CookieConsent.run(config)
 
-  return {
-    provide: {
-      CC: CookieConsent,
-    },
-  }
+    return {
+      provide: {
+        CC: CookieConsent,
+      },
+    }
+  },
 })
