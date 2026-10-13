@@ -99,13 +99,11 @@ export const sendMail = async (contactInfo: ContactInfo) => {
     </html>
     `
 
-  const info = await transporter.sendMail({
+  await transporter.sendMail({
     from: `"No Reply" <${config.VITE_SENDER_MAIL}>`,
     to: config.VITE_MAIL_RECEIVER,
     subject: 'New message from website!',
     text: `Contact from: ${name} ${surname}\nEmail: ${email}\nPhone: ${phone_number}\n\nMessage:\n${message}`,
     html: htmlContent,
   })
-
-  return info
 }
