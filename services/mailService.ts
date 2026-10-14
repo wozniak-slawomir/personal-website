@@ -29,7 +29,7 @@ export const sendMail = async (contactInfo: ContactInfo) => {
         <head>
             <meta charset="utf-8">
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>New message from website!</title>
+            <title>Nowa wiadomość ze strony</title>
             <style>
                 body {
                     font-family: 'Arial', sans-serif;
@@ -79,7 +79,7 @@ export const sendMail = async (contactInfo: ContactInfo) => {
         <body>
             <div class="email-container">
                 <div class="email-header">
-                    <h2>New message from website!</h2>
+                    <h2>Nowa wiadomość ze strony</h2>
                 </div>
                 <div class="email-body">
                     <div class="contact-info">
@@ -102,7 +102,7 @@ export const sendMail = async (contactInfo: ContactInfo) => {
   await transporter.sendMail({
     from: `"No Reply" <${config.VITE_SENDER_MAIL}>`,
     to: config.VITE_MAIL_RECEIVER,
-    subject: 'New message from website!',
+    subject: `Nowa wiadomość ze strony od ${name} ${surname}`,
     text: `Contact from: ${name} ${surname}\nEmail: ${email}\nPhone: ${phone_number}\n\nMessage:\n${message}`,
     html: htmlContent,
   })
