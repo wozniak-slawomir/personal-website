@@ -211,7 +211,7 @@ export default defineNuxtConfig({
           type: 'text/partytown',
         },
         {
-          innerHTML: 'window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');',
+          innerHTML: 'window.dataLayer = window.dataLayer || [];window.gtag = function(){dataLayer.push(arguments);};gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');',
           defer: true,
           type: 'text/partytown',
         },
@@ -232,6 +232,10 @@ export default defineNuxtConfig({
     'nuxt-llms',
     'nuxt-security',
   ],
+
+  partytown: {
+    forward: ['gtag'],
+  },
 
   css: ['~/assets/css/devices.min.css'],
 

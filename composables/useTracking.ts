@@ -5,9 +5,12 @@ type PixelQueue = {
   q: IArguments[]
 }
 
+type Gtag = (...args: unknown[]) => void
+
 declare global {
   interface Window {
     oaiq?: PixelQueue
+    gtag?: Gtag
   }
 }
 
@@ -30,9 +33,23 @@ function consentApi() {
   } | undefined
 }
 
-function adsAllowed() {
+function categoryAllowed(category: string) {
   if (!import.meta.client) return false
-  return consentApi()?.acceptedCategory?.('ads') === true
+  return consentApi()?.acceptedCategory?.(category) === true
+}
+
+function adsAllowed() {
+  return categoryAllowed('ads')
+}
+
+function analyticsAllowed() {
+  return categoryAllowed('analytics')
+}
+
+function trackAnalyticsEvent(eventName: string, params?: Record<string, unknown>) {
+  if (!analyticsAllowed() || typeof window.gtag !== 'function') return false
+  window.gtag('event', eventName, params)
+  return true
 }
 
 function sync() {
@@ -84,6 +101,11 @@ export function useTracking() {
   }
 
   async function trackLead(input: LeadIdentifiers) {
+    trackAnalyticsEvent('form_submit', {
+      form_id: 'contact',
+      form_name: 'contact',
+    })
+
     if (!adsAllowed()) return
     const pixelId = config.public.chatgptAdsPixelId
     const user = await hashedUser(input)
