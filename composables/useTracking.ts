@@ -46,9 +46,17 @@ function analyticsAllowed() {
   return categoryAllowed('analytics')
 }
 
+const GOOGLE_ADS_LEAD_CONVERSION_SEND_TO = 'AW-4487478866/ixNgCPuqxJsdEOCVo-JE'
+
 function trackAnalyticsEvent(eventName: string, params?: Record<string, unknown>) {
   if (!analyticsAllowed() || typeof window.gtag !== 'function') return false
   window.gtag('event', eventName, params)
+  return true
+}
+
+function trackGoogleAdsLeadConversion() {
+  if (!analyticsAllowed() || typeof window.gtag !== 'function') return false
+  window.gtag('event', 'conversion', { send_to: GOOGLE_ADS_LEAD_CONVERSION_SEND_TO })
   return true
 }
 
@@ -105,6 +113,7 @@ export function useTracking() {
       form_id: 'contact',
       form_name: 'contact',
     })
+    trackGoogleAdsLeadConversion()
 
     if (!adsAllowed()) return
     const pixelId = config.public.chatgptAdsPixelId

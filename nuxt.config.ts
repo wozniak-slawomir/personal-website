@@ -211,7 +211,7 @@ export default defineNuxtConfig({
           type: 'text/partytown',
         },
         {
-          innerHTML: 'window.dataLayer = window.dataLayer || [];window.gtag = function(){dataLayer.push(arguments);};gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');',
+          innerHTML: 'window.dataLayer = window.dataLayer || [];window.gtag = function(){dataLayer.push(arguments);};gtag(\'js\', new Date());gtag(\'config\', \'G-DFBHM9ZDXV\');gtag(\'config\', \'AW-4487478866\');',
           defer: true,
           type: 'text/partytown',
         },
