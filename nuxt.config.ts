@@ -6,6 +6,12 @@ import { config } from 'dotenv'
 config()
 
 export default defineNuxtConfig({
+  // Keep Nuxt 3 root layout (pages/, components/, …) — Nuxt 4 defaults to app/
+  srcDir: '.',
+  dir: {
+    app: '.',
+  },
+
   site: {
     url: 'https://slawomir-wozniak.pl',
     name: 'Sławomir Woźniak',
@@ -57,9 +63,13 @@ export default defineNuxtConfig({
     build: {
       rollupOptions: {
         output: {
-          manualChunks: {
-            vendor: ['vue', 'vue-router'],
-            animations: ['motion-v'],
+          manualChunks(id) {
+            if (id.includes('node_modules/vue/') || id.includes('vue-router')) {
+              return 'vendor'
+            }
+            if (id.includes('motion-v')) {
+              return 'animations'
+            }
           },
         },
       },
@@ -151,9 +161,6 @@ export default defineNuxtConfig({
         {
           name: 'viewport',
           content: 'width=device-width, initial-scale=1.0',
-        },
-        {
-          charset: 'utf-8',
         },
       ],
       link: [
@@ -405,6 +412,6 @@ export default defineNuxtConfig({
     strategy: 'prefix_except_default',
   },
 
-  compatibilityDate: '2025-04-14',
+  compatibilityDate: '2025-10-15',
 },
 )
